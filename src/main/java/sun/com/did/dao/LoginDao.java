@@ -1,0 +1,52 @@
+package sun.com.did.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.stereotype.Repository;
+import sun.com.did.entity.Login;
+import sun.com.did.entity.JobLogin;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/*
+* 操作数据库
+* */
+@Repository
+public class LoginDao {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public Login findByName(String name) {
+
+        final Login user = new Login();
+        String sql = "SELECT name FROM Login WHERE name=?";
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                user.setName(resultSet.getString(1));
+            }
+        });
+        return user;
+    }
+    public int insertUser(Login register){
+
+        String sql="INSERT INTO Login (name,password,email,code)VALUES(?,?,?,?)";
+        return jdbcTemplate.update(sql, register.getName(), register.getPasswd(), register.getEmail(),register.getCode());
+    }
+
+    public Login findByNameAndPassword(String username, String password) {
+        final Login user = new Login();
+        String sql = "SELECT * FROM Login WHERE name=? AND password=?";
+        jdbcTemplate.query(sql, new Object[]{username, password}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                user.setName(resultSet.getString(1));
+                user.setPasswd(resultSet.getString(2));
+            }
+        });
+        return user;
+    }
+}
