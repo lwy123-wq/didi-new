@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>注册页面</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function register(){
+            $.ajax({
+                url: "/registry",
+                type: 'POST',
+                data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val()},
+                success: function (res) {
+                    if(res=="success"){
+                    alert("success")
+                        function login(){
+                            window.location.href='login'
+                        }
+                        login()
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+         }
+
+    </script>
     <style>
         body {
             margin: 0;
@@ -92,15 +117,15 @@
 </head>
 <body>
 <div class="boxx">
-    <form class="box" action="login.action"method="post">
+    <form class="box" onsubmit="return false" action="##" method="post">
         <h1>register</h1>
-        <input type="text"name="username"placeholder="UserName" value="username"/>
-        <input type="password"name="password"placeholder="UserPassword" />
-        <input type="email" name="email" placeholder="email"/>
-        <input type="text" id="input1" placeholder="checkcode"/>
+        <input type="text"id="username"placeholder="UserName" value="username"/>
+        <input type="password"id="password"placeholder="UserPassword" />
+        <input type="email" id="email" placeholder="email"/>
+        <input type="text" id="code" placeholder="checkcode"/>
         <input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px" placeholder="click here"/><br />
         <!--        <input id="Button1" onclick="validate();" type="button" value="确定" />-->
-        <input id="Button1" onclick="validate();" type="submit"  value="Register" />
+        <input id="Button1" onclick="register()" type="submit"  value="Register" />
 
     </form>
     <!--    <div class="right">-->
