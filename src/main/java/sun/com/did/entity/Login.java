@@ -5,7 +5,8 @@ public class Login {
     private String name;
     private String passwd;
     private String email;
-    private int code; //验证码
+    private Integer code; //验证码
+
 
     public int getId() {
         return id;
@@ -31,12 +32,19 @@ public class Login {
         this.passwd = passwd;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
+    }
+
+    public Login(String name, String passwd, String email) {
+        this.name = name;
+        this.passwd = passwd;
+        this.email = email;
+
     }
 
     public String getEmail() {
@@ -47,12 +55,7 @@ public class Login {
         this.email = email;
     }
 
-    public Login(String name, String passwd, String email, int code) {
-        this.name = name;
-        this.passwd = passwd;
-        this.email = email;
-        this.code = code;
-    }
+
 
     public Login() {
     }

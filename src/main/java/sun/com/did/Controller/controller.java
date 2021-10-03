@@ -38,13 +38,13 @@ public class controller {
     }
     @PostMapping(value = "/registry")
     @ResponseBody
-    public String  register(String username,String password,String email,int code){
+    public String  register(String username,String password,String email){
         System.out.println("duan dian 1");
         Login user =userService.findByName(username);
         System.out.println(user.getName());
         if(user.getName() == null){
             //personService.register(id);
-            userService.insert(username,password,email,code);
+            userService.insert(username,password,email);
             return "Y";
         }
         return "N";

@@ -17,9 +17,9 @@ public class UserServiceImpl {
         return loginDao.findByName(username);
     }
 
-    public int insert(String name, String passwd,String email ,int code){
+    public int insert(String name, String passwd,String email){
 
-        return loginDao.insertUser(new Login(name,passwd,email,code));
+        return loginDao.insertUser(new Login(name,passwd,email));
     }
     public Login findByNameAndPassword(String username, String password){
         return loginDao.findByNameAndPassword(username,password);

@@ -33,8 +33,8 @@ public class LoginDao {
     }
     public int insertUser(Login register){
 
-        String sql="INSERT INTO Login (name,password,email,code)VALUES(?,?,?,?)";
-        return jdbcTemplate.update(sql, register.getName(), register.getPasswd(), register.getEmail(),register.getCode());
+        String sql="INSERT INTO Login (name,password,email)VALUES(?,?,?)";
+        return jdbcTemplate.update(sql, register.getName(), register.getPasswd(), register.getEmail());
     }
 
     public Login findByNameAndPassword(String username, String password) {

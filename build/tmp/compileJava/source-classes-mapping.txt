@@ -1,7 +1,7 @@
 sun/com/did/entity/Auth.java
  sun.com.did.entity.Auth
-sun/com/did/entity/Login.java
- sun.com.did.entity.Login
+sun/com/did/entity/JobLogin.java
+ sun.com.did.entity.JobLogin
 sun/com/did/service/JobService.java
  sun.com.did.service.JobService
 sun/com/did/entity/JobInfo.java
@@ -14,13 +14,13 @@ sun/com/did/config/UrlConfig.java
  sun.com.did.config.UrlConfig
 sun/com/did/Application.java
  sun.com.did.Application
-sun/com/did/entity/JobLogin.java
- sun.com.did.entity.JobLogin
-sun/com/did/dao/LoginDao.java
- sun.com.did.dao.LoginDao
- sun.com.did.dao.LoginDao$1
- sun.com.did.dao.LoginDao$2
 sun/com/did/service/UserServiceImpl.java
  sun.com.did.service.UserServiceImpl
 sun/com/did/Controller/controller.java
  sun.com.did.Controller.controller
+sun/com/did/dao/LoginDao.java
+ sun.com.did.dao.LoginDao
+ sun.com.did.dao.LoginDao$1
+ sun.com.did.dao.LoginDao$2
+sun/com/did/entity/Login.java
+ sun.com.did.entity.Login

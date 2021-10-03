@@ -11,7 +11,7 @@
                 type: 'POST',
                 data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val()},
                 success: function (res) {
-                    if(res=="success"){
+                    if(res=="Y"){
                     alert("success")
                         function login(){
                             window.location.href='login'
@@ -28,7 +28,7 @@
          }
 
     </script>
-    <style>
+<!--    <style>
         body {
             margin: 0;
             padding: 0;
@@ -113,7 +113,7 @@
             color: #3592c4;
         }
 
-    </style>
+    </style>-->
 </head>
 <body>
 <div class="boxx">
@@ -122,10 +122,10 @@
         <input type="text"id="username"placeholder="UserName" value="username"/>
         <input type="password"id="password"placeholder="UserPassword" />
         <input type="email" id="email" placeholder="email"/>
-        <input type="text" id="code" placeholder="checkcode"/>
-        <input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px" placeholder="click here"/><br />
+        <!--<input type="text" id="code" placeholder="checkcode"/>-->
+        <!--<input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px" placeholder="click here"/><br />-->
         <!--        <input id="Button1" onclick="validate();" type="button" value="确定" />-->
-        <input id="Button1" onclick="register()" type="submit"  value="Register" />
+        <input id="submit" onclick="register()" type="submit"  value="Register" />
 
     </form>
     <!--    <div class="right">-->
