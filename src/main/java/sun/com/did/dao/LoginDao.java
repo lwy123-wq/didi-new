@@ -49,4 +49,16 @@ public class LoginDao {
         });
         return user;
     }
+    //找回密码
+    public Login findPassword(String username,String email){
+        final  Login user=new Login();
+        String sql="SELECT * FROM Login WHERE name=? AND email=?";
+        jdbcTemplate.query(sql, new Object[]{username, email}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                user.setPasswd(rs.getString(5));
+            }
+        });
+        return user;
+    }
 }

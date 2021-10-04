@@ -45,6 +45,7 @@ public class Login {
         this.passwd = passwd;
         this.email = email;
 
+
     }
 
     public String getEmail() {

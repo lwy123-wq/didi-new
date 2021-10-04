@@ -24,5 +24,7 @@ public class UserServiceImpl {
     public Login findByNameAndPassword(String username, String password){
         return loginDao.findByNameAndPassword(username,password);
     }
-
+    public Login findPassword(String name,String email){
+        return  loginDao.findPassword(name,email);
+    }
 }
