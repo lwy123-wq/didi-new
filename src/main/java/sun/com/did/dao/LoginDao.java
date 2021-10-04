@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 import sun.com.did.entity.Login;
-import sun.com.did.entity.JobLogin;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,6 +44,18 @@ public class LoginDao {
             public void processRow(ResultSet resultSet) throws SQLException {
                 user.setName(resultSet.getString(1));
                 user.setPasswd(resultSet.getString(2));
+            }
+        });
+        return user;
+    }
+    //找回密码
+    public Login findPassword(String username,String email){
+        final  Login user=new Login();
+        String sql="SELECT * FROM Login WHERE name=? AND email=?";
+        jdbcTemplate.query(sql, new Object[]{username, email}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                user.setPasswd(rs.getString(5));
             }
         });
         return user;

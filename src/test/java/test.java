@@ -22,7 +22,7 @@ public class test {
         for (String  name: definitionNames){
             System.out.println(name);
         }*/
-        Login register=new Login("lxj","222","11",22);
+        Login register=new Login("lxj","222","11");
         //userService.insert("wang5","555","888",22);
 
         /*JobInfo jobInfo=new JobInfo("aa","11"," ","","","","","",2,"");

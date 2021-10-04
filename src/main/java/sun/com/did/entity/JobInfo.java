@@ -9,7 +9,9 @@ public class JobInfo {
     private String school;
     private String email;
     private String marriage;
+    //省份
     private String address;
+    private String city;
     private int years;
     private String education;
 
@@ -102,8 +104,7 @@ public class JobInfo {
         this.education = education;
     }
 
-    public JobInfo(  String name, String phone, String id_code, String card, String school, String email, String marriage, String address, int years, String education) {
-
+    public JobInfo(String name, String phone, String id_code, String card, String school, String email, String marriage, String address, String city, int years, String education) {
         this.name = name;
         this.phone = phone;
         this.id_code = id_code;
@@ -112,6 +113,7 @@ public class JobInfo {
         this.email = email;
         this.marriage = marriage;
         this.address = address;
+        this.city = city;
         this.years = years;
         this.education = education;
     }

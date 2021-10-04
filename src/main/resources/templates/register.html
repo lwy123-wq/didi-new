@@ -19,7 +19,7 @@
             $.ajax({
                 url: "/registry",
                 type: 'POST',
-                data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val()},
+                data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val(),'code': $("#code").val()},
                 success: function (res) {
                     if(res=="Y"){
                     alert("success")
