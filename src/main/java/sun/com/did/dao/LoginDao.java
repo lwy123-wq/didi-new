@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 import sun.com.did.entity.Login;
-import sun.com.did.entity.JobLogin;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
