@@ -1,8 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>务工人员填写信息页面</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function information(){
+            $.ajax({
+                url: "/MyInformation",
+                type: 'POST',
+                data: {'name': $("#name").val(), 'phone': $("#phone").val(), 'Certificates': $("#Certificates").val()
+                , 'Card': $("#Card").val(), 'university': $("#university").val(), 'email': $("#email").val()
+                , 'Marriage': $("#Marriage").val(), 'param_province': $("#param_province").val(), 'city"': $("#city"").val()
+                , 'number"': $("#number"").val(), 'education"': $("#education"").val()
+                },
+                success: function (res) {
+                    if(res=="success"){
+                        function login(){
+                            window.location.href='select'
+                        }
+                        login()
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+         }
+
+    </script>
     <style>
         body {
 
@@ -59,39 +87,39 @@ h2 {
 </head>
 <body onload="init()">
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
-<form method="post" action="" class="fo">
+<form method="post"  onsubmit="return false" action="##" action="" class="fo">
     <h2 >请填写您的个人信息：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
         <tr>
             <td >手机号码</td>
-            <td><input type="tel" style="width:95%" name="phone"></td>
+            <td><input type="tel" style="width:95%" id="phone"></td>
 
         </tr>
         <tr>
             <td>真实姓名</td>
-            <td><input type="text" name="Name"> </td>
+            <td><input type="text" id="name"> </td>
         </tr>
 
         <tr>
             <td>身份证号</td>
-            <td><input type="text" name="Certificates"> </td>
+            <td><input type="text" id="Certificates"> </td>
         </tr>
 
         <tr>
             <td>银行卡号</td>
-            <td><input type="text" name="Card"> </td>
+            <td><input type="text" id="Card"> </td>
         </tr>
         <tr>
             <td>毕业学校</td>
-            <td><input type="text" name="university"> </td>
+            <td><input type="text" id="university"> </td>
         </tr>
         <tr>
             <td>电子邮箱</td>
-            <td><input type="email" style="width:95%"></td>
+            <td><input type="email" id="email" style="width:95%"></td>
         </tr>
         <tr>
         <td>婚姻状况</td>
-        <td><select style="width: 96%" name="Marriage">
+        <td><select style="width: 96%" id="Marriage">
             <option>已婚</option>
             <option>未婚</option>
         </select></td>
@@ -103,12 +131,12 @@ h2 {
         </tr>
         <tr>
             <td>工作年限</td>
-            <td><input style="width: 95%; " type="number" name="year"></td>
+            <td><input style="width: 95%; " type="number" id="year"></td>
 
         </tr>
         <tr>
             <td>最高学历</td>
-            <td><input style="width: 95%; " type="text"></td>
+            <td><input style="width: 95%; " type="text" id="education"></td>
 
         </tr>
 
@@ -116,7 +144,7 @@ h2 {
 
         <tr>
             <td colspan="4" align="left" >
-                <input type="submit" value="提交" class="in">
+                <input type="submit" value="提交" onclick="information()" class="in">
                 <input type="reset" value="退出" class="in">
             </td>
         </tr>

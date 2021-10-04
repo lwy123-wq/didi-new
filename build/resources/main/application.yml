@@ -1,6 +1,16 @@
 server:
   port: 8000
+
 spring:
+  thymeleaf:
+    suffix=:
+      html:
+    servlet:
+      content-type=text/html:
+    encoding=utf-8:
+    mode=LEGACYHTML5:
+    cache=false:
+    prefix=classpath:/templates/:
   mvc:
     static-path-pattern=/static/**:
   datasource:
