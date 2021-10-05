@@ -6,5 +6,5 @@ public interface JobService {
      *
      * @return
      */
-    int create(String name, String phone, String id_code, String card, String school, String email, String marriage, String address,String city, int years, String education);
+    int create(String name, String phone, String id_code, String card, String school, String email, String marriage, String address,String city, Integer years, String education);
 }

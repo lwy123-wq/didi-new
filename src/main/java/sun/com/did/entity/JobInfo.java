@@ -12,7 +12,7 @@ public class JobInfo {
     //省份
     private String address;
     private String city;
-    private int years;
+    private Integer years;
     private String education;
 
 
@@ -88,11 +88,19 @@ public class JobInfo {
         this.address = address;
     }
 
-    public int getYears() {
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Integer getYears() {
         return years;
     }
 
-    public void setYears(int years) {
+    public void setYears(Integer years) {
         this.years = years;
     }
 
@@ -104,7 +112,7 @@ public class JobInfo {
         this.education = education;
     }
 
-    public JobInfo(String name, String phone, String id_code, String card, String school, String email, String marriage, String address, String city, int years, String education) {
+    public JobInfo(String name, String phone, String id_code, String card, String school, String email, String marriage, String address, String city, Integer years, String education) {
         this.name = name;
         this.phone = phone;
         this.id_code = id_code;
