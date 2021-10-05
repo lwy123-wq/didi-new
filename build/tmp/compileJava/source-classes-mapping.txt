@@ -23,7 +23,7 @@ sun/com/did/dao/LoginDao.java
  sun.com.did.dao.LoginDao$1
  sun.com.did.dao.LoginDao$2
  sun.com.did.dao.LoginDao$3
-sun/com/did/controller/JobController.java
- sun.com.did.controller.JobController
 sun/com/did/controller/UserController.java
  sun.com.did.controller.UserController
+sun/com/did/controller/JobController.java
+ sun.com.did.controller.JobController

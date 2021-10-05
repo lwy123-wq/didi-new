@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>务工人员填写信息页面</title>
@@ -87,7 +87,7 @@ h2 {
 </head>
 <body onload="init()">
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
-<form method="post"  onsubmit="return false" action="##" action="" class="fo">
+<form method="post"  onsubmit="return false" action="##"  class="fo">
     <h2 >请填写您的个人信息：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
         <tr>
@@ -153,7 +153,7 @@ h2 {
 </form>
 </body>
 </html>
-
+<script type="text/javascript"  th:inline="none">
 <script>
     var provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省','内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省','云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
     var citys = [['请选择城市'],
