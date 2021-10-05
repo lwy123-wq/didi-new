@@ -9,6 +9,7 @@ import sun.com.did.entity.Login;
 import sun.com.did.service.UserServiceImpl;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @Controller
 public class UserController {
@@ -29,7 +30,7 @@ public class UserController {
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
     public String login(String username,String password){
         System.out.println(username);
-        Login user=userService.findByNameAndPassword(username, DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8)));
+        Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
 
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
@@ -48,7 +49,7 @@ public class UserController {
         Login user =userService.findByName(username);
         if(user.getName() == null){
             //personService.register(id);
-            userService.insert(username,DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8)),email);
+            userService.insert(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8))/*DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8))*/,email);
             return "Y";
         }
         return "N";
@@ -56,17 +57,19 @@ public class UserController {
     //找回密码
     @RequestMapping(value = "/FindPasswd",method = RequestMethod.GET)
     public String FindPasswd(){
-        return "/FindPasswd";
+        return "forget";
     }
     @PostMapping(value = "/find")
     @ResponseBody
-    public String FindPasswd( String username,String email){
+    public String forget( String username,String email){
         Login user=userService.findPassword(username,email);
-        System.out.println(user.getPasswd());
+        byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
+        String decodeStr=new String(decoded);
+        System.out.println(decodeStr);
         if (user.getPasswd()!=null){
-            return "找回成功！"+user.getPasswd();
+            return "Y";
         }
-        return "该用户不存在！";
+        return "error";
     }
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public String select(){

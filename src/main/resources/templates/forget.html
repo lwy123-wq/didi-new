@@ -93,7 +93,7 @@
         function register(){
 
             $.ajax({
-                url: "/registry",
+                url: "/find",
                 type: 'POST',
                 data: {'username': $("#username").val(),'email': $("#email").val()},
                 success: function (res) {
