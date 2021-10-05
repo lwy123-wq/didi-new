@@ -6,6 +6,16 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
         function register(){
+            var inputCode = document.getElementById("code").value;
+
+            if (inputCode.length <= 0) {
+                alert("请输入验证码！");
+            } else if (inputCode !==code) {
+                alert("验证码输入错误！");
+                createCode();//刷新验证码
+            } else {
+
+            }
             $.ajax({
                 url: "/registry",
                 type: 'POST',
@@ -119,12 +129,12 @@
 <div class="boxx">
     <form class="box" onsubmit="return false" action="##" method="post">
         <h1>register</h1>
-        <input type="text"id="username"placeholder="UserName" value="username"/>
+        <input type="text"id="username"placeholder="UserName" value=""/>
         <input type="password"id="password"placeholder="UserPassword" />
         <input type="email" id="email" placeholder="email"/>
         <input type="text" id="code" placeholder="checkcode"/>
         <input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px" placeholder="click here"/><br />
-        <!--        <input id="Button1" onclick="validate();" type="button" value="确定" />-->
+<!--                <input id="Button1" onclick="validate()" type="button" value="确定" />-->
         <input id="submit" onclick="register()" type="submit"  value="Register" />
 
     </form>
@@ -153,17 +163,17 @@
         }
     }
 
-    function validate() {
-        var inputCode = document.getElementById("input1").value;
-        if (inputCode.length <= 0) {
-            alert("请输入验证码！");
-        } else if (inputCode != code) {
-            alert("验证码输入错误！");
-            createCode();//刷新验证码
-        } else {
-            alert("^-^ OK");
-        }
-    }
+    // function validate() {
+    //     var inputCode = document.getElementById("submit").value;
+    //     if (inputCode.length <= 0) {
+    //         alert("请输入验证码！");
+    //     } else if (inputCode != code) {
+    //         alert("验证码输入错误！");
+    //         createCode();//刷新验证码
+    //     } else {
+    //         alert("^-^ OK");
+    //     }
+    // }
 </script>
 </body>
 </html>
