@@ -21,6 +21,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}")
     compile("org.springframework.boot:spring-boot-starter:${spring_boot_version}")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:${spring_boot_version}")
+    //netty
+    implementation group: 'io.netty', name: 'netty-all', version: '4.1.51.Final'
 }
 
 test {
