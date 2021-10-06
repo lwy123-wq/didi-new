@@ -22,13 +22,13 @@
                 data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val(),'code': $("#code").val()},
                 success: function (res) {
                     if(res=="Y"){
-                    alert("success")
+                    alert("注册成功！")
                         function login(){
                             window.location.href='login'
                         }
                         login()
                     }else{
-                        alert("error");
+                        alert("注册失败");
                     }
                 },
                 error: function (res) {
@@ -162,18 +162,6 @@
             checkCode.value = code;
         }
     }
-
-    // function validate() {
-    //     var inputCode = document.getElementById("submit").value;
-    //     if (inputCode.length <= 0) {
-    //         alert("请输入验证码！");
-    //     } else if (inputCode != code) {
-    //         alert("验证码输入错误！");
-    //         createCode();//刷新验证码
-    //     } else {
-    //         alert("^-^ OK");
-    //     }
-    // }
 </script>
 </body>
 </html>

@@ -55,7 +55,7 @@ public class UserController {
         return "N";
     }
     //找回密码
-    @RequestMapping(value = "/FindPasswd",method = RequestMethod.GET)
+    @RequestMapping(value = "/forget",method = RequestMethod.GET)
     public String FindPasswd(){
         return "forget";
     }
@@ -63,6 +63,7 @@ public class UserController {
     @ResponseBody
     public String forget( String username,String email){
         Login user=userService.findPassword(username,email);
+        System.out.println("================");
         byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);

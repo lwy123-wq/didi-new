@@ -1,11 +1,8 @@
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Base64Utils;
 import sun.com.did.Application;
 import sun.com.did.dao.JobDao;
-import sun.com.did.dao.LoginDao;
-import sun.com.did.entity.JobLogin;
 import sun.com.did.entity.Login;
 import sun.com.did.service.UserServiceImpl;
 
