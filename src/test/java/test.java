@@ -30,11 +30,11 @@ public class test {
         jobDao.create("aa","11"," ","","","","","",2,"");*/
 
         //找回密码demo，可运行
-        Login password = userService.findPassword("Oooo", "97@qq.com");
+        /*Login password = userService.findPassword("Oooo", "97@qq.com");
         System.out.println("========================");
         byte[] decoded=Base64.getDecoder().decode(password.getPasswd());
         String decodeStr=new String(decoded);
-        System.out.println(decodeStr);
+        System.out.println(decodeStr);*/
 
     }
 

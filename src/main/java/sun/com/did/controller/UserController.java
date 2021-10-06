@@ -68,7 +68,7 @@ public class UserController {
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);
         if (user.getPasswd()!=null){
-            return "Y";
+            return decodeStr;
         }
         return "error";
     }
