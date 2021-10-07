@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var ws;
+        var url = "ws://localhost:8848/ws";
+        window.onload = connect;
+        var currentUsers = [];
+
+        function connect() {
+            if ('WebSocket' in window) {
+                ws = new WebSocket(url);
+            } else if ('MozWebSocket' in window) {
+                ws = new MozWebSocket(url);
+            } else {
+                alert('该浏览器不支持websocket');
+                return;
+            }
+
+            ws.open = function () {
+
+            };
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
