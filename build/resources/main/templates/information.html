@@ -9,15 +9,15 @@
             $.ajax({
                 url: "/MyInformation",
                 type: 'POST',
-                data: {'name': $("#name").val(), 'phone': $("#phone").val(), 'Certificates': $("#Certificates").val()
-                , 'Card': $("#Card").val(), 'university': $("#university").val(), 'email': $("#email").val()
-                , 'Marriage': $("#Marriage").val(), 'param_province': $("#param_province").val(), 'city"': $("#city"").val()
-                , 'number"': $("#number"").val(), 'education"': $("#education"").val()
+                data: {'name': $("#name").val(), 'phone': $("#phone").val(), 'id_code': $("#id_code").val()
+                    , 'card': $("#card").val(), 'school': $("#school").val(), 'email': $("#email").val()
+                    , 'marriage': $("#marriage").val(), 'address': $("#address").val(), 'city"': $("#city").val()
+                    , 'year"': $("#year").val(), 'education"': $("#education").val()
                 },
                 success: function (res) {
                     if(res=="success"){
                         function login(){
-                            window.location.href='select'
+                            window.location.href='qiuzhi'
                         }
                         login()
                     }else{
@@ -28,7 +28,7 @@
                     alert("error!!!!!")
                 }
             });
-         }
+        }
 
     </script>
     <style>
@@ -78,10 +78,10 @@
             width: 400px;
             height: 300px;
         }
-h2 {
-    margin-top:100px;
-    margin-left: 600px;
-}
+        h2 {
+            margin-top:100px;
+            margin-left: 600px;
+        }
 
     </style>
 </head>
@@ -102,36 +102,38 @@ h2 {
 
         <tr>
             <td>身份证号</td>
-            <td><input type="text" id="Certificates"> </td>
+            <td><input type="text" id="id_code"> </td>
         </tr>
 
         <tr>
             <td>银行卡号</td>
-            <td><input type="text" id="Card"> </td>
+            <td><input type="text" id="card"> </td>
         </tr>
         <tr>
             <td>毕业学校</td>
-            <td><input type="text" id="university"> </td>
+            <td><input type="text" id="school"> </td>
         </tr>
         <tr>
             <td>电子邮箱</td>
             <td><input type="email" id="email" style="width:95%"></td>
         </tr>
         <tr>
-        <td>婚姻状况</td>
-        <td><select style="width: 96%" id="Marriage">
-            <option>已婚</option>
-            <option>未婚</option>
-        </select></td>
+            <td>婚姻状况</td>
+            <td><select style="width: 96%" id="marriage">
+                <option>已婚</option>
+                <option>未婚</option>
+            </select></td>
         </tr>
         <tr>
             <td>籍贯</td>
-            <td><select name="province" id="param_province" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
-            <td>城市：</td><td><select name="city" id="param_city"><option>请选择城市</option></select></td>
+            <td><select name="province" id="address" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
+            <td>城市：</td><td><select name="city" id="city"><option>请选择城市</option></select></td>
         </tr>
         <tr>
             <td>工作年限</td>
+
             <td><input style="width: 95%; " type="number" id="year"></td>
+
 
         </tr>
         <tr>
@@ -154,9 +156,8 @@ h2 {
 </body>
 </html>
 <script type="text/javascript"  th:inline="none">
-<script>
-    var provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省','内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省','云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
-    var citys = [['请选择城市'],
+        var provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省','内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省','云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
+        var citys = [['请选择城市'],
         ["东城区", "西城区", "崇文区", "宣武区", "朝阳区", "丰台区", "石景山区", "海淀区", "门头沟区", "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云县", "延庆县"],
         ["黄浦区", "卢湾区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "南汇区", "奉贤区", "崇明县"],
         ["和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "塘沽区", "汉沽区", "大港区", "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "宁河县", "静海县", "蓟县"],
@@ -192,24 +193,24 @@ h2 {
         ["澳门"],
         ["台北市","高雄市","台中市","花莲市","基隆市","嘉义市","金门市","连江市","苗栗市","南投市","澎湖市","屏东市","台东市","台南市","桃园市","新竹市","宜兰市","云林市","彰化市"]];
 
-    function init(){
-        var province = document.getElementById('param_province');
+        function init(){
+        var province = document.getElementById('address');
         //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
         province.length=provinces.length;
         for(var i=0;i<provinces.length;i++){
-            province.options[i].text=provinces[i];
-            province.options[i].value=provinces[i];
-        }
+        province.options[i].text=provinces[i];
+        province.options[i].value=provinces[i];
+    }
     }
 
-    function provincechange(n){
-        var city = document.getElementById('param_city');
+        function provincechange(n){
+        var city = document.getElementById('city');
         var citystemp=citys[n];
         city.length=citystemp.length;
         for(var i=0;i<citystemp.length;i++){
-            city.options[i].text=citystemp[i];
-            city.options[i].value=citystemp[i];
-        }
+        city.options[i].text=citystemp[i];
+        city.options[i].value=citystemp[i];
+    }
         city.options[0].selected=true;
     }
 
