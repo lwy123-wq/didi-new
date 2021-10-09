@@ -14,6 +14,7 @@ public class UserHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
     private  int num;
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+        System.out.println("连接————————————————");
         num=config.getNum();
         num=num+1;
         Login message = new Gson().fromJson(msg.text(), Login.class);

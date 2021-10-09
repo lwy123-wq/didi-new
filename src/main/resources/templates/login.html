@@ -24,6 +24,7 @@
             };
         }
         function wsSend() {
+            alert("你好！！！！！！！！！！")
             var username = document.getElementById("username");
             var password= document.getElementById("password");
             ws.send(JSON.stringify({"username": username.value, "password": password.value}));

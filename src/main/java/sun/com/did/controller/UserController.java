@@ -5,9 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
+import sun.com.did.Code.UtilCode;
 import sun.com.did.entity.Login;
+import sun.com.did.service.IEmailService;
 import sun.com.did.service.UserServiceImpl;
 
+import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
@@ -16,6 +19,8 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
+    @Resource
+    private IEmailService emailService;
     //登录
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
@@ -31,7 +36,6 @@ public class UserController {
     public String login(String username,String password){
         System.out.println(username+"dddddddddddddddd");
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
-
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
         }else {
@@ -61,16 +65,24 @@ public class UserController {
     }
     @PostMapping(value = "/find")
     @ResponseBody
-    public String forget( String username,String email){
+    public String forget( String username,String email,String code){
         Login user=userService.findPassword(username,email);
         System.out.println("================");
         byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);
-        if (user.getPasswd()!=null){
+        UtilCode utilCode=new UtilCode();
+        String s = utilCode.verifyCode();
+        System.out.println(s);
+        sendEmail(email,s);
+        if (user.getPasswd()!=null&&s.equals(code)){
             return decodeStr;
         }
         return "error";
+    }
+    public boolean sendEmail(String to,String contentText){
+        return emailService.sendAttachmentMail(to,contentText);
+
     }
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public String select(){
