@@ -3,6 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
+    <script type="text/javascript">
+        var ws;
+        var url = "ws://localhost:10244/chat";
+        window.onload = connect;
+        var currentUsers = [];
+
+        function connect() {
+            if ('WebSocket' in window) {
+                ws = new WebSocket(url);
+            } else if ('MozWebSocket' in window) {
+                ws = new MozWebSocket(url);
+            } else {
+                alert('该浏览器不支持websocket');
+                return;
+            }
+
+            ws.open = function () {
+
+            };
+        }
+        function wsSend() {
+            var username = document.getElementById("username");
+            var password= document.getElementById("password");
+            ws.send(JSON.stringify({"username": username.value, "password": password.value}));
+            // msg.value = "";
+        }
+    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
         function login(){
@@ -12,6 +39,7 @@
                 data: {'username': $("#username").val(), 'password': $("#password").val()},
                 success: function (res) {
                     if(res=="success"){
+                        wsSend()
                         function login(){
                             window.location.href='select'
                         }

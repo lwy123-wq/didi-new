@@ -29,7 +29,7 @@ public class UserController {
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
     public String login(String username,String password){
-        System.out.println(username);
+        System.out.println(username+"dddddddddddddddd");
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
 
         if(user.getName()==null||user.getPasswd()==null){

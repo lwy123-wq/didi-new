@@ -7,7 +7,9 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
@@ -19,10 +21,10 @@ public class UserServerInitializer extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast(new HttpObjectAggregator(8192));
 
-        pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
+        pipeline.addLast(new WebSocketServerProtocolHandler("/chat"));
 
         //自定义handler,处理业务逻辑
         //TODO
-        pipeline.addLast(null);
+        pipeline.addLast(new UserHandler());
     }
 }

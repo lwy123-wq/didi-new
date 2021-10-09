@@ -25,7 +25,7 @@ public class LoginDao {
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                user.setName(resultSet.getString(1));
+                user.setName(resultSet.getString(2));
             }
         });
         return user;
@@ -42,8 +42,8 @@ public class LoginDao {
         jdbcTemplate.query(sql, new Object[]{username, password}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                user.setName(resultSet.getString(1));
-                user.setPasswd(resultSet.getString(2));
+                user.setName(resultSet.getString(2));
+                user.setPasswd(resultSet.getString(3));
             }
         });
         return user;

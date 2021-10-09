@@ -1,24 +1,16 @@
 sun/com/did/config/UrlConfig.java
  sun.com.did.config.UrlConfig
-sun/com/did/entity/Auth.java
- sun.com.did.entity.Auth
-sun/com/did/Application.java
- sun.com.did.Application
-sun/com/did/service/UserServiceImpl.java
- sun.com.did.service.UserServiceImpl
-sun/com/did/entity/Login.java
- sun.com.did.entity.Login
+sun/com/did/chat/UserHandler.java
+ sun.com.did.chat.UserHandler
+sun/com/did/chat/UserChatServer.java
+ sun.com.did.chat.UserChatServer
 sun/com/did/dao/LoginDao.java
  sun.com.did.dao.LoginDao
  sun.com.did.dao.LoginDao$1
  sun.com.did.dao.LoginDao$2
  sun.com.did.dao.LoginDao$3
-sun/com/did/entity/JobLogin.java
- sun.com.did.entity.JobLogin
-sun/com/did/controller/JobController.java
- sun.com.did.controller.JobController
-sun/com/did/controller/UserController.java
- sun.com.did.controller.UserController
+sun/com/did/chat/UserServerInitializer.java
+ sun.com.did.chat.UserServerInitializer
 sun/com/did/chat/JobHandler.java
  sun.com.did.chat.JobHandler
 sun/com/did/entity/JobInfo.java
@@ -27,11 +19,27 @@ sun/com/did/chat/JobServerInitializer.java
  sun.com.did.chat.JobServerInitializer
 sun/com/did/config/ChatConfig.java
  sun.com.did.config.ChatConfig
-sun/com/did/service/JobServiceImpl.java
- sun.com.did.service.JobServiceImpl
 sun/com/did/dao/JobDao.java
  sun.com.did.dao.JobDao
-sun/com/did/chat/JobChatServer.java
- sun.com.did.chat.JobChatServer
+sun/com/did/entity/JobLogin.java
+ sun.com.did.entity.JobLogin
+sun/com/did/service/JobServiceImpl.java
+ sun.com.did.service.JobServiceImpl
 sun/com/did/service/JobService.java
  sun.com.did.service.JobService
+sun/com/did/entity/Login.java
+ sun.com.did.entity.Login
+sun/com/did/entity/Auth.java
+ sun.com.did.entity.Auth
+sun/com/did/controller/JobController.java
+ sun.com.did.controller.JobController
+sun/com/did/chat/BinaryHandler.java
+ sun.com.did.chat.BinaryHandler
+sun/com/did/Application.java
+ sun.com.did.Application
+sun/com/did/chat/JobChatServer.java
+ sun.com.did.chat.JobChatServer
+sun/com/did/service/UserServiceImpl.java
+ sun.com.did.service.UserServiceImpl
+sun/com/did/controller/UserController.java
+ sun.com.did.controller.UserController

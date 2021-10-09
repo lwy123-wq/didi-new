@@ -6,10 +6,12 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class UserChatServer {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workGroup;
