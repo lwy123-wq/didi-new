@@ -73,10 +73,10 @@ public class UserController {
         System.out.println(decodeStr);
         UtilCode utilCode=new UtilCode();
         String s = utilCode.verifyCode();
-        System.out.println(s);
-        sendEmail(email,s);
-        if (user.getPasswd()!=null&&s.equals(code)){
-            return decodeStr;
+
+        boolean b = sendEmail(email, s);
+        if (user.getPasswd()!=null){
+            return s;
         }
         return "error";
     }

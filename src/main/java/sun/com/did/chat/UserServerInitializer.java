@@ -21,7 +21,7 @@ public class UserServerInitializer extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast(new HttpObjectAggregator(8192));
 
-        pipeline.addLast(new WebSocketServerProtocolHandler("/chat"));
+        pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
         //自定义handler,处理业务逻辑
         //TODO

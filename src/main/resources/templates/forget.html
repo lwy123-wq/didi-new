@@ -99,7 +99,7 @@
                 data: {'username': $("#username").val(),'email': $("#email").val(),'code': $("#code").val()},
                 success: function (res) {
                     if(res!=null){
-                        alert("您的密码是："+res)
+                         alert("您的验证码是："+res)
                         function login(){
                             window.location.href='login'
                         }
@@ -113,7 +113,6 @@
                 }
             });
         }
-
     </script>
 </head>
 <body>
