@@ -61,6 +61,32 @@
         }
 
     </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function qiuzhi(){
+            $.ajax({
+                url: "/jobwanted",
+                type: 'POST',
+                data: {'post': $("#post").val(), 'Category': $("#Category").val(), 'province': $("#province").val(), 'city': $("#city").val()
+                    , 'condition': $("#condition").val(), 'Duration': $("#Duration").val() , 'experience': $("#experience").val()},
+                success: function (res) {
+                    if(res=="success"){
+                        wsSend()
+                        function login(){
+                            window.location.href='select'
+                        }
+                        login()
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+    </script>
 </head>
 <body onload="init()">
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
@@ -105,7 +131,7 @@
 
         <tr>
             <td colspan="4" align="left" >
-                <input type="submit" value="提交" class="in">
+                <input type="submit"  value="提交" onclick="qiuzhi()" class="in">
                 <input type="reset" value="退出" class="in">
             </td>
         </tr>

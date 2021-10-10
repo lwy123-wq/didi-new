@@ -90,9 +90,15 @@ public class UserController {
     }
 
 
+    //求职页未写完
     @RequestMapping(value = "/qiuzhi", method = RequestMethod.GET)
     public String qiuzhi(){
         return "qiuzhi";
+    }
+    @PostMapping(value = "/jobwanted")
+    @ResponseBody
+    public String jobwanted(){
+return "success";
     }
 
     @RequestMapping(value = "/employment", method = RequestMethod.GET)
