@@ -134,12 +134,13 @@
         function register(){
 
             $.ajax({
-                url: "/registry",
+                url: "/find",
                 type: 'POST',
-                data: {'username': $("#username").val(),'email': $("#email").val()},
+                data: {'username': $("#username").val(),'email': $("#email").val(),'code': $("#code").val()},
                 success: function (res) {
-                    if(res=="Y"){
+                    if(res!=null){
                         alert("您的密码是：")
+
                         function login(){
                             window.location.href='login'
                         }
