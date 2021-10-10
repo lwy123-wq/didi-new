@@ -2,10 +2,8 @@ package sun.com.did.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Base64Utils;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
-import sun.com.did.Code.UtilCode;
+import sun.com.did.code.UtilCode;
 import sun.com.did.entity.Login;
 import sun.com.did.service.IEmailService;
 import sun.com.did.service.UserServiceImpl;

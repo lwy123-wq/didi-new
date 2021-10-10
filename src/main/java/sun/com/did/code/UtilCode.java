@@ -1,4 +1,4 @@
-package sun.com.did.Code;
+package sun.com.did.code;
 
 import java.util.Random;
 
