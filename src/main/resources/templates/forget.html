@@ -132,7 +132,7 @@
     </style>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
-        function register(){
+        function forget(){
 
             $.ajax({
                 url: "/find",
@@ -140,12 +140,48 @@
                 data: {'username': $("#username").val(),'email': $("#email").val()},
                 success: function (res) {
                     if(res!=null){
-                        alert("您的密码是："+res)
-
+                        alert("密码："+res)
                         function login(){
                             window.location.href='login'
                         }
                         login()
+
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+        //验证码校验
+        function xxx(){
+            $.ajax({
+                url: "/matching",
+                type: 'POST',
+                data: {'code': $("#code").val()},
+                success: function (res) {
+                    if(res=="success"){
+                       forget();
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+        function yyy(){
+            $.ajax({
+                url: "/SendCode",
+                type: 'POST',
+                data: {'email': $("#email").val()},
+                success: function (res) {
+                    if(res=="success"){
+                        alert("发送成功！！");
                     }else{
                         alert("error");
                     }
@@ -167,18 +203,17 @@
         <input type="email" id="email" placeholder="请输入邮箱"/>
         <div class="send">
 
-            <input type="text" placeholder="请输入验证码" class="code">
-            <button>发送</button>
+            <input type="text" id="code"  placeholder="请输入验证码" class="code">
+            <input id="submit1" onclick="yyy()" type="submit"  value="发送" />
         </div>
 
-
-        <input id="submit" onclick="register()" type="submit"  value="确定" />
+        <input id="submit" onclick="xxx()" type="submit"  value="确定" />
     </form>
 
 </div>
 <script>
     // 1.获取发送按钮
-    let btn = document.querySelector('button')
+    let btn = document.getElementById('submit1')
     const second = 60
 
     // 2.点击发送按钮后禁用按钮,按钮内容发生改变

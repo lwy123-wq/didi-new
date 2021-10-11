@@ -1,6 +1,7 @@
 package sun.com.did.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.com.did.code.UtilCode;
@@ -14,7 +15,7 @@ import java.util.Base64;
 
 @Controller
 public class UserController {
-
+    public static String s;
     @Autowired
     private UserServiceImpl userService;
     @Resource
@@ -57,7 +58,7 @@ public class UserController {
         return "N";
     }
     //找回密码
-    @RequestMapping(value = "/forget",method = RequestMethod.GET)
+    @RequestMapping(value = "/ReturnPasswd",method = RequestMethod.GET)
     public String FindPasswd(){
         return "forget";
     }
@@ -69,16 +70,44 @@ public class UserController {
         System.out.println(user.getPasswd());
         byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
         String decodeStr=new String(decoded);
-        System.out.println(decodeStr);//输出解密之后的密码
-        UtilCode utilCode=new UtilCode();
-        String s = utilCode.verifyCode();
-        System.out.println(s);
-        boolean b = sendEmail(email, s);
+       // System.out.println(decodeStr);//输出解密之后的密码
         if (user.getPasswd()!=null){
-            return s;
+            return decodeStr;
         }
         return "error";
     }
+
+    //验证码校验
+    @RequestMapping(value = "/forget",method = RequestMethod.GET)
+    public String check(){
+        return "forget";
+    }
+    @PostMapping(value = "/matching")
+    @ResponseBody
+    public String check(String code){
+        System.out.println(s+"========="+code);
+        if (s.equals(code)){
+            return "success";
+        }else {
+            return "error";
+        }
+
+    }
+
+
+    //发送验证码
+    @PostMapping(value = "/SendCode")
+    @ResponseBody
+    public  String jump(String email){
+        UtilCode utilCode=new UtilCode();
+        s = utilCode.verifyCode();
+        boolean b = sendEmail(email, s);
+        if (b==true){
+            return "success";
+        }
+        return "error";
+    }
+
     public boolean sendEmail(String to,String contentText){
         return emailService.sendAttachmentMail(to,contentText);
 
