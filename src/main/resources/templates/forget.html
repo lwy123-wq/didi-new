@@ -109,7 +109,7 @@
         .boxx .box .send {
             position: relative;
         }
-        .boxx .box button {
+        .boxx .box #submit1 {
             position: absolute;
             top:-20px;
             left:137px;
@@ -127,6 +127,9 @@
             border-radius: 24px;
             transition: 0.25s;
             cursor: pointer;
+        }
+        #submit1 {
+            float: right;
         }
 
     </style>
@@ -230,7 +233,7 @@
                 btn.innerHTML = '发送'
                 time = second
             } else {
-                btn.innerHTML = time + '秒后可重新发送'
+                btn.value = time + '秒后可重新发送'
                 time--
             }
         }, 1000)
