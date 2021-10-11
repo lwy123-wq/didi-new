@@ -130,16 +130,17 @@
         }
 
     </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script>
         function register(){
 
             $.ajax({
                 url: "/find",
                 type: 'POST',
-                data: {'username': $("#username").val(),'email': $("#email").val(),'code': $("#code").val()},
+                data: {'username': $("#username").val(),'email': $("#email").val()},
                 success: function (res) {
                     if(res!=null){
-                        alert("您的密码是：")
+                        alert("您的密码是："+res)
 
                         function login(){
                             window.location.href='login'
@@ -154,7 +155,6 @@
                 }
             });
         }
-
     </script>
 
 </head>
@@ -173,7 +173,6 @@
 
 
         <input id="submit" onclick="register()" type="submit"  value="确定" />
-
     </form>
 
 </div>

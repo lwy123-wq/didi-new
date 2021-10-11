@@ -63,15 +63,16 @@ public class UserController {
     }
     @PostMapping(value = "/find")
     @ResponseBody
-    public String forget( String username,String email,String code){
+    public String forget( String username,String email){
         Login user=userService.findPassword(username,email);
         System.out.println("================");
+        System.out.println(user.getPasswd());
         byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
         String decodeStr=new String(decoded);
-        System.out.println(decodeStr);
+        System.out.println(decodeStr);//输出解密之后的密码
         UtilCode utilCode=new UtilCode();
         String s = utilCode.verifyCode();
-
+        System.out.println(s);
         boolean b = sendEmail(email, s);
         if (user.getPasswd()!=null){
             return s;
