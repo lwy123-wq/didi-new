@@ -2,16 +2,16 @@ package sun.com.did.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.com.did.dao.IntentionDao;
 import sun.com.did.dao.LoginDao;
+import sun.com.did.entity.Intention;
 import sun.com.did.entity.Login;
-import sun.com.did.entity.JobLogin;
 
 @Service
 public class UserServiceImpl {
 
     @Autowired
     private LoginDao loginDao;
-
 
     public Login findByName(String username) {
         return loginDao.findByName(username);

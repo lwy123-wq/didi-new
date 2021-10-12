@@ -5,8 +5,10 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.com.did.code.UtilCode;
+import sun.com.did.entity.Intention;
 import sun.com.did.entity.Login;
 import sun.com.did.service.IEmailService;
+import sun.com.did.service.IntentionImpl;
 import sun.com.did.service.UserServiceImpl;
 
 import javax.annotation.Resource;
@@ -20,6 +22,8 @@ public class UserController {
     private UserServiceImpl userService;
     @Resource
     private IEmailService emailService;
+    @Resource
+    private IntentionImpl intention;
     //登录
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
@@ -52,7 +56,7 @@ public class UserController {
         Login user =userService.findByName(username);
         if(user.getName() == null){
             //personService.register(id);
-            userService.insert(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8))/*DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8))*/,email);
+            userService.insert(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)),email);
             return "Y";
         }
         return "N";
@@ -85,7 +89,6 @@ public class UserController {
     @PostMapping(value = "/matching")
     @ResponseBody
     public String check(String code){
-        System.out.println(s+"========="+code);
         if (s.equals(code)){
             return "success";
         }else {
@@ -125,8 +128,14 @@ public class UserController {
     }
     @PostMapping(value = "/jobwanted")
     @ResponseBody
-    public String jobwanted(){
-return "success";
+    public String jobwanted(String port,String Category,String province,String city,String condition,String Duration,String experience){
+        int u=intention.jobwanted(port, Category, province, city,condition, Duration,experience);
+        if (u!=0){
+            return "success";
+        }
+
+        return "error";
+
     }
 
     @RequestMapping(value = "/employment", method = RequestMethod.GET)
