@@ -5,7 +5,7 @@
     <title>登录页面</title>
     <script type="text/javascript">
         var ws;
-        var url = "ws://localhost:10244/chat";
+        var url = "ws://localhost:8848/ws";
         window.onload = connect;
         var currentUsers = [];
 
@@ -24,6 +24,7 @@
             };
         }
         function wsSend() {
+            alert("你好！！！！！！！！！！")
             var username = document.getElementById("username");
             var password= document.getElementById("password");
             ws.send(JSON.stringify({"username": username.value, "password": password.value}));

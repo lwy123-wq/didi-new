@@ -7,10 +7,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-
 @Component
 public class JobChatServer {
     private EventLoopGroup bossGroup;
@@ -26,7 +24,7 @@ public class JobChatServer {
                     .childHandler((ChannelHandler) new JobServerInitializer());
 
             //启动服务器
-            ChannelFuture channelFuture = serverBootstrap.bind(8888).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(28888).sync();
             channelFuture.channel().closeFuture().sync();
 
         } finally {

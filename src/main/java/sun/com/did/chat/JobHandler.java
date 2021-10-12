@@ -13,7 +13,7 @@ import sun.com.did.config.ChatConfig;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-@Component
+
 public class JobHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     private static ChannelGroup channelGroup=new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     private static ChatConfig config=new ChatConfig();

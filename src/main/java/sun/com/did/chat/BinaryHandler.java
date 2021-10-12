@@ -5,9 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import org.springframework.stereotype.Component;
 
-@Component
 public class BinaryHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, BinaryWebSocketFrame msg) throws Exception {

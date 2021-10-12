@@ -14,7 +14,6 @@ public class UserServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        //使用http的编码器和解码器
         pipeline.addLast(new HttpServerCodec());
         //添加块处理器
         pipeline.addLast(new ChunkedWriteHandler());

@@ -43,7 +43,7 @@ public class LoginDao {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 user.setName(resultSet.getString(2));
-                user.setPasswd(resultSet.getString(5));
+                user.setPasswd(resultSet.getString(3));
             }
         });
         return user;
@@ -55,7 +55,7 @@ public class LoginDao {
         jdbcTemplate.query(sql, new Object[]{username, email}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                user.setPasswd(rs.getString(5));
+                user.setPasswd(rs.getString(3));
             }
         });
         return user;
