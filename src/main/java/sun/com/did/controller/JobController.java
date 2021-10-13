@@ -25,4 +25,8 @@ public class JobController {
         }
         return "error";
     }
+    @RequestMapping(value = "/chat",method = RequestMethod.GET)
+    public String chat(){
+        return "chat";
+    }
 }

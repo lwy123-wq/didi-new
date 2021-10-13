@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="application/javascript">
-    var ws = new WebSocket("ws://localhost:9999/chat");
+    var ws = new WebSocket("ws://localhost:28888/chat");
     ws.onopen = function (ev) {
 
     };
@@ -41,9 +41,12 @@
     };
 
     // 发送文字消息
-    document.getElementById("send").addEventListener("click", function () {
+    <!--document.getElementById("send").addEventListener("click", function () {
         ws.send(document.getElementById("inp-msg").value);
-    }, false);
+    }, false);-->
+    function wsSend() {
+        ws.send(document.getElementById("inp-msg").value);
+        }
 
     // 发送图片
     document.querySelector('#send-pic').addEventListener('change', function (ev) {
@@ -83,7 +86,7 @@
 
     </div>
     <p>
-        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" id="send"><br/>
+        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" onclick="wsSend()" id="send"><br/>
         选择图片： <input type="file" id="send-pic">
     </p>
 </div>

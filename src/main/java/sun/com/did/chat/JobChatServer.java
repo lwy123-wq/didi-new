@@ -3,6 +3,7 @@ package sun.com.did.chat;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 @Component
+@ChannelHandler.Sharable
 public class JobChatServer {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workGroup;
@@ -20,6 +22,9 @@ public class JobChatServer {
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup, workGroup)
+                    .option(ChannelOption.SO_BACKLOG, 128)
+                    .childOption(ChannelOption.TCP_NODELAY, true)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .channel(NioServerSocketChannel.class)
                     .childHandler((ChannelHandler) new JobServerInitializer());
 

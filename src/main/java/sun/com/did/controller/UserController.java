@@ -62,10 +62,10 @@ public class UserController {
         return "N";
     }
     //找回密码
-    @RequestMapping(value = "/ReturnPasswd",method = RequestMethod.GET)
+    /*@RequestMapping(value = "/ReturnPasswd",method = RequestMethod.GET)
     public String FindPasswd(){
         return "forget";
-    }
+    }*/
     @PostMapping(value = "/find")
     @ResponseBody
     public String forget( String username,String email){
