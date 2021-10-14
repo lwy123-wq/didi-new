@@ -2,7 +2,7 @@ package sun.com.did.entity;
 
 public class Intention {
     private int id;
-    private String port;
+    private String post;
     private String city;
     private String category;
     private String province;
@@ -10,8 +10,8 @@ public class Intention {
     private String duration;
     private String experience;
 
-    public Intention(String port, String city, String category, String province, String condition, String duration, String experience) {
-        this.port = port;
+    public Intention(String post, String city, String category, String province, String condition, String duration, String experience) {
+        this.post = post;
         this.city = city;
         this.category = category;
         this.province = province;
@@ -20,12 +20,12 @@ public class Intention {
         this.experience = experience;
     }
 
-    public String getPort() {
-        return port;
+    public String getPost() {
+        return post;
     }
 
-    public void setPort(String port) {
-        this.port = port;
+    public void setPost(String post) {
+        this.post = post;
     }
 
 

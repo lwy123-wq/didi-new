@@ -67,11 +67,12 @@
             $.ajax({
                 url: "/jobwanted",
                 type: 'POST',
-                data: {'post': $("#post").val(), 'Category': $("#Category").val(), 'province': $("#province").val(), 'city': $("#city").val()
-                    , 'condition': $("#condition").val(), 'Duration': $("#Duration").val() , 'experience': $("#experience").val()},
+                data: {'post': $("#post").val(), 'city': $("#city").val(), 'category': $("#category").val(), 'province': $("#province").val()
+                    , 'condition': $("#condition").val(), 'duration': $("#duration").val() , 'experience': $("#experience").val()},
                 success: function (res) {
                     if(res=="success"){
-                        wsSend()
+                    alert("aaaaaaaaaaaaaaaaa")
+
                         function login(){
                             window.location.href='select'
                         }
@@ -90,7 +91,7 @@
 </head>
 <body onload="init()">
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
-<form method="post" action="" class="fo">
+<form method="post" onsubmit="return false" action="##" class="fo">
     <h2 >请填写您的求职意向：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
 
@@ -101,15 +102,15 @@
 
         <tr>
             <td>求职岗位</td>
-            <td><input type="text" id="Category"> </td>
+            <td><input type="text" id="category"> </td>
         </tr>
 
 
 
         <tr>
             <td>意向工作地区</td>
-            <td><select name="province" id="param_province" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
-            <td>城市：</td><td><select name="city" id="param_city"><option>请选择城市</option></select></td>
+            <td><select name="province" id="province" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
+            <td>城市：</td><td><select name="city" id="city"><option>请选择城市</option></select></td>
         </tr>
         <tr>
             <td>求职状态</td>
@@ -117,7 +118,7 @@
         </tr>
                 <tr>
                     <td>工期</td>
-                    <td><select style="width: 96%" name="Duration">
+                    <td><select style="width: 96%" id="duration">
                         <option>长工（一年至五年以下，年结）</option>
                         <option>短工（一年以下，月结）</option>
                     </select></td>
@@ -177,7 +178,7 @@
         ["台北市","高雄市","台中市","花莲市","基隆市","嘉义市","金门市","连江市","苗栗市","南投市","澎湖市","屏东市","台东市","台南市","桃园市","新竹市","宜兰市","云林市","彰化市"]];
 
     function init(){
-        var province = document.getElementById('param_province');
+        var province = document.getElementById('province');
         //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
         province.length=provinces.length;
         for(var i=0;i<provinces.length;i++){
@@ -187,7 +188,7 @@
     }
 
     function provincechange(n){
-        var city = document.getElementById('param_city');
+        var city = document.getElementById('city');
         var citystemp=citys[n];
         city.length=citystemp.length;
         for(var i=0;i<citystemp.length;i++){
