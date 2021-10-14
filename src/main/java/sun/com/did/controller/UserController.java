@@ -121,7 +121,6 @@ public class UserController {
     }
 
 
-    //求职页未写完
     @RequestMapping(value = "/qiuzhi", method = RequestMethod.GET)
     public String qiuzhi(){
         return "qiuzhi";
