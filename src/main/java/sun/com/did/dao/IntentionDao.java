@@ -12,8 +12,8 @@ public class IntentionDao {
     private JdbcTemplate jdbcTemplate;
 
     public int InsertIntention(Intention intention){
-        String sql="INSERT INTO Intention (port,city,Category,province,condition,Duration,experience)VALUES(?,?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql, intention.getPort(),intention.getCategory(),intention.getProvince(),intention.getCity(),intention.getCondition(),intention.getDuration(),intention.getExperience());
+        String sql="insert into intention(port,city,category,province,i_condition,duration,experience)VALUES(?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, intention.getPort(),intention.getCity(),intention.getCategory(),intention.getProvince(),intention.getCondition(),intention.getDuration(),intention.getExperience());
     }
 
 }

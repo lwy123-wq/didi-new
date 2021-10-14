@@ -127,8 +127,8 @@ public class UserController {
     }
     @PostMapping(value = "/jobwanted")
     @ResponseBody
-    public String jobwanted(String port,String Category,String province,String city,String condition,String Duration,String experience){
-        int u=intention.jobwanted(port, Category, province, city,condition, Duration,experience);
+    public String jobwanted(String port,String category,String province,String city,String condition,String duration,String experience){
+        int u=intention.jobwanted(port, category, province, city,condition, duration,experience);
         if (u!=0){
             return "success";
         }

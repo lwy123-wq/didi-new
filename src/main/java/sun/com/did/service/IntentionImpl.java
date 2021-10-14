@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 public class IntentionImpl {
     @Resource
     private IntentionDao intentionDao;
-    public int jobwanted(String port, String Category, String province, String city, String condition, String Duration, String experience){
-        return intentionDao.InsertIntention(new Intention( port,Category, province, city, condition, Duration,experience));
+    public int jobwanted(String port, String city,String category, String province,  String condition, String duration, String experience){
+        return intentionDao.InsertIntention(new Intention( port,city,category , province, condition, duration,experience));
     }
 }

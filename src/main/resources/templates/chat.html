@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="application/javascript">
+    <title>web socket 测试</title>
+</head>
+<body>
+
+<div style="width: 600px;height: 400px;">
+    <p>服务器输出:</p>
+    <div style="border: 1px solid #CCC;height: 300px;overflow: scroll" id="server-msg-container">
+
+    </div>
+    <p>
+        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" id="send"><br/>
+        选择图片： <input type="file" id="send-pic">
+    </p>
+</div>
+
+<script type="application/javascript">
     var ws = new WebSocket("ws://localhost:28888/chat");
     ws.onopen = function (ev) {
 
@@ -41,12 +55,9 @@
     };
 
     // 发送文字消息
-    <!--document.getElementById("send").addEventListener("click", function () {
+    document.getElementById("send").addEventListener("click", function () {
         ws.send(document.getElementById("inp-msg").value);
-    }, false);-->
-    function wsSend() {
-        ws.send(document.getElementById("inp-msg").value);
-        }
+    }, false);
 
     // 发送图片
     document.querySelector('#send-pic').addEventListener('change', function (ev) {
@@ -78,17 +89,7 @@
         }
     }, false);
 </script>
-</head>
-<body>
-<div style="width: 600px;height: 400px;">
-    <p>服务器输出:</p>
-    <div style="border: 1px solid #CCC;height: 300px;overflow: scroll" id="server-msg-container">
 
-    </div>
-    <p>
-        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" onclick="wsSend()" id="send"><br/>
-        选择图片： <input type="file" id="send-pic">
-    </p>
-</div>
+
 </body>
 </html>

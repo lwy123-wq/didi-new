@@ -3,7 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.did.Application;
 import sun.com.did.dao.JobDao;
+import sun.com.did.entity.Intention;
 import sun.com.did.entity.Login;
+import sun.com.did.service.IntentionImpl;
 import sun.com.did.service.UserServiceImpl;
 
 import java.util.Base64;
@@ -16,8 +18,12 @@ public class test {
     private JobDao jobDao;
     @Autowired
     private UserServiceImpl userService;
+    @Autowired
+    private IntentionImpl intention;
     @Test
     public void t(){
+        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
+        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");
     /*    ConfigurableApplicationContext run1 = SpringApplication.run(Application.class);
         String [] definitionNames=run1.getBeanDefinitionNames();
 

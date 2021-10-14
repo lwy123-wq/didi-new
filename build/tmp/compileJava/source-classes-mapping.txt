@@ -33,25 +33,25 @@ sun/com/did/code/UtilCode.java
  sun.com.did.code.UtilCode
 sun/com/did/chat/UserHandler.java
  sun.com.did.chat.UserHandler
-sun/com/did/controller/JobController.java
- sun.com.did.controller.JobController
+sun/com/did/chat/JobChatServer.java
+ sun.com.did.chat.JobChatServer
 sun/com/did/chat/BinaryHandler.java
  sun.com.did.chat.BinaryHandler
-sun/com/did/controller/UserController.java
- sun.com.did.controller.UserController
-sun/com/did/dao/IntentionDao.java
- sun.com.did.dao.IntentionDao
+sun/com/did/chat/JobServerInitializer.java
+ sun.com.did.chat.JobServerInitializer
+sun/com/did/controller/JobController.java
+ sun.com.did.controller.JobController
 sun/com/did/service/UserServiceImpl.java
  sun.com.did.service.UserServiceImpl
 sun/com/did/chat/UserServerInitializer.java
  sun.com.did.chat.UserServerInitializer
 sun/com/did/chat/JobHandler.java
  sun.com.did.chat.JobHandler
-sun/com/did/chat/JobServerInitializer.java
- sun.com.did.chat.JobServerInitializer
 sun/com/did/entity/Intention.java
  sun.com.did.entity.Intention
+sun/com/did/controller/UserController.java
+ sun.com.did.controller.UserController
+sun/com/did/dao/IntentionDao.java
+ sun.com.did.dao.IntentionDao
 sun/com/did/service/IntentionImpl.java
  sun.com.did.service.IntentionImpl
-sun/com/did/chat/JobChatServer.java
- sun.com.did.chat.JobChatServer
