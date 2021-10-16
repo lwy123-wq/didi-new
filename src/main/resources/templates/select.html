@@ -2,68 +2,429 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>选择页面</title>
+    <title>首页</title>
     <style>
         body {
-            position: relative;
-           margin: 0;
-            padding: 0;
-            background: url("static/images/bgk.png") no-repeat;
-
-            background-size: 100%;
+            background-color: #ffffff;
+            margin: 0;
+            padding:0;
         }
-        .box{
-            position: absolute;
-            top:200px;
-            left:300px;
-          width: 400px;
-            height: 400px;
-            border:1px solid rgba(0,0,0,.3);
-            border-radius: 25px;
+        .header {
+
+            height: 110px;
+            padding-top: 50px;
 
         }
-        .boxo {
-            position: absolute;
-            top:200px;
-            left:844px;
-            width: 400px;
-            height: 400px;
-            border:1px solid rgba(0,0,0,.3);
-            border-radius: 25px;
-            /*box-shadow: 0 0 10px 8px grey;*/
-        }
-        .box:hover {
-            box-shadow: 0 0 10px 8px grey;
-        }
-        .boxo:hover {
-            box-shadow: 0 0 10px 8px grey;
-        }
-        a {
-            text-decoration: none;
+        .header a {
             color: black;
         }
-        img {
-            width: 400px;
-            height: 300px;
+        .ce a {
+            color: white;
         }
-        .but {
-            width: 350px;
-            height: 80px;
-            border: 1px solid transparent;
-            margin:10px 25px;
-            text-align: center;
-            border-radius: 25px;
+        .banner {
+            height: 550px;
+
+            background-image: url("../static/images/ren.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
         }
-        h1 {
-            margin-left:648px;
-            padding-top: 100px;
+        .dao {
+            width: 1300px;
+            height: 74px;
+            background-color: #ffffff;
+            margin: 0 auto;
+            border: 1px solid #d0d1d3;
+
         }
+        .wen {
+
+            width: 1300px;
+            height: 23px;
+
+            margin:50px 110px;
+        }
+        .jing {
+            width: 1300px;
+            float: left;
+            margin:0px 110px;
+            overflow: hidden;
+        }
+        .header .oneone {
+            float: left;
+            width: 198px;
+            height: 104px;
+            margin-left: 80px;
+            background: url("../static/images/didilogo.jpg") no-repeat;
+
+            background-size: 100% 100%;
+
+        }
+        .header a .zi {
+            float: left;
+            margin-left: 106px;
+            margin-right: 35px;
+            margin-top: 37px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            padding-bottom: 15px;
+            font-size:20px;
+            color: black;
+
+        }
+        a{
+
+            display: block;
+            text-decoration: none;
+        }
+        .zi:hover {
+            border-top: 1px solid transparent;
+            border-bottom: 5px solid #c97513;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+        .header .sou {
+            float: left;
+            margin-top: 26px;
+        }
+        input[type="text"]{
+            border: 1px solid #c97513;
+            width:451px;
+            height: 45px;
+            margin-left: 20px;
+            outline: none;
+            padding-left: 20px;
+        }
+        .ge:hover{
+            color: #c97513;
+        }
+        .header a .ge{
+
+            float: left;
+            width: 80px;
+            margin-left: 48px;
+
+            margin-top: 37px;
+        }
+        .header a .yuan{
+            float: left;
+            margin-top: 26px;
+        }
+        .header a .xiao {
+            float: left;
+            margin-left: 15px;
+
+            margin-top: 33px;
+        }
+        .header a .ren {
+            float: left;
+            margin-left: 15px;
+
+            margin-top: 26px;
+        }
+        .header a .xu {
+
+            margin-left: 15px;
+            font-size: 12px;
+            margin-top: 39px;
+        }
+        .xu:hover {
+            color: #c97513;
+        }
+
+        .ce {
+            float: left;
+            width: 250px;
+            height: 550px;
+            margin-left: 110px;
+            background-color: rgba(0,0,0,.6);
+
+        }
+        .banner .ce  .qian{
+            position: relative;
+            width: 245px;
+            margin-top: 20px;
+            margin-bottom: 39px;
+            margin-left: 25px;
+
+
+        }
+        .banner .ce  .qian .hou {
+            position: absolute;
+            top:-10px;
+            left: 225px;
+
+            width:0px;
+            height: 45px;
+            background-color: transparent;
+            font-size: 16px;
+            overflow: hidden;
+
+            /*display: none;*/
+            transition: all .5s;
+            border-radius: 0 25px 25px 0;
+        }
+        .banner .ce  .qian .hou  .none{
+            float: left;
+            margin: 10px;
+        }
+        .banner .ce  .qian .hou  .h {
+            float: left;
+            margin: 10px;
+        }
+
+
+
+        .qian:hover {
+            color: #c97513;
+
+
+        }
+        .banner .ce .qian:hover .hou {
+            /*font-size: 16px;*/
+            color: #c97513;
+            width: 500px;
+            height: 45px;
+            background-color: rgba(0,0,0,.6);
+            position: absolute;
+            top:-10px;
+            left: 225px;
+            /*display: block;*/
+
+
+
+        }
+        /*.banner .ke {*/
+        /*    width:284px;*/
+        /*    height: 371px;*/
+        /*    float: right;*/
+        /*    background-color: #ffffff;*/
+        /*    margin-top: 30px;*/
+        /*    margin-right: 190px;*/
+        /*}*/
+        /*.banner .ke .wo {*/
+        /*    height: 58px;*/
+        /*    background-color:#9bceea;*/
+        /*    text-align: center;*/
+        /*    line-height: 58px;*/
+        /*    color: white;*/
+        /*    font-size: 20px;*/
+
+        /*}*/
+
+        /*.banner .ke .ji*/
+        /*{*/
+        /*    width: 236px;*/
+        /*    height: 50px;*/
+        /*    margin-left: 19px;*/
+        /*    margin-top: 19px;*/
+        /*    border-bottom: 1px solid #f6f6f6;*/
+        /*}*/
+        /*.yan {*/
+        /*    color: black;*/
+        /*}*/
+        /*.zheng  {*/
+        /*    color: #a5a5a5;*/
+        /*    font-size: 14px;*/
+        /*}*/
+        /*.quan {*/
+        /*    width: 249px;*/
+        /*    height: 47px;*/
+        /*    border: 1px solid #00a4ff;*/
+        /*    margin-left: 19px;*/
+        /*    margin-top: 19px;*/
+        /*    text-align: center;*/
+        /*    line-height: 47px;*/
+
+        /*}*/
+        .quan a{
+            color: #c97513;
+        }
+        /*.quan:hover {*/
+        /*    background-color: #00a4ff;*/
+
+        /*}*/
+        .quan a:hover {
+            color: white;
+        }
+
+        .dao a {
+            color: black;
+        }
+        .dao .pin {
+            float: left;
+            margin-left: 38px;
+            margin-right: 38px;
+            font-size: 14px;
+            line-height: 74px;
+        }
+        .dao .shu {
+            float: left;
+            line-height: 74px;
+        }
+        .dao a:hover {
+            color: #c97513;
+        }
+        .dao .bin {
+            float: right;
+            margin-right: 70px;
+            line-height: 74px;
+        }
+        .bu {
+            float: right;
+        }
+        .bu a {
+            color: #a5a5a5;
+            font-size: 14px;
+        }
+
+        .bu a:hover {
+            color: #c97513;
+        }
+        .xiang {
+            width:985px;
+            height: 239px;
+            background-color:#d5d6d5;
+            float: left;
+            margin-left: 15px;
+            margin-bottom: 15px;
+
+        }
+        .xiang:hover{
+            box-shadow: 0px 0px 10px 7px rgba(0,0,0,.3);
+        }
+
+
     </style>
 </head>
 <body>
-<h1>请选择您的身份</h1>
-<div class="box"><a href="information"><img src="../static/images/zhiyuan.png" ><div class="but"><h2>求职者</h2></div> </a> </div>
-<div class="boxo"><a href="#"><img src="../static/images/gongsi.png"><div class="but"><h2>招聘单位</h2></div></a> </div>
+<div class="header">
+    <div class="oneone">
+        <!--        <img src="picture/didilogo.jpg">-->
+    </div>
 
+    <a href="#"><div class="zi">首页</div></a>
+    <!--    <a href="#"><div class="zi">课程</div></a>-->
+    <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+    <div class="sou">
+        <input type="text" placeholder="请输入您所需要的职位、公司">
+    </div>
+    <a href="#"><div class="yuan">
+        <img src="../static/images/14.png">
+    </div></a>
+    <a href="#"><div class="ge">登录/注册</div></a>
+    <a href="#"><div class="xiao">
+        <img src="../static/images/12.png">
+    </div> </a>
+    <!--    <a href="#"><div class="ren">-->
+    <!--    <img src="picture/13.png">-->
+    <!--</div> </a>-->
+    <a href="#"><div class="xu">
+        欢迎来到滴滴务工！
+    </div> </a>
+</div>
+
+<div class="banner">
+    <div class="ce">
+        <a href="#"><div class="qian">技术&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;><div class="hou">
+            <div class="none"> <a href="#">机械设计师</a></div><div class="h">|</div>
+            <div class="none"> <a href="#">维修电工</a></div><div class="h">|</div>
+            <div class="none"> <a href="#">排水工程师</a></div><div class="h">|</div>
+            <div class="none"> <a href="#">IT程序员</a></div><div class="h"></div>
+        </div> </div></a>
+        <a href="#"><div class="qian">产品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">产品运营专员</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">产品运营经理</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">产品运营总监</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">产品主管</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">服装设计</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">网页设计</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">景观设计</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">平面设计</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">运营&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">产品运营</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">活动运营</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">内容运营</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">新媒体运营</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">市场&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">市场调研主管</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">市场策划主管</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">市场拓展经理</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">促销主管</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">人事&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">招聘专员</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">绩效专员</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">培训专员</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">人事文员</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">财务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">总会计师</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">出纳</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">资金核算</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">总账</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">行政 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">直接行政</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">业务行政</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">秘书</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">行政文员</a></div><div class="h"></div>
+            </div></div></a>
+        <a href="#"><div class="qian">高级管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+            <div class="hou">
+                <div class="none"> <a href="#">经理</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">董事会秘书</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">财务负责人</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">驻外经理</a></div><div class="h"></div>
+            </div></div></a>
+    </div>
+    <!--    <div class="ke">-->
+    <!--       <div class="wo">我的课程表</div>-->
+    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
+    <!--        <div class="zheng">正在学习-使用对象</div></div>-->
+    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
+    <!--            <div class="zheng">正在学习-使用对象</div></div>-->
+    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
+    <!--            <div class="zheng">正在学习-使用对象</div></div>-->
+    <!--        <div class="quan"><a href="#">全部课程</a></div>-->
+    <!--    </div>-->
+</div>
+
+<div class="dao">
+    <div class="pin"> <a href="#">热门岗位</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">技术</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">产品</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">设计</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">运营</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">市场</a></div><div class="shu">|</div>
+    <div class="pin"> <a href="#">高级管理</a></div>
+    <!--    <div class="bin"><a href="#">修改兴趣</a> </div>-->
+</div>
+<div class="wen">精品推荐
+    <div class="bu"><a href="#">查看全部</a> </div>
+</div>
+<div class="jing">
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+    <div class="xiang"></div>
+
+</div>
 </body>
 </html>
