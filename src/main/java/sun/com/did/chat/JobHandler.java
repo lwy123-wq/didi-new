@@ -6,6 +6,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.util.concurrent.GlobalEventExecutor;
 import org.springframework.stereotype.Component;
 import sun.com.did.config.ChatConfig;
@@ -37,6 +38,20 @@ public class JobHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> 
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
         System.out.println("服务器发生了异常:"+ cause);
+    }
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        if (evt instanceof WebSocketServerProtocolHandler.HandshakeComplete) {
+            //log.info("web socket 握手成功。");
+            WebSocketServerProtocolHandler.HandshakeComplete handshakeComplete = (WebSocketServerProtocolHandler.HandshakeComplete) evt;
+            String requestUri = handshakeComplete.requestUri();
+            //log.info("requestUri:[{}]", requestUri);
+            String subproTocol = handshakeComplete.selectedSubprotocol();
+            //log.info("subproTocol:[{}]", subproTocol);
+            //handshakeComplete.requestHeaders().forEach(entry -> log.info("header key:[{}] value:[{}]", entry.getKey(), entry.getValue()));
+        } else {
+            super.userEventTriggered(ctx, evt);
+        }
     }
 
 }
