@@ -1,4 +1,4 @@
-package sun.com.did.config;
+package sun.com.didi.config;
 
 import io.netty.channel.ChannelId;
 

@@ -1,15 +1,11 @@
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sun.com.did.Application;
-import sun.com.did.dao.JobDao;
-import sun.com.did.entity.Intention;
-import sun.com.did.entity.Login;
-import sun.com.did.service.IntentionImpl;
-import sun.com.did.service.UserServiceImpl;
-
-import java.util.Base64;
-import java.util.Random;
+import sun.com.didi.Application;
+import sun.com.didi.dao.JobDao;
+import sun.com.didi.entity.Intention;
+import sun.com.didi.service.IntentionImpl;
+import sun.com.didi.service.UserServiceImpl;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")

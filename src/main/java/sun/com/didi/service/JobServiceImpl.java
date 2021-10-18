@@ -1,9 +1,8 @@
-package sun.com.did.service;
+package sun.com.didi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.stereotype.Service;
-import sun.com.did.dao.JobDao;
+import sun.com.didi.dao.JobDao;
 
 @Service
 public class JobServiceImpl extends JobDao {

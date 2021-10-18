@@ -1,4 +1,4 @@
-package sun.com.did.entity;
+package sun.com.didi.entity;
 
 public class JobLogin {
     private int id;

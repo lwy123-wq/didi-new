@@ -1,10 +1,10 @@
-package sun.com.did.dao;
+package sun.com.didi.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
-import sun.com.did.entity.Login;
+import sun.com.didi.entity.Login;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

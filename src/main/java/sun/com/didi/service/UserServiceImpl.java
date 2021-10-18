@@ -1,11 +1,9 @@
-package sun.com.did.service;
+package sun.com.didi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.com.did.dao.IntentionDao;
-import sun.com.did.dao.LoginDao;
-import sun.com.did.entity.Intention;
-import sun.com.did.entity.Login;
+import sun.com.didi.dao.LoginDao;
+import sun.com.didi.entity.Login;
 
 @Service
 public class UserServiceImpl {

@@ -1,4 +1,4 @@
-package sun.com.did.chat;
+package sun.com.didi.chat;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

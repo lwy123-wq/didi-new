@@ -1,6 +1,4 @@
-package sun.com.did.service;
-
-import java.util.List;
+package sun.com.didi.service;
 
 public interface IEmailService {
 	/**

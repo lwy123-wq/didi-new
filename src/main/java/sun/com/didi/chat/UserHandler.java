@@ -1,15 +1,11 @@
-package sun.com.did.chat;
+package sun.com.didi.chat;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import org.springframework.stereotype.Component;
-import sun.com.did.config.ChatConfig;
-import sun.com.did.entity.Login;
+import sun.com.didi.config.ChatConfig;
 
 public class UserHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
     private static ChatConfig config=new ChatConfig();

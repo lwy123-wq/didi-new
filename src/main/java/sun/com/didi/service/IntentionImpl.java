@@ -1,9 +1,9 @@
-package sun.com.did.service;
+package sun.com.didi.service;
 
 
 import org.springframework.stereotype.Service;
-import sun.com.did.dao.IntentionDao;
-import sun.com.did.entity.Intention;
+import sun.com.didi.dao.IntentionDao;
+import sun.com.didi.entity.Intention;
 
 import javax.annotation.Resource;
 

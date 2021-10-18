@@ -1,4 +1,4 @@
-package sun.com.did.service;
+package sun.com.didi.service;
 
 public interface JobService {
     /**

@@ -1,15 +1,13 @@
-package sun.com.did.controller;
+package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sun.com.did.code.UtilCode;
-import sun.com.did.entity.Intention;
-import sun.com.did.entity.Login;
-import sun.com.did.service.IEmailService;
-import sun.com.did.service.IntentionImpl;
-import sun.com.did.service.UserServiceImpl;
+import sun.com.didi.code.UtilCode;
+import sun.com.didi.entity.Login;
+import sun.com.didi.service.IEmailService;
+import sun.com.didi.service.IntentionImpl;
+import sun.com.didi.service.UserServiceImpl;
 
 import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
@@ -37,7 +35,6 @@ public class UserController {
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
     public String login(String username,String password){
-        System.out.println(username+"dddddddddddddddd");
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
