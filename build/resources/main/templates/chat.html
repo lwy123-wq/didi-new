@@ -1,64 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
+    <meta charset="UTF-8">
+    <title>web socket 测试</title>
 </head>
-</head>
-<script type="text/javascript">
-    var socket;
-
-
-    if(!window.WebSocket){
-
-        window.WebSocket = window.MozWebSocket;
-    }
-
-    if(window.WebSocket){
-        socket = new WebSocket("ws://localhost:28888/chat");
-
-        socket.onmessage = function(event){
-
-            var ta = document.getElementById('responseText');
-            ta.value += event.data+"\r\n";
-        };
-
-        socket.onopen = function(event){
-
-            var ta = document.getElementById('responseText');
-            ta.value = "打开WebSoket 服务正常，浏览器支持WebSoket!"+"\r\n";
-
-        };
-
-        socket.onclose = function(event){
-
-            var ta = document.getElementById('responseText');
-            ta.value = "";
-            ta.value = "WebSocket 关闭"+"\r\n";
-        };
-    }else{
-        alert("您的浏览器不支持WebSocket协议！");
-    }
-
-    function send(message){
-        if(!window.WebSocket){return;}
-        if(socket.readyState == WebSocket.OPEN){
-            socket.send(message);
-        }else{
-            alert("WebSocket 连接没有建立成功！");
-        }
-
-    }
-
-</script>
 <body>
-<form onSubmit="return false;">
-    <input type = "text" name="message" value="Netty The Sinper"/>
-    <br/><br/>
-    <input type="button" value="发送 WebSocket 请求消息" onClick="send(this.form.message.value)"/>
-    <hr color="blue"/>
-    <h3>服务端返回的应答消息</h3>
-    <textarea id="responseText" style="width: 1024px;height: 300px;"></textarea>
-</form>
+
+<div style="width: 600px;height: 400px;">
+    <p>服务器输出:</p>
+    <div style="border: 1px solid #CCC;height: 300px;overflow: scroll" id="server-msg-container">
+
+    </div>
+    <p>
+        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" id="send"><br/>
+        选择图片： <input type="file" id="send-pic">
+    </p>
+</div>
+
+<script type="application/javascript">
+    var ws = new WebSocket("ws://localhost:28888/chat");
+    ws.onopen = function (ev) {
+
+    };
+    ws.onmessage = function (ev) {
+        console.info("onmessage", ev);
+        var inpMsg = document.getElementById("server-msg-container");
+        if (typeof  ev.data === "string") {
+            inpMsg.innerHTML += ev.data + "<br/>";
+        } else {
+            var result = ev.data;
+            var flagReader = new FileReader();
+            flagReader.readAsArrayBuffer(result.slice(0, 4));
+            flagReader.onload = function (flag) {
+                if (new DataView(flag.target.result).getInt32(0) === 10) {
+                    var imageReader = new FileReader();
+                    imageReader.readAsDataURL(result.slice(4));
+                    imageReader.onload = function (img) {
+                        var imgHtml = "<img src='" + img.target.result + "' style='width: 100px;height: 100px;'>";
+                        inpMsg.innerHTML += imgHtml.replace("data:application/octet-stream;", "data:image/png;") + "<br />";
+                    }
+                } else {
+                    alert("后端返回的是非图片类型数据，无法显示。");
+                }
+            }
+        }
+    };
+    ws.onerror = function () {
+        var inpMsg = document.getElementById("server-msg-container");
+        inpMsg.innerHTML += "发生异常" + "<br/>";
+    };
+    ws.onclose = function () {
+        var inpMsg = document.getElementById("server-msg-container");
+        inpMsg.innerHTML += "webSocket 关闭" + "<br/>";
+    };
+
+    // 发送文字消息
+    document.getElementById("send").addEventListener("click", function () {
+        ws.send(document.getElementById("inp-msg").value);
+    }, false);
+
+    // 发送图片
+    document.querySelector('#send-pic').addEventListener('change', function (ev) {
+        var files = this.files;
+        if (files && files.length) {
+            var file = files[0];
+            var fileType = file.type;
+            // 表示传递的是 图片
+            var dataType = 10;
+            if (!/^image/.test(fileType)) {
+                // 表示传递的是 非图片
+                dataType = 20;
+            }
+            var fileReader = new FileReader();
+            fileReader.readAsArrayBuffer(file);
+            fileReader.onload = function (e) {
+                // 获取到文件对象
+                var result = e.target.result;
+                // 创建一个 4个 字节的数组缓冲区
+                var arrayBuffer = new ArrayBuffer(4);
+                var dataView = new DataView(arrayBuffer);
+                // 从第0个字节开始，写一个 int 类型的数据(dataType)，占4个字节
+                dataView.setInt32(0, dataType);
+                // 组装成 blob 对象
+                var blob = new Blob([arrayBuffer, result]);
+                // 发送到 webSocket 服务器端
+                ws.send(blob);
+            }
+        }
+    }, false);
+</script>
+
+
 </body>
 </html>
