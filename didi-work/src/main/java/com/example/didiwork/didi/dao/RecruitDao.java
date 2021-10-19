@@ -16,7 +16,7 @@ public class RecruitDao {
     private JdbcTemplate jdbcTemplate;
     public Requirement SelectRecruit(int id){
         final Requirement re=new Requirement();
-        String sql= "SELECT * FROM  RecruitmentRequirements WHERE id=? ";
+        String sql= "SELECT * FROM   recruitmentrequirements WHERE id=? ";
         jdbcTemplate.query(sql, new Object[]{id}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {

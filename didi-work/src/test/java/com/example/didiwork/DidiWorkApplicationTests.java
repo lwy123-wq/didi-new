@@ -14,7 +14,7 @@ class DidiWorkApplicationTests {
     @Test
     void contextLoads() {
         Requirement requirement = recruitDao.SelectRecruit(1);
-        System.out.println(requirement);
+        System.out.println(requirement.getCompany()+requirement.getSalaryRequirements()+requirement.getOccupationalCategory()+requirement.getRemainingPositions());
 
     }
 
