@@ -1,6 +1,7 @@
 package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ public class JobController {
     }
     @PostMapping(value = "/MyInformation")
     @ResponseBody
+//    @Cacheable(value = "Inf")
     public String Information(String name,String phone,String id_code,String card,String school,String email,String marriage,String address,String city,Integer year,String education){
         int i = jobService.insertJob(name, phone, id_code, card, school, email, marriage, address, city,year, education);
         if (i!=0){

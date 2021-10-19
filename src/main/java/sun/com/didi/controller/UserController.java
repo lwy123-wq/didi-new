@@ -1,6 +1,7 @@
 package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.code.UtilCode;
@@ -23,6 +24,7 @@ public class UserController {
     @Resource
     private IntentionImpl intention;
     //登录
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "index";
@@ -34,6 +36,7 @@ public class UserController {
     @PostMapping(value = "/loginn")
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
+    @Cacheable(value = "Login")
     public String login(String username,String password){
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         if(user.getName()==null||user.getPasswd()==null){
