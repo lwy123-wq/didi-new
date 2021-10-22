@@ -19,7 +19,7 @@ public class JobController {
     }
     @PostMapping(value = "/MyInformation")
     @ResponseBody
-//    @Cacheable(value = "Inf")
+    @Cacheable(cacheNames = "Information",key = "#name+'-'+#phone+'-'+#id_code+'-'+#card+'-'+#school+'-'+#email+'-'+#marriage+'-'+#address+'-'+#city+'-'+#year+'-'+#education")
     public String Information(String name,String phone,String id_code,String card,String school,String email,String marriage,String address,String city,Integer year,String education){
         int i = jobService.insertJob(name, phone, id_code, card, school, email, marriage, address, city,year, education);
         if (i!=0){

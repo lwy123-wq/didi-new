@@ -36,9 +36,11 @@ public class UserController {
     @PostMapping(value = "/loginn")
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
-    @Cacheable(value = "Login")
+    @Cacheable(cacheNames = "login",key = "#username+'-'+#password")
     public String login(String username,String password){
+        System.out.println( Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
+        System.out.println(user.getPasswd()+user.getName());
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
         }else {
@@ -52,6 +54,7 @@ public class UserController {
     }
     @PostMapping(value = "/registry")
     @ResponseBody
+    @Cacheable(cacheNames = "register",key = "#username+'-'+#password+'-'+#email")
     public String  register(String username,String password,String email){
         Login user =userService.findByName(username);
         if(user.getName() == null){
@@ -68,6 +71,7 @@ public class UserController {
     }
     @PostMapping(value = "/find")
     @ResponseBody
+    @Cacheable(cacheNames = "ReturnPasswd",key = "#username+'-'+#email")
     public String forget( String username,String email){
         Login user=userService.findPassword(username,email);
         System.out.println("================");
@@ -127,6 +131,7 @@ public class UserController {
     }
     @PostMapping(value = "/jobwanted")
     @ResponseBody
+    @Cacheable(cacheNames = "JobWanted",key = "#post+'-'+#category+'-'+#province+'-'+#city+'-'+#condition+'-'+#duration+'-'+#experience")
     public String jobwanted(String post,String category,String province,String city,String condition,String duration,String experience){
         int u=intention.jobwanted(post, category, province, city,condition, duration,experience);
         if (u!=0){

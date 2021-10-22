@@ -4,8 +4,8 @@ sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/controller/UserController.java
- sun.com.didi.controller.UserController
+sun/com/didi/chat/UserHandler.java
+ sun.com.didi.chat.UserHandler
 sun/com/didi/service/IEmailService.java
  sun.com.didi.service.IEmailService
 sun/com/didi/config/UrlConfig.java
@@ -18,11 +18,8 @@ sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
-sun/com/didi/dao/LoginDao.java
- sun.com.didi.dao.LoginDao
- sun.com.didi.dao.LoginDao$1
- sun.com.didi.dao.LoginDao$2
- sun.com.didi.dao.LoginDao$3
+sun/com/didi/Application.java
+ sun.com.didi.Application
 sun/com/didi/chat/UserChatServer.java
  sun.com.didi.chat.UserChatServer
 sun/com/didi/dao/IntentionDao.java
@@ -39,8 +36,8 @@ sun/com/didi/chat/JobHandler.java
  sun.com.didi.chat.JobHandler
 sun/com/didi/entity/JobInfo.java
  sun.com.didi.entity.JobInfo
-sun/com/didi/service/UserServiceImpl.java
- sun.com.didi.service.UserServiceImpl
+sun/com/didi/controller/UserController.java
+ sun.com.didi.controller.UserController
 sun/com/didi/service/JobServiceImpl.java
  sun.com.didi.service.JobServiceImpl
 sun/com/didi/chat/JobServerInitializer.java
@@ -49,9 +46,12 @@ sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
-sun/com/didi/chat/UserHandler.java
- sun.com.didi.chat.UserHandler
+sun/com/didi/service/UserServiceImpl.java
+ sun.com.didi.service.UserServiceImpl
+sun/com/didi/dao/LoginDao.java
+ sun.com.didi.dao.LoginDao
+ sun.com.didi.dao.LoginDao$1
+ sun.com.didi.dao.LoginDao$2
+ sun.com.didi.dao.LoginDao$3
 sun/com/didi/controller/JobController.java
  sun.com.didi.controller.JobController
-sun/com/didi/Application.java
- sun.com.didi.Application

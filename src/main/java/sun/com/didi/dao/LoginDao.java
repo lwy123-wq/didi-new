@@ -21,7 +21,7 @@ public class LoginDao {
     public Login findByName(String name) {
 
         final Login user = new Login();
-        String sql = "SELECT name FROM Login WHERE name=?";
+        String sql = "SELECT * FROM Login WHERE name=?";
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
@@ -43,7 +43,7 @@ public class LoginDao {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 user.setName(resultSet.getString(2));
-                user.setPasswd(resultSet.getString(3));
+                user.setPasswd(resultSet.getString(5));
             }
         });
         return user;
@@ -55,7 +55,7 @@ public class LoginDao {
         jdbcTemplate.query(sql, new Object[]{username, email}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                user.setPasswd(rs.getString(3));
+                user.setPasswd(rs.getString(5));
             }
         });
         return user;
