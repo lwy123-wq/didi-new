@@ -8,7 +8,7 @@
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <!-- import css -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!--    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
 
     <style>
         body {
@@ -111,8 +111,14 @@
         .lanmu {
             float: left;
             width:300px;
-            height: 500px;
-            margin:0 10px;
+            height: 560px;
+            margin:56px 64px 0px 118px;
+
+            background-color: #f1f1f1;
+        }
+        .lanmu p {
+            font-size: 10px;
+            color: #3c3f41;
         }
         .top {
             height: 250px;
@@ -121,7 +127,7 @@
         .ti {
             line-height: 40px;
             height:40px ;
-            background-color:#5c8a01;
+            background-color:#c97513;
             color: white;
         }
         .home {
@@ -130,7 +136,7 @@
             float: left;
             width: 30px;
             height: 20px;
-            background-image: url("../static/images/home.png ");
+            /*background-image: url("../static/images/home.png ");*/
         }
         ul {
             list-style: none;
@@ -140,24 +146,94 @@
             width:220px;
             margin-top:10px;
             line-height: 35px;
-            border-bottom: 1px solid #5e8f00;
+            border-bottom: 1px solid #c97513;
             font-size: 15px;
+            text-align: center;
         }
         .bot {
 
             line-height: 40px;
             height:40px ;
-            background-color:#3d3d3d;
+            background-color:#c97513;
             color: white;
+
         }
+
         .relate {
             margin-left: 90px;
             margin-top:10px;
             float: left;
             width: 30px;
             height: 20px;
-            background-image: url("../static/images/relate.png");
+            /*background-image: url("../static/images/relate.png");*/
         }
+        .one {
+            font-weight: 800;
+            color: #c97513;
+        }
+        .yijian {
+            margin-left: 480px;
+
+            color: #c97513;
+            text-align: center;
+            font-weight: 800;
+        }
+        textarea {
+
+            border: 3px solid #c97513;
+            float: left
+        }
+        .picc {
+            position: relative;
+           width: 180px;
+            height: 105px;
+            float: right;
+            border: 3px solid transparent;
+        }
+        #send-pic {
+            margin: 0 0 0 0;
+            border: 0 solid transparent;
+         position:absolute; top:0; right:0px; height:111px; filter:alpha(opacity:0);opacity: 0;width:186px;
+
+
+        }
+        #send {
+            width: 100px;
+            height: 50px;
+            background-color: #c97513;
+            border:0 solid transparent;
+            margin-top: 10px;
+            margin-left: 105px;
+            font-size: 20px;
+            color: white;
+        }
+        .right {
+            position: absolute;
+            top:197px;
+            right: 55px;
+            background: url("../static/images/ps.png");
+            width: 336px;
+            height: 584px;
+            float: right;
+        }
+        .jia {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 186px;
+            height: 111px;
+            background: url("../static/images/jia.png") no-repeat;
+            background-size: 100% 100%;
+            float: right;
+        }
+        .cont {
+            position: absolute;
+            top:41px;
+            left: 59px;
+            color: white;
+        }
+
+
 
     </style>
 </head>
@@ -191,31 +267,38 @@
     <div class="lanmu">
         <div class="top">
             <div class="ti">
-                <div class="home"></div>文献库
+                <div class="home"></div>匹配中心
             </div>
             <ul>
-                <li v-for="item in arr" :key="item">{{item}}</li>
+                <li class="one">用户反馈</li>
+                <li class="one" style="font-weight: 400;">订单中心</li>
             </ul>
         </div>
         <div class="bot">
             <div class="relate"></div>联系我们
         </div>
         <p>天津职业技术师范大学高等教育研究院</p>
-        <p>高校内部权力制约与监督机制研究课题组</p>
-        <p>电子邮箱：1592807515@qq.com</p>
-        <p>电话：0111-85707273</p>
+        <p>高校研究课题</p>
+        <p>关于我们</p>
+
     </div>
 </div>
 
-<div style="width: 600px;height: 400px;">
-    <p>服务器输出:</p>
-    <div style="border: 1px solid #CCC;height: 300px;overflow: scroll" id="server-msg-container">
+<div style="width: 600px;height: 00px;" class="yijian">
+    <p>在这儿留下你的用工体验吧:</p>
+    <div style="border: 3px solid #c97513;height: 300px;overflow: scroll;padding: 30px" id="server-msg-container">
 
     </div>
-    <p>
-        <textarea id="inp-msg" style="height: 50px;width: 500px"></textarea><input type="button" value="发送" id="send"><br/>
-        选择图片： <input type="file" id="send-pic">
+    <p id="oo">
+        <textarea id="inp-msg" style="height: 100px;width: 400px;resize: none;outline: none"></textarea>
+
+
+    <div class="picc">
+    <div class="jia"></div>
+    <div class="cont"> 选择图片：</div> <input type="file" id="send-pic" size="28" onchange="document.getElementById('inp-msg').value=this.value"></div>
     </p>
+    <div class="right"></div>
+    <input type="button" value="发送" id="send">
 </div>
 
 <script type="application/javascript">
