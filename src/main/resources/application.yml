@@ -1,6 +1,11 @@
 server:
   port: 8000
-
+logging:
+  level:
+    sun:
+      com:
+        didi:
+          dao=debug:
 spring:
   thymeleaf:
     suffix=:
@@ -16,7 +21,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/WuGong
     username: root
-    password: root
+    password: lwy0328
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   mail:
