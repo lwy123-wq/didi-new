@@ -1,15 +1,14 @@
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sun.com.did.Application;
-import sun.com.did.dao.JobDao;
-import sun.com.did.entity.Intention;
-import sun.com.did.entity.Login;
-import sun.com.did.service.IntentionImpl;
-import sun.com.did.service.UserServiceImpl;
+import sun.com.didi.Application;
+import sun.com.didi.dao.JobDao;
+import sun.com.didi.entity.Intention;
+import sun.com.didi.entity.Login;
+import sun.com.didi.service.IntentionImpl;
+import sun.com.didi.service.UserServiceImpl;
 
 import java.util.Base64;
-import java.util.Random;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -22,8 +21,8 @@ public class test {
     private IntentionImpl intention;
     @Test
     public void t(){
-        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
-        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");
+//        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
+//        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");
     /*    ConfigurableApplicationContext run1 = SpringApplication.run(Application.class);
         String [] definitionNames=run1.getBeanDefinitionNames();
 
@@ -37,11 +36,13 @@ public class test {
         jobDao.create("aa","11"," ","","","","","",2,"");*/
 
         //找回密码demo，可运行
- /*       Login password = userService.findPassword("Oooo", "97@qq.com");
+    /*    Login password = userService.findPassword("wang", "2079606166@qq.com");
+        System.out.println(password.getPasswd());
         System.out.println("========================");
-        byte[] decoded=Base64.getDecoder().decode(password.getPasswd());
+        byte[] decoded= Base64.getDecoder().decode(password.getPasswd());
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);*/
+
     }
 
 }
