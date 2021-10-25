@@ -55,3 +55,13 @@ sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
+sun/com/didi/entity/Picture.java
+ sun.com.didi.entity.Picture
+sun/com/didi/controller/PictureController.java
+ sun.com.didi.controller.PictureController
+sun/com/didi/dao/PictureDao.java
+ sun.com.didi.dao.PictureDao
+sun/com/didi/service/PictureServiceImpl.java
+ sun.com.didi.service.PictureServiceImpl
+sun/com/didi/service/PictureService.java
+ sun.com.didi.service.PictureService

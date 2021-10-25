@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单中心</title>
+<style>
+    body {
+        background-color: #ffffff;
+        margin: 0;
+        padding:0;
+    }
+    .header {
+
+        height: 110px;
+        padding-top: 50px;
+
+    }
+    .header a {
+        color: black;
+    }
+    .header .oneone {
+        float: left;
+        width: 198px;
+        height: 104px;
+        margin-left: 80px;
+        background: url("../static/images/logo.jpg") no-repeat;
+
+        background-size: 100% 100%;
+
+    }
+    .header a .zi {
+        float: left;
+        margin-left: 44px;
+        margin-right: 35px;
+        margin-top: 37px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        padding-bottom: 15px;
+        font-size:20px;
+        color: black;
+
+    }
+    a{
+
+        display: block;
+        text-decoration: none;
+    }
+    .zi:hover {
+        border-top: 1px solid transparent;
+        border-bottom: 5px solid #c97513;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+    }
+    .header .sou {
+        float: left;
+        margin-top: 26px;
+    }
+    input[type="text"]{
+        border: 1px solid #c97513;
+        width:451px;
+        height: 45px;
+        margin-left: 20px;
+        outline: none;
+        padding-left: 20px;
+    }
+    .ge:hover{
+        color: #c97513;
+    }
+    .header a .ge{
+
+        float: left;
+        width: 80px;
+        margin-left: 48px;
+
+        margin-top: 37px;
+    }
+    .header a .yuan{
+        float: left;
+        margin-top: 26px;
+    }
+    .header a .xiao {
+        float: left;
+        margin-left: 15px;
+
+        margin-top: 33px;
+    }
+    .header a .ren {
+        float: left;
+        margin-left: 15px;
+
+        margin-top: 26px;
+    }
+    .header a .xu {
+
+        margin-left: 15px;
+        font-size: 12px;
+        margin-top: 39px;
+    }
+    .xu:hover {
+        color: #c97513;
+    }
+    /*导航栏已结束*/
+    .lanmu {
+        float: left;
+        width:300px;
+        height: 560px;
+        margin:56px 64px 0px 118px;
+
+        background-color: #f1f1f1;
+    }
+    .lanmu p {
+        font-size: 10px;
+        color: #3c3f41;
+    }
+    .top {
+        height: 250px;
+
+    }
+    .ti {
+        line-height: 40px;
+        height:40px ;
+        background-color:#c97513;
+        color: white;
+    }
+    .home {
+        margin-left: 90px;
+        margin-top:10px;
+        float: left;
+        width: 30px;
+        height: 20px;
+        /*background-image: url("../static/images/home.png ");*/
+    }
+    ul {
+        list-style: none;
+    }
+    ul li {
+        height: 30px;
+        width:220px;
+        margin-top:10px;
+        line-height: 35px;
+        border-bottom: 1px solid #c97513;
+        font-size: 15px;
+        text-align: center;
+    }
+    .bot {
+
+        line-height: 40px;
+        height:40px ;
+        background-color:#c97513;
+        color: white;
+
+    }
+
+    .relate {
+        margin-left: 90px;
+        margin-top:10px;
+        float: left;
+        width: 30px;
+        height: 20px;
+        /*background-image: url("../static/images/relate.png");*/
+    }
+    .one {
+        font-weight: 800;
+        color: #c97513;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="oneone">
+        <!--        <img src="picture/didilogo.jpg">-->
+    </div>
+
+    <a href="#"><div class="zi">首页</div></a>
+    <a href="#"><div class="zi">匹配中心</div></a>
+    <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+    <div class="sou">
+        <input type="text" placeholder="请输入您所需要的职位、公司">
+    </div>
+    <a href="#"><div class="yuan">
+        <img src="../static/images/14.png">
+    </div></a>
+    <a href="#"><div class="ge">登录/注册</div></a>
+    <a href="#"><div class="xiao">
+        <img src="../static/images/12.png">
+    </div> </a>
+    <!--    <a href="#"><div class="ren">-->
+    <!--    <img src="picture/13.png">-->
+    <!--</div> </a>-->
+    <a href="#"><div class="xu">
+        欢迎来到滴滴务工！
+    </div> </a>
+</div>
+<div id="ap">
+    <div class="lanmu">
+        <div class="top">
+            <div class="ti">
+                <div class="home"></div>匹配中心
+            </div>
+            <ul>
+                <li class="one" style="font-weight: 400;">用户反馈</li>
+                <li class="one" >订单中心</li>
+            </ul>
+        </div>
+        <div class="bot">
+            <div class="relate"></div>联系我们
+        </div>
+        <p>天津职业技术师范大学高等教育研究院</p>
+        <p>高校研究课题</p>
+        <p>关于我们</p>
+
+    </div>
+</div>
+
+</body>
+</html>
