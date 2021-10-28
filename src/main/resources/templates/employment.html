@@ -59,8 +59,29 @@
             width: 200px;
             height: 100px;
         }
+        #send-pic {
+            margin: 0 0 0 0;
+            border: 0 solid transparent;
+            position:absolute; top:95px; right:325px; height:36px; filter:alpha(opacity:0);opacity: 0;width:75px;
+            z-index: 9999;
+
+
+        }
+        .zhen {
+            width: 75px;
+            height: 36px;
+            position: absolute;
+            top:95px;
+            left: 82px;
+            border: 1px solid #3592c4;
+            border-radius: 25px;
+            line-height: 36px;
+            text-align: center;
+        }
 
     </style>
+
+
 </head>
 
 <body onload="init()">
@@ -72,6 +93,12 @@
         <tr>
             <td>公司名称</td>
             <td><input type="text" name="Name"> </td>
+        </tr>
+        <tr style="margin: 85px 0">
+            <td>公司logo</td>
+            <td style="position: relative"> <input type="file" id="send-pic" size="28" onchange="imgPreview(this)"><div class="zhen">添加图片</div> </td>
+            <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -400px" alt="" title="preview-img">
+            </td>
         </tr>
 
 
@@ -113,5 +140,33 @@
     </table>
 
 </form>
+<script type="text/javascript">
+    function imgPreview(fileDom){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
+
+        //获取文件
+        var file = fileDom.files[0];
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById("preview");
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+</script>
 </body>
 </html>
