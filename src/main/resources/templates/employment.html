@@ -83,7 +83,7 @@
             width: 200px;
             height: 100px;
         }
-        #send-pic {
+        #fileName {
             margin: 0 0 0 0;
             border: 0 solid transparent;
             position:absolute; top:95px; right:325px; height:36px; filter:alpha(opacity:0);opacity: 0;width:75px;
@@ -189,6 +189,11 @@
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);
+    }
+    var pictur =document.getElementById('preview');
+    if (pictur.src)
+    {
+        picture();
     }
 
 </script>
