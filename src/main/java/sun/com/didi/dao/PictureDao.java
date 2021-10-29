@@ -14,9 +14,9 @@ public class PictureDao implements PictureService {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public int insert(Date time, String fileName) {
-        String sql="insert int picture(time,filename)values(?,?)";
-        return jdbcTemplate.update(sql,time,fileName);
+    public int insert(Date time, String fileName,String companyName) {
+        String sql="insert int picture(time,filename,company_name)values(?,?,?)";
+        return jdbcTemplate.update(sql,time,fileName,companyName);
     }
 
     @Override

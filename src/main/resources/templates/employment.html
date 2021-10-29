@@ -3,6 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>招聘要求信息填写</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function picture(){
+            $.ajax({
+                url: "/picture",
+                type: 'POST',
+                data: {'fileName': $("#fileName").val(), 'companyName': $("#companyName").val()},
+                success: function (res) {
+                    if(res=="success"){
+                        function picture1(){
+                            window.location.href='select'
+                        }
+                        picture1()
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+    </script>
     <style>
         body {
 
@@ -86,17 +110,17 @@
 
 <body onload="init()">
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
-<form method="post" action="" class="fo">
+<form method="post" onsubmit="return false" action="##" class="fo">
     <h2 >请填写您的招聘要求：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
 
         <tr>
             <td>公司名称</td>
-            <td><input type="text" name="Name"> </td>
+            <td><input type="text" id="companyName"> </td>
         </tr>
         <tr style="margin: 85px 0">
             <td>公司logo</td>
-            <td style="position: relative"> <input type="file" id="send-pic" size="28" onchange="imgPreview(this)"><div class="zhen">添加图片</div> </td>
+            <td style="position: relative"> <input type="file" id="fileName" size="28" onchange="imgPreview(this)"><div class="zhen" >添加图片</div> </td>
             <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -400px" alt="" title="preview-img">
             </td>
         </tr>

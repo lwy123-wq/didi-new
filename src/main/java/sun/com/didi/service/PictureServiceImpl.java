@@ -10,7 +10,7 @@ public class PictureServiceImpl {
     @Autowired
     private PictureDao pictureDao;
     public int insertPicture(Picture picture){
-        return pictureDao.insert(picture.getTime(),picture.getFileName());
+        return pictureDao.insert(picture.getTime(),picture.getFileName(),picture.getCompanyName());
 
     }
 }

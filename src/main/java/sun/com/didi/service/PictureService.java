@@ -10,7 +10,7 @@ public interface PictureService {
      *
      *
      * @return*/
-    int insert(Date time, String fileName);
+    int insert(Date time, String fileName,String companyName);
     /**
      * 更改图片
      * */
