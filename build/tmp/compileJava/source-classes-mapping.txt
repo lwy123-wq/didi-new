@@ -65,3 +65,11 @@ sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
+sun/com/didi/config/WebappConfig.java
+ sun.com.didi.config.WebappConfig
+sun/com/didi/entity/IpUtil.java
+ sun.com.didi.entity.IpUtil
+sun/com/didi/interceptor/AddressedInterceptor.java
+ sun.com.didi.interceptor.AddressedInterceptor
+sun/com/didi/service/AddressServiceImpl.java
+ sun.com.didi.service.AddressServiceImpl
