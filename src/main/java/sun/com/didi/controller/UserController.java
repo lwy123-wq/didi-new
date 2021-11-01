@@ -146,4 +146,9 @@ public class UserController {
     public String employment(){
         return "employment";
     }
+
+    @RequestMapping(value = "/homePage", method = RequestMethod.GET)
+    public String homePage(){
+        return "shou";
+    }
 }

@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function login(){
+            $.ajax({
+                url: "/address",
+                type: 'POST',
+                success: function (res) {
+                    if(res!=null){
+
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+    </script>
     <style>
         body {
             background-image: url("../static/images/bbb.png");
@@ -457,11 +477,6 @@
 
 
 
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -480,7 +495,7 @@
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">
     </div></a>
-    <a href="#"><div class="ge">登录/注册</div></a>
+    <a href="register"><div class="ge">登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
         <div class="positin" id="positin"></div>

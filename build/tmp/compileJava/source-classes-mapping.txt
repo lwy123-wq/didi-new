@@ -4,8 +4,8 @@ sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/controller/UserController.java
- sun.com.didi.controller.UserController
+sun/com/didi/service/PictureService.java
+ sun.com.didi.service.PictureService
 sun/com/didi/service/IEmailService.java
  sun.com.didi.service.IEmailService
 sun/com/didi/config/UrlConfig.java
@@ -55,21 +55,32 @@ sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
+sun/com/didi/service/AddressServiceImpl.java
+ sun.com.didi.service.AddressServiceImpl
+sun/com/didi/service/PictureServiceImpl.java
+ sun.com.didi.service.PictureServiceImpl
+sun/com/didi/entity/IpUtil.java
+ sun.com.didi.entity.IpUtil
+sun/com/didi/controller/UserController.java
+ sun.com.didi.controller.UserController
+sun/com/didi/entity/Requirement.java
+ sun.com.didi.entity.Requirement
+sun/com/didi/controller/WorkController.java
+ sun.com.didi.controller.WorkController
+sun/com/didi/dao/RecruitDao.java
+ sun.com.didi.dao.RecruitDao
+ sun.com.didi.dao.RecruitDao$1
+sun/com/didi/service/WorkServiceImpl.java
+ sun.com.didi.service.WorkServiceImpl
 sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
 sun/com/didi/controller/PictureController.java
  sun.com.didi.controller.PictureController
 sun/com/didi/dao/PictureDao.java
  sun.com.didi.dao.PictureDao
-sun/com/didi/service/PictureServiceImpl.java
- sun.com.didi.service.PictureServiceImpl
-sun/com/didi/service/PictureService.java
- sun.com.didi.service.PictureService
 sun/com/didi/config/WebappConfig.java
  sun.com.didi.config.WebappConfig
-sun/com/didi/entity/IpUtil.java
- sun.com.didi.entity.IpUtil
 sun/com/didi/interceptor/AddressedInterceptor.java
  sun.com.didi.interceptor.AddressedInterceptor
-sun/com/didi/service/AddressServiceImpl.java
- sun.com.didi.service.AddressServiceImpl
+sun/com/didi/controller/AddressController.java
+ sun.com.didi.controller.AddressController

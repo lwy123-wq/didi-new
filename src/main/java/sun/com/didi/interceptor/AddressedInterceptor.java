@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import sun.com.didi.controller.AddressController;
 import sun.com.didi.entity.IpUtil;
 import sun.com.didi.service.AddressServiceImpl;
 
@@ -20,7 +21,7 @@ import java.util.Map;
 @Configuration
 public class AddressedInterceptor implements HandlerInterceptor {
     @Autowired
-    private AddressServiceImpl addressService;
+    private AddressController addressService;
     public static String sendGet(String ip) {
         String result = "";
         BufferedReader in = null;
@@ -76,10 +77,10 @@ public class AddressedInterceptor implements HandlerInterceptor {
             //  String district = (String) addressInfo.get("district");
             String city = (String) addressInfo.get("city");
             String address = nation + "-" + province + "-" + city;
-            addressService.Address(address);
+            addressService.CityByIp(address);
         }else if (message.equals("局域网IP无法定位")){
             String addr="天津\n";
-            addressService.Address(addr);
+            addressService.CityByIp(addr);
             System.out.println("办公区域/局域网区域"+addr);
         }
 
