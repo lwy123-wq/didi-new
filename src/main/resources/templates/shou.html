@@ -5,14 +5,23 @@
     <title>首页</title>
     <style>
         body {
-            background-color: #f5f5f5;
+            background-image: url("../static/images/bbb.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
             margin: 0;
             padding:0;
         }
         .header {
-
+            width: 1300px;
+            margin: 0 auto;
             height: 110px;
             padding-top: 50px;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
 
         }
         .header a {
@@ -24,15 +33,19 @@
         .banner {
             height: 550px;
 
-            background-image: url("../static/images/ren.jpg");
+            background-image: url("../static/images/duola.png");
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 100% 100%;
+            background-size: 85% 100%;
         }
         .dao {
             width: 1300px;
             height: 74px;
-            background-color: #ffffff;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
             margin: 0 auto;
             border: 1px solid #d0d1d3;
 
@@ -54,7 +67,7 @@
             float: left;
             width: 198px;
             height: 104px;
-            margin-left: 80px;
+            /*margin-left: 80px;*/
             background: url("../static/images/logo.jpg") no-repeat;
 
             background-size: 100% 100%;
@@ -62,7 +75,7 @@
         }
         .header a .zi {
             float: left;
-            margin-left: 44px;
+            margin-left: 9px;
             margin-right: 35px;
             margin-top: 37px;
             padding-left: 10px;
@@ -114,8 +127,8 @@
         .header a .xiao {
             float: left;
             margin-left: 15px;
-
-            margin-top: 33px;
+            margin-right: 15px;
+            margin-top: 24px;
         }
         .header a .ren {
             float: left;
@@ -237,11 +250,25 @@
         .bu a:hover {
             color: #c97513;
         }
+        .jing:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
         .xiang {
+
             width:856px;
             height: 139px;
-            background-color:#f5f5f5;
-            /*float: left;*/
+            /*background-color:#f5f5f5;*/
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+            float: left;
             margin-top: 20px;
             margin-left: 74px;
             /*margin-bottom: 15px;*/
@@ -301,25 +328,73 @@
             border-radius: 25px;
         }
         .xia {
-            width:915px;
-            height: 239px;
-            background-color:#f5f5f5;
+
+            width:856px;
+            /*height: 239px;*/
+
+            /*background-color:#f5f5f5;*/
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
             margin-left: 74px;
             padding: 30px;
-        }
-        .xia .profession {
-            width: 200px;
-            height: 50px;
+            display: none;
 
         }
-        /*.xiang:hover{*/
-        /*    box-shadow: 0px 0px 10px 7px rgba(0,0,0,.3);*/
-        /*}*/
+        .xia:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .xia .profession {
+            float: left;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .xia .number {
+            float: right;
+            margin-right: 50px;
+            color: #a5a5a5;
+        }
+        .xia .time {
+            float: left;
+            margin-left: 186px;
+            color: #a5a5a5;
+        }
+        .xia .experience {
+            float: left;
+            margin-top: 28px;
+            margin-left: 3px;
+        }
+        . {
+            transition: display 3s ;
+        }
+        .xiang:hover{
+
+            box-shadow: 0px -1px 10px 7px rgba(0,0,0,.3);
+        }
+
+        .xia:hover{
+
+            box-shadow: 0px -1px 10px 7px rgba(0,0,0,.3);
+        }
+
         .footer {
+            width: 100%;
             margin-top: 40px;
+
             padding-top: 35px;
-            height: 419px;
-            background-color: #fff;
+            height: 232px;
+            float:left;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
         }
 
         .copyright p {
@@ -376,7 +451,9 @@
             margin: 0 auto;
         }
 
-
+        #map {
+            position: absolute;
+        }
 
 
 
@@ -388,6 +465,7 @@
     </style>
 </head>
 <body>
+<img src="../static/images/baby.gif" id="map">
 <div class="header">
     <div class="oneone">
         <!--        <img src="picture/didilogo.jpg">-->
@@ -405,6 +483,7 @@
     <a href="#"><div class="ge">登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
+        <div class="positin" id="positin"></div>
     </div> </a>
     <!--    <a href="#"><div class="ren">-->
     <!--    <img src="picture/13.png">-->
@@ -416,39 +495,44 @@
 
 <div class="banner">
     <div class="ce">
-        <a href="#"><div class="qian">餐饮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;><div class="hou">
+        <a href="#"><div class="qian">餐饮行业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;><div class="hou">
             <div class="none"> <a href="#">后厨</a></div><div class="h">|</div>
             <div class="none"> <a href="#">服务员</a></div><div class="h">|</div>
             <div class="none"> <a href="#">传菜员</a></div><div class="h">|</div>
-            <div class="none"> <a href="#">送餐员</a></div><div class="h"></div>
+            <div class="none"> <a href="#">送餐员</a></div><div class="h">|</div>
+            <div class="none"> <a href="#">配菜员</a></div><div class="h"></div>
         </div> </div></a>
-        <a href="#"><div class="qian">服务类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">服务行业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">月嫂</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">钟点工</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">保姆</a></div><div class="h">|</div>
-<!--                <div class="none"> <a href="#">产品主管</a></div><div class="h"></div>-->
+                <div class="none"> <a href="#">育儿师</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">家教老师</a></div><div class="h"></div>
             </div></div></a>
-        <a href="#"><div class="qian">美容/美发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">美容美发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">发型师</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">洗头工</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">美容师</a></div><div class="h">|</div>
-                <div class="none"> <a href="#">美容学徒</a></div><div class="h"></div>
+                <div class="none"> <a href="#">美容学徒</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">美甲师</a></div><div class="h"></div>
             </div></div></a>
-        <a href="#"><div class="qian">娱乐/休闲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">娱乐休闲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">酒吧服务员</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">主持人</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">调酒师</a></div><div class="h">|</div>
-                <div class="none"> <a href="#">音效师</a></div><div class="h"></div>
+                <div class="none"> <a href="#">音效师</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">前台</a></div><div class="h"></div>
             </div></div></a>
         <a href="#"><div class="qian">保健按摩&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">按摩师</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">足疗师</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">搓澡工</a></div><div class="h">|</div>
-<!--                <div class="none"> <a href="#">促销主管</a></div><div class="h"></div>-->
+                <div class="none"> <a href="#">保健师</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">营养师</a></div><div class="h"></div>
             </div></div></a>
         <a href="#"><div class="qian">运动健身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
@@ -457,38 +541,31 @@
                 <div class="none"> <a href="#">健身教练</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">瑜伽教练</a></div><div class="h"></div>
             </div></div></a>
-        <a href="#"><div class="qian">酒店&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">酒店管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">楼层经理</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">客房服务员</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">洗衣房经理</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">公共区域经理</a></div><div class="h"></div>
             </div></div></a>
-        <a href="#"><div class="qian">旅游 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">旅游管理 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">订票员</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">导游</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">旅游顾问</a></div><div class="h">|</div>
-                <div class="none"> <a href="#">签证专员</a></div><div class="h"></div>
+                <div class="none"> <a href="#">签证专员</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">路线策划员</a></div><div class="h"></div>
             </div></div></a>
-        <a href="#"><div class="qian">百货&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
+        <a href="#"><div class="qian">百货超市&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>
             <div class="hou">
                 <div class="none"> <a href="#">收银员</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">导购员</a></div><div class="h">|</div>
                 <div class="none"> <a href="#">理货员</a></div><div class="h">|</div>
-                <div class="none"> <a href="#">卖场经理</a></div><div class="h"></div>
+                <div class="none"> <a href="#">卖场经理</a></div><div class="h">|</div>
+                <div class="none"> <a href="#">营业员</a></div><div class="h"></div>
             </div></div></a>
     </div>
-    <!--    <div class="ke">-->
-    <!--       <div class="wo">我的课程表</div>-->
-    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
-    <!--        <div class="zheng">正在学习-使用对象</div></div>-->
-    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
-    <!--            <div class="zheng">正在学习-使用对象</div></div>-->
-    <!--        <div class="ji"><div class="yan">继续学习 程序语言对象</div>-->
-    <!--            <div class="zheng">正在学习-使用对象</div></div>-->
-    <!--        <div class="quan"><a href="#">全部课程</a></div>-->
-    <!--    </div>-->
+
 </div>
 
 <div class="dao">
@@ -514,9 +591,46 @@
 
 </div>
 <div class="xia">
-    <div class="profession"></div><div class="time"></div><div class="number"></div>
-    <div class="experience"></div>
+    <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+    <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
 </div>
+
+    <div class="xiang">
+
+        <div class="picc" ></div><div class="name" id="nameo">天津滴滴务工责任有限公司</div>
+        <div class="money">3000-4000元/月</div>
+        <div class="detail">查看详情</div>
+        <div class="zixun"><a href="#"> 详细咨询</a></div>
+
+    </div>
+    <div class="xia">
+        <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+        <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
+    </div>
+    <div class="xiang">
+
+        <div class="picc" ></div><div class="name" id="namet">天津滴滴务工责任有限公司</div>
+        <div class="money">3000-4000元/月</div>
+        <div class="detail">查看详情</div>
+        <div class="zixun"><a href="#"> 详细咨询</a></div>
+
+    </div>
+    <div class="xia">
+        <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+        <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
+    </div>
+    <div class="xiang">
+
+        <div class="picc" ></div><div class="name" id="nameth">天津滴滴务工责任有限公司</div>
+        <div class="money">3000-4000元/月</div>
+        <div class="detail">查看详情</div>
+        <div class="zixun"><a href="#"> 详细咨询</a></div>
+
+    </div>
+    <div class="xia">
+        <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+        <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
+    </div>
 </div>
 <div class="footer">
     <div class="w">
@@ -547,7 +661,31 @@
     </div>
 
 </div>
-
+<script>
+    var details =document.querySelectorAll('.detail');
+    var xias =document.querySelectorAll('.xia');
+    console.log(xias);
+    console.log(details)
+    for (var i=0;i<details.length;i++)
+    {   details[i].setAttribute('index',i);
+        details[i].onclick =function () {
+          var index =this.getAttribute('index');
+          for (var i=0;i<xias.length;i++)
+          {
+              xias[i].style.display='none';
+          }
+          xias[index].style.display= 'block';
+           xias[index].className='xia jingg';
+        }
+    }
+    var pic =document.getElementById('map');
+    document.addEventListener('mousemove',function (e) {
+        var x=e.pageX;
+        var y=e.pageY;
+        pic.style.left=x+'px';
+        pic.style.top=y+'px';
+    });
+</script>
 
 </body>
 
