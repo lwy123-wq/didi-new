@@ -35,6 +35,7 @@
             margin: 0;
             padding:0;
         }
+
         .header {
             width: 1300px;
             margin: 0 auto;
@@ -689,17 +690,18 @@
 <script>
     var details =document.querySelectorAll('.detail');
     var xias =document.querySelectorAll('.xia');
-
+    var flag =0;
     for (var i=0;i<details.length;i++)
     {   details[i].setAttribute('index',i);
+
         details[i].onclick =function () {
             var index =this.getAttribute('index');
-            var flag =0;
+
             if(flag===0)
             {
                 xias[index].style.display= 'block';
                 flag=1;
-            }else(flag==1){
+            }else{
 
 
                 xias[index].style.display = 'none';
