@@ -91,7 +91,7 @@
             width: 198px;
             height: 104px;
             /*margin-left: 80px;*/
-            background: url("../static/images/logo.jpg") no-repeat;
+            background: url("../static/images/didilogo.png") no-repeat;
 
             background-size: 100% 100%;
 
@@ -107,6 +107,7 @@
             padding-bottom: 15px;
             font-size:20px;
             color: black;
+
 
         }
         a{
@@ -164,6 +165,7 @@
             margin-left: 15px;
             font-size: 12px;
             margin-top: 39px;
+            z-index: -999;
         }
         .xu:hover {
             color: #c97513;
@@ -342,7 +344,7 @@
             font-size: 13px;
             color: #a5a5a5;
         }
-         .zixun a {
+        .zixun a {
             color:  #c97513;
         }
         .zixun a:hover {
@@ -480,6 +482,11 @@
 
 
 
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -490,7 +497,7 @@
     </div>
 
     <a href="#"><div class="zi">首页</div></a>
-        <a href="#"><div class="zi">匹配中心</div></a>
+    <a href="#"><div class="zi">匹配中心</div></a>
     <!--    <a href="#"><div class="zi">职业规划</div></a>-->
     <div class="sou">
         <input type="text" placeholder="请输入您所需要的职位、公司">
@@ -498,7 +505,7 @@
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">
     </div></a>
-    <a href="register"><div class="ge">登录/注册</div></a>
+    <a href="login.html"><div class="ge">登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
         <div class="positin" id="positin"></div>
@@ -600,18 +607,18 @@
     <div class="bu"><a href="#">查看全部</a> </div>
 </div>
 <div class="jing">
-<div class="xiang">
+    <div class="xiang">
 
-<div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>
-    <div class="money">3000-4000元/月</div>
-    <div class="detail">查看详情</div>
-    <div class="zixun"><a href="#"> 详细咨询</a></div>
+        <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>
+        <div class="money">3000-4000元/月</div>
+        <div class="detail">查看详情</div>
+        <div class="zixun"><a href="#"> 详细咨询</a></div>
 
-</div>
-<div class="xia">
-    <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
-    <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
-</div>
+    </div>
+    <div class="xia">
+        <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+        <div class="experience">餐厅服务员，做六休一，五险一金，包吃包住，基本工资+全勤奖+节假日三薪</div>
+    </div>
 
     <div class="xiang">
 
@@ -653,7 +660,7 @@
 <div class="footer">
     <div class="w">
         <div class="copyright">
-            <img src="../static/images/logo.jpg" alt="">
+            <img src="../static/images/didilogo.png" alt="">
 
         </div>
 
@@ -682,26 +689,33 @@
 <script>
     var details =document.querySelectorAll('.detail');
     var xias =document.querySelectorAll('.xia');
-    console.log(xias);
-    console.log(details)
+
     for (var i=0;i<details.length;i++)
     {   details[i].setAttribute('index',i);
         details[i].onclick =function () {
-          var index =this.getAttribute('index');
-          for (var i=0;i<xias.length;i++)
-          {
-              xias[i].style.display='none';
-          }
-          xias[index].style.display= 'block';
-           xias[index].className='xia jingg';
+            var index =this.getAttribute('index');
+            var flag =0;
+            if(flag===0)
+            {
+                xias[index].style.display= 'block';
+                flag=1;
+            }else(flag==1){
+
+
+                xias[index].style.display = 'none';
+                flag=0;
+            }
+
+
+            xias[index].className='xia jingg';
         }
     }
     var pic =document.getElementById('map');
     document.addEventListener('mousemove',function (e) {
         var x=e.pageX;
         var y=e.pageY;
-        pic.style.left=x+'px';
-        pic.style.top=y+'px';
+        pic.style.left=x+10+'px';
+        pic.style.top=y+10+'px';
     });
 </script>
 
