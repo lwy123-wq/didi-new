@@ -5,13 +5,15 @@
     <title>首页</title>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
-        function login(){
+        function address(){
             $.ajax({
                 url: "/address",
                 type: 'POST',
                 success: function (res) {
                     if(res!=null){
-
+                        var positin =document.getElementById('positin');
+                        positin.innerHTML=res;
+                        alert(res);
                     }else{
                         alert("error");
                     }
@@ -21,6 +23,7 @@
                 }
             });
         }
+        address();
 
     </script>
     <style>
