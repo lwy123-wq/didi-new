@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
- #map {
-     position: absolute;
- }
-    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#div1").fadeToggle()(3000);
+            });
+        });
+    </script>
 </head>
 <body>
-<img src="../static/images/baby.gif" id="map">
-     <script>
-         var pic =document.getElementById('map');
-         document.addEventListener('mousemove',function (e) {
-             var x=e.pageX;
-             var y=e.pageY;
-             pic.style.left=x+10+'px';
-             pic.style.top=y+10+'px';
-         });
-     </script>
+<p></p>
+<button>点击这里</button>
+<br><br>
+<div id="div1">1234564</div>
+
 </body>
 </html>
