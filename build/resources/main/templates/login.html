@@ -24,7 +24,6 @@
             };
         }
         function wsSend() {
-            alert("你好！！！！！！！！！！")
             var username = document.getElementById("username");
             var password= document.getElementById("password");
             ws.send(JSON.stringify({"username": username.value, "password": password.value}));
@@ -154,8 +153,8 @@
     <div class="right">
         <h1>Welcome to Didi job platform</h1>
         <p>Didi Job platform is a trading platform dedicated to serving the vast number of job seekers and companies. You will have a perfect experience here</p>
-        <p>Not registered yet? Click here to <a href="#">register</a> </p>
-        <p><a href="forget.html" >Forget your password? Click here to retrieve the password</a> </p>
+        <p>Not registered yet? Click here to <a href="register">register</a> </p>
+        <p><a href="ReturnPasswd" >Forget your password? Click here to retrieve the password</a> </p>
     </div>
 </div>
 </body>
