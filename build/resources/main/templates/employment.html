@@ -27,6 +27,29 @@
         }
 
     </script>
+    <script>
+        function employment(){
+            $.ajax({
+                url: "/Recruit",
+                type: 'POST',
+                data: {'fileName': $("#fileName").val(), 'companyName': $("#companyName").val()},
+                success: function (res) {
+                    if(res=="success"){
+                        function picture1(){
+                            window.location.href='select'
+                        }
+                        picture1()
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+    </script>
     <style>
         body {
 
