@@ -52,3 +52,15 @@ spring:
           max-idle: 8
           # 连接池中的最小空闲连接
           min-idle: 0
+
+　　port: 6325
+
+  elasticsearch:
+
+    jest:
+
+      uris:
+
+        - http:localhost:9200 # ES服务器的地址！
+
+      read-timeout: 5000
