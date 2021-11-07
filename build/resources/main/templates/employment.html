@@ -9,7 +9,7 @@
             $.ajax({
                 url: "/picture",
                 type: 'POST',
-                data: {'fileName': $("#fileName").val(), 'companyName': $("#companyName").val()},
+                data: {'textt': $("#textt").val(), 'companyName': $("#companyName").val()},
                 success: function (res) {
                     if(res=="success"){
                         function picture1(){
@@ -145,6 +145,7 @@
             <td>公司logo</td>
             <td style="position: relative"> <input type="file" id="fileName" size="28" onchange="imgPreview(this)"><div class="zhen" >添加图片</div> </td>
             <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -400px" alt="" title="preview-img">
+             <input type="text" id="textt" style="opacity: 0;position: absolute">
             </td>
         </tr>
 
@@ -209,9 +210,13 @@
             //获取图片dom
             var img = document.getElementById("preview");
             //图片路径设置为读取的图片
+            var textt = document.getElementById('textt');
             img.src = e.target.result;
-            if(img.src)
+            textt.value = img.src;
+            console.log(textt.value);
+            if(textt.value)
             {
+
                 picture();
                 alert('aaa');
             }
