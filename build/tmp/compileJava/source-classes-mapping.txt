@@ -53,8 +53,8 @@ sun/com/didi/chat/JobHandler.java
  sun.com.didi.chat.JobHandler
 sun/com/didi/entity/JobInfo.java
  sun.com.didi.entity.JobInfo
-sun/com/didi/Application.java
- sun.com.didi.Application
+sun/com/didi/dao/ES_Insert.java
+ sun.com.didi.dao.ES_Insert
 sun/com/didi/service/UserServiceImpl.java
  sun.com.didi.service.UserServiceImpl
 sun/com/didi/controller/PictureController.java
@@ -84,5 +84,11 @@ sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
-sun/com/didi/dao/ES_Insert.java
- sun.com.didi.dao.ES_Insert
+sun/com/didi/Application.java
+ sun.com.didi.Application
+sun/com/didi/service/ES_QueryImpl.java
+ sun.com.didi.service.ES_QueryImpl
+sun/com/didi/service/ES_Query.java
+ sun.com.didi.service.ES_Query
+sun/com/didi/controller/ES_QueryController.java
+ sun.com.didi.controller.ES_QueryController
