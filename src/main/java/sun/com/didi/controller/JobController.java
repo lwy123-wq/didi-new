@@ -31,4 +31,9 @@ public class JobController {
     public String chat(){
         return "feedback";
     }
+
+    @RequestMapping(value = "/SingleChat",method = RequestMethod.GET)
+    public String single(){
+        return "chat";
+    }
 }
