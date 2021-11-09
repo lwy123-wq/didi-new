@@ -20,8 +20,10 @@ sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
-sun/com/didi/dao/PictureDao.java
- sun.com.didi.dao.PictureDao
+sun/com/didi/Application.java
+ sun.com.didi.Application
+sun/com/didi/chat/singlechat/ServerInitializer.java
+ sun.com.didi.chat.singlechat.ServerInitializer
 sun/com/didi/dao/LoginDao.java
  sun.com.didi.dao.LoginDao
  sun.com.didi.dao.LoginDao$1
@@ -31,12 +33,10 @@ sun/com/didi/entity/IpUtil.java
  sun.com.didi.entity.IpUtil
 sun/com/didi/chat/UserChatServer.java
  sun.com.didi.chat.UserChatServer
-sun/com/didi/controller/AddressController.java
- sun.com.didi.controller.AddressController
+sun/com/didi/chat/singlechat/SingleChatServer.java
+ sun.com.didi.chat.singlechat.SingleChatServer
 sun/com/didi/controller/JobController.java
  sun.com.didi.controller.JobController
-sun/com/didi/dao/IntentionDao.java
- sun.com.didi.dao.IntentionDao
 sun/com/didi/chat/JobChatServer.java
  sun.com.didi.chat.JobChatServer
 sun/com/didi/entity/JobLogin.java
@@ -49,12 +49,16 @@ sun/com/didi/entity/Requirement.java
  sun.com.didi.entity.Requirement
 sun/com/didi/entity/Auth.java
  sun.com.didi.entity.Auth
+sun/com/didi/chat/singlechat/SingleChatHandler.java
+ sun.com.didi.chat.singlechat.SingleChatHandler
 sun/com/didi/chat/JobHandler.java
  sun.com.didi.chat.JobHandler
 sun/com/didi/entity/JobInfo.java
  sun.com.didi.entity.JobInfo
-sun/com/didi/dao/ES_Insert.java
- sun.com.didi.dao.ES_Insert
+sun/com/didi/controller/AddressController.java
+ sun.com.didi.controller.AddressController
+sun/com/didi/entity/UserMap.java
+ sun.com.didi.entity.UserMap
 sun/com/didi/service/UserServiceImpl.java
  sun.com.didi.service.UserServiceImpl
 sun/com/didi/controller/PictureController.java
@@ -65,8 +69,6 @@ sun/com/didi/config/WebappConfig.java
  sun.com.didi.config.WebappConfig
 sun/com/didi/chat/JobServerInitializer.java
  sun.com.didi.chat.JobServerInitializer
-sun/com/didi/service/PictureServiceImpl.java
- sun.com.didi.service.PictureServiceImpl
 sun/com/didi/interceptor/AddressedInterceptor.java
  sun.com.didi.interceptor.AddressedInterceptor
 sun/com/didi/dao/RecruitDao.java
@@ -84,11 +86,9 @@ sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
-sun/com/didi/Application.java
- sun.com.didi.Application
-sun/com/didi/service/ES_QueryImpl.java
- sun.com.didi.service.ES_QueryImpl
-sun/com/didi/service/ES_Query.java
- sun.com.didi.service.ES_Query
-sun/com/didi/controller/ES_QueryController.java
- sun.com.didi.controller.ES_QueryController
+sun/com/didi/dao/PictureDao.java
+ sun.com.didi.dao.PictureDao
+sun/com/didi/service/PictureServiceImpl.java
+ sun.com.didi.service.PictureServiceImpl
+sun/com/didi/dao/IntentionDao.java
+ sun.com.didi.dao.IntentionDao

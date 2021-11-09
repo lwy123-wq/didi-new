@@ -5,8 +5,6 @@ public class Auth {
     private String name;
     private String age;
     private String id_code;
-    public static final String INDEX_NAME = "index_entity";
-    public static final String TYPE = "tstype";
 
     public Auth(int id, String name, String age, String id_code) {
         this.id=id;

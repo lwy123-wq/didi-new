@@ -1,384 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>web socket 测试</title>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5012849094a7df5ceb87223301f7cc91a971bd0e
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!-- import JavaScript -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <!-- import css -->
-<!--    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
-
-    <style>
-        body {
-            background-color: #ffffff;
-            margin: 0;
-            padding:0;
-        }
-        .header {
-
-            height: 110px;
-            padding-top: 50px;
-
-        }
-        .header a {
-            color: black;
-        }
-        .header .oneone {
-            float: left;
-            width: 198px;
-            height: 104px;
-            margin-left: 80px;
-            background: url("../static/images/logo.jpg") no-repeat;
-
-            background-size: 100% 100%;
-
-        }
-        .header a .zi {
-            float: left;
-            margin-left: 44px;
-            margin-right: 35px;
-            margin-top: 37px;
-            padding-left: 10px;
-            padding-right: 10px;
-
-            padding-bottom: 15px;
-            font-size:20px;
-            color: black;
-
-        }
-        a{
-
-            display: block;
-            text-decoration: none;
-        }
-        .zi:hover {
-            border-top: 1px solid transparent;
-            border-bottom: 5px solid #c97513;
-            border-left: 1px solid transparent;
-            border-right: 1px solid transparent;
-        }
-        .header .sou {
-            float: left;
-            margin-top: 26px;
-        }
-        input[type="text"]{
-            border: 1px solid #c97513;
-            width:451px;
-            height: 45px;
-            margin-left: 20px;
-            outline: none;
-            padding-left: 20px;
-        }
-        .ge:hover{
-            color: #c97513;
-        }
-        .header a .ge{
-
-            float: left;
-            width: 80px;
-            margin-left: 48px;
-
-            margin-top: 37px;
-        }
-        .header a .yuan{
-            float: left;
-            margin-top: 26px;
-        }
-        .header a .xiao {
-            float: left;
-            margin-left: 15px;
-
-            margin-top: 33px;
-        }
-        .header a .ren {
-            float: left;
-            margin-left: 15px;
-
-            margin-top: 26px;
-        }
-        .header a .xu {
-
-            margin-left: 15px;
-            font-size: 12px;
-            margin-top: 39px;
-        }
-        .xu:hover {
-            color: #c97513;
-        }
-        /*导航栏已结束*/
-        .lanmu {
-            float: left;
-            width:300px;
-            height: 560px;
-            margin:56px 64px 0px 118px;
-
-            background-color: #f1f1f1;
-        }
-        .lanmu p {
-            font-size: 10px;
-            color: #3c3f41;
-        }
-        .top {
-            height: 250px;
-
-        }
-        .ti {
-            line-height: 40px;
-            height:40px ;
-            background-color:#c97513;
-            color: white;
-        }
-        .home {
-            margin-left: 90px;
-            margin-top:10px;
-            float: left;
-            width: 30px;
-            height: 20px;
-            /*background-image: url("../static/images/home.png ");*/
-        }
-        ul {
-            list-style: none;
-        }
-        ul li {
-            height: 30px;
-            width:220px;
-            margin-top:10px;
-            line-height: 35px;
-            border-bottom: 1px solid #c97513;
-            font-size: 15px;
-            text-align: center;
-        }
-        .bot {
-
-            line-height: 40px;
-            height:40px ;
-            background-color:#c97513;
-            color: white;
-
-        }
-
-        .relate {
-            margin-left: 90px;
-            margin-top:10px;
-            float: left;
-            width: 30px;
-            height: 20px;
-            /*background-image: url("../static/images/relate.png");*/
-        }
-        .one {
-            font-weight: 800;
-            color: #c97513;
-        }
-        .yijian {
-            margin-left: 480px;
-
-            color: #c97513;
-            text-align: center;
-            font-weight: 800;
-        }
-        textarea {
-
-            border: 3px solid #c97513;
-            float: left
-        }
-        .picc {
-            position: relative;
-           width: 180px;
-            height: 105px;
-            float: right;
-            border: 3px solid transparent;
-        }
-        #send-pic {
-            margin: 0 0 0 0;
-            border: 0 solid transparent;
-         position:absolute; top:0; right:0px; height:111px; filter:alpha(opacity:0);opacity: 0;width:186px;
-
-
-        }
-        #send {
-            width: 100px;
-            height: 50px;
-            background-color: #c97513;
-            border:0 solid transparent;
-            margin-top: 10px;
-            margin-left: 105px;
-            font-size: 20px;
-            color: white;
-        }
-        .right {
-            position: absolute;
-            top:197px;
-            right: 55px;
-            background: url("../static/images/ps.png");
-            width: 336px;
-            height: 584px;
-            float: right;
-        }
-        .jia {
-            position: absolute;
-            top:0;
-            left: 0;
-            width: 186px;
-            height: 111px;
-            background: url("../static/images/jia.png") no-repeat;
-            background-size: 100% 100%;
-            float: right;
-        }
-        .cont {
-            position: absolute;
-            top:41px;
-            left: 59px;
-            color: white;
-        }
-
-
-
-    </style>
+  <meta charset="utf-8">
+  <title>单人聊天</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/css/zui.min.css">
+  <link rel="stylesheet" href="zui-theme.css">
 </head>
 <body>
-<div class="header">
-    <div class="oneone">
-        <!--        <img src="picture/didilogo.jpg">-->
-    </div>
 
-    <a href="#"><div class="zi">首页</div></a>
-    <a href="#"><div class="zi">匹配中心</div></a>
-    <!--    <a href="#"><div class="zi">职业规划</div></a>-->
-    <div class="sou">
-        <input type="text" placeholder="请输入您所需要的职位、公司">
-    </div>
-    <a href="#"><div class="yuan">
-        <img src="../static/images/14.png">
-    </div></a>
-    <a href="#"><div class="ge">登录/注册</div></a>
-    <a href="#"><div class="xiao">
-        <img src="../static/images/12.png">
-    </div> </a>
-    <!--    <a href="#"><div class="ren">-->
-    <!--    <img src="picture/13.png">-->
-    <!--</div> </a>-->
-    <a href="#"><div class="xu">
-        欢迎来到滴滴务工！
-    </div> </a>
-</div>
-<div id="ap">
-    <div class="lanmu">
-        <div class="top">
-            <div class="ti">
-                <div class="home"></div>匹配中心
-            </div>
-            <ul>
-                <li class="one">用户反馈</li>
-                <li class="one" style="font-weight: 400;">订单中心</li>
-            </ul>
-        </div>
-        <div class="bot">
-            <div class="relate"></div>联系我们
-        </div>
-        <p>天津职业技术师范大学高等教育研究院</p>
-        <p>高校研究课题</p>
-        <p>关于我们</p>
+<div class="container">
+  <div class="row">     <h1>mike单人聊天室，等你来聊</h1></div>
+  <div class="row">
+    <div class="input-control has-icon-left has-icon-right" style="width:50%;">
+      <input id="userName" type="text" class="form-control" placeholder="聊天昵称">
+      <label for="inputEmailExample1" class="input-control-icon-left"><i class="icon icon-user"></i></label>
+      <label for="inputEmailExample1" class="input-control-icon-right"><a onclick="login()">登陆</a></label>
 
     </div>
-</div>
 
 
-<div style="width: 600px;height: 00px;" class="yijian">
-    <p>在这儿留下你的用工体验吧:</p>
-    <div style="border: 3px solid #c97513;height: 300px;overflow: scroll;padding: 30px" id="server-msg-container">
-
+  </div>
+  <br>
+  <div class="row">
+    <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchUser">
+      <input id="inputSearch" type="search" class="form-control search-input" placeholder="输入在线好友昵称聊天...enter开始查找">
+      <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>
+      <a href="#" class="input-control-icon-right search-clear-btn"><i class="icon icon-remove"></i></a>
     </div>
-    <p id="oo">
-        <textarea id="inp-msg" style="height: 100px;width: 400px;resize: none;outline: none"></textarea>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
 
+      <p class="with-padding bg-success">聊天列表</p>
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;may</h4>
+        </a>
+        <a href="#" class="list-group-item active">
+          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;steve</h4>
+        </a>
 
-    <div class="picc">
-    <div class="jia"></div>
-    <div class="cont"> 选择图片：</div> <input type="file" id="send-pic" size="28" onchange="document.getElementById('inp-msg').value=this.value"></div>
-    </p>
-    <div class="right"></div>
-    <input type="button" value="发送" id="send">
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="comments">
+        <section class="comments-list" id="chatlist">
+
+        </section>
+        <footer>
+          <div class="reply-form" id="commentReplyForm1">
+
+            <a href="###" class="avatar"><i class="icon-user icon-2x"></i></a>
+            <form class="form">
+              <div class="form-group">
+                <textarea id="inputMsg" class="form-control new-comment-text" rows="2" value="" placeholder="开始聊天...  输入enter 发送消息"></textarea>
+              </div>
+            </form>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<script type="application/javascript">
-    var ws = new WebSocket("ws://localhost:28888/chat");
-    ws.onopen = function (ev) {
+<!-- ZUI Javascript 依赖 jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/lib/jquery/jquery.js"></script>
+<!-- ZUI 标准版压缩后的 JavaScript 文件 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/js/zui.min.js"></script>
+<script type="text/javascript">
+  window.CHAT = {
+    isLogin: false,
+    to: "",
+    me: "",
+    WS:{},
+    init: function () {
+      if (window.WebSocket) {
+        this.WS = new WebSocket("ws://localhost:8090/ws");
+        this.WS.onmessage = function(event) {
+          var data = event.data;
+          console.log("收到数据:" + data);
+          //返回搜索消息
+          if(data.indexOf("search") != -1){
+            new $.zui.Messager('提示消息：'+data, {
+              type: 'info' // 定义颜色主题
+            }).show();
+            if(data.indexOf("已找到")){  //可以进行会话
+              CHAT.to = data.split(":")[1];
+            }
+          }
 
-    };
-    ws.onmessage = function (ev) {
-        console.info("onmessage", ev);
-        var inpMsg = document.getElementById("server-msg-container");
-        if (typeof  ev.data === "string") {
-            inpMsg.innerHTML += ev.data + "<br/>";
-        } else {
-            var result = ev.data;
-            var flagReader = new FileReader();
-            flagReader.readAsArrayBuffer(result.slice(0, 4));
-            flagReader.onload = function (flag) {
-                if (new DataView(flag.target.result).getInt32(0) === 10) {
-                    var imageReader = new FileReader();
-                    imageReader.readAsDataURL(result.slice(4));
-                    imageReader.onload = function (img) {
-                        var imgHtml = "<img src='" + img.target.result + "' style='width: 100px;height: 100px;'>";
-                        inpMsg.innerHTML += imgHtml.replace("data:application/octet-stream;", "data:image/png;") + "<br />";
-                    }
-                } else {
-                    alert("后端返回的是非图片类型数据，无法显示。");
+          //返回登陆消息
+          if(data == "success"){
+            CHAT.isLogin = true;
+            new $.zui.Messager('提示消息：登陆成功', {
+              type: 'success' // 定义颜色主题
+            }).show();
+            //连接成功不再修改昵称
+            $("#userName").attr("disabled","disabled");
+            CHAT.me = $("#userName").val();
+          }
+
+          //返回聊天信息
+          if (data.split(":").length==3 && CHAT.me == data.split(":")[1]) {
+            CHAT.to = data.split(":")[0];  //设置对话
+            appendOtherchat(data);
+          }
+        },
+
+                this.WS.onclose = function(event) {
+                  console.log("连接关闭");
+                  CHAT.isLogin = false;
+                  $("#userName").removeAttr("disabled");
+                  new $.zui.Messager('提示消息：聊天中断', {
+                    type: 'danger' // 定义颜色主题
+                  }).show();
+                },
+
+                this.WS.onopen = function(evt) {
+                  console.log("Connection open ...");
+                },
+
+                this.WS.onerror = function(event) {
+                  console.log("连接失败....");
+                  CHAT.isLogin = false;
+                  $("#userName").removeAttr("disabled");
+                  new $.zui.Messager('提示消息：聊天中断', {
+                    type: 'danger' // 定义颜色主题
+                  }).show();
                 }
-            }
-        }
-    };
-    ws.onerror = function () {
-        var inpMsg = document.getElementById("server-msg-container");
-        inpMsg.innerHTML += "发生异常" + "<br/>";
-    };
-    ws.onclose = function () {
-        var inpMsg = document.getElementById("server-msg-container");
-        inpMsg.innerHTML += "webSocket 关闭" + "<br/>";
-    };
+      } else {
+        alert("您的浏览器不支持聊天，请更换浏览器");
+      }
 
-    // 发送文字消息
-    document.getElementById("send").addEventListener("click", function () {
-        ws.send(document.getElementById("inp-msg").value);
-    }, false);
+    },
+    chat:function (msg) {
+      this.WS.send(msg);
+    }
+  }
 
-    // 发送图片
-    document.querySelector('#send-pic').addEventListener('change', function (ev) {
-        var files = this.files;
-        if (files && files.length) {
-            var file = files[0];
-            var fileType = file.type;
-            // 表示传递的是 图片
-            var dataType = 10;
-            if (!/^image/.test(fileType)) {
-                // 表示传递的是 非图片
-                dataType = 20;
-            }
-            var fileReader = new FileReader();
-            fileReader.readAsArrayBuffer(file);
-            fileReader.onload = function (e) {
-                // 获取到文件对象
-                var result = e.target.result;
-                // 创建一个 4个 字节的数组缓冲区
-                var arrayBuffer = new ArrayBuffer(4);
-                var dataView = new DataView(arrayBuffer);
-                // 从第0个字节开始，写一个 int 类型的数据(dataType)，占4个字节
-                dataView.setInt32(0, dataType);
-                // 组装成 blob 对象
-                var blob = new Blob([arrayBuffer, result]);
-                // 发送到 webSocket 服务器端
-                ws.send(blob);
-            }
+  CHAT.init();
+
+  function login() {
+    var userName = $("#userName").val();
+    if (userName != null && userName !='') {
+      //初始化聊天
+      CHAT.chat("init:"+userName);
+    } else {
+      alert("请输入用户名登录");
+    }
+
+  }
+
+
+  function Trim(str) {
+    return str.replace(/(^\s*)|(\s*$)/g, "");
+  }
+
+  function appendMy (msg) {  //拼接自己的聊天内容
+    document.getElementById('chatlist').innerHTML+="<div class='comment'><a class='avatar pull-right'><i class='icon-user icon-2x'></i></a><div class='content pull-right'><div><strong>我</strong></div><div class='text'>"+msg+"</div></div></div>";
+
+  }
+
+  function appendOtherchat(msg) {  //拼接别人的聊天信息到聊天室
+    var  msgs = msg.split(":");
+    document.getElementById('chatlist').innerHTML+="<div class='comment'><a class='avatar'><i class='icon-user icon-2x'></i></a><div class='content'><div><strong>"+msgs[0]+"</strong></div><div class='text'>"+msgs[2]+"</div></div></div>";
+  }
+
+
+  //搜索在线人员发送消息
+  document.getElementById("inputSearch").addEventListener('keyup', function(event) {
+    if (event.keyCode == "13") {
+      //回车执行查询
+      CHAT.chat("search:"+$('#inputSearch').val());
+    }
+
+  });
+
+  //发送聊天消息
+  document.getElementById('inputMsg').addEventListener('keyup', function(event) {
+    if (event.keyCode == "13") {
+      //回车执行查询
+      var  inputMsg = $('#inputMsg').val();
+      if (inputMsg == null || Trim(inputMsg) == "" ) {
+        alert("请输入聊天消息");
+      } else {
+        var  userName = $('#userName').val();
+        if (userName == null || userName == '') {
+          alert("请输入聊天昵称");
+        } else {
+          //发送消息 定义消息格式   me:to：[消息]
+          CHAT.chat(userName+":"+CHAT.to+":"+inputMsg);
+          appendMy(inputMsg);
+          //发送完清空输入
+          document.getElementById('inputMsg').focus();
+          document.getElementById('inputMsg').value="";
         }
-    }, false);
+      }
+    }
+  });
 </script>
-
-
 </body>
 </html>
