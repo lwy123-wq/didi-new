@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@ComponentScan(basePackages = "sun.com")
+@ComponentScan(basePackages = "sun.com.didi.dao")
 @SpringBootApplication
 @EnableCaching
 public class Application implements WebMvcConfigurer {
