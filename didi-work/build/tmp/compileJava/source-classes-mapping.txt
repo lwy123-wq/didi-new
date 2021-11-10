@@ -2,10 +2,10 @@ com/example/didiwork/didi/controller/WorkController.java
  com.example.didiwork.didi.controller.WorkController
 com/example/didiwork/didi/entity/Requirement.java
  com.example.didiwork.didi.entity.Requirement
-com/example/didiwork/DidiWorkApplication.java
- com.example.didiwork.DidiWorkApplication
 com/example/didiwork/didi/service/WorkServiceImpl.java
  com.example.didiwork.didi.service.WorkServiceImpl
+com/example/didiwork/DidiWorkApplication.java
+ com.example.didiwork.DidiWorkApplication
 com/example/didiwork/didi/dao/RecruitDao.java
  com.example.didiwork.didi.dao.RecruitDao
  com.example.didiwork.didi.dao.RecruitDao$1

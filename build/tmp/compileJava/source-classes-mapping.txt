@@ -78,12 +78,12 @@ sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
-sun/com/didi/service/AddressServiceImpl.java
- sun.com.didi.service.AddressServiceImpl
-sun/com/didi/service/EmailService.java
- sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
+sun/com/didi/service/EmailService.java
+ sun.com.didi.service.EmailService
+sun/com/didi/service/AddressServiceImpl.java
+ sun.com.didi.service.AddressServiceImpl
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/dao/PictureDao.java
