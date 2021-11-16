@@ -119,13 +119,25 @@
 
     }
     .comments {
-      margin-bottom: 20px;
-      padding-bottom: 10px;
+      margin: 0 auto;
+      padding: 10px;
       background: linear-gradient(
               to left top,
               rgba(255, 255, 255, 0.8),
               rgba(255, 255, 255, 0.5)
       );
+
+    }
+    .col-lg-8 {
+      margin-left: 93px;
+    }
+    .chatname {
+      position: absolute;
+      top:10px;
+      left:253px;
+      width: 454px;
+      height:50px;
+      background-color: #00a4ff;
     }
   </style>
 </head>
@@ -167,31 +179,32 @@
 
 
   </div>
-  <br>
-  <div class="row">
-    <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchUser">
-      <input id="inputSearch" type="search" class="form-control search-input" placeholder="输入在线好友昵称聊天...enter开始查找">
-      <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>
-      <a href="#" class="input-control-icon-right search-clear-btn"><i class="icon icon-remove"></i></a>
-    </div>
-  </div>
+<!--  <br>-->
+<!--  <div class="row">-->
+<!--    <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchUser">-->
+<!--      <input id="inputSearch" type="search" class="form-control search-input" placeholder="输入在线好友昵称聊天...enter开始查找">-->
+<!--      <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>-->
+<!--      <a href="#" class="input-control-icon-right search-clear-btn"><i class="icon icon-remove"></i></a>-->
+<!--    </div>-->
+<!--  </div>-->
   <hr>
   <div class="row">
-    <div class="col-lg-3" >
+<!--    <div class="col-lg-3" >-->
 
-      <p class="with-padding bg-success" style="background-color: #c97513;text-align: center;height: 50px;line-height:50px">聊天列表</p>
-      <div class="list-group">
-        <a href="#" class="list-group-item">
-          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;</h4>
-        </a>
-        <a href="#" class="list-group-item active">
-          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;</h4>
-        </a>
+<!--      <p class="with-padding bg-success" style="background-color: #c97513;text-align: center;height: 50px;line-height:50px">聊天列表</p>-->
+<!--      <div class="list-group">-->
+<!--        <a href="#" class="list-group-item">-->
+<!--          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;</h4>-->
+<!--        </a>-->
+<!--        <a href="#" class="list-group-item active">-->
+<!--          <h4 class="list-group-item-heading"><i class="icon-user icon-2x"></i>&nbsp;&nbsp;</h4>-->
+<!--        </a>-->
 
-      </div>
-    </div>
+<!--      </div>-->
+<!--    </div>-->
     <div class="col-lg-1"></div>
     <div class="col-lg-8">
+      <div class="chatname" id="show" style="text-align: center;color: white;line-height: 50px"></div>
       <div class="comments">
         <section class="comments-list" id="chatlist">
 
@@ -218,6 +231,38 @@
 <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/js/zui.min.js"></script>
 <script type="text/javascript">
+  $(function(){
+    console.log(decodeURI(location.search.concat()));
+    manyValues();
+    $("#show").html(oneValues());
+  })
+
+  //接收一个值
+  function oneValues(){
+    var result;
+    var url=decodeURI(window.location.search); //获取url中"?"符后的字串
+    if(url.indexOf("?") != -1) {
+      result = url.substr(url.indexOf("=")+1);
+    }
+    return result;
+  }
+
+  //接收多值
+  function manyValues() {
+    var url=decodeURI(window.location.search);
+    if(url.indexOf("?")!=-1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      var key = new Array(strs.length);
+      var value = new Array(strs.length);
+      for(i = 0;i < strs.length;i++){
+        key[i] = strs[i].split("=")[0]
+        value[i] = unescape(strs[i].split("=")[1]);
+        alert(key[i]+"="+value[i]);
+      }
+    }
+  }
+  /////
   var ge =document.querySelector('.ge');
   console.log(location.search);
   var parm =location.search.substr(1);
