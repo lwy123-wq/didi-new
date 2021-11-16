@@ -144,7 +144,7 @@
   <a href="#"><div class="yuan">
     <img src="../static/images/14.png">
   </div></a>
-  <a href="#"><div class="ge">登录/注册</div></a>
+  <a href="#"><div class="ge" id="ge">登录/注册</div></a>
   <a href="#"><div class="xiao">
     <img src="../static/images/12.png">
   </div> </a>
@@ -166,15 +166,15 @@
 <!--    </div>-->
 
 
-<!--  </div>-->
-<!--  <br>-->
-<!--  <div class="row">-->
-<!--    <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchUser">-->
-<!--      <input id="inputSearch" type="search" class="form-control search-input" placeholder="输入在线好友昵称聊天...enter开始查找">-->
-<!--      <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>-->
-<!--      <a href="#" class="input-control-icon-right search-clear-btn"><i class="icon icon-remove"></i></a>-->
-<!--    </div>-->
-<!--  </div>-->
+  </div>
+  <br>
+  <div class="row">
+    <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchUser">
+      <input id="inputSearch" type="search" class="form-control search-input" placeholder="输入在线好友昵称聊天...enter开始查找">
+      <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>
+      <a href="#" class="input-control-icon-right search-clear-btn"><i class="icon icon-remove"></i></a>
+    </div>
+  </div>
   <hr>
   <div class="row">
     <div class="col-lg-3" >
@@ -251,8 +251,8 @@
               type: 'success' // 定义颜色主题
             }).show();
             //连接成功不再修改昵称
-            $("#userName").attr("disabled","disabled");
-            CHAT.me = $("#userName").val();
+            $("#ge").attr("disabled","disabled");
+            CHAT.me = $("#ge").val();
           }
 
           //返回聊天信息
@@ -265,7 +265,7 @@
                 this.WS.onclose = function(event) {
                   console.log("连接关闭");
                   CHAT.isLogin = false;
-                  $("#userName").removeAttr("disabled");
+                  $("#ge").removeAttr("disabled");
                   new $.zui.Messager('提示消息：聊天中断', {
                     type: 'danger' // 定义颜色主题
                   }).show();
@@ -278,7 +278,7 @@
                 this.WS.onerror = function(event) {
                   console.log("连接失败....");
                   CHAT.isLogin = false;
-                  $("#userName").removeAttr("disabled");
+                  $("#ge").removeAttr("disabled");
                   new $.zui.Messager('提示消息：聊天中断', {
                     type: 'danger' // 定义颜色主题
                   }).show();
@@ -296,7 +296,7 @@
   CHAT.init();
 
   function login() {
-    var userName = $("#userName").val();
+    var userName = $("#ge").val();
     if (userName != null && userName !='') {
       //初始化聊天
       CHAT.chat("init:"+userName);
@@ -339,7 +339,7 @@
       if (inputMsg == null || Trim(inputMsg) == "" ) {
         alert("请输入聊天消息");
       } else {
-        var  userName = $('#userName').val();
+        var  userName = $('#ge').val();
         if (userName == null || userName == '') {
           alert("请输入聊天昵称");
         } else {
