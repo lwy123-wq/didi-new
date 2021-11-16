@@ -5,7 +5,7 @@
     <title>登录页面</title>
     <script type="text/javascript">
         var ws;
-        var url = "ws://localhost:8848/ws";
+        var url = "ws://localhost:8090/ws";
         window.onload = connect;
         var currentUsers = [];
 
@@ -24,9 +24,10 @@
             };
         }
         function wsSend() {
-            var username = document.getElementById("username");
-            var password= document.getElementById("password");
-            ws.send(JSON.stringify({"username": username.value, "password": password.value}));
+            var userName = $("#username").val()
+            /*var username = document.getElementById("username");
+            var password= document.getElementById("password");*/
+            ws.send("init:"+userName);
             // msg.value = "";
         }
     </script>
@@ -146,9 +147,9 @@
 </head>
 <body>
 <div class="boxx">
-    <form class="box" onsubmit="return false" action="##" method="post">
+    <form class="box" onsubmit="return false" action="chat.html" method="post">
         <h1>Login</h1>
-        <input type="text"id="username"placeholder="UserName" />
+        <input type="text"id="username"placeholder="UserName" name="username"/>
         <input type="password"id="password"placeholder="UserPassword" />
         <input type="submit"  value="Login" onclick="login()"/>
 

@@ -5,7 +5,7 @@
     <title>登录页面</title>
     <script type="text/javascript">
         var ws;
-        var url = "ws://localhost:8848/ws";
+        var url = "ws://localhost:8090/ws";
         window.onload = connect;
         var currentUsers = [];
 
@@ -24,9 +24,10 @@
             };
         }
         function wsSend() {
-            var username = document.getElementById("username");
-            var password= document.getElementById("password");
-            ws.send(JSON.stringify({"username": username.value, "password": password.value}));
+            var userName = $("#username").val()
+            /*var username = document.getElementById("username");
+            var password= document.getElementById("password");*/
+            ws.send("init:"+userName);
             // msg.value = "";
         }
     </script>
