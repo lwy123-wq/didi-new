@@ -10,6 +10,9 @@
                 url: "/picture",
                 type: 'POST',
                 data: {'textt': $("#textt").val(), 'companyName': $("#companyName").val()},
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res=="success"){
                         function picture1(){

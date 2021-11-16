@@ -92,3 +92,7 @@ sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
+sun/com/didi/config/FilterConfig.java
+ sun.com.didi.config.FilterConfig

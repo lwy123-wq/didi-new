@@ -37,6 +37,9 @@
                 url: "/loginn",
                 type: 'POST',
                 data: {'username': $("#username").val(), 'password': $("#password").val()},
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res=="success"){
                         wsSend()

@@ -20,6 +20,9 @@
                 url: "/registry",
                 type: 'POST',
                 data: {'username': $("#username").val(), 'password': $("#password").val(),'email': $("#email").val(),'code': $("#code").val()},
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res=="Y"){
                     alert("注册成功！")
