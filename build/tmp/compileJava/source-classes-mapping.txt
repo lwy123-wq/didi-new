@@ -6,8 +6,8 @@ sun/com/didi/controller/WorkController.java
  sun.com.didi.controller.WorkController
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/controller/UserController.java
- sun.com.didi.controller.UserController
+sun/com/didi/config/FilterConfig.java
+ sun.com.didi.config.FilterConfig
 sun/com/didi/service/WorkServiceImpl.java
  sun.com.didi.service.WorkServiceImpl
 sun/com/didi/service/IEmailService.java
@@ -94,5 +94,5 @@ sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
 sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
-sun/com/didi/config/FilterConfig.java
- sun.com.didi.config.FilterConfig
+sun/com/didi/controller/UserController.java
+ sun.com.didi.controller.UserController

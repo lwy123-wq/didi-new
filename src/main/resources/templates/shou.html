@@ -733,7 +733,7 @@
         <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>
         <div class="money">3000-4000元/月</div>
         <div class="detail">查看详情</div>
-        <div class="zixun" onclick="to()"><a href="SingleChat"> 详细咨询</a></div>
+        <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>
         <div class="xia">
             <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
             <div class="experience">1、传达餐饮部或厨师长的相关通知、注意事项等；
@@ -832,7 +832,7 @@
     function to(){
 
         var name =document.querySelector('#name');
-        window.location.href="chat.html?valus="+name;
+        window.location.href="SingleChat?valus="+name.innerHTML;
         // window.location.href="b.html?valus="+getval+"&value2="+getval2;
     }
     var details =document.querySelectorAll('.detail');

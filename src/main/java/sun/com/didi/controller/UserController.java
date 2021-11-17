@@ -29,7 +29,7 @@ public class UserController {
     public String index(){
         return "index";
     }
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
         return "/login";
     }
