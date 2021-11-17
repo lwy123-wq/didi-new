@@ -1,33 +1,27 @@
-import org.apache.http.HttpHost;
-import org.elasticsearch.action.bulk.BulkRequest;
-import org.elasticsearch.action.bulk.BulkResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.CreateIndexRequest;
-import org.elasticsearch.client.indices.CreateIndexResponse;
-import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.TermsQueryBuilder;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.SearchHits;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.IntPoint;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.NumericUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.wltea.analyzer.lucene.IKAnalyzer;
 import sun.com.didi.Application;
 import sun.com.didi.dao.JobDao;
-import sun.com.didi.entity.Intention;
-import sun.com.didi.entity.Login;
+
+import sun.com.didi.entity.Requirement;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.UserServiceImpl;
+import sun.com.didi.service.WorkServiceImpl;
 
-import java.io.IOException;
-import java.util.Base64;
+import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -38,6 +32,8 @@ public class test {
     private UserServiceImpl userService;
     @Autowired
     private IntentionImpl intention;
+    @Autowired
+    private WorkServiceImpl workService;
     @Test
     public void t() throws Exception {
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
@@ -61,34 +57,69 @@ public class test {
         byte[] decoded= Base64.getDecoder().decode(password.getPasswd());
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);*/
-        RestHighLevelClient esClient = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("localhost", 9200, "http"))
-        );
+        //1、创建一个Director对象，指定索引库保存的位置。
 
-         //创建索引
-        CreateIndexRequest request = new CreateIndexRequest("user");
-        CreateIndexResponse createIndexResponse =
-                esClient.indices().create(request, RequestOptions.DEFAULT);
+        //1.1把索引库保存在内存中
+        //Directory directory = new RAMDirectory();
 
+        //1.2把索引库保存在磁盘
+        Directory directory = FSDirectory.open(new File("/home/lxj/文档/index").toPath());
 
-        // 批量插入数据
-        BulkRequest req = new BulkRequest();
+        //2、基于Directory对象创建一个IndexWriter对象
+        //IndexWriterConfig config = new IndexWriterConfig();
+        //当使用IKAnalyzer分词时，是如下写法。
+        IndexWriterConfig config = new IndexWriterConfig(new IKAnalyzer());
+        IndexWriter indexWriter = new IndexWriter(directory, config);
 
-        req.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON, "name", "zhangsan", "age",30,"sex","男"));
-        req.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON, "name", "lisi", "age",30,"sex","女"));
-        req.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON, "name", "wangwu", "age",40,"sex","男"));
-        req.add(new IndexRequest().index("user").id("1004").source(XContentType.JSON, "name", "wangwu1", "age",40,"sex","女"));
-        req.add(new IndexRequest().index("user").id("1005").source(XContentType.JSON, "name", "wangwu2", "age",50,"sex","男"));
-        req.add(new IndexRequest().index("user").id("1006").source(XContentType.JSON, "name", "wangwu3", "age",50,"sex","男"));
-        req.add(new IndexRequest().index("user").id("1007").source(XContentType.JSON, "name", "wangwu44", "age",60,"sex","男"));
-        req.add(new IndexRequest().index("user").id("1008").source(XContentType.JSON, "name", "wangwu555", "age",60,"sex","男"));
-        req.add(new IndexRequest().index("xxx").id("1009").source(XContentType.JSON, "name", "wangwu66666", "age",60,"sex","男"));
+        //3、读取磁盘上的文件，对应每个文件创建一个文档对象。
+        File dir = new File("/home/lxj/文档/index/document");
+        File[] files = dir.listFiles();
+        for (File f : files) {
+            //取文件名
+            String fileName = f.getName();
+            //文件的路径
+            String filePath = f.getPath();
+            //文件的内容
+            String fileContent = FileUtils.readFileToString(f, "utf-8");
+            //文件的大小
+            long fileSize = FileUtils.sizeOf(f);
+            //创建Field
+            //参数1：域的名称，参数2：域的内容，参数3：是否存储
+            Field fieldName = new TextField("name", fileName, Field.Store.YES);
+            Field fieldPath = new TextField("path", filePath, Field.Store.YES);
+            Field fieldContent = new TextField("content", fileContent, Field.Store.YES);
+            Field fieldSize = new TextField("size", fileSize + "", Field.Store.YES);
 
-        BulkResponse response = esClient.bulk(req, RequestOptions.DEFAULT);
-        System.out.println(response.getTook());
-        System.out.println(response.getItems());
-        esClient.close();
+            //创建文档对象
+            Document document = new Document();
+            //向文档对象中添加域
+            document.add(fieldName);
+            document.add(fieldPath);
+            document.add(fieldContent);
+            document.add(fieldSize);
 
+            //向document对象中添加域
+            int price = 2999900;
+            // Field 类有整数类型值的构造方法吗？
+            // 用字节数组来存储试试，还是转为字符串？
+            byte[] result = new byte[Integer.BYTES];
+            NumericUtils.intToSortableBytes(price, result, 0);
+            Requirement byUserId = workService.selectWork(1);
+            System.out.println(byUserId.getCompany());
+//        document.add(new Field("price",result, Store.YES));
+            document.add(new TextField("recruitmentrequirements", byUserId.getCompany(), Field.Store.YES));
+            document.add(new TextField("recruitmentrequirements", byUserId.getOccupationalCategory(), Field.Store.YES));
+            document.add(new TextField("recruitmentrequirements", byUserId.getRemainingPositions(), Field.Store.YES));
+            document.add(new TextField("recruitmentrequirements", byUserId.getSalaryRequirements(), Field.Store.YES));
+            document.add(new IntPoint("recruitmentrequirements",byUserId.getNumber()));
+            //4.把文档写入索引库
+            indexWriter.addDocument(document);
+            //5、把文档对象写入索引库
+            indexWriter.addDocument(document);
+        }
+
+        //6、关闭indexwriter对象
+        indexWriter.close();
 
     }
 

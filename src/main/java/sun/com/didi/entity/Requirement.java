@@ -5,7 +5,7 @@ public class Requirement {
     private String OccupationalCategory;
     private String  RemainingPositions;
     private String SalaryRequirements;
-    private int Number;
+    private String Number;
 
     public String getCompany() {
         return company;
@@ -39,11 +39,11 @@ public class Requirement {
         SalaryRequirements = salaryRequirements;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return Number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         Number = number;
     }
 }

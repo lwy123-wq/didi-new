@@ -10,7 +10,7 @@ import sun.com.didi.entity.Requirement;
 public class WorkServiceImpl {
     @Autowired
     private RecruitDao recruitDao;
-    public Requirement selectWork(int uid){
+    public  Requirement selectWork(int uid){
         return recruitDao.SelectRecruit(uid);
     }
 }

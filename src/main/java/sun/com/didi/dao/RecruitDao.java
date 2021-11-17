@@ -24,7 +24,7 @@ public class RecruitDao {
                 re.setRemainingPositions(rs.getString(4));
                 re.setSalaryRequirements(rs.getString(5));
                 re.setCompany(rs.getString(2));
-                re.setNumber(rs.getInt(6));
+                re.setNumber(rs.getString(6));
             }
         });
         return re;
