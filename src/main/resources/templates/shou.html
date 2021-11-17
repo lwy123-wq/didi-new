@@ -579,7 +579,7 @@
         }
         .fix .fixone .qipao {
             position: absolute;
-            top:-117px;
+            top:-78px;
             left: -229px;
             width: 251px;
             height: 221px;
@@ -605,6 +605,16 @@
         .qipao {
             animation: fadeIn 6s ease-in 0.5s infinite alternate-reverse;
         }
+        .face {
+            width: 50px;
+            height: 50px;
+            /*background:url("../static/images/faceone.png");*/
+            background-size: 100% 100%;
+            float: left;
+            margin-left: 20px;
+            margin-top: 24px;
+            border-radius: 25px;
+        }
 
 
     </style>
@@ -625,7 +635,7 @@
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">
     </div></a>
-    <a href="login"><div class="ge">登录/注册</div></a>
+    <a href="login"><div class="face"></div> <div class="ge">登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
         <div class="positin" id="positin"></div>
@@ -634,7 +644,7 @@
     <!--    <img src="picture/13.png">-->
     <!--</div> </a>-->
     <a href="#"><div class="xu">
-        欢迎来到滴滴务工！
+
     </div> </a>
 </div>
 
@@ -829,6 +839,16 @@
 
 </div>
 <script>
+    var arr=['faceone.png','facetwo.png','facethree.png','facefour.png','facefive.png','facesix.png'];
+    var face =document.querySelector('.face');
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+    }
+    face.style.background='url("../static/images/'+arr[getRandomIntInclusive(0,5)]+'")';
+    face.style.backgroundSize='100% 100%';
+
     function to(){
 
         var name =document.querySelector('#name');
