@@ -111,7 +111,7 @@ public class test {
             document.add(new TextField("recruitmentrequirements", byUserId.getOccupationalCategory(), Field.Store.YES));
             document.add(new TextField("recruitmentrequirements", byUserId.getRemainingPositions(), Field.Store.YES));
             document.add(new TextField("recruitmentrequirements", byUserId.getSalaryRequirements(), Field.Store.YES));
-            document.add(new IntPoint("recruitmentrequirements",byUserId.getNumber()));
+            document.add(new TextField("recruitmentrequirements",byUserId.getNumber(), Field.Store.YES));
             //4.把文档写入索引库
             indexWriter.addDocument(document);
             //5、把文档对象写入索引库
