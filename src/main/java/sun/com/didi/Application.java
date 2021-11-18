@@ -1,20 +1,19 @@
 package sun.com.didi;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import sun.com.didi.lucene.createIndex;
 
 @ComponentScan(basePackages = "sun.com")
 @SpringBootApplication
 @EnableCaching
 public class Application implements WebMvcConfigurer {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
     @Override

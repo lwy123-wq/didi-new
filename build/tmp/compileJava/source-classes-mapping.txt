@@ -20,12 +20,14 @@ sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
-sun/com/didi/Application.java
- sun.com.didi.Application
+sun/com/didi/lucene/createIndex.java
+ sun.com.didi.lucene.createIndex
 sun/com/didi/chat/singlechat/ServerInitializer.java
  sun.com.didi.chat.singlechat.ServerInitializer
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
+sun/com/didi/util/CodeUtil.java
+ sun.com.didi.util.CodeUtil
 sun/com/didi/dao/LoginDao.java
  sun.com.didi.dao.LoginDao
  sun.com.didi.dao.LoginDao$1
@@ -43,8 +45,6 @@ sun/com/didi/chat/JobChatServer.java
  sun.com.didi.chat.JobChatServer
 sun/com/didi/entity/JobLogin.java
  sun.com.didi.entity.JobLogin
-sun/com/didi/code/UtilCode.java
- sun.com.didi.code.UtilCode
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
 sun/com/didi/entity/Requirement.java
@@ -96,5 +96,5 @@ sun/com/didi/dao/PictureDao.java
  sun.com.didi.dao.PictureDao
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
-sun/com/didi/lucene/createIndex.java
- sun.com.didi.lucene.createIndex
+sun/com/didi/Application.java
+ sun.com.didi.Application
