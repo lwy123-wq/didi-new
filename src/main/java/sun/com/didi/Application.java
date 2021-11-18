@@ -9,21 +9,12 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import sun.com.didi.lucene.createIndex;
 
-import javax.annotation.Resource;
-
 @ComponentScan(basePackages = "sun.com")
 @SpringBootApplication
 @EnableCaching
 public class Application implements WebMvcConfigurer {
-    @Autowired
-    private static createIndex createIndex;
     public static void main(String[] args) {
 
-        try {
-            createIndex.create();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         SpringApplication.run(Application.class);
     }
     @Override
