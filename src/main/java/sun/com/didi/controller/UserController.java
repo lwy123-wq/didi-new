@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sun.com.didi.code.UtilCode;
+import sun.com.didi.util.CodeUtil;
 import sun.com.didi.entity.Login;
 import sun.com.didi.service.IEmailService;
 import sun.com.didi.service.IntentionImpl;
@@ -106,7 +106,7 @@ public class UserController {
     @PostMapping(value = "/SendCode")
     @ResponseBody
     public  String jump(String email){
-        UtilCode utilCode=new UtilCode();
+        CodeUtil utilCode=new CodeUtil();
         s = utilCode.verifyCode();
         boolean b = sendEmail(email, s);
         if (b==true){

@@ -20,12 +20,12 @@ sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
-sun/com/didi/dao/IntentionDao.java
- sun.com.didi.dao.IntentionDao
-sun/com/didi/chat/singlechat/ServerInitializer.java
- sun.com.didi.chat.singlechat.ServerInitializer
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
+sun/com/didi/chat/singlechat/ServerInitializer.java
+ sun.com.didi.chat.singlechat.ServerInitializer
+sun/com/didi/dao/IntentionDao.java
+ sun.com.didi.dao.IntentionDao
 sun/com/didi/dao/LoginDao.java
  sun.com.didi.dao.LoginDao
  sun.com.didi.dao.LoginDao$1
@@ -80,12 +80,12 @@ sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
-sun/com/didi/service/AddressServiceImpl.java
- sun.com.didi.service.AddressServiceImpl
-sun/com/didi/service/EmailService.java
- sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
+sun/com/didi/service/EmailService.java
+ sun.com.didi.service.EmailService
+sun/com/didi/service/AddressServiceImpl.java
+ sun.com.didi.service.AddressServiceImpl
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/filter/MyFilter.java

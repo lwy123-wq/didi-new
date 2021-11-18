@@ -7,7 +7,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import sun.com.didi.lucene.createIndex;
 
 import javax.annotation.Resource;
 
@@ -16,14 +15,14 @@ import javax.annotation.Resource;
 @EnableCaching
 public class Application implements WebMvcConfigurer {
     @Autowired
-    private static createIndex createIndex;
+    //private static createIndex createIndex;
     public static void main(String[] args) {
 
-        try {
+       /* try {
             createIndex.create();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         SpringApplication.run(Application.class);
     }
     @Override

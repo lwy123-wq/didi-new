@@ -1,3 +1,4 @@
+/*
 package sun.com.didi.lucene;
 
 import org.apache.commons.io.FileUtils;
@@ -25,7 +26,7 @@ public class createIndex {
         //把索引库保存在内存中
         //Directory directory = new RAMDirectory();
         //把索引库保存在磁盘
-        Directory directory = FSDirectory.open(new File("/home/lxj/文档/index").toPath());
+        Directory directory = FSDirectory.open(new File("/home/lwy/文档/aaa").toPath());
 
         //2.基于Directory对象创建一个IndexWriter对象,默认使用StandardAnalyzer分析器
         //IndexWriterConfig config = new IndexWriterConfig();
@@ -35,11 +36,13 @@ public class createIndex {
         //3.创建一个Document对象
         Document document = new Document();
         //向document对象中添加域
+*/
 /*        int price = 2999900;
         // Field 类有整数类型值的构造方法吗？
         // 用字节数组来存储试试，还是转为字符串？
         byte[] result = new byte[Integer.BYTES];
-        NumericUtils.intToSortableBytes(price, result, 0);*/
+        NumericUtils.intToSortableBytes(price, result, 0);*//*
+
         Requirement byUserId = workService.selectWork(1);
 //        document.add(new Field("price",result, Store.YES));
         document.add(new TextField("recruitmentrequirements", byUserId.getCompany(), Field.Store.YES));
@@ -55,3 +58,4 @@ public class createIndex {
 
     }
 }
+*/
