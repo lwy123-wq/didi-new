@@ -1,3 +1,4 @@
+/*
 package sun.com.didi.lucene;
 
 import org.apache.commons.io.FileUtils;
@@ -39,10 +40,12 @@ public class createIndex {
         //向document对象中添加域
         Requirement byUserId = workService.selectWork(2);
 //        document.add(new Field("price",result, Store.YES));
-       /* document.add(new TextField("company", byUserId.getCompany(), Field.Store.YES));
+       */
+/* document.add(new TextField("company", byUserId.getCompany(), Field.Store.YES));
         document.add(new TextField("company", byUserId.getOccupationalCategory(), Field.Store.YES));
         document.add(new TextField("company", byUserId.getRemainingPositions(), Field.Store.YES));
-        document.add(new TextField("company", byUserId.getSalaryRequirements(), Field.Store.YES));*/
+        document.add(new TextField("company", byUserId.getSalaryRequirements(), Field.Store.YES));*//*
+
         document.add(new TextField("company",byUserId.getNumber(), Field.Store.YES));
         document.add(new TextField("filename", "Lucene 简介 Lucene 是一个基于 Java 的全文信息检索工具包,\" +\n" +
                 "                                                       \"它不是一个完整的搜索应用程序,而是为你的应用程序提供索引和搜索功能。", Field.Store.YES));
@@ -56,3 +59,4 @@ public class createIndex {
     }
 }
 
+*/
