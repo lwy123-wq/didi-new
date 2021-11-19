@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -154,7 +155,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/homePage", method = RequestMethod.GET)
-    public String homePage(){
+    public String homePage(HttpServletRequest request,Model model){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        model.addAttribute("username",username);
         return "shou";
     }
 }
