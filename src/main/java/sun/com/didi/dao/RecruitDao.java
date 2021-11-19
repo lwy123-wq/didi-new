@@ -29,4 +29,20 @@ public class RecruitDao {
         });
         return re;
     }
+
+    public Requirement Select(){
+        final Requirement re=new Requirement();
+        String sql= "SELECT * FROM recruitmentrequirements";
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                re.setOccupationalCategory(rs.getString(3));
+                re.setRemainingPositions(rs.getString(4));
+                re.setSalaryRequirements(rs.getString(5));
+                re.setCompany(rs.getString(2));
+                re.setNumber(rs.getString(6));
+            }
+        });
+        return re;
+    }
 }
