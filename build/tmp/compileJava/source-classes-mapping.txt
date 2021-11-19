@@ -24,8 +24,8 @@ sun/com/didi/Application.java
  sun.com.didi.Application
 sun/com/didi/chat/singlechat/ServerInitializer.java
  sun.com.didi.chat.singlechat.ServerInitializer
-sun/com/didi/dao/IntentionDao.java
- sun.com.didi.dao.IntentionDao
+sun/com/didi/lucene/createIndex.java
+ sun.com.didi.lucene.createIndex
 sun/com/didi/util/CodeUtil.java
  sun.com.didi.util.CodeUtil
 sun/com/didi/dao/LoginDao.java
@@ -73,24 +73,33 @@ sun/com/didi/chat/JobServerInitializer.java
  sun.com.didi.chat.JobServerInitializer
 sun/com/didi/interceptor/AddressedInterceptor.java
  sun.com.didi.interceptor.AddressedInterceptor
+<<<<<<< HEAD
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
+=======
+sun/com/didi/dao/RecruitDao.java
+ sun.com.didi.dao.RecruitDao
+ sun.com.didi.dao.RecruitDao$1
+sun/com/didi/util/CookieUtil.java
+ sun.com.didi.util.CookieUtil
+>>>>>>> b4e1a652c577005d1a9e3b2e1634ac05574a1ad9
 sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
-sun/com/didi/service/AddressServiceImpl.java
- sun.com.didi.service.AddressServiceImpl
-sun/com/didi/service/EmailService.java
- sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
+sun/com/didi/service/EmailService.java
+ sun.com.didi.service.EmailService
+sun/com/didi/service/AddressServiceImpl.java
+ sun.com.didi.service.AddressServiceImpl
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
 sun/com/didi/config/FilterConfig.java
  sun.com.didi.config.FilterConfig
+<<<<<<< HEAD
 sun/com/didi/lucene/createIndex.java
  sun.com.didi.lucene.createIndex
 sun/com/didi/dao/RecruitDao.java
@@ -101,3 +110,11 @@ sun/com/didi/service/WorkServiceImpl.java
  sun.com.didi.service.WorkServiceImpl
 sun/com/didi/service/SelectRecruitment.java
  sun.com.didi.service.SelectRecruitment
+=======
+sun/com/didi/dao/PictureDao.java
+ sun.com.didi.dao.PictureDao
+sun/com/didi/service/PictureServiceImpl.java
+ sun.com.didi.service.PictureServiceImpl
+sun/com/didi/dao/IntentionDao.java
+ sun.com.didi.dao.IntentionDao
+>>>>>>> b4e1a652c577005d1a9e3b2e1634ac05574a1ad9

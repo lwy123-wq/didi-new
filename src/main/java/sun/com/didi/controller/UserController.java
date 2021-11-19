@@ -3,16 +3,21 @@ package sun.com.didi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.util.CodeUtil;
 import sun.com.didi.entity.Login;
 import sun.com.didi.service.IEmailService;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.UserServiceImpl;
+import sun.com.didi.util.CookieUtil;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -37,13 +42,15 @@ public class UserController {
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
     @Cacheable(cacheNames = "login",key = "#username+'-'+#password")
-    public String login(String username,String password){
+    public String login(HttpServletRequest request, HttpServletResponse response, String username, String password, Model model){
         System.out.println( Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
-        System.out.println(user.getPasswd()+user.getName());
+        int expire = 60 * 60 * 24 * 7;  //表示7天
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
         }else {
+            CookieUtil.setCookie(request, response, "username", user.getName(), expire);
+            CookieUtil.setCookie(request, response, "password", user.getPasswd(), expire);
             return "success";
         }
     }
@@ -148,7 +155,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/homePage", method = RequestMethod.GET)
-    public String homePage(){
+    public String homePage(HttpServletRequest request,Model model){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        model.addAttribute("username",username);
         return "shou";
     }
 }

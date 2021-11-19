@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <title>单人聊天</title>
@@ -156,7 +156,7 @@
   <a href="#"><div class="yuan">
     <img src="../static/images/14.png">
   </div></a>
-  <a href="#"><div class="ge" id="ge">登录/注册</div></a>
+  <a href="#"><div class="ge" id="ge" th:text="${username}">登录/注册</div></a>
   <a href="#"><div class="xiao">
     <img src="../static/images/12.png">
   </div> </a>
@@ -263,11 +263,7 @@
     }
   }
   /////
-  var ge =document.querySelector('.ge');
-  console.log(location.search);
-  var parm =location.search.substr(1);
-  var arr =parm.split('=');
-  ge.innerHTML=arr[1];
+
   window.CHAT = {
     isLogin: false,
     to: "",
@@ -399,5 +395,6 @@
     }
   });
 </script>
+<!--用户名： <h1 th:text="${username}"></h1>-->
 </body>
 </html>
