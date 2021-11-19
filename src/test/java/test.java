@@ -62,9 +62,9 @@ public class test {
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("SalaryRequirements", "20"));
+            Query query = new TermQuery(new Term("SalaryRequirements", "10"));
             //执行查询
-            TopDocs topDocs = indexSearcher.search(query, 10);
+            TopDocs topDocs = indexSearcher.search(query, 1);
             //共查询到的document个数
             System.out.println("查询结果总数量：" + topDocs.totalHits);
             //遍历查询结果

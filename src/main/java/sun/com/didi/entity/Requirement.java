@@ -3,7 +3,7 @@ package sun.com.didi.entity;
 public class Requirement {
     private String company;
     private String OccupationalCategory;
-    private String  RemainingPositions;
+    private String RemainingPositions;
     private String SalaryRequirements;
     private String Number;
 

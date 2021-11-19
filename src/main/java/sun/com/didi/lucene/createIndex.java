@@ -1,6 +1,4 @@
 package sun.com.didi.lucene;
-
-import org.apache.commons.io.FileUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
@@ -8,7 +6,6 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.NumericUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wltea.analyzer.lucene.IKAnalyzer;
@@ -18,6 +15,8 @@ import sun.com.didi.service.WorkServiceImpl;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
+import java.util.List;
+
 @Component
 public class createIndex {
     @Autowired
@@ -41,19 +40,21 @@ public class createIndex {
         //3.创建一个Document对象
         Document document = new Document();
         //向document对象中添加域
-        Requirement byUserId = selectRecruitment.selectrecruitment();
-        System.out.println(byUserId.getCompany());
-        System.out.println(byUserId.getNumber());
-        System.out.println(byUserId.getOccupationalCategory());
-        System.out.println(byUserId.getRemainingPositions());
-        System.out.println(byUserId.getSalaryRequirements());
-//        document.add(new Field("price",result, Store.YES));
+        List<Requirement> byUserId = selectRecruitment.selectrecruitment();
+        for (int i=0;i< byUserId.size();i++){
+      /*      System.out.println(byUserId.get(i).getCompany());
+            System.out.println(byUserId.get(i).getOccupationalCategory());
+            System.out.println(byUserId.get(i).getRemainingPositions());
+            System.out.println(byUserId.get(i).getSalaryRequirements());
+            System.out.println(byUserId.get(i).getNumber());*/
+            document.add(new TextField("company", byUserId.get(i).getCompany(), Field.Store.YES));
+            document.add(new TextField("OccupationalCategory",byUserId.get(i).getOccupationalCategory(), Field.Store.YES));
+            document.add(new TextField("RemainingPositions",byUserId.get(i).getRemainingPositions(), Field.Store.YES));
+            document.add(new TextField("SalaryRequirements", byUserId.get(i).getSalaryRequirements(), Field.Store.YES));
+            document.add(new TextField("Number", byUserId.get(i).getNumber(), Field.Store.YES));
+        }
 
-        document.add(new TextField("company", byUserId.getCompany(), Field.Store.YES));
-        document.add(new TextField("OccupationalCategory", byUserId.getOccupationalCategory(), Field.Store.YES));
-        document.add(new TextField("RemainingPositions", byUserId.getRemainingPositions(), Field.Store.YES));
-        document.add(new TextField("SalaryRequirements", byUserId.getSalaryRequirements(), Field.Store.YES));
-        document.add(new TextField("Number", byUserId.getNumber(), Field.Store.YES));
+//        document.add(new Field("price",result, Store.YES));
         //4.把文档写入索引库
         indexWriter.addDocument(document);
         indexWriter.commit();
