@@ -130,7 +130,7 @@
             border: 1px solid #c97513;
             width:451px;
             height: 45px;
-            margin-left: 20px;
+            margin-left: -14px;
             outline: none;
             padding-left: 20px;
         }
@@ -614,6 +614,24 @@
             margin-left: 20px;
             margin-top: 24px;
             border-radius: 25px;
+            position: relative;
+        }
+        .facekuang {
+            position: absolute;
+            top:120px;
+           right: 320px;
+            width: 147px;
+            height: 73px;
+
+            float: left;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+        }
+        ul {
+            list-style: none;
         }
 
 
@@ -635,7 +653,9 @@
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">
     </div></a>
-    <a href="login"><div class="face"></div> <div class="ge">登录/注册</div></a>
+    <a href="##"> <div class="face"></div></a>
+    <div class="facekuang" style="z-index: 999;display: none"><ul><a href="##"><li id="xiu"> 修改用户名</li></a><li style="display:none;"><input type="text" style="width: 85px;height: 20px;padding-left:0;" placeholder="按enter键确定" id="user"> </li></ul> </div>
+    <a href="login"><div class="ge" th:text="${username}">登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
         <div class="positin" id="positin"></div>
@@ -841,6 +861,37 @@
 <script>
     var arr=['faceone.png','facetwo.png','facethree.png','facefour.png','facefive.png','facesix.png'];
     var face =document.querySelector('.face');
+    var facekuang =document.querySelector('.facekuang');
+    var xiu =document.querySelector('#xiu');
+    var ge =document.querySelector('.ge');
+    var user= document.querySelector('#user');
+    var flag=0;
+    face.onclick = function () {
+        if(flag==0){
+            facekuang.style.display='block';
+            xiu.onclick=function()
+            {
+              this.parentNode.nextSibling.style.display='block';
+                xiu.parentNode.nextSibling.addEventListener('keyup',function (e) {
+                   if(e.keyCode===13)
+
+
+                   {
+                       facekuang.style.display='none';
+                       ge.innerHTML=user.value;
+
+                   }
+                });
+            }
+
+            flag=1;
+        }else {
+            facekuang.style.display='none';
+            flag=0;
+        }
+
+
+    }
     function getRandomIntInclusive(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -849,12 +900,12 @@
     face.style.background='url("../static/images/'+arr[getRandomIntInclusive(0,5)]+'")';
     face.style.backgroundSize='100% 100%';
 
-    function to(){
-
-        var name =document.querySelector('#name');
-        window.location.href="SingleChat?valus="+name.innerHTML;
-        // window.location.href="b.html?valus="+getval+"&value2="+getval2;
-    }
+    // function to(){
+    //
+    //     var name =document.querySelector('#name');
+    //     window.location.href="SingleChat?valus="+name.innerHTML;
+    //     // window.location.href="b.html?valus="+getval+"&value2="+getval2;
+    // }
     var details =document.querySelectorAll('.detail');
     var xiangs =document.querySelectorAll('.xiang');
     var xias =document.querySelectorAll('.xia');
