@@ -20,7 +20,9 @@ import sun.com.didi.entity.Requirement;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.service.WorkServiceImpl;
+import sun.com.didi.service.unitServiceImpl;
 
+import javax.annotation.Resource;
 import java.io.File;
 
 @SpringBootTest(classes = Application.class)
@@ -34,6 +36,8 @@ public class test {
     private IntentionImpl intention;
     @Autowired
     private WorkServiceImpl workService;
+    @Resource
+    private unitServiceImpl unitService;
     @Test
     public void t() throws Exception {
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
@@ -58,7 +62,8 @@ public class test {
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);*/
 
-            Directory directory = FSDirectory.open(new File("/home/lxj/文档/index").toPath());
+        //lucene搜索引擎
+     /*       Directory directory = FSDirectory.open(new File("/home/lxj/文档/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
@@ -77,7 +82,8 @@ public class test {
                 System.out.println(document.get("Number"));
             }
             //关闭indexreader
-            indexSearcher.getIndexReader().close();
+            indexSearcher.getIndexReader().close();*/
+
     }
 
 }
