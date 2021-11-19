@@ -78,8 +78,6 @@ public class test {
             }
             //关闭indexreader
             indexSearcher.getIndexReader().close();
-
-
     }
 
 }

@@ -81,7 +81,6 @@ public class UserController {
     @Cacheable(cacheNames = "ReturnPasswd",key = "#username+'-'+#email")
     public String forget( String username,String email){
         Login user=userService.findPassword(username,email);
-        System.out.println("================");
         System.out.println(user.getPasswd());
         byte[] decoded=Base64.getDecoder().decode(user.getPasswd());
         String decodeStr=new String(decoded);
@@ -130,8 +129,6 @@ public class UserController {
     public String select(){
         return "select";
     }
-
-
     @RequestMapping(value = "/qiuzhi", method = RequestMethod.GET)
     public String qiuzhi(){
         return "qiuzhi";
