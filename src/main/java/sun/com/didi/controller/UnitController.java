@@ -2,8 +2,8 @@ package sun.com.didi.controller;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
-import sun.com.didi.entity.Unit;
-import sun.com.didi.service.UnitServiceImpl;
+import sun.com.didi.entity.Recruit;
+import sun.com.didi.service.RecruitServiceImpl;
 
 import javax.annotation.Resource;
 
@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 @RestController
 public class UnitController {
     @Resource
-    private UnitServiceImpl unitService;
+    private RecruitServiceImpl unitService;
   @RequestMapping(value = "/Unit",method = RequestMethod.GET)
     public String Employer(){
       return "/Unit";
@@ -20,7 +20,7 @@ public class UnitController {
     @ResponseBody
     @Cacheable(cacheNames = "Unit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
     public String Unit(String Rec_company,String Rec_logo,String Rec_category,int Rec_salary,int Rec_Duration,String Rec_experience){
-        Unit unit =unitService.findByCompany(Rec_company,Rec_logo);
+        Recruit unit =unitService.findByCompany(Rec_company,Rec_logo);
         if (unit.getRec_logo()==null||unit.getRec_company()==null){
             return "该公司或公司logo已注册！";
         }

@@ -1,6 +1,7 @@
 package sun.com.didi.lucene;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -9,9 +10,8 @@ import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wltea.analyzer.lucene.IKAnalyzer;
-import sun.com.didi.entity.Requirement;
+import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.SelectRecruitment;
-import sun.com.didi.service.WorkServiceImpl;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
@@ -19,8 +19,6 @@ import java.util.List;
 
 @Component
 public class createIndex {
-    @Autowired
-    private WorkServiceImpl workService;
     @Autowired
     private SelectRecruitment selectRecruitment;
 
@@ -40,18 +38,19 @@ public class createIndex {
         //3.创建一个Document对象
         Document document = new Document();
         //向document对象中添加域
-        List<Requirement> byUserId = selectRecruitment.selectrecruitment();
+        List<Recruit> byUserId = selectRecruitment.selectrecruitment();
         for (int i=0;i< byUserId.size();i++){
-      /*      System.out.println(byUserId.get(i).getCompany());
-            System.out.println(byUserId.get(i).getOccupationalCategory());
-            System.out.println(byUserId.get(i).getRemainingPositions());
-            System.out.println(byUserId.get(i).getSalaryRequirements());
-            System.out.println(byUserId.get(i).getNumber());*/
-            document.add(new TextField("company", byUserId.get(i).getCompany(), Field.Store.YES));
-            document.add(new TextField("OccupationalCategory",byUserId.get(i).getOccupationalCategory(), Field.Store.YES));
-            document.add(new TextField("RemainingPositions",byUserId.get(i).getRemainingPositions(), Field.Store.YES));
-            document.add(new TextField("SalaryRequirements", byUserId.get(i).getSalaryRequirements(), Field.Store.YES));
-            document.add(new TextField("Number", byUserId.get(i).getNumber(), Field.Store.YES));
+            System.out.println(byUserId.get(i).getRec_company());
+            System.out.println(byUserId.get(i).getRec_category());
+            System.out.println(byUserId.get(i).getRec_experience());
+            System.out.println(byUserId.get(i).getRec_Duration());
+            System.out.println(byUserId.get(i).getRec_salary());
+            document.add(new TextField("Rec_company", byUserId.get(i).getRec_company(), Field.Store.YES));
+           // document.add(new TextField("Rec_logo",byUserId.get(i).getRec_logo(), Field.Store.YES));
+            document.add(new TextField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
+            document.add(new TextField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
+            document.add(new IntPoint("Rec_Duration",byUserId.get(i).getRec_Duration()));
+            document.add(new IntPoint("Rec_salary",byUserId.get(i).getRec_salary()));
         }
 
 //        document.add(new Field("price",result, Store.YES));

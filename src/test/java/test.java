@@ -1,4 +1,11 @@
 
+import org.apache.lucene.document.Document;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.search.*;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,10 +14,10 @@ import sun.com.didi.dao.JobDao;
 
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.UserServiceImpl;
-import sun.com.didi.service.WorkServiceImpl;
-import sun.com.didi.service.UnitServiceImpl;
+import sun.com.didi.service.RecruitServiceImpl;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -21,10 +28,8 @@ public class test {
     private UserServiceImpl userService;
     @Autowired
     private IntentionImpl intention;
-    @Autowired
-    private WorkServiceImpl workService;
     @Resource
-    private UnitServiceImpl unitService;
+    private RecruitServiceImpl unitService;
     @Test
     public void t() throws Exception {
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
@@ -50,7 +55,7 @@ public class test {
         System.out.println(decodeStr);*/
 
         //lucene搜索引擎
-     /*       Directory directory = FSDirectory.open(new File("/home/lxj/文档/index").toPath());
+            Directory directory = FSDirectory.open(new File("../src/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
@@ -69,7 +74,7 @@ public class test {
                 System.out.println(document.get("Number"));
             }
             //关闭indexreader
-            indexSearcher.getIndexReader().close();*/
+            indexSearcher.getIndexReader().close();
 
     }
 
