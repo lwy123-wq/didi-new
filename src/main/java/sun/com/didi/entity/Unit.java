@@ -17,6 +17,11 @@ public class Unit {
         this.Rec_Duration=Rec_Duration;
         this.Rec_experience=Rec_experience;
     }
+
+    public Unit() {
+
+    }
+
     public int getId() {
         return id;
     }
