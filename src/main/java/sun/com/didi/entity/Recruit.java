@@ -5,11 +5,11 @@ public class Recruit {
     private String Rec_company;
     private String Rec_logo;
     private String Rec_category;
-    private int Rec_salary;
-    private int Rec_Duration;
+    private String Rec_salary;
+    private String Rec_Duration;
     private String Rec_experience;
 
-    public Recruit(String Rec_company, String Rec_logo, String Rec_category, int Rec_salary, int Rec_Duration, String Rec_experience){
+    public Recruit(String Rec_company, String Rec_logo, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
         this.Rec_company=Rec_company;
         this.Rec_logo=Rec_logo;
         this.Rec_category=Rec_category;
@@ -54,19 +54,19 @@ public class Recruit {
         Rec_category = rec_category;
     }
 
-    public int getRec_salary() {
+    public String getRec_salary() {
         return Rec_salary;
     }
 
-    public void setRec_salary(int rec_salary) {
+    public void setRec_salary(String rec_salary) {
         Rec_salary = rec_salary;
     }
 
-    public int getRec_Duration() {
+    public String getRec_Duration() {
         return Rec_Duration;
     }
 
-    public void setRec_Duration(int rec_Duration) {
+    public void setRec_Duration(String rec_Duration) {
         Rec_Duration = rec_Duration;
     }
 

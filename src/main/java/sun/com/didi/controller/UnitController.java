@@ -19,7 +19,7 @@ public class UnitController {
     @PostMapping(value = "/unit_Employer")
     @ResponseBody
     @Cacheable(cacheNames = "Unit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
-    public String Unit(String Rec_company,String Rec_logo,String Rec_category,int Rec_salary,int Rec_Duration,String Rec_experience){
+    public String Unit(String Rec_company,String Rec_logo,String Rec_category,String Rec_salary,String Rec_Duration,String Rec_experience){
         Recruit unit =unitService.findByCompany(Rec_company,Rec_logo);
         if (unit.getRec_logo()==null||unit.getRec_company()==null){
             return "该公司或公司logo已注册！";

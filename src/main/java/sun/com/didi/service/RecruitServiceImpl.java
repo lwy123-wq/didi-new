@@ -12,9 +12,9 @@ public class RecruitServiceImpl {
 
 
     public Recruit findByCompany(String username, String logo) {
-        return recruitDao.findByUnit(username,logo);
+        return recruitDao.findByRecruit(username,logo);
     }
-    public int insert(String Rec_company,String Rec_logo,String Rec_category,int Rec_salary,int Rec_Duration,String Rec_experience){
+    public int insert(String Rec_company,String Rec_logo,String Rec_category,String Rec_salary,String Rec_Duration,String Rec_experience){
 
         return recruitDao.RecruitInsert(new Recruit(Rec_company,Rec_logo,Rec_category,Rec_salary,Rec_Duration,Rec_experience));
     }

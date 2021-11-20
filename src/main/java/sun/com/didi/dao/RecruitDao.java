@@ -25,9 +25,10 @@ public class RecruitDao {
                 re.setRec_company(rs.getString("Rec_company"));
                 re.setRec_logo(rs.getString("Rec_logo"));
                 re.setRec_category(rs.getString("Rec_category"));
-                re.setRec_Duration(rs.getInt("Rec_Duration"));
+                re.setRec_salary(rs.getString("Rec_salary"));
+                re.setRec_Duration(rs.getString("Rec_Duration"));
                 re.setRec_experience(rs.getString("Rec_experience"));
-                re.setRec_salary(rs.getInt("Rec_salary"));
+
                 return re;
             }
         }) ;
@@ -43,7 +44,7 @@ return list;
                 recruit.getRec_Duration(),recruit.getRec_experience());
     }
 
-    public Recruit findByUnit(String name, String logo){
+    public Recruit findByRecruit(String name, String logo){
         final Recruit unit=new Recruit();
         String sql = "SELECT * FROM Login WHERE Rec_company=? AND Rec_logo";
         jdbcTemplate.query(sql, new Object[]{name,logo}, new RowCallbackHandler() {

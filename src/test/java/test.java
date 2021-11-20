@@ -59,7 +59,7 @@ public class test {
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("SalaryRequirements", "10"));
+            Query query = new TermQuery(new Term("Rec_experience", "kfdkjiekfdn"));
             //执行查询
             TopDocs topDocs = indexSearcher.search(query, 1);
             //共查询到的document个数
@@ -67,11 +67,13 @@ public class test {
             //遍历查询结果
             for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
                 Document document = indexSearcher.doc(scoreDoc.doc);
-                System.out.println(document.get("OccupationalCategory"));
-                System.out.println(document.get("company"));
-                System.out.println(document.get("RemainingPositions"));
-                System.out.println(document.get("SalaryRequirements"));
-                System.out.println(document.get("Number"));
+                System.out.println(document.get("Rec_company"));
+                System.out.println(document.get("Rec_logo"));
+                System.out.println(document.get("Rec_category"));
+                System.out.println(document.get("Rec_salary"));
+                System.out.println(document.get("Rec_Duration"));
+                System.out.println(document.get("Rec_experience"));
+
             }
             //关闭indexreader
             indexSearcher.getIndexReader().close();
