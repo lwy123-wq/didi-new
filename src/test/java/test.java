@@ -55,11 +55,11 @@ public class test {
         System.out.println(decodeStr);*/
 
         //lucene搜索引擎
-            Directory directory = FSDirectory.open(new File("../src/index").toPath());
+            Directory directory = FSDirectory.open(new File("src/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("Rec_experience", "kfdkjiekfdn"));
+            Query query = new TermQuery(new Term("Rec_company", "百度"));
             //执行查询
             TopDocs topDocs = indexSearcher.search(query, 1);
             //共查询到的document个数

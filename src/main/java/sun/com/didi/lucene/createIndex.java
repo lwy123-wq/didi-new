@@ -28,7 +28,7 @@ public class createIndex {
         //把索引库保存在内存中
         //Directory directory = new RAMDirectory();
         //把索引库保存在磁盘
-        Directory directory = FSDirectory.open(new File("../src/index").toPath());
+        Directory directory = FSDirectory.open(new File("src/index").toPath());
 
         //2.基于Directory对象创建一个IndexWriter对象,默认使用StandardAnalyzer分析器
         //IndexWriterConfig config = new IndexWriterConfig();
