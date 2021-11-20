@@ -1,10 +1,9 @@
 package sun.com.didi.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.Unit;
-import sun.com.didi.service.unitServiceImpl;
+import sun.com.didi.service.UnitServiceImpl;
 
 import javax.annotation.Resource;
 
@@ -12,7 +11,7 @@ import javax.annotation.Resource;
 @RestController
 public class UnitController {
     @Resource
-    private unitServiceImpl unitService;
+    private UnitServiceImpl unitService;
   @RequestMapping(value = "/Unit",method = RequestMethod.GET)
     public String Employer(){
       return "/Unit";

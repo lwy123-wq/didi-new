@@ -1,29 +1,16 @@
 
-import org.apache.commons.io.FileUtils;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntPoint;
-import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.*;
-import org.apache.lucene.search.*;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.NumericUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.wltea.analyzer.lucene.IKAnalyzer;
 import sun.com.didi.Application;
 import sun.com.didi.dao.JobDao;
 
-import sun.com.didi.entity.Requirement;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.service.WorkServiceImpl;
-import sun.com.didi.service.unitServiceImpl;
+import sun.com.didi.service.UnitServiceImpl;
 
 import javax.annotation.Resource;
-import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -37,7 +24,7 @@ public class test {
     @Autowired
     private WorkServiceImpl workService;
     @Resource
-    private unitServiceImpl unitService;
+    private UnitServiceImpl unitService;
     @Test
     public void t() throws Exception {
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");

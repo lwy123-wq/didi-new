@@ -16,14 +16,10 @@ import java.io.File;
 
 @RestController
 public class LuceneController {
-    @RequestMapping(value = "/sousuo",method = RequestMethod.GET)
-    public String FindPasswd(){
-        return "sousuo";
-    }
     @PostMapping(value = "/LuceneQuery")
     @ResponseBody
     public String LuceneQuery(String index)throws Exception{
-        Directory directory= FSDirectory.open(new File("/home/lxj/文档/index").toPath());
+        Directory directory= FSDirectory.open(new File("../src/index").toPath());
         IndexReader indexReader= DirectoryReader.open(directory);
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
         //创建查询对象
