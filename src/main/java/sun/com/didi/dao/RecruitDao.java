@@ -32,7 +32,7 @@ public class RecruitDao {
                 return re;
             }
         }) ;
-return list;
+        return list;
 
     }
 

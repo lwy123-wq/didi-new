@@ -1,11 +1,4 @@
 
-import org.apache.lucene.document.Document;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.*;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +10,6 @@ import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.service.RecruitServiceImpl;
 
 import javax.annotation.Resource;
-import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -55,11 +47,11 @@ public class test {
         System.out.println(decodeStr);*/
 
         //lucene搜索引擎
-            Directory directory = FSDirectory.open(new File("src/index").toPath());
+            /*Directory directory = FSDirectory.open(new File("src/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("Rec_company", "百度"));
+            Query query = new TermQuery(new Term("Rec_company", "有限"));
             //执行查询
             TopDocs topDocs = indexSearcher.search(query, 1);
 
@@ -77,7 +69,7 @@ public class test {
 
             }
             //关闭indexreader
-            indexSearcher.getIndexReader().close();
+            indexSearcher.getIndexReader().close();*/
 
     }
 

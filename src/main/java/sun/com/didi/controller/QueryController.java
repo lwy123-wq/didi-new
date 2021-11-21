@@ -9,6 +9,7 @@ import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.RecruitServiceImpl;
@@ -16,13 +17,13 @@ import sun.com.didi.service.RecruitServiceImpl;
 import java.io.File;
 import java.io.IOException;
 
-@RestController
+@Controller
 public class QueryController {
     @Autowired
     private RecruitServiceImpl recruitService;
     @RequestMapping(value = "/Query",method = RequestMethod.GET)
     public String Lucene(){return "/Lucene";}
-    @PostMapping(value = "/Recruit")
+    @PostMapping(value = "/query")
     @ResponseBody
     /*index.indexOf(String.valueOf(topDocs.scoreDocs))>0*/
     public void doc(String str) throws IOException {

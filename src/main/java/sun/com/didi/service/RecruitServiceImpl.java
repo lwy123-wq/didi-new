@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import sun.com.didi.dao.RecruitDao;
 import sun.com.didi.entity.Recruit;
 
+import java.util.List;
+
 @Service
 public class RecruitServiceImpl {
     @Autowired
@@ -17,5 +19,8 @@ public class RecruitServiceImpl {
     public int insert(String Rec_company,String Rec_category,String Rec_salary,String Rec_Duration,String Rec_experience){
 
         return recruitDao.RecruitInsert(new Recruit(Rec_company,Rec_category,Rec_salary,Rec_Duration,Rec_experience));
+    }
+    public List<Recruit> select(){
+        return recruitDao.Select();
     }
 }
