@@ -62,6 +62,7 @@ public class test {
             Query query = new TermQuery(new Term("Rec_company", "百度"));
             //执行查询
             TopDocs topDocs = indexSearcher.search(query, 1);
+
             //共查询到的document个数
             System.out.println("查询结果总数量：" + topDocs.totalHits);
             //遍历查询结果
