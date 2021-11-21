@@ -41,7 +41,9 @@ public class JobController {
     public String single(Model model, HttpServletRequest request){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
+        String company=map.get("company");
         model.addAttribute("username",username);
+        model.addAttribute("company",company);
         return "chat";
     }
 }
