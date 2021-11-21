@@ -25,6 +25,23 @@
         }
         address();
 
+        function SelectRecruit(){
+            $.ajax({
+                url: "/selectRecruit",
+                type: 'POST',
+                success: function (res) {
+                    if(res!=null){
+                        console.log(res);
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+        SelectRecruit()
     </script>
     <style>
         body {

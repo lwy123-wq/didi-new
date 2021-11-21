@@ -1,11 +1,4 @@
 
-import org.apache.lucene.document.Document;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.*;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,13 +48,13 @@ public class test {
         System.out.println(decodeStr);*/
 
         //lucene搜索引擎
-            Directory directory = FSDirectory.open(new File("src/index").toPath());
+            /*Directory directory = FSDirectory.open(new File("src/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("Rec_company", "百度"));
+            Query query = new TermQuery(new Term("Rec_company", "有限"));
             //执行查询
-            TopDocs topDocs = indexSearcher.search(query, 1);
+            TopDocs topDocs = indexSearcher.search(query, 2);
             //共查询到的document个数
             System.out.println("查询结果总数量：" + topDocs.totalHits);
             //遍历查询结果
@@ -76,7 +69,7 @@ public class test {
 
             }
             //关闭indexreader
-            indexSearcher.getIndexReader().close();
+            indexSearcher.getIndexReader().close();*/
 
     }
 
