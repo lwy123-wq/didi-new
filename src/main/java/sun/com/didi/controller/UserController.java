@@ -145,16 +145,13 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/employment", method = RequestMethod.GET)
-    public String employment(){
-        return "employment";
-    }
-
     @RequestMapping(value = "/homePage", method = RequestMethod.GET)
     public String homePage(HttpServletRequest request,Model model){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
+        String company=map.get("company");
         model.addAttribute("username",username);
+        model.addAttribute("company",company);
         return "shou";
     }
 }

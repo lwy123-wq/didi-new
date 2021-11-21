@@ -9,13 +9,12 @@ public class Recruit {
     private String Rec_Duration;
     private String Rec_experience;
 
-    public Recruit(String Rec_company, String Rec_logo, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
-        this.Rec_company=Rec_company;
-        this.Rec_logo=Rec_logo;
-        this.Rec_category=Rec_category;
-        this.Rec_salary=Rec_salary;
-        this.Rec_Duration=Rec_Duration;
-        this.Rec_experience=Rec_experience;
+    public Recruit(String rec_company, String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
+        Rec_company = rec_company;
+        Rec_category = rec_category;
+        Rec_salary = rec_salary;
+        Rec_Duration = rec_Duration;
+        Rec_experience = rec_experience;
     }
 
     public Recruit() {

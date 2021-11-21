@@ -5,7 +5,7 @@
     <title>招聘要求信息填写</title>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
-        function picture(){
+        /*function picture(){
             $.ajax({
                 url: "/picture",
                 type: 'POST',
@@ -27,7 +27,7 @@
                     alert("error!!!!!")
                 }
             });
-        }
+        }*/
 
     </script>
     <script>
@@ -35,13 +35,14 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-                data: {'fileName': $("#fileName").val(), 'companyName': $("#companyName").val()},
+                data: {'companyName': $("#companyName").val(),'category': $("#category").val(),'pay': $("#pay").val(),
+                    'Duration': $("#Duration").val(),'experience': $("#experience").val()},
                 success: function (res) {
-                    if(res=="success"){
-                        function picture1(){
+                    if(res=="数据添加成功！"){
+                        function employment(){
                             window.location.href='select'
                         }
-                        picture1()
+                        employment()
                     }else{
                         alert("error");
                     }
@@ -155,36 +156,31 @@
 
         <tr>
             <td>职业类别</td>
-            <td><input type="text" name="category"> </td>
+            <td><input type="text" id="category"> </td>
         </tr>
-
-        <tr>
-            <td>公司剩余职位</td>
-            <td><input type="text" name="job"> </td>
-        </tr>
-
 
         <tr>
             <td>月薪要求</td>
-            <td><input type="text" name="pay"> </td>
+            <td><input type="text" id="pay"> </td>
         </tr>
         <tr>
             <td>工期</td>
-            <td><select style="width: 96%" name="Duration">
+            <td><select style="width: 96%" id="Duration">
                 <option>长工（一年至五年以下，年结）</option>
                 <option>短工（一年以下，月结）</option>
+                <option>长工&短工</option>
             </select></td>
         </tr>
         <tr>
-            <td>工作经验</td>
-            <td><textarea cols="200" rows="5" style="resize: none" name="experience"></textarea> </td>
+            <td>工作要求</td>
+            <td><textarea cols="200" rows="5" style="resize: none" id="experience"></textarea> </td>
         </tr>
 
 
 
         <tr>
             <td colspan="4" align="left" >
-                <input type="submit" value="提交" class="in">
+                <input type="submit" value="提交" class="in" onclick="employment()">
                 <input type="reset" value="退出" class="in">
             </td>
         </tr>

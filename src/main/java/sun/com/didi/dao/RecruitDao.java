@@ -39,19 +39,18 @@ return list;
 
     public int RecruitInsert(Recruit recruit){
 
-        String sql="INSERT INTO Recruit (Rec_company,Rec_logo,Rec_category,Rec_salary,Rec_Duration,Rec_experience)VALUES(?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql, recruit.getRec_company(), recruit.getRec_logo(),recruit.getRec_category(),recruit.getRec_salary(),
+        String sql="INSERT INTO Recruit (Rec_company,Rec_category,Rec_salary,Rec_Duration,Rec_experience)VALUES(?,?,?,?,?)";
+        return jdbcTemplate.update(sql, recruit.getRec_company(),recruit.getRec_salary(), recruit.getRec_category(),
                 recruit.getRec_Duration(),recruit.getRec_experience());
     }
 
-    public Recruit findByRecruit(String name, String logo){
+    public Recruit findByRecruit(String name){
         final Recruit unit=new Recruit();
-        String sql = "SELECT * FROM Login WHERE Rec_company=? AND Rec_logo";
-        jdbcTemplate.query(sql, new Object[]{name,logo}, new RowCallbackHandler() {
+        String sql = "SELECT * FROM Recruit WHERE Rec_company=?";
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 unit.setRec_company(rs.getString(2));
-                unit.setRec_logo(rs.getString(4));
             }
         });
         return unit;
