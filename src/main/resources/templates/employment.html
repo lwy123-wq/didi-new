@@ -35,8 +35,8 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-                data: {'companyName': $("#companyName").val(),'category': $("#category").val(),'pay': $("#pay").val(),
-                    'Duration': $("#Duration").val(),'experience': $("#experience").val()},
+                data: {'Rec_company': $("#Rec_company").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
+                    'Rec_Duration': $("#Rec_Duration").val(),'Rec_experience': $("#Rec_experience").val()},
                 success: function (res) {
                     if(res=="数据添加成功！"){
                         function employment(){
@@ -135,15 +135,15 @@
 
 </head>
 
-<body onload="init()">
+<body>
 <div class="box"><img src="../static/images/zhiyuan.png" ></div>
-<form method="post" onsubmit="return false" action="##" class="fo">
+<form method="post"  onsubmit="return false" action="##"  class="fo">
     <h2 >请填写您的招聘要求：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
 
         <tr>
             <td>公司名称</td>
-            <td><input type="text" id="companyName"> </td>
+            <td><input type="text" id="Rec_company"> </td>
         </tr>
         <tr style="margin: 85px 0">
             <td>公司logo</td>
@@ -156,16 +156,16 @@
 
         <tr>
             <td>职业类别</td>
-            <td><input type="text" id="category"> </td>
+            <td><input type="text" id="Rec_category"> </td>
         </tr>
 
         <tr>
             <td>月薪要求</td>
-            <td><input type="text" id="pay"> </td>
+            <td><input type="text" id="Rec_salary"> </td>
         </tr>
         <tr>
             <td>工期</td>
-            <td><select style="width: 96%" id="Duration">
+            <td><select style="width: 96%" id="Rec_Duration">
                 <option>长工（一年至五年以下，年结）</option>
                 <option>短工（一年以下，月结）</option>
                 <option>长工&短工</option>
@@ -173,7 +173,7 @@
         </tr>
         <tr>
             <td>工作要求</td>
-            <td><textarea cols="200" rows="5" style="resize: none" id="experience"></textarea> </td>
+            <td><textarea cols="200" rows="5" style="resize: none" id="Rec_experience"></textarea> </td>
         </tr>
 
 

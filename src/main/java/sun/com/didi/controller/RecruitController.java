@@ -24,7 +24,7 @@ public class RecruitController {
 
     @PostMapping(value = "/Recruit")
     @ResponseBody
-    //@Cacheable(cacheNames = "Recruit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
+    @Cacheable(cacheNames = "Recruit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
     public String Recruit(HttpServletRequest request, HttpServletResponse response,String Rec_company, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
         Recruit unit =unitService.findByCompany(Rec_company);
         int expire = 60 * 60 * 24 * 7;  //表示7天

@@ -8,16 +8,17 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
 
-@RestController
+@Controller
 public class QueryController {
     @RequestMapping(value = "/Query",method = RequestMethod.GET)
     public String Lucene(){return "/Lucene";}
-    @PostMapping(value = "/Recruit")
+    @PostMapping(value = "/query")
     @ResponseBody
     public TopDocs Query(String index) throws IOException {
         //lucene搜索引擎

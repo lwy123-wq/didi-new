@@ -2,10 +2,10 @@ sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
 sun/com/didi/config/UrlConfig.java
  sun.com.didi.config.UrlConfig
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
 sun/com/didi/lucene/createIndex.java
@@ -45,12 +45,12 @@ sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/config/FilterConfig.java
  sun.com.didi.config.FilterConfig
+sun/com/didi/service/SelectRecruitment.java
+ sun.com.didi.service.SelectRecruitment
 sun/com/didi/dao/PictureDao.java
  sun.com.didi.dao.PictureDao
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
-sun/com/didi/service/SelectRecruitment.java
- sun.com.didi.service.SelectRecruitment
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
 sun/com/didi/chat/UserServerInitializer.java
@@ -99,9 +99,11 @@ sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
-sun/com/didi/service/EmailService.java
- sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
+sun/com/didi/service/EmailService.java
+ sun.com.didi.service.EmailService
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
 sun/com/didi/controller/RecruitController.java
  sun.com.didi.controller.RecruitController
