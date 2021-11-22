@@ -91,6 +91,54 @@
                             experience.className='experience';
                             experience.innerHTML=res[i].rec_experience;
 
+                            var details =document.querySelectorAll('.detail');
+                            var xiangs =document.querySelectorAll('.xiang');
+                            var xias =document.querySelectorAll('.xia');
+
+                            var flag =0;
+                            for (var i=0;i<details.length;i++)
+                            {   details[i].setAttribute('index',i);
+
+                                details[i].onclick =function () {
+                                    var index =this.getAttribute('index');
+
+                                    if(flag===0)
+                                    {
+
+
+                                        this.parentNode.style.height='278px';
+
+
+
+                                        // xias[index].style.display= 'block';
+                                        xias[index].style.animationName='fadeInAnimation';
+                                        xias[index].style.animationDelay='1.5s';
+                                        xias[index].style.animationDuration='.5s';
+                                        xias[index].style.animationIterationCount='1';
+                                        xias[index].style.animationFillMode=' forwards';
+
+                                        flag=1;
+                                    }else{
+
+                                        xias[index].style.animationName='fade';
+                                        xias[index].style.animationDelay='0.01s';
+                                        xias[index].style.animationDuration='.5s';
+                                        xias[index].style.animationIterationCount='1';
+                                        xias[index].style.animationFillMode=' forwards';
+                                        // xias[index].style.display = 'none';
+
+                                        this.parentNode.style.height='139px';
+
+
+                                        flag=0;
+                                    }
+
+
+                                    xias[index].className='xia jingg';
+                                }
+                            }
+
+
                         }
                     }else{
                         alert("error");
@@ -983,52 +1031,52 @@
     //     window.location.href="SingleChat?valus="+name.innerHTML;
         // window.location.href="b.html?valus="+getval+"&value2="+getval2;
     // }
-    var details =document.querySelectorAll('.detail');
-    var xiangs =document.querySelectorAll('.xiang');
-    var xias =document.querySelectorAll('.xia');
-
-    var flag =0;
-    for (var i=0;i<details.length;i++)
-    {   details[i].setAttribute('index',i);
-
-        details[i].onclick =function () {
-            var index =this.getAttribute('index');
-
-            if(flag===0)
-            {
-
-
-                this.parentNode.style.height='278px';
-
-
-
-                // xias[index].style.display= 'block';
-                xias[index].style.animationName='fadeInAnimation';
-                xias[index].style.animationDelay='1.5s';
-                xias[index].style.animationDuration='.5s';
-                xias[index].style.animationIterationCount='1';
-                xias[index].style.animationFillMode=' forwards';
-
-                flag=1;
-            }else{
-
-                xias[index].style.animationName='fade';
-                xias[index].style.animationDelay='0.01s';
-                xias[index].style.animationDuration='.5s';
-                xias[index].style.animationIterationCount='1';
-                xias[index].style.animationFillMode=' forwards';
-                // xias[index].style.display = 'none';
-
-                this.parentNode.style.height='139px';
-
-
-                flag=0;
-            }
-
-
-            xias[index].className='xia jingg';
-        }
-    }
+    // var details =document.querySelectorAll('.detail');
+    // var xiangs =document.querySelectorAll('.xiang');
+    // var xias =document.querySelectorAll('.xia');
+    //
+    // var flag =0;
+    // for (var i=0;i<details.length;i++)
+    // {   details[i].setAttribute('index',i);
+    //
+    //     details[i].onclick =function () {
+    //         var index =this.getAttribute('index');
+    //
+    //         if(flag===0)
+    //         {
+    //
+    //
+    //             this.parentNode.style.height='278px';
+    //
+    //
+    //
+    //             // xias[index].style.display= 'block';
+    //             xias[index].style.animationName='fadeInAnimation';
+    //             xias[index].style.animationDelay='1.5s';
+    //             xias[index].style.animationDuration='.5s';
+    //             xias[index].style.animationIterationCount='1';
+    //             xias[index].style.animationFillMode=' forwards';
+    //
+    //             flag=1;
+    //         }else{
+    //
+    //             xias[index].style.animationName='fade';
+    //             xias[index].style.animationDelay='0.01s';
+    //             xias[index].style.animationDuration='.5s';
+    //             xias[index].style.animationIterationCount='1';
+    //             xias[index].style.animationFillMode=' forwards';
+    //             // xias[index].style.display = 'none';
+    //
+    //             this.parentNode.style.height='139px';
+    //
+    //
+    //             flag=0;
+    //         }
+    //
+    //
+    //         xias[index].className='xia jingg';
+    //     }
+    // }
 
     var pic =document.getElementById('map');
     document.addEventListener('mousemove',function (e) {
