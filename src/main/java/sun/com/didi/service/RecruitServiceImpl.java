@@ -16,6 +16,9 @@ public class RecruitServiceImpl {
     public Recruit findByCompany(String username) {
         return recruitDao.findByRecruit(username);
     }
+    public Recruit findByCategory(String category) {
+        return recruitDao.findByCategory(category);
+    }
     public int insert(String Rec_company,String Rec_category,String Rec_salary,String Rec_Duration,String Rec_experience){
 
         return recruitDao.RecruitInsert(new Recruit(Rec_company,Rec_category,Rec_salary,Rec_Duration,Rec_experience));

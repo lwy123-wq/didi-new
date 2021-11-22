@@ -55,4 +55,15 @@ public class RecruitDao {
         });
         return unit;
     }
+    public Recruit findByCategory(String category){
+        final Recruit unit=new Recruit();
+        String sql = "SELECT * FROM Recruit WHERE Rec_category=?";
+        jdbcTemplate.query(sql, new Object[]{category}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                unit.setRec_company(rs.getString(4));
+            }
+        });
+        return unit;
+    }
 }
