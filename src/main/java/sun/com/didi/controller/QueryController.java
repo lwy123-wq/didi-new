@@ -16,6 +16,7 @@ import sun.com.didi.service.RecruitServiceImpl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 public class QueryController {
@@ -25,16 +26,19 @@ public class QueryController {
     public String Lucene(){return "/Lucene";}
     @PostMapping(value = "/query")
     @ResponseBody
-    public void doc(String str) throws IOException {
+    public ArrayList<String> doc(String str) throws IOException {
         Recruit byCompany = recruitService.findByCompany(str);
         Recruit byCategory = recruitService.findByCategory(str);
+        ArrayList<String> list = null;
         if (str.indexOf(byCompany.getRec_company())!=-1){
-             QueryCompany(str);
-        }else if (str.indexOf(byCategory.getRec_category())!=-1){
-             QueryCategory(str);
+             list= QueryCompany(str);
+        }else if (str.indexOf(byCategory.getRec_category())!=-1) {
+            list=QueryCategory(str);
         }
+        return list;
     }
-    public TopDocs QueryCompany(String index) throws IOException {
+    public ArrayList<String> QueryCompany(String index) throws IOException {
+        ArrayList<String> list=new ArrayList<>();
         //lucene搜索引擎
         Directory directory = FSDirectory.open(new File("src/index").toPath());
         IndexReader indexReader = DirectoryReader.open(directory);
@@ -42,12 +46,42 @@ public class QueryController {
         //创建查询对象
         Query query = new TermQuery(new Term("Rec_company", index));
         //执行查询
-        TopDocs topDocs = indexSearcher.search(query, 2);
+        TopDocs topDocs = indexSearcher.search(query, 5);
         //共查询到的document个数
         System.out.println("查询结果总数量：" + topDocs.totalHits);
         //遍历查询结果
         for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
             Document document = indexSearcher.doc(scoreDoc.doc);
+            list.add(document.get("Rec_company"));
+            System.out.println(document.get("Rec_company"));
+            System.out.println(document.get("Rec_logo"));
+            System.out.println(document.get("Rec_category"));
+            System.out.println(document.get("Rec_salary"));
+            System.out.println(document.get("Rec_Duration"));
+            System.out.println(document.get("Rec_experience"));
+
+
+        }
+        //关闭indexreader
+        indexSearcher.getIndexReader().close();
+        return list;
+    }
+    public ArrayList<String> QueryCategory(String index) throws IOException {
+        ArrayList<String> list=new ArrayList<>();
+        //lucene搜索引擎
+        Directory directory = FSDirectory.open(new File("src/index").toPath());
+        IndexReader indexReader = DirectoryReader.open(directory);
+        IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+        //创建查询对象
+        Query query = new TermQuery(new Term("Rec_company", index));
+        //执行查询
+        TopDocs topDocs = indexSearcher.search(query, 5);
+        //共查询到的document个数
+        System.out.println("查询结果总数量：" + topDocs.totalHits);
+        //遍历查询结果
+        for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
+            Document document = indexSearcher.doc(scoreDoc.doc);
+            list.add(document.get("Rec_company"));
             System.out.println(document.get("Rec_company"));
             System.out.println(document.get("Rec_logo"));
             System.out.println(document.get("Rec_category"));
@@ -58,33 +92,7 @@ public class QueryController {
         }
         //关闭indexreader
         indexSearcher.getIndexReader().close();
-        return topDocs;
-    }
-    public TopDocs QueryCategory(String index) throws IOException {
-        //lucene搜索引擎
-        Directory directory = FSDirectory.open(new File("src/index").toPath());
-        IndexReader indexReader = DirectoryReader.open(directory);
-        IndexSearcher indexSearcher = new IndexSearcher(indexReader);
-        //创建查询对象
-        Query query = new TermQuery(new Term("Rec_company", index));
-        //执行查询
-        TopDocs topDocs = indexSearcher.search(query, 2);
-        //共查询到的document个数
-        System.out.println("查询结果总数量：" + topDocs.totalHits);
-        //遍历查询结果
-        for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
-            Document document = indexSearcher.doc(scoreDoc.doc);
-            System.out.println(document.get("Rec_company"));
-            System.out.println(document.get("Rec_logo"));
-            System.out.println(document.get("Rec_category"));
-            System.out.println(document.get("Rec_salary"));
-            System.out.println(document.get("Rec_Duration"));
-            System.out.println(document.get("Rec_experience"));
-
-        }
-        //关闭indexreader
-        indexSearcher.getIndexReader().close();
-        return topDocs;
+        return list;
     }
 
 }
