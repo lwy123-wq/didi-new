@@ -23,7 +23,7 @@ public class PictureController {
     @ResponseBody
     public String insertPicture(MultipartFile file,String companyName) throws IOException {
         Picture picture=new Picture();
-        String filePath = "/home/lwy/下载/DIDI-master/DIDI-project/src/main/resources/static/images";
+        String filePath = "/home/lxj/图片/图片";
         String originalFilename = file.getOriginalFilename();
         //新的文件名字
         String newFileName = new Date().getTime() + originalFilename;

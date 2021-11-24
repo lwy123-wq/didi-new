@@ -39,8 +39,8 @@ public class RecruitDao {
 
     public int RecruitInsert(Recruit recruit){
 
-        String sql="INSERT INTO Recruit (Rec_company,Rec_category,Rec_salary,Rec_Duration,Rec_experience)VALUES(?,?,?,?,?)";
-        return jdbcTemplate.update(sql, recruit.getRec_company(),recruit.getRec_salary(), recruit.getRec_category(),
+        String sql="INSERT INTO Recruit (Rec_company,Rec_logo,Rec_category,Rec_salary,Rec_Duration,Rec_experience)VALUES(?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, recruit.getRec_company(),recruit.getRec_logo(),recruit.getRec_salary(), recruit.getRec_category(),
                 recruit.getRec_Duration(),recruit.getRec_experience());
     }
 

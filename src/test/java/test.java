@@ -66,11 +66,12 @@ public class test {
                 System.out.println(document.get("Rec_salary"));
                 System.out.println(document.get("Rec_Duration"));
                 System.out.println(document.get("Rec_experience"));
-
             }
             //关闭indexreader
             indexSearcher.getIndexReader().close();*/
 
+        int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
+        System.out.println(insert);
     }
 
 }
