@@ -70,8 +70,8 @@ public class test {
             //关闭indexreader
             indexSearcher.getIndexReader().close();*/
 
-        int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
-        System.out.println(insert);
+       /* int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
+        System.out.println(insert);*/
     }
 
 }

@@ -4,18 +4,20 @@ public class Recruit {
     private int id;
     private String Rec_company;
     private String Rec_logo;
+    private String Rec_job;
     private String Rec_category;
     private String Rec_salary;
     private String Rec_Duration;
     private String Rec_experience;
 
-    public Recruit(String rec_company,String rec_logo,String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
+    public Recruit(String rec_company, String rec_logo, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
         Rec_company = rec_company;
+        Rec_logo = rec_logo;
+        Rec_job = rec_job;
         Rec_category = rec_category;
         Rec_salary = rec_salary;
         Rec_Duration = rec_Duration;
         Rec_experience = rec_experience;
-        Rec_logo=rec_logo;
     }
 
     public Recruit() {
@@ -44,6 +46,14 @@ public class Recruit {
 
     public void setRec_logo(String rec_logo) {
         Rec_logo = rec_logo;
+    }
+
+    public String getRec_job() {
+        return Rec_job;
+    }
+
+    public void setRec_job(String rec_job) {
+        Rec_job = rec_job;
     }
 
     public String getRec_category() {

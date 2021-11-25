@@ -35,7 +35,7 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#Rec_logo").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
+                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#Rec_logo").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
                     'Rec_Duration': $("#Rec_Duration").val(),'Rec_experience': $("#Rec_experience").val()},
                 success: function (res) {
                     if(res=="数据添加成功！"){
@@ -152,7 +152,10 @@
              <input type="text" id="textt" style="opacity: 0;position: absolute">
             </td>
         </tr>
-
+        <tr>
+            <td>空缺职位</td>
+            <td><input type="text" id="Rec_job"> </td>
+        </tr>
 
         <tr>
             <td>职业类别</td>

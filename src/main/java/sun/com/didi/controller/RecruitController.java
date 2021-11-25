@@ -26,11 +26,11 @@ public class RecruitController {
     @PostMapping(value = "/Recruit")
     @ResponseBody
     @Cacheable(cacheNames = "Recruit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
-    public String Recruit(HttpServletRequest request, HttpServletResponse response,String Rec_company,String Rec_logo, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
+    public String Recruit(HttpServletRequest request, HttpServletResponse response,String Rec_company,String Rec_logo, String Rec_job,String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
         Recruit unit =unitService.findByCompany(Rec_company);
         int expire = 60 * 60 * 24 * 7;  //表示7天
         if (unit.getRec_company()==null){
-            int insert = unitService.insert(Rec_company, Rec_logo, Rec_category, Rec_salary, Rec_Duration, Rec_experience);
+            int insert = unitService.insert(Rec_company, Rec_logo, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
             if (insert>0){
                 return "数据添加成功！";
