@@ -40,7 +40,7 @@
                             var picc = document.createElement('div');
                             xiang.appendChild(picc);
                             picc.className = 'picc';
-                            picc.style.backgroundImage='url(../'+rec_logo+')';
+                            picc.style.backgroundImage='url(../'+res[i].rec_logo+')';
 
                             var name = document.createElement('div');
                             xiang.appendChild(name);
@@ -156,7 +156,7 @@
                 data: {'search': $("#search").val()},
                 success: function (res) {
                     if(res!=null){
-                        alert(res)
+                        alert(res);
                     }else{
                         alert("error");
                     }
