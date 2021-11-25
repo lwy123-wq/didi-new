@@ -147,6 +147,24 @@
             });
         }
         SelectRecruit()
+
+        function query(){
+            $.ajax({
+                url: "/query",
+                type: 'POST',
+                data: {'search': $("#search").val()},
+                success: function (res) {
+                    if(res!=null){
+                        alert(res)
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
     </script>
     <style>
         body {
@@ -770,7 +788,7 @@
     <a href="#"><div class="zi">匹配中心</div></a>
     <!--    <a href="#"><div class="zi">职业规划</div></a>-->
     <div class="sou">
-        <input type="text" placeholder="请输入您所需要的职位、公司">
+        <input type="text" id="search" placeholder="请输入您所需要的职位、公司">
     </div>
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">

@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class QueryController {
     @Autowired
     private RecruitServiceImpl recruitService;
-    @RequestMapping(value = "/Lucene",method = RequestMethod.GET)
-    public String Lucene(){return "/Lucene";}
+   /* @RequestMapping(value = "/Lucene",method = RequestMethod.GET)
+    public String Lucene(){return "/Lucene";}*/
     @PostMapping(value = "/query")
     @ResponseBody
     public ArrayList<String> query(String str) throws IOException {

@@ -258,7 +258,7 @@
       for(i = 0;i < strs.length;i++){
         key[i] = strs[i].split("=")[0]
         value[i] = unescape(strs[i].split("=")[1]);
-        alert(key[i]+"="+value[i]);
+        // alert(key[i]+"="+value[i]);
       }
     }
   }
@@ -346,8 +346,14 @@
     }
 
   }
-  login()
+  login();
+  search1();
+function search1()
+{
+  var show =document.getElementById('show');
+  CHAT.chat("search:"+$(show.innerHTML));
 
+}
 
   function Trim(str) {
     return str.replace(/(^\s*)|(\s*$)/g, "");
@@ -364,18 +370,12 @@
   }
 
 
-  //搜索在线人员发送消息
-  document.getElementById("inputSearch").addEventListener('keyup', function(event) {
-    if (event.keyCode == "13") {
-      //回车执行查询
-      CHAT.chat("search:"+$('#inputSearch').val());
-    }
 
-  });
 
   //发送聊天消息
   document.getElementById('inputMsg').addEventListener('keyup', function(event) {
     if (event.keyCode == "13") {
+      alert("aaaaaaaaaaaaa")
       //回车执行查询
       var  inputMsg = $('#inputMsg').val();
       if (inputMsg == null || Trim(inputMsg) == "" ) {

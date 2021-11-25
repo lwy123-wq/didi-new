@@ -95,8 +95,8 @@ sun/com/didi/lucene/createIndex.java
  sun.com.didi.lucene.createIndex
 sun/com/didi/entity/Recruit.java
  sun.com.didi.entity.Recruit
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
+sun/com/didi/service/SelectRecruitment.java
+ sun.com.didi.service.SelectRecruitment
 sun/com/didi/controller/RecruitController.java
  sun.com.didi.controller.RecruitController
 sun/com/didi/dao/RecruitDao.java
@@ -106,5 +106,5 @@ sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao$3
 sun/com/didi/service/RecruitServiceImpl.java
  sun.com.didi.service.RecruitServiceImpl
-sun/com/didi/service/SelectRecruitment.java
- sun.com.didi.service.SelectRecruitment
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
