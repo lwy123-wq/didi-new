@@ -53,8 +53,8 @@ sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
 sun/com/didi/chat/UserServerInitializer.java
  sun.com.didi.chat.UserServerInitializer
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
+sun/com/didi/controller/UserController.java
+ sun.com.didi.controller.UserController
 sun/com/didi/service/IEmailService.java
  sun.com.didi.service.IEmailService
 sun/com/didi/dao/JobDao.java
@@ -106,5 +106,5 @@ sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao$3
 sun/com/didi/service/RecruitServiceImpl.java
  sun.com.didi.service.RecruitServiceImpl
-sun/com/didi/controller/UserController.java
- sun.com.didi.controller.UserController
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController

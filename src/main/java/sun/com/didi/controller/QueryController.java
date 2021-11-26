@@ -16,6 +16,7 @@ import sun.com.didi.service.RecruitServiceImpl;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 @Controller
@@ -26,14 +27,18 @@ public class QueryController {
     public String Lucene(){return "/Lucene";}*/
     @PostMapping(value = "/query")
     @ResponseBody
-    public ArrayList<String> query(String str) throws IOException {
-        Recruit byCompany = recruitService.findByCompany(str);
-        Recruit byCategory = recruitService.findByCategory(str);
+    public ArrayList<String> query(@RequestBody String str) throws IOException {
+        String query1=URLDecoder.decode(str,"utf-8");
+        String stri[]=query1.split("=");
+        String query=stri[1];
+        System.out.println(query+"aaaaaaaaaaaaaaaaaaaaaaa");
+        Recruit byCompany = recruitService.findByCompany(query);
+        Recruit byCategory = recruitService.findByCategory(query);
         ArrayList<String> list = null;
-        if (str.indexOf(byCompany.getRec_company())!=-1){
-             list= QueryCompany(str,"Rec_company");
-        }else if (str.indexOf(byCategory.getRec_category())!=-1) {
-            list=QueryCompany(str,"Rec_category");
+        if (query.indexOf(byCompany.getRec_company())!=-1){
+             list= QueryCompany(query,"Rec_company");
+        }else if (query.indexOf(byCategory.getRec_category())!=-1) {
+            list=QueryCompany(query,"Rec_category");
         }
         return list;
     }

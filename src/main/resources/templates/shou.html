@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -153,15 +153,21 @@
             $.ajax({
                 url: "/query",
                 type: 'POST',
-                data: {'search': $("#search").val()},
+                data: {'searc': $("#searc").val()},
+                contentType: "application/json;charset=UTF-8",
+                dataType : "json",
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res!=null){
-                        alert(res);
+                        alert(res)
                     }else{
                         alert("error");
                     }
                 },
                 error: function (res) {
+                    //alert($("#searc").val())
                     alert("error!!!!!")
                 }
             });
@@ -823,7 +829,7 @@
     </style>
 </head>
 <body>
-<form  onsubmit="return false" action="##" method="get">
+
     <img src="../static/images/baby.gif" id="map">
     <div class="header">
         <div class="oneone">
@@ -833,14 +839,17 @@
         <a href="#"><div class="zi">首页</div></a>
         <a href="#"><div class="zi">匹配中心</div></a>
         <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+<!--        <form method="post" onsubmit="return false" action="##" >-->
         <div class="sou">
-            <input type="text" id="search" placeholder="请输入您所需要的职位、公司" class="zhi">
+
+            <input type="text" id="searc" placeholder="请输入您所需要的职位、公司" class="zhi">
             <div class="els"><li class="ll">hhh</li></div>
         </div>
         <a href="#"><div class="yuan">
             <!--        <img src="../static/images/14.png">-->
-            <input type="submit" id="submit">
+            <input type="submit" id="submit" onclick="query()">
         </div></a>
+<!--        </form>-->
         <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
         <a href="##"> <div class="siglechat"></div></a>
         <div class="facekuang" style="z-index: 999;display: none"><ul><a href="##"><li id="xiu"> 修改用户名</li></a><li style="display:none;"><input type="text" style="width: 85px;height: 20px;padding-left:0;" placeholder="按enter键确定" id="user"> </li></ul> </div>
@@ -1073,7 +1082,7 @@
             {
                 els.style.display='none';
             }else {
-                query();
+                // query();
                 els.style.display='block';
             }
         })
@@ -1182,7 +1191,7 @@
             var y=e.pageY;
             pic.style.left=x+10+'px';
             pic.style.top=y+10+'px';
-        });            this.nextElementSibling.style.animationDelay='0.5s';
+        });
 
         var fixone = document.querySelector('.fixone');
         var flag = 0;
@@ -1206,7 +1215,6 @@
 
 
     </script>
-</form>
 
 </body>
 
