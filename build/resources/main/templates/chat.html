@@ -315,6 +315,7 @@
 
                 this.WS.onopen = function(evt) {
                   console.log("Connection open ...");
+                  login()
                 },
 
                 this.WS.onerror = function(event) {
@@ -342,13 +343,12 @@
     if (userName != null && userName !='') {
       //初始化聊天
       CHAT.chat("init:"+userName);
-      //search1()
+      search1()
     } else {
       alert("请输入用户名登录");
     }
 
   }
-  login();
 
 function search1()
 {
