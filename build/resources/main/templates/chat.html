@@ -292,8 +292,9 @@
               type: 'success' // 定义颜色主题
             }).show();
             //连接成功不再修改昵称
-            $("#ge").attr("disabled","disabled");
-            CHAT.me = $("#ge").val();
+            var ge =document.querySelector('.ge');
+            // $("#ge").attr("disabled","disabled");
+            CHAT.me = ge.innerHTML;
           }
 
           //返回聊天信息
@@ -341,13 +342,14 @@
     if (userName != null && userName !='') {
       //初始化聊天
       CHAT.chat("init:"+userName);
+      //search1()
     } else {
       alert("请输入用户名登录");
     }
 
   }
   login();
-  search1();
+
 function search1()
 {
   var show =document.getElementById('show');

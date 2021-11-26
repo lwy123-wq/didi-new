@@ -45,7 +45,7 @@ public class UserController {
     public String login(HttpServletRequest request, HttpServletResponse response, String username, String password, Model model){
         System.out.println( Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
-        int expire = 60 * 60 * 24 * 7;  //表示7天
+        int expire = 60 * 60 * 24 * 20;  //表示7天
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
         }else {

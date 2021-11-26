@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -40,6 +40,7 @@
                             var picc = document.createElement('div');
                             xiang.appendChild(picc);
                             picc.className = 'picc';
+                            picc.style.backgroundImage='url(../'+res[i].rec_logo+')';
 
                             var name = document.createElement('div');
                             xiang.appendChild(name);
@@ -50,7 +51,7 @@
                             var money = document.createElement('div');
                             xiang.appendChild(money);
                             money.className = 'money';
-                            money.innerHTML = res[i].rec_category;
+                            money.innerHTML = res[i].rec_salary;
 
                             var detail = document.createElement('div');
                             xiang.appendChild(detail);
@@ -73,7 +74,7 @@
                             var profession = document.createElement('div');
                             xia.appendChild(profession);
                             profession.className = 'profession';
-                            profession.innerHTML = res[i].rec_salary;
+                            profession.innerHTML = res[i].rec_category;
 
                             var time = document.createElement('div');
                             xia.appendChild(time);
@@ -155,7 +156,7 @@
                 data: {'search': $("#search").val()},
                 success: function (res) {
                     if(res!=null){
-                        alert(res)
+                        alert(res);
                     }else{
                         alert("error");
                     }
@@ -449,7 +450,7 @@
             height: 126px;
             background-size: 100% 100%;
             background-repeat: no-repeat;
-            background-image: url("../static/images/didilogo.jpg");
+
         }
         .xiang .name {
             position: absolute;
@@ -773,6 +774,41 @@
         ul {
             list-style: none;
         }
+        .els {
+            position: absolute;
+            top:124px;
+            left:544px;
+
+            width:470px;
+
+
+            background-color: white;
+
+            display: none;
+        }
+        .ll {
+            width:451px;
+            height: 45px;
+            line-height: 45px;
+            border: 1px solid #c97513;
+            padding-left: 20px;
+
+
+        }
+        li {
+            list-style: none;
+
+        }
+        .siglechat {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-image: url("../static/images/singlechat.png");
+            background-size: 100% 100%;
+            margin-top: 25px;
+            margin-left: 10px;
+        }
+
 
 
     </style>
@@ -788,14 +824,16 @@
     <a href="#"><div class="zi">匹配中心</div></a>
     <!--    <a href="#"><div class="zi">职业规划</div></a>-->
     <div class="sou">
-        <input type="text" id="search" placeholder="请输入您所需要的职位、公司">
+        <input type="text" id="search" placeholder="请输入您所需要的职位、公司" class="zhi">
+        <div class="els"><li class="ll">hhh</li></div>
     </div>
     <a href="#"><div class="yuan">
         <img src="../static/images/14.png">
     </div></a>
-    <a href="##"> <div class="face"></div></a>
+    <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
+    <a href="##"> <div class="siglechat"></div></a>
     <div class="facekuang" style="z-index: 999;display: none"><ul><a href="##"><li id="xiu"> 修改用户名</li></a><li style="display:none;"><input type="text" style="width: 85px;height: 20px;padding-left:0;" placeholder="按enter键确定" id="user"> </li></ul> </div>
-    <a href="login"><div class="ge" th:text="${username}">登录/注册</div></a>
+    <a href="login"><div class="ge" >登录/注册</div></a>
     <a href="#"><div class="xiao">
         <img src="../static/images/12.png">
         <div class="positin" id="positin"></div>
@@ -999,6 +1037,38 @@
 
 </div>
 <script>
+
+
+
+    /////
+    var ge = document.querySelector('.ge');
+    var siglechat =document.querySelector('.siglechat');
+    if(ge.innerHTML.indexOf('公司')!==-1)
+    {
+        siglechat.style.display='block';
+        ge.style.marginLeft='17px';
+    }else {
+        siglechat.style.display='none';
+        ge.style.marginLeft='48px';
+    }
+
+    ///////
+    var els =document.querySelector('.els');
+    var sou =document.querySelector('.zhi');
+    console.log(sou)
+    sou.addEventListener('keyup',function () {
+        if(sou.value=='')
+        {
+            els.style.display='none';
+        }else {
+            els.style.display='block';
+        }
+    })
+
+
+
+
+
     var arr=['faceone.png','facetwo.png','facethree.png','facefour.png','facefive.png','facesix.png'];
     var face =document.querySelector('.face');
     var facekuang =document.querySelector('.facekuang');
@@ -1099,7 +1169,8 @@
         var y=e.pageY;
         pic.style.left=x+10+'px';
         pic.style.top=y+10+'px';
-    });
+    });            this.nextElementSibling.style.animationDelay='0.5s';
+
     var fixone = document.querySelector('.fixone');
     var flag = 0;
     fixone.onclick =function () {
