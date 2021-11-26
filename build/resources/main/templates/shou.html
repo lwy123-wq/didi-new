@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -823,13 +823,15 @@
     <a href="#"><div class="zi">首页</div></a>
     <a href="#"><div class="zi">匹配中心</div></a>
     <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+    <form  onsubmit="return false" action="##" method="post">
     <div class="sou">
-        <input type="text" id="search" placeholder="请输入您所需要的职位、公司" class="zhi">
+
+            <input type="text" id="search" placeholder="请输入您所需要的职位、公司" class="zhi" >
         <div class="els"><li class="ll">hhh</li></div>
     </div>
-    <a href="#"><div class="yuan">
+    <a href="#"><input class="yuan" onclick="query()">
         <img src="../static/images/14.png">
-    </div></a>
+    </input></a></form>
     <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
     <a href="##"> <div class="siglechat"></div></a>
     <div class="facekuang" style="z-index: 999;display: none"><ul><a href="##"><li id="xiu"> 修改用户名</li></a><li style="display:none;"><input type="text" style="width: 85px;height: 20px;padding-left:0;" placeholder="按enter键确定" id="user"> </li></ul> </div>
@@ -1061,6 +1063,7 @@
         {
             els.style.display='none';
         }else {
+
             els.style.display='block';
         }
     })
