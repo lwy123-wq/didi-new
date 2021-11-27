@@ -3,14 +3,14 @@ package sun.com.didi.entity;
 public class Recruit {
     private int id;
     private String Rec_company;
-    private byte[] Rec_logo;
+    private String Rec_logo;
     private String Rec_job;
     private String Rec_category;
     private String Rec_salary;
     private String Rec_Duration;
     private String Rec_experience;
 
-    public Recruit(String rec_company, byte[] rec_logo, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
+    public Recruit(String rec_company, String rec_logo, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
         Rec_company = rec_company;
         Rec_logo = rec_logo;
         Rec_job = rec_job;
@@ -40,11 +40,11 @@ public class Recruit {
         Rec_company = rec_company;
     }
 
-    public byte[] getRec_logo() {
+    public String getRec_logo() {
         return Rec_logo;
     }
 
-    public void setRec_logo(byte[] rec_logo) {
+    public void setRec_logo(String rec_logo) {
         Rec_logo = rec_logo;
     }
 

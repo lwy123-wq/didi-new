@@ -23,7 +23,7 @@ public class RecruitDao {
             public Recruit mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Recruit re = new Recruit();
                 re.setRec_company(rs.getString("Rec_company"));
-                re.setRec_logo(rs.getBytes("Rec_logo"));
+                re.setRec_logo(rs.getString("Rec_logo"));
                 re.setRec_category(rs.getString("Rec_category"));
                 re.setRec_salary(rs.getString("Rec_salary"));
                 re.setRec_Duration(rs.getString("Rec_Duration"));

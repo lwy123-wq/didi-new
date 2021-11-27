@@ -1,5 +1,6 @@
 package sun.com.didi.controller;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +9,10 @@ import sun.com.didi.service.RecruitServiceImpl;
 import sun.com.didi.util.CookieUtil;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.List;
 
@@ -27,11 +30,11 @@ public class RecruitController {
     @PostMapping(value = "/Recruit")
     @ResponseBody
     @Cacheable(cacheNames = "Recruit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
-    public String Recruit(HttpServletRequest request, HttpServletResponse response,String Rec_company,String Rec_logo, String Rec_job,String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience) throws IOException {
+    public String Recruit(HttpServletRequest request, HttpServletResponse response, String Rec_company, String Rec_logo, String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience) throws Exception {
         Recruit unit =unitService.findByCompany(Rec_company);
         int expire = 60 * 60 * 24 * 7;  //表示7天
         if (unit.getRec_company()==null){
-            byte[] imageBinary = getImageBinary(Rec_logo);
+            String imageBinary = getImageBinary(Rec_logo);
             int insert = unitService.insert(Rec_company, imageBinary, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
             if (insert>0){
@@ -41,43 +44,22 @@ public class RecruitController {
         return "该公司或公司logo已注册！";
 
     }
-    public byte[] getImageBinary(String Rec_logo) throws IOException {
-        BufferedInputStream in = new BufferedInputStream(new FileInputStream(Rec_logo));
-        ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
-
-        byte[] temp = new byte[1024];
-        int size = 0;
-        while ((size = in.read(temp)) != -1) {
-            out.write(temp, 0, size);
-        }
-        in.close();
-        byte[] b = out.toByteArray();//得到二进制流
-        return  buildFolder(b);
+    public String getImageBinary(String Rec_logo) throws Exception {
+        String pic = GetContent(Rec_logo);
+        return pic;
     }
-    public byte[] buildFolder(byte[] path)
+    public String GetContent(String filepath) throws Exception//将指定路径下的文件转换成二进制代码，用于传输到数据库
     {
-        //读取文件夹路径
-        File file = new File("src/num");
-        //判断是否存在
-        if (!file.exists() && !file.isDirectory())
-        {
-            try
-            {
-                System.out.println("文件夹不存在！");
-                //生成文件夹
-                file.mkdir();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            System.out.println("文件夹存在！");
-        }
+        System.out.println(filepath);
+        File f = new File(filepath);
+        BufferedImage bi;
 
-        return path;
+            bi = ImageIO.read(f);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(bi, "jpeg", baos);
+            byte[] bytes = baos.toByteArray();
+            return Base64.encodeBase64String(bytes);
+           // return encoder.encodeBuffer(bytes).trim();
     }
     @PostMapping(value = "/selectRecruit")
     @ResponseBody
