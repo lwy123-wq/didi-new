@@ -28,18 +28,19 @@ public class QueryController {
     @PostMapping(value = "/query")
     @ResponseBody
     public ArrayList<String> query(@RequestBody String str) throws IOException {
+        ArrayList<String> list = null;
         String query1=URLDecoder.decode(str,"utf-8");
         String stri[]=query1.split("=");
         String query=stri[1];
         System.out.println(query+"aaaaaaaaaaaaaaaaaaaaaaa");
-        Recruit byCompany = recruitService.findByCompany(query);
-        Recruit byCategory = recruitService.findByCategory(query);
-        ArrayList<String> list = null;
-        if (query.indexOf(byCompany.getRec_company())!=-1){
-             list= QueryCompany(query,"Rec_company");
-        }else if (query.indexOf(byCategory.getRec_category())!=-1) {
-            list=QueryCompany(query,"Rec_category");
-        }
+/*        Recruit byCompany = recruitService.findCompany();
+        Recruit byCategory = recruitService.findByCategory();
+        System.out.println(byCategory.getRec_category()+"vvvvvvvvvvvvvv");
+        int i = query.indexOf(byCompany.getRec_company());
+        int i1 = query.indexOf(byCategory.getRec_category());*/
+            list= QueryCompany(query,"Rec_company");
+
+
         return list;
     }
     public ArrayList<String> QueryCompany(String index,String num) throws IOException {
@@ -51,11 +52,12 @@ public class QueryController {
         //创建查询对象
         Query query = new TermQuery(new Term(num, index));
         //执行查询
-        TopDocs topDocs = indexSearcher.search(query, 5);
+        TopDocs topDocs = indexSearcher.search(query, 1);
+        ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         //共查询到的document个数
         System.out.println("查询结果总数量：" + topDocs.totalHits);
         //遍历查询结果
-        for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
+        for (ScoreDoc scoreDoc : scoreDocs) {
             Document document = indexSearcher.doc(scoreDoc.doc);
             list.add(document.get("Rec_company"));
             System.out.println(document.get("Rec_company"));

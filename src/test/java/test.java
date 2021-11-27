@@ -1,4 +1,11 @@
 
+import org.apache.lucene.document.Document;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.search.*;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +17,7 @@ import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.service.RecruitServiceImpl;
 
 import javax.annotation.Resource;
+import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -46,19 +54,21 @@ public class test {
         String decodeStr=new String(decoded);
         System.out.println(decodeStr);*/
 
-        //lucene搜索引擎
-            /*Directory directory = FSDirectory.open(new File("src/index").toPath());
+/*        //lucene搜索引擎
+            Directory directory = FSDirectory.open(new File("src/index").toPath());
             IndexReader indexReader = DirectoryReader.open(directory);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
             //创建查询对象
-            Query query = new TermQuery(new Term("Rec_company", "有限"));
+            Query query = new TermQuery(new Term("Rec_company", "京东"));
             //执行查询
-            TopDocs topDocs = indexSearcher.search(query, 1);
+            TopDocs topDocs = indexSearcher.search(query, 3);
 
+           ScoreDoc[] scoreDocs = topDocs.scoreDocs;
             //共查询到的document个数
             System.out.println("查询结果总数量：" + topDocs.totalHits);
             //遍历查询结果
-            for (ScoreDoc scoreDoc : topDocs.scoreDocs) {
+            for (ScoreDoc scoreDoc : scoreDocs) {
+                System.out.println("文档id:" + scoreDoc.doc);
                 Document document = indexSearcher.doc(scoreDoc.doc);
                 System.out.println(document.get("Rec_company"));
                 System.out.println(document.get("Rec_logo"));
@@ -69,8 +79,8 @@ public class test {
             }
             //关闭indexreader
             indexSearcher.getIndexReader().close();*/
-
-       /* int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
+/*
+        int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
         System.out.println(insert);*/
     }
 

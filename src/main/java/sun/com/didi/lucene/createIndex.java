@@ -1,8 +1,5 @@
 package sun.com.didi.lucene;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.IntPoint;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -45,12 +42,12 @@ public class createIndex {
             System.out.println(byUserId.get(i).getRec_experience());
             System.out.println(byUserId.get(i).getRec_Duration());
             System.out.println(byUserId.get(i).getRec_salary());
-            document.add(new TextField("Rec_company", byUserId.get(i).getRec_company(), Field.Store.YES));
+            document.add(new StringField("Rec_company", byUserId.get(i).getRec_company(), Field.Store.YES));
            // document.add(new TextField("Rec_logo",byUserId.get(i).getRec_logo(), Field.Store.YES));
-            document.add(new TextField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
-            document.add(new TextField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
-            document.add(new TextField("Rec_Duration",byUserId.get(i).getRec_Duration(),Field.Store.YES));
-            document.add(new TextField("Rec_salary",byUserId.get(i).getRec_salary(),Field.Store.YES));
+            document.add(new StringField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
+            document.add(new StringField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
+            document.add(new StringField("Rec_Duration",byUserId.get(i).getRec_Duration(),Field.Store.YES));
+            document.add(new StringField("Rec_salary",byUserId.get(i).getRec_salary(),Field.Store.YES));
         }
 
 //        document.add(new Field("price",result, Store.YES));
@@ -58,7 +55,7 @@ public class createIndex {
         indexWriter.addDocument(document);
         indexWriter.commit();
         //5.关闭索引库
-        // indexWriter.close();
+         indexWriter.close();
     }
 }
 

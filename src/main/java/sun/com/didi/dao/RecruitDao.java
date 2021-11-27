@@ -55,13 +55,25 @@ public class RecruitDao {
         });
         return unit;
     }
-    public Recruit findByCategory(String category){
+    public Recruit findCompany(){
         final Recruit unit=new Recruit();
-        String sql = "SELECT * FROM Recruit WHERE Rec_category=?";
-        jdbcTemplate.query(sql, new Object[]{category}, new RowCallbackHandler() {
+        String sql = "SELECT * FROM Recruit";
+        jdbcTemplate.query(sql, new Object[]{}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                unit.setRec_company(rs.getString(4));
+                unit.setRec_company(rs.getString(2));
+            }
+        });
+        return unit;
+    }
+
+    public Recruit findByCategory(){
+        final Recruit unit=new Recruit();
+        String sql = "SELECT * FROM Recruit";
+        jdbcTemplate.query(sql, new Object[]{}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                unit.setRec_category(rs.getString(5));
             }
         });
         return unit;

@@ -15,8 +15,11 @@ public class RecruitServiceImpl {
     public Recruit findByCompany(String username) {
         return recruitDao.findByRecruit(username);
     }
-    public Recruit findByCategory(String category) {
-        return recruitDao.findByCategory(category);
+    public Recruit findCompany(){
+        return recruitDao.findCompany();
+    }
+    public Recruit findByCategory() {
+        return recruitDao.findByCategory();
     }
     public int insert(String Rec_company, byte[] Rec_logo, String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
 
