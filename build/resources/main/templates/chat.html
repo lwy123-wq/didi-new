@@ -377,13 +377,12 @@ function search1()
   //发送聊天消息
   document.getElementById('inputMsg').addEventListener('keyup', function(event) {
     if (event.keyCode == "13") {
-      alert("aaaaaaaaaaaaa")
       //回车执行查询
       var  inputMsg = $('#inputMsg').val();
       if (inputMsg == null || Trim(inputMsg) == "" ) {
         alert("请输入聊天消息");
       } else {
-        var  userName = $('#ge').val();
+        var  userName = document.querySelector('#ge').innerHTML;
         if (userName == null || userName == '') {
           alert("请输入聊天昵称");
         } else {

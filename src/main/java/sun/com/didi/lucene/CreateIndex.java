@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.List;
 
 @Component
-public class createIndex {
+public class CreateIndex {
     @Autowired
     private SelectRecruitment selectRecruitment;
 
