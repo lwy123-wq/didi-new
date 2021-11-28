@@ -42,12 +42,13 @@ public class createIndex {
             System.out.println(byUserId.get(i).getRec_experience());
             System.out.println(byUserId.get(i).getRec_Duration());
             System.out.println(byUserId.get(i).getRec_salary());
-            document.add(new StringField("Rec_company", byUserId.get(i).getRec_company(), Field.Store.YES));
+            document.add(new TextField("Rec_company", byUserId.get(i).getRec_company()+byUserId.get(i).getRec_category()+
+                    byUserId.get(i).getRec_Duration()+byUserId.get(i).getRec_salary()+byUserId.get(i).getRec_experience(), Field.Store.YES));
            // document.add(new TextField("Rec_logo",byUserId.get(i).getRec_logo(), Field.Store.YES));
-            document.add(new StringField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
-            document.add(new StringField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
-            document.add(new StringField("Rec_Duration",byUserId.get(i).getRec_Duration(),Field.Store.YES));
-            document.add(new StringField("Rec_salary",byUserId.get(i).getRec_salary(),Field.Store.YES));
+//            document.add(new StringField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
+//            document.add(new StringField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
+//            document.add(new StringField("Rec_Duration",byUserId.get(i).getRec_Duration(),Field.Store.YES));
+//            document.add(new StringField("Rec_salary",byUserId.get(i).getRec_salary(),Field.Store.YES));
         }
 
 //        document.add(new Field("price",result, Store.YES));
