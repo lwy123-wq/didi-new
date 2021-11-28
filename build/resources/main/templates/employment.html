@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>招聘要求信息填写</title>
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.js"></script>
     <script>
         /*function picture(){
             $.ajax({
@@ -35,7 +35,7 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#Rec_logo").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
+                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#textt").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
                     'Rec_Duration': $("#Rec_Duration").val(),'Rec_experience': $("#Rec_experience").val()},
                 success: function (res) {
                     if(res=="数据添加成功！"){
@@ -52,7 +52,24 @@
                 }
             });
         }
-
+        function toBase64(){
+            var file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                // $("#preview").attr("style","display:inline-block");
+                $("#preview").attr("src",reader.result);
+                // console.log(reader.result);
+                // var logo =document.querySelector('#Rec_logo');
+                // file.value =reader.result;
+                // console.log($("#Rec_logo").val());
+                var textt = document.getElementById('textt');
+                textt.value=reader.result;
+                console.log($("#textt").val());
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
     <style>
         body {
@@ -100,6 +117,7 @@
             float: left;
             width: 400px;
             height: 300px;
+            margin-left: 0;
         }
         h2 {
             margin-top:100px;
@@ -110,7 +128,7 @@
             width: 200px;
             height: 100px;
         }
-        #fileName {
+        #Rec_logo {
             margin: 0 0 0 0;
             border: 0 solid transparent;
             position:absolute; top:95px; right:325px; height:36px; filter:alpha(opacity:0);opacity: 0;width:75px;
@@ -128,6 +146,9 @@
             border-radius: 25px;
             line-height: 36px;
             text-align: center;
+        }
+        #preview {
+            margin-left: -36px;
         }
 
     </style>
@@ -147,7 +168,7 @@
         </tr>
         <tr style="margin: 85px 0">
             <td>公司logo</td>
-            <td style="position: relative"> <input type="file" id="Rec_logo" size="28" onchange="imgPreview(this)"><div class="zhen" >添加图片</div> </td>
+            <td style="position: relative"> <input type="file" id="Rec_logo" size="28" onchange="imgPreview(this)"  ><div class="zhen" >添加图片</div> </td>
             <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -400px" alt="" title="preview-img">
              <input type="text" id="textt" style="opacity: 0;position: absolute">
             </td>
@@ -195,6 +216,7 @@
         //判断是否支持FileReader
         if (window.FileReader) {
             var reader = new FileReader();
+
         } else {
             alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
         }
@@ -215,15 +237,11 @@
             var textt = document.getElementById('textt');
             img.src = e.target.result;
             textt.value = img.src;
-            console.log(textt.value);
-            if(textt.value)
-            {
 
-                picture();
-                alert('aaa');
-            }
+
         };
         reader.readAsDataURL(file);
+        toBase64();
 
     }
 

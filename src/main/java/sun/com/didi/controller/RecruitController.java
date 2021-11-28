@@ -34,8 +34,8 @@ public class RecruitController {
         Recruit unit =unitService.findByCompany(Rec_company);
         int expire = 60 * 60 * 24 * 7;  //表示7天
         if (unit.getRec_company()==null){
-            String imageBinary = getImageBinary(Rec_logo);
-            int insert = unitService.insert(Rec_company, imageBinary, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
+          //  String imageBinary = getImageBinary(Rec_logo);
+            int insert = unitService.insert(Rec_company, Rec_logo, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
             if (insert>0){
                 return "数据添加成功！";
@@ -44,7 +44,7 @@ public class RecruitController {
         return "该公司或公司logo已注册！";
 
     }
-    public String getImageBinary(String Rec_logo) throws Exception {
+   /* public String getImageBinary(String Rec_logo) throws Exception {
         String pic = GetContent(Rec_logo);
         return pic;
     }
@@ -60,7 +60,7 @@ public class RecruitController {
             byte[] bytes = baos.toByteArray();
             return Base64.encodeBase64String(bytes);
            // return encoder.encodeBuffer(bytes).trim();
-    }
+    }*/
     @PostMapping(value = "/selectRecruit")
     @ResponseBody
     public List<Recruit> selectRecruit(){
