@@ -61,11 +61,12 @@ public class QueryController {
             Document document = indexSearcher.doc(scoreDoc.doc);
             list.add(document.get("Rec_company"));
             System.out.println(document.get("Rec_company"));
+            /*System.out.println(document.get("Rec_company"));
             System.out.println(document.get("Rec_logo"));
             System.out.println(document.get("Rec_category"));
             System.out.println(document.get("Rec_salary"));
             System.out.println(document.get("Rec_Duration"));
-            System.out.println(document.get("Rec_experience"));
+            System.out.println(document.get("Rec_experience"));*/
 
 
         }
