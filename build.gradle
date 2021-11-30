@@ -47,6 +47,9 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.8.0'
     implementation group: 'com.jianggujin', name: 'IKAnalyzer-lucene', version: '8.0.0'
     implementation group: 'org.apache.lucene', name: 'lucene-queryparser', version: '8.10.1'
+    implementation group: 'org.apache.lucene', name: 'lucene-highlighter', version: '7.2.1'
+    implementation group: 'org.apache.lucene', name: 'lucene-suggest', version: '8.10.1'
+
 
 
 }

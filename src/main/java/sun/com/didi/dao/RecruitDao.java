@@ -21,7 +21,7 @@ public class RecruitDao {
         List<Recruit> list = jdbcTemplate.query(sql, new RowMapper<Recruit>() {
             @Override
             public Recruit mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Recruit re = new Recruit();
+                Recruit re = new Recruit("Electric Guitar", "http://images.example/electric-guitar.jpg", new String[]{"US", "CA"}, 100);
                 re.setRec_company(rs.getString("Rec_company"));
                 re.setRec_logo(rs.getString("Rec_logo"));
                 re.setRec_category(rs.getString("Rec_category"));
@@ -45,7 +45,7 @@ public class RecruitDao {
     }
 
     public Recruit findByRecruit(String name){
-        final Recruit unit=new Recruit();
+        final Recruit unit=new Recruit("Electric Guitar", "http://images.example/electric-guitar.jpg", new String[]{"US", "CA"}, 100);
         String sql = "SELECT * FROM Recruit WHERE Rec_company=?";
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
@@ -56,7 +56,7 @@ public class RecruitDao {
         return unit;
     }
     public Recruit findCompany(){
-        final Recruit unit=new Recruit();
+        final Recruit unit=new Recruit("Electric Guitar", "http://images.example/electric-guitar.jpg", new String[]{"US", "CA"}, 100);
         String sql = "SELECT * FROM Recruit";
         jdbcTemplate.query(sql, new Object[]{}, new RowCallbackHandler() {
             @Override
@@ -68,7 +68,7 @@ public class RecruitDao {
     }
 
     public Recruit findByCategory(){
-        final Recruit unit=new Recruit();
+        final Recruit unit=new Recruit("Electric Guitar", "http://images.example/electric-guitar.jpg", new String[]{"US", "CA"}, 100);
         String sql = "SELECT * FROM Recruit";
         jdbcTemplate.query(sql, new Object[]{}, new RowCallbackHandler() {
             @Override

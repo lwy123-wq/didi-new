@@ -1,23 +1,13 @@
-
-import org.apache.lucene.document.Document;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.search.*;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.didi.Application;
 import sun.com.didi.dao.JobDao;
-
 import sun.com.didi.service.IntentionImpl;
-import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.service.RecruitServiceImpl;
+import sun.com.didi.service.UserServiceImpl;
 
 import javax.annotation.Resource;
-import java.io.File;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -82,6 +72,12 @@ public class test {
 /*
         int insert = unitService.insert("sds", "static/images/baby.gif", "fdsaf", "222", "fkdnmkg", "fdsgrerr");
         System.out.println(insert);*/
+
+//       creat c=new creat();
+//        c.create("我的简介", "大家好,我叫小铭,我的专业是网络工程");
+//        c.create("我的专业", "我的专业是网络工程");
+
+
     }
 
 }

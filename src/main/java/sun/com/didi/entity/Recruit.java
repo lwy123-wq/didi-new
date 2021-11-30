@@ -20,7 +20,7 @@ public class Recruit {
         Rec_experience = rec_experience;
     }
 
-    public Recruit() {
+    public Recruit(String s, String s1, String[] strings, int i) {
 
     }
 

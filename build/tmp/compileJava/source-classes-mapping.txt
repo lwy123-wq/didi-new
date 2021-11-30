@@ -93,8 +93,8 @@ sun/com/didi/config/WebappConfig.java
  sun.com.didi.config.WebappConfig
 sun/com/didi/entity/Recruit.java
  sun.com.didi.entity.Recruit
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
+sun/com/didi/lucene/test.java
+ sun.com.didi.lucene.test
 sun/com/didi/util/CookieUtil.java
  sun.com.didi.util.CookieUtil
 sun/com/didi/entity/Intention.java
@@ -105,6 +105,8 @@ sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
 sun/com/didi/lucene/CreateIndex.java
  sun.com.didi.lucene.CreateIndex
 sun/com/didi/controller/QueryController.java

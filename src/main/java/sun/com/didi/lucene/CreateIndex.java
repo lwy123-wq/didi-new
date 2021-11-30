@@ -1,5 +1,8 @@
 package sun.com.didi.lucene;
-import org.apache.lucene.document.*;
+
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -30,6 +33,7 @@ public class CreateIndex {
         //2.基于Directory对象创建一个IndexWriter对象,默认使用StandardAnalyzer分析器
         //IndexWriterConfig config = new IndexWriterConfig();
         IndexWriterConfig config = new IndexWriterConfig(new IKAnalyzer());
+        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
         IndexWriter indexWriter = new IndexWriter(directory, config);
 
         //3.创建一个Document对象
@@ -38,12 +42,14 @@ public class CreateIndex {
         List<Recruit> byUserId = selectRecruitment.selectrecruitment();
         for (int i=0;i< byUserId.size();i++){
             System.out.println(byUserId.get(i).getRec_company());
-          /*  System.out.println(byUserId.get(i).getRec_category());
+            System.out.println(byUserId.get(i).getRec_category());
             System.out.println(byUserId.get(i).getRec_experience());
             System.out.println(byUserId.get(i).getRec_Duration());
-            System.out.println(byUserId.get(i).getRec_salary());*/
+            System.out.println(byUserId.get(i).getRec_salary());
+           // System.out.println(byUserId.get(i).getRec_company());
             document.add(new TextField("Rec_company", byUserId.get(i).getRec_company(), Field.Store.YES));
-           // document.add(new TextField("Rec_logo",byUserId.get(i).getRec_logo(), Field.Store.YES));
+            //document.add(new StringField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
+//            document.add(new TextField("Rec_logo",byUserId.get(i).getRec_logo(), Field.Store.YES));
 //            document.add(new StringField("Rec_category",byUserId.get(i).getRec_category(), Field.Store.YES));
 //            document.add(new StringField("Rec_experience", byUserId.get(i).getRec_experience(), Field.Store.YES));
 //            document.add(new StringField("Rec_Duration",byUserId.get(i).getRec_Duration(),Field.Store.YES));
