@@ -13,7 +13,6 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.SelectRecruitment;
 
-import javax.annotation.PostConstruct;
 import java.io.File;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class CreateIndex {
     @Autowired
     private SelectRecruitment selectRecruitment;
 
-    @PostConstruct()
+//    @PostConstruct()
     public void create() throws Exception {
 //1.创建一个Director对象，指定索引库保存的位置。
         //把索引库保存在内存中

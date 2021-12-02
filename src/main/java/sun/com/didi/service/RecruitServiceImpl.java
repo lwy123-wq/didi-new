@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import sun.com.didi.dao.RecruitDao;
 import sun.com.didi.entity.Recruit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,10 +16,10 @@ public class RecruitServiceImpl {
     public Recruit findByCompany(String username) {
         return recruitDao.findByRecruit(username);
     }
-    public Recruit findCompany(){
+    public ArrayList<Recruit> findCompany(){
         return recruitDao.findCompany();
     }
-    public Recruit findByCategory() {
+    public  ArrayList<Recruit> findByCategory() {
         return recruitDao.findByCategory();
     }
 

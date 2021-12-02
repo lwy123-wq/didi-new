@@ -5,9 +5,11 @@ import sun.com.didi.Application;
 import sun.com.didi.dao.JobDao;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.RecruitServiceImpl;
+import sun.com.didi.service.TrieTreeImpl;
 import sun.com.didi.service.UserServiceImpl;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @SpringBootTest(classes = Application.class)
 @SuppressWarnings("restriction")
@@ -20,6 +22,8 @@ public class test {
     private IntentionImpl intention;
     @Resource
     private RecruitServiceImpl unitService;
+    @Autowired
+    private TrieTreeImpl trieTre;
     @Test
     public void t() throws Exception {
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
@@ -76,7 +80,8 @@ public class test {
 //       creat c=new creat();
 //        c.create("我的简介", "大家好,我叫小铭,我的专业是网络工程");
 //        c.create("我的专业", "我的专业是网络工程");
-
+        List<String> list=trieTre.search("搬");
+        System.out.println(list);
 
     }
 

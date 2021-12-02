@@ -1,9 +1,4 @@
-package org.com.cn;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  * 无数据结构设计下的蛮力中文键树
