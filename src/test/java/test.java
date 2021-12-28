@@ -80,7 +80,7 @@ public class test {
 //       creat c=new creat();
 //        c.create("我的简介", "大家好,我叫小铭,我的专业是网络工程");
 //        c.create("我的专业", "我的专业是网络工程");
-        List<String> list=trieTre.search("搬");
+        List<String> list=trieTre.search("天津");
         System.out.println(list);
 
     }

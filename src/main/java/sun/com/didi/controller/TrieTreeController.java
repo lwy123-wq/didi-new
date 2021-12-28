@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import sun.com.didi.service.TrieTreeImpl;
 
-import java.util.ArrayList;
+import java.net.URLDecoder;
+import java.util.List;
 
 @RestController
 public class TrieTreeController {
@@ -16,8 +17,13 @@ public class TrieTreeController {
 
     @PostMapping(value = "/Select")
     @ResponseBody
-  public ArrayList<String> query(@RequestBody String str){
-        ArrayList<String> list=trieTre.search(str);
+  public  List<String> Select(@RequestBody String str) throws Exception {
+        String s = URLDecoder.decode(str,"UTF-8");
+        String stri[] = s.split("=");
+        String query = stri[1];
+        System.out.println(query);
+        List<String> list=trieTre.search(query);
+        System.out.println(list);
         return list;
   }
 }

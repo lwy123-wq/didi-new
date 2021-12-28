@@ -1,7 +1,3 @@
-select.java
- select
-creat.java
- creat
 TrieTree.java
  TrieNode
  TrieTree
