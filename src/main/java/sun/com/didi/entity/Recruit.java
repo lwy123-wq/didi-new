@@ -20,6 +20,12 @@ public class Recruit {
         Rec_experience = rec_experience;
     }
 
+    public Recruit(String rec_category, String rec_salary, String rec_Duration) {
+        Rec_category = rec_category;
+        Rec_salary = rec_salary;
+        Rec_Duration = rec_Duration;
+    }
+
     public Recruit() {
 
     }
