@@ -939,11 +939,11 @@
         <div class="sou">
 
             <input type="text" id="searc" placeholder="请输入您所需要的职位、公司" class="zhi">
-            <div class="els"><li class="ll">hhh</li></div>
+            <div class="els"></div>
         </div>
         <a href="#"><div class="yuan">
             <!--        <img src="../static/images/14.png">-->
-            <input type="submit" id="submit" onclick="query()">
+            <input type="submit" id="submit" >
         </div></a>
 <!--        </form>-->
         <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
@@ -1190,7 +1190,7 @@
             {
                 els.style.display='none';
             }else {
-                // query();
+                query();
                 els.style.display='block';
             }
         })
