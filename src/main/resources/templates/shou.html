@@ -164,16 +164,17 @@
                 success: function (res) {
                     if(res!=null){
                         var els=document.querySelector('.els');
-                        var lis=els.querySelectorAll('li');
+
                         var searc=document.querySelector('#searc');
                         for(var i=0;i<res.length;i++)
                         {
                             var li =document.createElement('li');
                             els.appendChild(li);
                             li.className='ll';
-                            li.innerHTML=res[0];
+                            li.innerHTML=res[i];
 
                         }
+                        var lis=els.querySelectorAll('li');
                         for(var j=0;j<lis.length;j++)
                         {
                             lis[j].addEventListener('click',function () {
