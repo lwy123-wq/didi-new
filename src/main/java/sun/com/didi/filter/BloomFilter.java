@@ -4,13 +4,17 @@ import com.google.common.base.Preconditions;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.Hashing;
 
+
 public class BloomFilter <T>{
     private int numHashFunctions;
 
     private int bitSize;
-
+    //将任意类型T的输入数据转化为Java基本类型的数据（byte、int、char等等）
     private Funnel<T> funnel;
-
+    /**
+     * expectedInsertions 期望插入的元素总个数
+     * fpp 期望假阳性率
+     * */
     public BloomFilter(Funnel<T> funnel, int expectedInsertions, double fpp) {
         Preconditions.checkArgument(funnel != null, "funnel不能为空");
         this.funnel = funnel;
@@ -45,15 +49,14 @@ public class BloomFilter <T>{
             // 设定最小期望长度
             p = Double.MIN_VALUE;
         }
-        int sizeOfBitArray = (int) (-n * Math.log(p) / (Math.log(2) * Math.log(2)));
-        return sizeOfBitArray;
+        return (int) (-n * Math.log(p) / (Math.log(2) * Math.log(2)));
+
     }
 
     /**
      * 计算hash方法执行次数
      */
     private int optimalNumOfHashFunctions(long n, long m) {
-        int countOfHash = Math.max(1, (int) Math.round((double) m / n * Math.log(2)));
-        return countOfHash;
+        return Math.max(1, (int) Math.round((double) m / n * Math.log(2)));
     }
 }
