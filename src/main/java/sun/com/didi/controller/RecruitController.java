@@ -1,10 +1,13 @@
 package sun.com.didi.controller;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.filter.BloomFilter;
+import sun.com.didi.service.BloomFilterService;
 import sun.com.didi.service.RecruitServiceImpl;
 import sun.com.didi.util.CookieUtil;
 
@@ -21,6 +24,10 @@ import java.util.List;
 public class RecruitController {
     @Resource
     private RecruitServiceImpl unitService;
+    @Autowired
+    private BloomFilter bloomFilter;
+    @Autowired
+    private BloomFilterService bloomFilterService;
 
     @RequestMapping(value = "/employment", method = RequestMethod.GET)
     public String employment(){
@@ -36,6 +43,13 @@ public class RecruitController {
         if (unit.getRec_company()==null){
             int insert = unitService.insert(Rec_company, Rec_logo, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
+            try {
+                bloomFilterService.addByBloomFilter(bloomFilter,"company_bloom",Rec_company);
+                bloomFilterService.addByBloomFilter(bloomFilter,"category_bloom",Rec_category);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "添加失败";
+            }
             if (insert>0){
                 return "数据添加成功！";
             }

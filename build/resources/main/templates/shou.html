@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/annimate.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
     <script>
         function address(){
             $.ajax({
@@ -161,7 +163,25 @@
                 },
                 success: function (res) {
                     if(res!=null){
-                        alert(res)
+                        var els=document.querySelector('.els');
+
+                        var searc=document.querySelector('#searc');
+                        for(var i=0;i<res.length;i++)
+                        {
+                            var li =document.createElement('li');
+                            els.appendChild(li);
+                            li.className='ll';
+                            li.innerHTML=res[i];
+
+                        }
+                        var lis=els.querySelectorAll('li');
+                        for(var j=0;j<lis.length;j++)
+                        {
+                            lis[j].addEventListener('click',function () {
+                                searc.value=this.innerHTML;
+                            });
+                        }
+
                     }else{
                         alert("error");
                     }
@@ -203,11 +223,15 @@
         }
         .banner {
             height: 550px;
-
-            background-image: url("../static/images/duola.png");
+            width: 1300px;
+            /*background-image: url("../static/images/duola.png");*/
             background-repeat: no-repeat;
             background-position: center;
             background-size: 85% 100%;
+            position: relative;
+            overflow: hidden;
+            /*margin-left: 107px;*/
+            margin: 0 auto;
         }
         .dao {
             width: 1300px;
@@ -270,6 +294,7 @@
             border-right: 1px solid transparent;
         }
         .header .sou {
+            position: relative;
             float: left;
             margin-top: 26px;
         }
@@ -280,6 +305,7 @@
             margin-left: -14px;
             outline: none;
             padding-left: 20px;
+            float: left;
         }
         .ge:hover{
             color: #c97513;
@@ -329,11 +355,13 @@
         }
 
         .ce {
+            position: relative;
             float: left;
             width: 250px;
             height: 550px;
-            margin-left: 110px;
+            /*margin-left: 0%;*/
             background-color: rgba(0,0,0,.6);
+
 
         }
         .banner .ce  .qian{
@@ -701,6 +729,7 @@
             height: 400px;
             background: url("../static/images/blackboard.png") no-repeat;
             background-size: 100% 100%;
+            z-index: -9999;
         }
         .fix .fixtwo .now {
             position: absolute;
@@ -791,8 +820,8 @@
         }
         .els {
             position: absolute;
-            top:124px;
-            left:544px;
+            top:46px;
+            left:-13px;
 
             width:470px;
 
@@ -800,6 +829,8 @@
             background-color: white;
 
             display: none;
+            z-index: 999;
+
         }
         .ll {
             width:451px;
@@ -826,6 +857,72 @@
 
 
 
+        /*轮播图*/
+        .banner ul li {
+
+            height: 550px;
+            float: left;
+        }
+        .banner ul li img{
+            width: 1300px;
+            height: 550px;
+        }
+        .banner ul {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 9000px;
+            height: 550px;
+        }
+        /*.banner {*/
+        /*    width: 600px;*/
+        /*    height: 400px;*/
+        /*    position: relative;*/
+        /*    overflow: hidden;*/
+        /*}*/
+        .banner .right{
+            width: 20px;
+            height: 80px;
+            background-color: black;
+            opacity: .5;
+            text-align: center;
+            line-height: 80px;
+            display: none;
+            position: absolute;
+            top:41%;
+            right: 0;
+            z-index: 999;
+        }
+
+
+        .banner .right a {
+            text-decoration: none;
+            color: white;
+        }
+         .banner ul,.banner ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .banner ol li {
+
+            width: 10px;
+            height: 10px;
+            /* background-color: white; */
+            float: left;
+            border-radius: 6px;
+            margin-left: 2px;
+            border: 1px solid white;
+        }
+        .banner ol {
+            position: absolute;
+            top:96%;
+            left: 45%;
+        }
+        .current {
+            background-color: white;
+        }
+
     </style>
 </head>
 <body>
@@ -843,11 +940,11 @@
         <div class="sou">
 
             <input type="text" id="searc" placeholder="请输入您所需要的职位、公司" class="zhi">
-            <div class="els"><li class="ll">hhh</li></div>
+            <div class="els"></div>
         </div>
         <a href="#"><div class="yuan">
             <!--        <img src="../static/images/14.png">-->
-            <input type="submit" id="submit" onclick="query()">
+            <input type="submit" id="submit" >
         </div></a>
 <!--        </form>-->
         <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
@@ -867,6 +964,18 @@
     </div>
 
     <div class="banner">
+        <ul>
+            <li><a href='javascript:;'><img src='../static/images/duola.png'></a></li>
+            <li><a href='javascript:;'><img src='../static/images/shang.png'></a></li>
+            <li><a href='javascript:;'><img src='../static/images/shangban.png'></a></li>
+            <li><a href='javascript:;'><img src='../static/images/ban.png'></a></li>
+
+        </ul>
+
+        <div class="right"><a href="javascript:;">></a></div>
+        <ol>
+
+        </ol>
         <div class="ce">
             <a href="#"><div class="qian">餐饮行业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;><div class="hou">
                 <div class="none"> <a href="#">后厨</a></div><div class="h">|</div>
@@ -1082,7 +1191,7 @@
             {
                 els.style.display='none';
             }else {
-                // query();
+                query();
                 els.style.display='block';
             }
         })
