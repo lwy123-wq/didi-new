@@ -15,6 +15,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'junit:junit:4.13.1'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile("junit:junit:4.12")
@@ -49,6 +50,9 @@ dependencies {
     implementation group: 'org.apache.lucene', name: 'lucene-queryparser', version: '8.10.1'
     implementation group: 'org.apache.lucene', name: 'lucene-highlighter', version: '7.2.1'
     implementation group: 'org.apache.lucene', name: 'lucene-suggest', version: '8.10.1'
+
+    //elasticsearch
+    implementation group: 'org.elasticsearch.client', name: 'elasticsearch-rest-high-level-client', version: '7.8.0'
     //kafka
     compile("org.springframework.kafka:spring-kafka:${spring_kafka_version}")
     //BloomFilter

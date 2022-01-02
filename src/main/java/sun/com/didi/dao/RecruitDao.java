@@ -25,6 +25,7 @@ public class RecruitDao {
                 Recruit re = new Recruit();
                 re.setRec_company(rs.getString("Rec_company"));
                 re.setRec_logo(rs.getString("Rec_logo"));
+                re.setRec_job(rs.getString("Rec_job"));
                 re.setRec_category(rs.getString("Rec_category"));
                 re.setRec_salary(rs.getString("Rec_salary"));
                 re.setRec_Duration(rs.getString("Rec_Duration"));

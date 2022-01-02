@@ -2,10 +2,12 @@ sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/chat/UserHandler.java
- sun.com.didi.chat.UserHandler
+sun/com/didi/util/EsClient.java
+ sun.com.didi.util.EsClient
 sun/com/didi/config/UrlConfig.java
  sun.com.didi.config.UrlConfig
+sun/com/didi/controller/RecruitController.java
+ sun.com.didi.controller.RecruitController
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
 sun/com/didi/util/CodeUtil.java
@@ -19,6 +21,10 @@ sun/com/didi/entity/IpUtil.java
  sun.com.didi.entity.IpUtil
 sun/com/didi/chat/singlechat/SingleChatServer.java
  sun.com.didi.chat.singlechat.SingleChatServer
+sun/com/didi/service/BloomFilterService.java
+ sun.com.didi.service.BloomFilterService
+sun/com/didi/controller/EsQueryController.java
+ sun.com.didi.controller.EsQueryController
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
 sun/com/didi/entity/Auth.java
@@ -33,20 +39,28 @@ sun/com/didi/chat/JobServerInitializer.java
  sun.com.didi.chat.JobServerInitializer
 sun/com/didi/interceptor/AddressedInterceptor.java
  sun.com.didi.interceptor.AddressedInterceptor
-sun/com/didi/service/EmailService.java
- sun.com.didi.service.EmailService
+sun/com/didi/filter/BloomFilter.java
+ sun.com.didi.filter.BloomFilter
+sun/com/didi/dao/RecruitDao.java
+ sun.com.didi.dao.RecruitDao
+ sun.com.didi.dao.RecruitDao$1
+ sun.com.didi.dao.RecruitDao$2
+ sun.com.didi.dao.RecruitDao$3
+ sun.com.didi.dao.RecruitDao$4
+sun/com/didi/config/RedisConfig.java
+ sun.com.didi.config.RedisConfig
 sun/com/didi/service/AddressServiceImpl.java
  sun.com.didi.service.AddressServiceImpl
 sun/com/didi/service/IntentionImpl.java
  sun.com.didi.service.IntentionImpl
 sun/com/didi/config/FilterConfig.java
  sun.com.didi.config.FilterConfig
-sun/com/didi/service/SelectRecruitment.java
- sun.com.didi.service.SelectRecruitment
 sun/com/didi/dao/PictureDao.java
  sun.com.didi.dao.PictureDao
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
+sun/com/didi/service/SelectRecruitment.java
+ sun.com.didi.service.SelectRecruitment
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
 sun/com/didi/chat/UserServerInitializer.java
@@ -61,16 +75,17 @@ sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
 sun/com/didi/Application.java
  sun.com.didi.Application
+sun/com/didi/service/TrieTreeImpl.java
+ sun.com.didi.service.TrieNode
+ sun.com.didi.service.TrieTreeImpl
 sun/com/didi/chat/singlechat/ServerInitializer.java
  sun.com.didi.chat.singlechat.ServerInitializer
-sun/com/didi/util/CookieUtil.java
- sun.com.didi.util.CookieUtil
 sun/com/didi/chat/UserChatServer.java
  sun.com.didi.chat.UserChatServer
 sun/com/didi/controller/JobController.java
  sun.com.didi.controller.JobController
-sun/com/didi/entity/Picture.java
- sun.com.didi.entity.Picture
+sun/com/didi/service/RecruitServiceImpl.java
+ sun.com.didi.service.RecruitServiceImpl
 sun/com/didi/chat/JobChatServer.java
  sun.com.didi.chat.JobChatServer
 sun/com/didi/entity/JobLogin.java
@@ -87,43 +102,34 @@ sun/com/didi/entity/UserMap.java
  sun.com.didi.entity.UserMap
 sun/com/didi/service/JobServiceImpl.java
  sun.com.didi.service.JobServiceImpl
-sun/com/didi/entity/Intention.java
- sun.com.didi.entity.Intention
-sun/com/didi/config/WebappConfig.java
- sun.com.didi.config.WebappConfig
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
-sun/com/didi/controller/TrieTreeController.java
- sun.com.didi.controller.TrieTreeController
-sun/com/didi/entity/Recruit.java
- sun.com.didi.entity.Recruit
-sun/com/didi/lucene/CreateIndex.java
- sun.com.didi.lucene.CreateIndex
-sun/com/didi/service/TrieTreeImpl.java
- sun.com.didi.service.TrieNode
- sun.com.didi.service.TrieTreeImpl
 sun/com/didi/kafka/Producer.java
  sun.com.didi.kafka.Producer
  sun.com.didi.kafka.Producer$1
-sun/com/didi/dao/RecruitDao.java
- sun.com.didi.dao.RecruitDao
- sun.com.didi.dao.RecruitDao$1
- sun.com.didi.dao.RecruitDao$2
- sun.com.didi.dao.RecruitDao$3
- sun.com.didi.dao.RecruitDao$4
+sun/com/didi/CreateIndex/CreatIndexElasticSearch.java
+ sun.com.didi.CreateIndex.CreatIndexElasticSearch
+sun/com/didi/config/WebappConfig.java
+ sun.com.didi.config.WebappConfig
+sun/com/didi/entity/Recruit.java
+ sun.com.didi.entity.Recruit
+sun/com/didi/controller/TrieTreeController.java
+ sun.com.didi.controller.TrieTreeController
+sun/com/didi/lucene/CreateIndex.java
+ sun.com.didi.lucene.CreateIndex
+sun/com/didi/util/CookieUtil.java
+ sun.com.didi.util.CookieUtil
 sun/com/didi/controller/KafkaController.java
  sun.com.didi.controller.KafkaController
-sun/com/didi/service/RecruitServiceImpl.java
- sun.com.didi.service.RecruitServiceImpl
+sun/com/didi/entity/Intention.java
+ sun.com.didi.entity.Intention
 sun/com/didi/kafka/Consumer.java
  sun.com.didi.kafka.Consumer
-sun/com/didi/filter/BloomFilter.java
- sun.com.didi.filter.BloomFilter
-sun/com/didi/service/BloomFilterService.java
- sun.com.didi.service.BloomFilterService
-sun/com/didi/controller/RecruitController.java
- sun.com.didi.controller.RecruitController
-sun/com/didi/config/RedisConfig.java
- sun.com.didi.config.RedisConfig
+sun/com/didi/entity/Picture.java
+ sun.com.didi.entity.Picture
+sun/com/didi/service/EmailService.java
+ sun.com.didi.service.EmailService
+sun/com/didi/chat/UserHandler.java
+ sun.com.didi.chat.UserHandler
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
