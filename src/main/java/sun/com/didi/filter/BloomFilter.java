@@ -3,6 +3,9 @@ package sun.com.didi.filter;
 import com.google.common.base.Preconditions;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.Hashing;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 
 public class BloomFilter <T>{
@@ -10,6 +13,7 @@ public class BloomFilter <T>{
 
     private int bitSize;
     //将任意类型T的输入数据转化为Java基本类型的数据（byte、int、char等等）
+
     private Funnel<T> funnel;
     /**
      * expectedInsertions 期望插入的元素总个数

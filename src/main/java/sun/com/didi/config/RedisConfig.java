@@ -3,6 +3,8 @@ package sun.com.didi.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Charsets;
+import com.google.common.hash.Funnel;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -56,8 +58,7 @@ public class RedisConfig {
     //初始化布隆过滤器，放入到spring容器里面
     @Bean
     public BloomFilter<String> initBloomFilterHelper() {
-        //return new BloomFilter<>((Funnel<String>) (from, into) -> into.putString(from, Charsets.UTF_8).putString(from, Charsets.UTF_8), 1000000, 0.01);
-        return null;
+        return new BloomFilter<>((Funnel<String>) (from, into) -> into.putString(from, Charsets.UTF_8).putString(from, Charsets.UTF_8), 1000000, 0.01);
     }
 
 }

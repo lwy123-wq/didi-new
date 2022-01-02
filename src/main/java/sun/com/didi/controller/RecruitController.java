@@ -24,7 +24,7 @@ import java.util.List;
 public class RecruitController {
     @Resource
     private RecruitServiceImpl unitService;
-    @Autowired
+    @Resource
     private BloomFilter bloomFilter;
     @Autowired
     private BloomFilterService bloomFilterService;

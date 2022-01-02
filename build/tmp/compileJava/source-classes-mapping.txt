@@ -101,10 +101,12 @@ sun/com/didi/entity/Recruit.java
  sun.com.didi.entity.Recruit
 sun/com/didi/lucene/CreateIndex.java
  sun.com.didi.lucene.CreateIndex
-sun/com/didi/filter/BloomFilter.java
- sun.com.didi.filter.BloomFilter
-sun/com/didi/service/BloomFilterService.java
- sun.com.didi.service.BloomFilterService
+sun/com/didi/service/TrieTreeImpl.java
+ sun.com.didi.service.TrieNode
+ sun.com.didi.service.TrieTreeImpl
+sun/com/didi/kafka/Producer.java
+ sun.com.didi.kafka.Producer
+ sun.com.didi.kafka.Producer$1
 sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao
  sun.com.didi.dao.RecruitDao$1
@@ -113,17 +115,15 @@ sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao$4
 sun/com/didi/controller/KafkaController.java
  sun.com.didi.controller.KafkaController
-sun/com/didi/config/RedisConfig.java
- sun.com.didi.config.RedisConfig
-sun/com/didi/kafka/Consumer.java
- sun.com.didi.kafka.Consumer
-sun/com/didi/controller/RecruitController.java
- sun.com.didi.controller.RecruitController
 sun/com/didi/service/RecruitServiceImpl.java
  sun.com.didi.service.RecruitServiceImpl
-sun/com/didi/kafka/Producer.java
- sun.com.didi.kafka.Producer
- sun.com.didi.kafka.Producer$1
-sun/com/didi/service/TrieTreeImpl.java
- sun.com.didi.service.TrieNode
- sun.com.didi.service.TrieTreeImpl
+sun/com/didi/kafka/Consumer.java
+ sun.com.didi.kafka.Consumer
+sun/com/didi/filter/BloomFilter.java
+ sun.com.didi.filter.BloomFilter
+sun/com/didi/service/BloomFilterService.java
+ sun.com.didi.service.BloomFilterService
+sun/com/didi/controller/RecruitController.java
+ sun.com.didi.controller.RecruitController
+sun/com/didi/config/RedisConfig.java
+ sun.com.didi.config.RedisConfig
