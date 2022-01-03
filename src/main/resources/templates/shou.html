@@ -193,6 +193,31 @@
                 }
             });
         }
+
+
+
+        function EsQuery(){
+            $.ajax({
+                url: "/ES",
+                type: 'POST',
+                data: {'searc': $("#searc").val()},
+                contentType: "application/json;charset=UTF-8",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (res) {
+                    if(res!=null){
+                       console(res);
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    //alert($("#searc").val())
+                    alert("error!!!!!")
+                }
+            });
+        }
     </script>
 
 </head>
@@ -215,7 +240,7 @@
         </div>
         <a href="#"><div class="yuan">
             <!--        <img src="../static/images/14.png">-->
-            <input type="submit" id="submit" >
+            <input type="submit" id="submit" onclick="EsQuery()">
         </div></a>
 <!--        </form>-->
         <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>

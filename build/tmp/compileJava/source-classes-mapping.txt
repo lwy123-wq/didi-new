@@ -2,8 +2,10 @@ sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/util/EsClient.java
- sun.com.didi.util.EsClient
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
+sun/com/didi/service/QueueService.java
+ sun.com.didi.service.QueueService
 sun/com/didi/config/UrlConfig.java
  sun.com.didi.config.UrlConfig
 sun/com/didi/controller/RecruitController.java
@@ -23,8 +25,8 @@ sun/com/didi/chat/singlechat/SingleChatServer.java
  sun.com.didi.chat.singlechat.SingleChatServer
 sun/com/didi/service/BloomFilterService.java
  sun.com.didi.service.BloomFilterService
-sun/com/didi/controller/EsQueryController.java
- sun.com.didi.controller.EsQueryController
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
 sun/com/didi/entity/Auth.java
@@ -47,6 +49,7 @@ sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao$2
  sun.com.didi.dao.RecruitDao$3
  sun.com.didi.dao.RecruitDao$4
+ sun.com.didi.dao.RecruitDao$5
 sun/com/didi/config/RedisConfig.java
  sun.com.didi.config.RedisConfig
 sun/com/didi/service/AddressServiceImpl.java
@@ -100,13 +103,15 @@ sun/com/didi/controller/AddressController.java
  sun.com.didi.controller.AddressController
 sun/com/didi/entity/UserMap.java
  sun.com.didi.entity.UserMap
+sun/com/didi/controller/MatchController.java
+ sun.com.didi.controller.MatchController
 sun/com/didi/service/JobServiceImpl.java
  sun.com.didi.service.JobServiceImpl
 sun/com/didi/kafka/Producer.java
  sun.com.didi.kafka.Producer
  sun.com.didi.kafka.Producer$1
-sun/com/didi/CreateIndex/CreatIndexElasticSearch.java
- sun.com.didi.CreateIndex.CreatIndexElasticSearch
+sun/com/didi/chat/UserHandler.java
+ sun.com.didi.chat.UserHandler
 sun/com/didi/config/WebappConfig.java
  sun.com.didi.config.WebappConfig
 sun/com/didi/entity/Recruit.java
@@ -127,9 +132,9 @@ sun/com/didi/entity/Picture.java
  sun.com.didi.entity.Picture
 sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
-sun/com/didi/chat/UserHandler.java
- sun.com.didi.chat.UserHandler
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
+sun/com/didi/util/EsClient.java
+ sun.com.didi.util.EsClient
+sun/com/didi/controller/EsQueryController.java
+ sun.com.didi.controller.EsQueryController
+sun/com/didi/CreateIndex/CreatIndexElasticSearch.java
+ sun.com.didi.CreateIndex.CreatIndexElasticSearch
