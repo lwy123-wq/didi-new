@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import sun.com.didi.entity.Recruit;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -83,5 +84,18 @@ public class RecruitDao {
             }
         });
         return list;
+    }
+
+    public String surplus(String category, String province, String condition){
+        Recruit recruit=new Recruit();
+        String sql="select Rec_job from Recruit where category=? and province=? and i_condition=? ";
+        return jdbcTemplate.query(sql, new Object[]{category, province, condition}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+               recruit.setRec_category(rs.getString(3));
+               recruit.s
+            }
+        });
+
     }
 }

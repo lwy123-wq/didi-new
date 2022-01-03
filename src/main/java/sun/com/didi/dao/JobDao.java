@@ -16,4 +16,5 @@ public class JobDao implements JobService {
                 name,phone,id_code,card,school,email,marriage,address,city,years,education);
 
     }
+
 }
