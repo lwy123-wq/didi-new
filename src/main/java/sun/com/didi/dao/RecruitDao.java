@@ -86,16 +86,15 @@ public class RecruitDao {
         return list;
     }
 
-    public String surplus(String category, String province, String condition){
+    public Recruit surplus(String category, String province, String condition){
         Recruit recruit=new Recruit();
         String sql="select Rec_job from Recruit where category=? and province=? and i_condition=? ";
-        return jdbcTemplate.query(sql, new Object[]{category, province, condition}, new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new Object[]{category, province, condition}, new RowCallbackHandler() {
             @Override
-            public void processRow(ResultSet rs) throws SQLException {
-               recruit.setRec_category(rs.getString(3));
-               recruit.s
+            public void processRow(ResultSet resultSet) throws SQLException {
+                recruit.setRec_category(resultSet.getString(3));
             }
         });
-
+       return recruit;
     }
 }

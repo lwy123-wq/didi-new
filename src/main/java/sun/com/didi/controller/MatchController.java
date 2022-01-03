@@ -20,7 +20,7 @@ public class MatchController {
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
         queue.add(username);
-
+        return null;
 
     }
 }
