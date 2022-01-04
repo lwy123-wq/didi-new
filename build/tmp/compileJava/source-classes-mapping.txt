@@ -134,7 +134,7 @@ sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
 sun/com/didi/util/EsClient.java
  sun.com.didi.util.EsClient
-sun/com/didi/controller/EsQueryController.java
- sun.com.didi.controller.EsQueryController
 sun/com/didi/CreateIndex/CreatIndexElasticSearch.java
  sun.com.didi.CreateIndex.CreatIndexElasticSearch
+sun/com/didi/controller/EsQueryController.java
+ sun.com.didi.controller.EsQueryController

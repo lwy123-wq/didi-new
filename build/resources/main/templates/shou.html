@@ -194,20 +194,17 @@
             });
         }
 
-
-
         function EsQuery(){
             $.ajax({
-                url: "/ES",
+                url: "/MatchAllQuery",
                 type: 'POST',
                 data: {'searc': $("#searc").val()},
-                contentType: "application/json;charset=UTF-8",
                 xhrFields: {
                     withCredentials: true
                 },
                 success: function (res) {
                     if(res!=null){
-                       console(res);
+                       console.log(res);
                     }else{
                         alert("error");
                     }
@@ -216,6 +213,7 @@
                     //alert($("#searc").val())
                     alert("error!!!!!")
                 }
+
             });
         }
     </script>

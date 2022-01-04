@@ -30,7 +30,7 @@ public class CreatIndexElasticSearch {
     String index="recruit";
     @Autowired
     private SelectRecruitment selectRecruitment;
-    @PostConstruct()
+    //@PostConstruct()
     public void createIndex() throws IOException {
         //准备关于索引的seetings
         Settings.Builder settings=Settings.builder()

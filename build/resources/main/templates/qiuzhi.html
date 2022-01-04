@@ -8,7 +8,7 @@
 
             margin: 0;
             padding: 0;
-            background: url("../static/images/bgk.png") no-repeat;
+            background: url("../static/images/qiuzhibg.png") no-repeat;
             background-size: 100%;
         }
         h2 {
@@ -51,7 +51,7 @@
             height: 300px;
         }
         h2 {
-            margin-top:100px;
+            margin-top:48px;
             margin-left: 600px;
         }
         textarea {
@@ -89,6 +89,18 @@
             text-decoration: none;
             color: white;
         }
+        table {
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+            position: absolute;
+            top:-640px;
+            left:-112px;
+            padding: 40px;
+            border-radius: 30px;
+        }
 
     </style>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -125,7 +137,7 @@
 <body onload="init()">
 <div class="body"><div class="pipei"><div class="xx"><a href="javascript:;"> x</a></div> <img src="../static/images/pipei.png"> 正在为您匹配....</div> </div>
 
-<div class="box"><img src="../static/images/zhiyuan.png" ></div>
+<!--<div class="box"><img src="../static/images/zhiyuan.png" ></div>-->
 <form method="post" onsubmit="return false" action="##" class="fo">
     <h2 >请填写您的求职意向：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
@@ -242,6 +254,24 @@
     xx.onclick = function ( ) {
          body.style.display='none';
     }
+    function annimate(div,target,callback){
+        clearInterval(div.timmer);
+        div.timmer=setInterval(function(){
+
+            var off =(target-div.offsetTop)/10;
+            off=off>0?Math.ceil(off):Math.floor(off);
+            if(div.offsetTop==target)
+            {
+                clearInterval(div.timmer);
+                //
+                callback&&callback();
+            }
+
+            div.style.top=div.offsetTop+off+'px';
+        },30);
+    }
+    var table=document.querySelector('table');
+    annimate(table,148);
 
 </script>
 </body>
