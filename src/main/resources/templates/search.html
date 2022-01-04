@@ -25,14 +25,60 @@
             });
         }
         address();
-        function SelectRecruit(){
+
+        function query(){
             $.ajax({
-                url: "/selectRecruit",
+                url: "/Select",
                 type: 'POST',
+                data: {'searc': $("#searc").val()},
+                contentType: "application/json;charset=UTF-8",
+                dataType : "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (res) {
+                    if(res!=null){
+                        var els=document.querySelector('.els');
+
+                        var searc=document.querySelector('#searc');
+                        for(var i=0;i<res.length;i++)
+                        {
+                            var li =document.createElement('li');
+                            els.appendChild(li);
+                            li.className='ll';
+                            li.innerHTML=res[i];
+
+                        }
+                        var lis=els.querySelectorAll('li');
+                        for(var j=0;j<lis.length;j++)
+                        {
+                            lis[j].addEventListener('click',function () {
+                                searc.value=this.innerHTML;
+                            });
+                        }
+
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    //alert($("#searc").val())
+                    alert("error!!!!!")
+                }
+            });
+        }
+        function EsQuery(){
+            $.ajax({
+                url: "/MatchAllQuery",
+                type: 'POST',
+                data: {'searc': $("#searc").val()},
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res!=null){
                         var jing=document.querySelector('.jing');
-                        for(var i =0;i<res.length;i++) {
+
                             var xiang = document.createElement('div');
                             jing.appendChild(xiang);
                             xiang.className = 'xiang';
@@ -40,18 +86,18 @@
                             var picc = document.createElement('div');
                             xiang.appendChild(picc);
                             picc.className = 'picc';
-                            picc.style.backgroundImage='url('+res[i].rec_logo+')';
+                            picc.style.backgroundImage='url('+res[0].rec_logo+')';
 
                             var name = document.createElement('div');
                             xiang.appendChild(name);
                             name.className = 'name';
                             name.id = 'name';
-                            name.innerHTML = res[i].rec_company;
+                            name.innerHTML = res[0].rec_company;
 
                             var money = document.createElement('div');
                             xiang.appendChild(money);
                             money.className = 'money';
-                            money.innerHTML = res[i].rec_salary;
+                            money.innerHTML = res[0].rec_salary;
 
                             var detail = document.createElement('div');
                             xiang.appendChild(detail);
@@ -74,12 +120,12 @@
                             var profession = document.createElement('div');
                             xia.appendChild(profession);
                             profession.className = 'profession';
-                            profession.innerHTML = res[i].rec_category;
+                            profession.innerHTML = res[0].rec_category;
 
                             var time = document.createElement('div');
                             xia.appendChild(time);
                             time.className = 'time';
-                            time.innerHTML = res[i].rec_Duration;
+                            time.innerHTML = res[0].rec_Duration;
 
                             var number = document.createElement('div');
                             xia.appendChild(number);
@@ -89,9 +135,9 @@
                             var experience = document.createElement('div');
                             xia.appendChild(experience);
                             experience.className = 'experience';
-                            experience.innerHTML = res[i].rec_experience;
+                            experience.innerHTML = res[0].rec_experience;
 
-                        }
+
                         var details =document.querySelectorAll('.detail');
                         var xiangs =document.querySelectorAll('.xiang');
                         var xias =document.querySelectorAll('.xia');
@@ -135,50 +181,7 @@
 
                                 xias[index].className = 'xia jingg';
                             }
-
-
                         }
-                    }else{
-                        alert("error");
-                    }
-                },
-                error: function (res) {
-                    alert("error!!!!!")
-                }
-            });
-        }
-        SelectRecruit()
-        function query(){
-            $.ajax({
-                url: "/Select",
-                type: 'POST',
-                data: {'searc': $("#searc").val()},
-                contentType: "application/json;charset=UTF-8",
-                dataType : "json",
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function (res) {
-                    if(res!=null){
-                        var els=document.querySelector('.els');
-
-                        var searc=document.querySelector('#searc');
-                        for(var i=0;i<res.length;i++)
-                        {
-                            var li =document.createElement('li');
-                            els.appendChild(li);
-                            li.className='ll';
-                            li.innerHTML=res[i];
-
-                        }
-                        var lis=els.querySelectorAll('li');
-                        for(var j=0;j<lis.length;j++)
-                        {
-                            lis[j].addEventListener('click',function () {
-                                searc.value=this.innerHTML;
-                            });
-                        }
-
                     }else{
                         alert("error");
                     }
@@ -187,8 +190,10 @@
                     //alert($("#searc").val())
                     alert("error!!!!!")
                 }
+
             });
         }
+        EsQuery();
     </script>
 
 </head>
@@ -226,6 +231,7 @@
     <a href="#"><div class="xu">
 
     </div> </a>
+    <div class="jing"></div>
 </div>
 <script>
     var ge = document.querySelector('.ge');
