@@ -9,12 +9,12 @@ import sun.com.didi.kafka.Producer;
 
 @Controller
 public class KafkaController {
-    @Autowired
+  /*  @Autowired
     private Producer producer;
     @PatchMapping(value = "/producer")
     @ResponseBody
     public void KafkaSend(String category,String salary,String duration){
         Recruit recruit=new Recruit(category,salary,duration);
         producer.producer(recruit);
-    }
+    }*/
 }
