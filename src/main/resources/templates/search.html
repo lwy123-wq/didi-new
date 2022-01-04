@@ -193,7 +193,8 @@
 
             });
         }
-        EsQuery();
+        // EsQuery();
+
     </script>
 
 </head>
@@ -231,9 +232,47 @@
     <a href="#"><div class="xu">
 
     </div> </a>
-    <div class="jing"></div>
+
 </div>
+<div class="jing"></div>
+
 <script>
+    $(function(){
+        console.log(decodeURI(location.search.concat()));
+        manyValues();
+        $("#searc").val(oneValues());
+        EsQuery();
+    })
+
+    //接收一个值
+    function oneValues(){
+        var result;
+        var url=decodeURI(window.location.search); //获取url中"?"符后的字串
+        if(url.indexOf("?") != -1) {
+            result = url.substr(url.indexOf("=")+1);
+        }
+        return result;
+    }
+
+    //接收多值
+    function manyValues() {
+        var url=decodeURI(window.location.search);
+        if(url.indexOf("?")!=-1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            var key = new Array(strs.length);
+            var value = new Array(strs.length);
+            for(i = 0;i < strs.length;i++){
+                key[i] = strs[i].split("=")[0]
+                value[i] = unescape(strs[i].split("=")[1]);
+                // alert(key[i]+"="+value[i]);
+            }
+        }
+    }
+
+
+
+    ////
     var ge = document.querySelector('.ge');
     var siglechat =document.querySelector('.siglechat');
     if(ge.innerHTML.indexOf('公司')!==-1)
@@ -304,58 +343,7 @@
     face.style.background='url("../static/images/'+arr[getRandomIntInclusive(0,5)]+'")';
     face.style.backgroundSize='100% 100%';
 
-    // function to(){
-    //
-    //     var name =document.querySelector('#name');
-    //     window.location.href="SingleChat?valus="+name.innerHTML;
-    // window.location.href="b.html?valus="+getval+"&value2="+getval2;
-    // }
-    // var details =document.querySelectorAll('.detail');
-    // var xiangs =document.querySelectorAll('.xiang');
-    // var xias =document.querySelectorAll('.xia');
-    //
-    // var flag =0;
-    // for (var i=0;i<details.length;i++)
-    // {   details[i].setAttribute('index',i);
-    //
-    //     details[i].onclick =function () {
-    //         var index =this.getAttribute('index');
-    //
-    //         if(flag===0)
-    //         {
-    //
-    //
-    //             this.parentNode.style.height='278px';
-    //
-    //
-    //
-    //             // xias[index].style.display= 'block';
-    //             xias[index].style.animationName='fadeInAnimation';
-    //             xias[index].style.animationDelay='1.5s';
-    //             xias[index].style.animationDuration='.5s';
-    //             xias[index].style.animationIterationCount='1';
-    //             xias[index].style.animationFillMode=' forwards';
-    //
-    //             flag=1;
-    //         }else{
-    //
-    //             xias[index].style.animationName='fade';
-    //             xias[index].style.animationDelay='0.01s';
-    //             xias[index].style.animationDuration='.5s';
-    //             xias[index].style.animationIterationCount='1';
-    //             xias[index].style.animationFillMode=' forwards';
-    //             // xias[index].style.display = 'none';
-    //
-    //             this.parentNode.style.height='139px';
-    //
-    //
-    //             flag=0;
-    //         }
-    //
-    //
-    //         xias[index].className='xia jingg';
-    //     }
-    // }
+
 
     var pic =document.getElementById('map');
     document.addEventListener('mousemove',function (e) {
