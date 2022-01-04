@@ -35,4 +35,7 @@ public class RecruitServiceImpl {
         return recruitDao.surplus(category,province,condition);
 
     }
+    public List<Recruit> FindByJob(String job){
+        return recruitDao.findByJob(job);
+    }
 }

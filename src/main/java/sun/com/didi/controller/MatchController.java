@@ -10,6 +10,7 @@ import sun.com.didi.service.RecruitServiceImpl;
 import sun.com.didi.util.CookieUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -22,17 +23,19 @@ public class MatchController {
 
     @PostMapping(value = "/match")
     @ResponseBody
-    public String match(String category, String province, String condition, HttpServletRequest request){
+    public ArrayList<ArrayList<Recruit>> match(String category, String province, String condition, HttpServletRequest request){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
         queue.add(username);
         List<String> ss=recruitService.surplus(category,province,condition);
+        ArrayList<ArrayList<Recruit>> arrayList=new ArrayList();
         if(ss!=null){
             for(String str:ss){
-
+                ArrayList<Recruit> list= (ArrayList<Recruit>) recruitService.FindByJob(str);
+                arrayList.add(list);
             }
         }
-        return null;
+        return arrayList;
 
     }
 }
