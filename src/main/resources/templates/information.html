@@ -36,12 +36,10 @@
 
             margin: 0;
             padding: 0;
-            background: url("../static/images/bgk.png") no-repeat;
+            background: url("../static/images/qiuzhibg.png") no-repeat;
             background-size: 100%;
         }
-        h2 {
-            margin-top: 100px;
-        }
+
         input ,select{
             height: 30px;
             outline: none;
@@ -79,14 +77,26 @@
             height: 300px;
         }
         h2 {
-            margin-top:100px;
+            margin-top:18px;
             margin-left: 600px;
+        }
+        table {
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+            position: absolute;
+            top:-640px;
+            left:-112px;
+            padding: 40px;
+            border-radius: 30px;
         }
 
     </style>
 </head>
 <body onload="init()">
-<div class="box"><img src="../static/images/zhiyuan.png" ></div>
+<!--<div class="box"><img src="../static/images/zhiyuan.png" ></div>-->
 <form method="post"  onsubmit="return false" action="##"  class="fo">
     <h2 >请填写您的个人信息：</h2>
     <table style="border: 1px;margin: 0 500px;" width="50%" cellpadding="5" cellspacing="0" >
@@ -213,6 +223,24 @@
     }
         city.options[0].selected=true;
     }
+        function annimate(div,target,callback){
+            clearInterval(div.timmer);
+            div.timmer=setInterval(function(){
+
+                var off =(target-div.offsetTop)/10;
+                off=off>0?Math.ceil(off):Math.floor(off);
+                if(div.offsetTop==target)
+                {
+                    clearInterval(div.timmer);
+                    //
+                    callback&&callback();
+                }
+
+                div.style.top=div.offsetTop+off+'px';
+            },30);
+        }
+        var table=document.querySelector('table');
+        annimate(table,100);
 
 
 </script>
