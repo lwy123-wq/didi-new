@@ -6,6 +6,7 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,6 @@ import sun.com.didi.util.EsClient;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,14 +37,14 @@ public class EsQueryController {
             SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
             searchSourceBuilder.from(0);
             searchSourceBuilder.size(5);
-            searchSourceBuilder.query(QueryBuilders.multiMatchQuery(query, "rec_company"));
+            searchSourceBuilder.query(QueryBuilders.multiMatchQuery(query,"rec_company"));
 
             System.out.println(searchRequest.source(searchSourceBuilder));
 
             //执行查询
             resp = client.search(searchRequest, RequestOptions.DEFAULT);
         }
-        SearchHit[] hits = resp.getHits().getHits();//从kibana里的结果可以看出来有两个hits
+        SearchHits hits = resp.getHits();//从kibana里的结果可以看出来有两个hits
             for (SearchHit searchHit : hits){
                 Map<String, Object> map = searchHit.getSourceAsMap();
                 list.add(map);
