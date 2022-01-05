@@ -20,6 +20,10 @@ import java.util.Map;
 
 @Controller
 public class EsQueryController {
+    @RequestMapping(value = "/search",method = RequestMethod.GET)
+    public String start(){
+        return "search";
+    }
     @PostMapping(value = "/MatchAllQuery")
     @ResponseBody
     public  List<Map<String, Object>> MatchAllQuery(@RequestBody String doc) throws IOException {
@@ -32,8 +36,7 @@ public class EsQueryController {
             //创建对象
             SearchRequest searchRequest = new SearchRequest("recruit");//指定索引
             //  searchRequest.types(type);//指定类型
-
-            //        2.指定查询条件(先用searchSourceBuilder,再searchrequest指定searchSourceBuilder )
+            //  2.指定查询条件(先用searchSourceBuilder,再searchrequest指定searchSourceBuilder )
             SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
             searchSourceBuilder.from(0);
             searchSourceBuilder.size(5);
