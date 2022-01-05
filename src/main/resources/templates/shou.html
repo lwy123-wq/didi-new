@@ -195,11 +195,7 @@
         }
 
 
-                        var submitt=document.querySelector('#submit');
-                        var searc=document.querySelector('#searc');
-                        submitt.addEventListener('click',function () {
-                            window.location.href='MatchAllQuery?valus=' + searc.value;
-                        });
+
 
 
     </script>
@@ -446,7 +442,11 @@
 
     </div>
     <script>
-
+        var submitt=document.querySelector('#submit');
+        var searc=document.querySelector('#searc');
+        submitt.addEventListener('click',function () {
+            window.location.href='MatchAllQuery?valus=' + searc.value;
+        });
 
 
 
