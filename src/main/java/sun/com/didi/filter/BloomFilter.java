@@ -3,9 +3,6 @@ package sun.com.didi.filter;
 import com.google.common.base.Preconditions;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.Hashing;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 
 public class BloomFilter <T>{

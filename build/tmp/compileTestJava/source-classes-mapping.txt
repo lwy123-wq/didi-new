@@ -1,5 +1,2 @@
-TrieTree.java
- TrieNode
- TrieTree
 test.java
  test

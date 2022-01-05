@@ -35,6 +35,7 @@ public class MatchController {
                 arrayList.add(list);
             }
         }
+        queue.poll();
         return arrayList;
 
     }

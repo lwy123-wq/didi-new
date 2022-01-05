@@ -12,7 +12,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest(classes = Application.class)
-@SuppressWarnings("restriction")
 public class test {
     @Autowired
     private JobDao jobDao;
@@ -26,6 +25,8 @@ public class test {
     private TrieTreeImpl trieTre;
     @Test
     public void t() throws Exception {
+        System.out.println(unitService.surplus("SS","沈阳市","ddd"));
+
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
 //        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");
     /*    ConfigurableApplicationContext run1 = SpringApplication.run(Application.class);
@@ -80,8 +81,8 @@ public class test {
 //       creat c=new creat();
 //        c.create("我的简介", "大家好,我叫小铭,我的专业是网络工程");
 //        c.create("我的专业", "我的专业是网络工程");
-        List<String> list=trieTre.search("天津");
-        System.out.println(list);
+        /*List<String> list=trieTre.search("天津");
+        System.out.println(list);*/
 
     }
 

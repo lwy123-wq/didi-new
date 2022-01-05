@@ -194,28 +194,14 @@
             });
         }
 
-        function EsQuery(){
-            $.ajax({
-                url: "/MatchAllQuery",
-                type: 'POST',
-                data: {'searc': $("#searc").val()},
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function (res) {
-                    if(res!=null){
-                       console.log(res);
-                    }else{
-                        alert("error");
-                    }
-                },
-                error: function (res) {
-                    //alert($("#searc").val())
-                    alert("error!!!!!")
-                }
 
-            });
-        }
+                        var submitt=document.querySelector('#submit');
+                        var searc=document.querySelector('#searc');
+                        submitt.addEventListener('click',function () {
+                            window.location.href='MatchAllQuery?valus=' + searc.value;
+                        });
+
+
     </script>
 
 </head>
@@ -238,7 +224,7 @@
         </div>
         <a href="#"><div class="yuan">
             <!--        <img src="../static/images/14.png">-->
-            <input type="submit" id="submit" onclick="EsQuery()">
+            <input type="submit" id="submit" >
         </div></a>
 <!--        </form>-->
         <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>

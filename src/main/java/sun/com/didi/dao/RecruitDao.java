@@ -87,7 +87,7 @@ public class RecruitDao {
     }
     //匹配
     public List<String> surplus(String category, String province, String condition){
-        String sql="select Rec_job from Recruit where Rec_category=? and Rec_address=? and Rec_salary=? ";
+        String sql="SELECT Rec_job From Recruit WHERE Rec_category=? and Rec_address='%'+?+'%' and Rec_salary=? ";
         List<String> list=jdbcTemplate.query(sql, new Object[]{category, province, condition}, new RowMapper<String>() {
             @Override
             public String mapRow(ResultSet rs, int rowNum) throws SQLException {

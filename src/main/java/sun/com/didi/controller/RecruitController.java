@@ -44,8 +44,8 @@ public class RecruitController {
             int insert = unitService.insert(Rec_company, Rec_logo,Rec_address, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
             try {
-                bloomFilterService.addByBloomFilter(bloomFilter,"company_bloom",Rec_company);
-                bloomFilterService.addByBloomFilter(bloomFilter,"category_bloom",Rec_category);
+                /*bloomFilterService.addByBloomFilter(bloomFilter,"company_bloom",Rec_company);
+                bloomFilterService.addByBloomFilter(bloomFilter,"category_bloom",Rec_category);*/
             } catch (Exception e) {
                 e.printStackTrace();
                 return "添加失败";

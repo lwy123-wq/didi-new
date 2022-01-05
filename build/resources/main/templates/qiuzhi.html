@@ -109,7 +109,7 @@
             $.ajax({
                 url: "/jobwanted",
                 type: 'POST',
-                data: {'post': $("#post").val(), 'city': $("#city").val(), 'category': $("#category").val(), 'province': $("#province").val()
+                data: {'post': $("#post").val(),  'category': $("#category").val(),'city': $("#city").val(),'province': $("#province").val()
                     , 'condition': $("#condition").val(), 'duration': $("#duration").val() , 'experience': $("#experience").val()},
                 success: function (res) {
                     if(res=="success"){
@@ -129,13 +129,33 @@
             });
 
         }
-        
+
+        function match(){
+            $.ajax({
+                url: "/match",
+                type: 'POST',
+                data: {'category': $("#category").val(),'province': $("#province").val(),'condition': $("#condition").val()},
+                success: function (res) {
+                    if(res!=null){
+                        alert("success")
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+
+        }
+
+
 
 
     </script>
 </head>
 <body onload="init()">
-<div class="body"><div class="pipei"><div class="xx"><a href="javascript:;"> x</a></div> <img src="../static/images/pipei.png"> 正在为您匹配....</div> </div>
+<div class="body" style="z-index: 999"><div class="pipei" style="z-index: 999"><div class="xx"><a href="javascript:;"> x</a></div> <img src="../static/images/pipei.png"> 正在为您匹配....</div> </div>
 
 <!--<div class="box"><img src="../static/images/zhiyuan.png" ></div>-->
 <form method="post" onsubmit="return false" action="##" class="fo">

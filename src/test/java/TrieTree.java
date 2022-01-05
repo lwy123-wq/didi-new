@@ -3,6 +3,7 @@ import java.util.ArrayList;
 /*
  * 无数据结构设计下的蛮力中文键树
  */
+/*
 class TrieNode {
     public String value;
     public ArrayList<TrieNode> ptr = null;
@@ -112,3 +113,4 @@ public class TrieTree {
         }
     }
 }
+*/

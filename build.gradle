@@ -15,10 +15,9 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'junit:junit:4.13.1'
-    runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile("junit:junit:4.12")
+    runtimeOnly 'mysql:mysql-connector-java'
     compile("org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}")
     compile("org.springframework.boot:spring-boot-starter:${spring_boot_version}")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:${spring_boot_version}")
