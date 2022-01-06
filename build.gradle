@@ -52,6 +52,10 @@ dependencies {
 
     //elasticsearch
     implementation group: 'org.elasticsearch.client', name: 'elasticsearch-rest-high-level-client', version: '7.8.0'
+
+    //lettuce
+    implementation group: 'io.lettuce', name: 'lettuce-core', version: '6.1.5.RELEASE'
+
     //kafka
     compile("org.springframework.kafka:spring-kafka:${spring_kafka_version}")
     //BloomFilter
