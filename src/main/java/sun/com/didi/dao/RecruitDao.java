@@ -100,9 +100,9 @@ public class RecruitDao {
 
         return list;
     }
-    public ArrayList<Recruit> findByJob(String Rec_job){
-        String sql = "SELECT * FROM Recruit where Rec_job=? ";
-        ArrayList<Recruit> list = (ArrayList<Recruit>) jdbcTemplate.query(sql, new Object[]{Rec_job},new RowMapper<Recruit>() {
+    public List<Recruit> findByJob(String Rec_job,String category, String province, String condition){
+        String sql = "SELECT * FROM Recruit where Rec_job=? AND Rec_category=? and Rec_address='%'+?+'%' and Rec_salary=?";
+        List<Recruit> list1 = jdbcTemplate.query(sql, new Object[]{Rec_job,category, province, condition},new RowMapper<Recruit>() {
             @Override
             public Recruit mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Recruit re = new Recruit();
@@ -117,6 +117,6 @@ public class RecruitDao {
                 return re;
             }
         });
-        return list;
+        return list1;
     }
 }

@@ -32,23 +32,31 @@ public class MatchController {
     @Resource
     private IntentionImpl intention;
 
+    @RequestMapping(value = "/matchsuccess", method = RequestMethod.GET)
+    public String match1(){
+        return "matchsuccess";
+    }
     @PostMapping(value = "/match")
     @ResponseBody
-    public ArrayList<ArrayList<Recruit>> match(HttpServletRequest request){
-        System.out.println(ca+"aaaaaaaaaaaaaaaaaaa");
+    public List<List<Recruit>> match(HttpServletRequest request){
 
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
         queue.add(username);
         List<String> ss=recruitService.surplus(ca,pr,co);
-        ArrayList<ArrayList<Recruit>> arrayList=new ArrayList();
+        System.out.println(ss+"sssssssssssssssssss");
+        List<List<Recruit>> arrayList=new ArrayList<>();
         if(ss!=null){
             for(String str:ss){
-                ArrayList<Recruit> list= (ArrayList<Recruit>) recruitService.FindByJob(str);
+                System.out.println(str+"aaaaaaaaaaaaa");
+                List<Recruit> list= recruitService.FindByJob(str,ca, pr, co);
+
+                System.out.println(list+"jjjjjjjjjjjjjjjjjjjj");
                 arrayList.add(list);
             }
         }
         queue.poll();
+        System.out.println(arrayList+"ddddddddddddd");
         return arrayList;
 
     }

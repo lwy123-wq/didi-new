@@ -25,7 +25,7 @@ public class test {
     private TrieTreeImpl trieTre;
     @Test
     public void t() throws Exception {
-        System.out.println(unitService.surplus("SS","沈阳市","ddd"));
+        System.out.println(unitService.select()+"aaaaaaaaaaa");
 
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
 //        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");

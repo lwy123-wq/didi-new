@@ -116,7 +116,7 @@
                     alert(" 提交成功！审核中")
 
                         function login(){
-                            window.location.href='homePage'
+                            window.location.href='matchsuccess'
                         }
                         login()
                     }else{
@@ -134,7 +134,6 @@
             $.ajax({
                 url: "/match",
                 type: 'POST',
-                data: {'category': $("#category").val(),'province': $("#province").val(),'condition': $("#condition").val()},
                 success: function (res) {
                     if(res!=null){
                         alert("success")
