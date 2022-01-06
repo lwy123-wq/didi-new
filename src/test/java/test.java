@@ -26,13 +26,13 @@ public class test {
     private TrieTreeImpl trieTre;
     @Test
     public void t() throws Exception {
-        /*Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
+        Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
         String bb=aa.getRec_job();
         System.out.println(bb+"aaaaaaaaaaaa");
         int cc=Integer.parseInt(bb);
         int dd=cc-1;
         String ff=Integer.toString(dd);
-        System.out.println(unitService.update(ff,"天津娃哈哈有限公司"));*/
+        System.out.println(unitService.update(ff,"天津娃哈哈有限公司"));
 
 
 

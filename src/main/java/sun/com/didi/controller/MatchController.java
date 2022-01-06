@@ -25,6 +25,7 @@ public class MatchController {
     public String pr;
     public String co;
     static ConcurrentLinkedQueue queue=new ConcurrentLinkedQueue();
+    static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
     private RecruitServiceImpl recruitService;
 
@@ -47,13 +48,11 @@ public class MatchController {
         if(ss!=null){
             for(String str:ss){
                 if(str!=null) {
-                    System.out.println(str+"aaaaaaaaaaaaa");
                     List<Recruit> list = recruitService.FindByJob(str, ca, pr, co);
                     arrayList.add(list);
                 }
             }
         }
-        System.out.println(arrayList+"ccccccccccccccc");
         queue.poll();
         return arrayList;
 
@@ -77,9 +76,22 @@ public class MatchController {
         return "error";
 
     }
-
-    public String MatchSuccess(String company){
-        return null;
+    @PostMapping(value = "/success")
+    @ResponseBody
+    public String MatchSuccess(String company,HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        queue1.add(username);
+        Recruit aa=recruitService.FindByCompany(company);
+        String bb=aa.getRec_job();
+        int cc=Integer.parseInt(bb);
+        int dd=cc-1;
+        String ff=Integer.toString(dd);
+        if(recruitService.update(ff,company)==1){
+            return "success";
+        }else {
+            return "error";
+        }
     }
 
 
