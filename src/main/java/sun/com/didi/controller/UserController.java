@@ -26,8 +26,7 @@ public class UserController {
     private UserServiceImpl userService;
     @Resource
     private IEmailService emailService;
-    @Resource
-    private IntentionImpl intention;
+
     //登录
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -128,22 +127,7 @@ public class UserController {
     public String select(){
         return "select";
     }
-    @RequestMapping(value = "/qiuzhi", method = RequestMethod.GET)
-    public String qiuzhi(){
-        return "qiuzhi";
-    }
-    @PostMapping(value = "/jobwanted")
-    @ResponseBody
-    @Cacheable(cacheNames = "JobWanted",key = "#post+'-'+#category+'-'+#province+'-'+#city+'-'+#condition+'-'+#duration+'-'+#experience")
-    public String jobwanted(String post,String category,String province,String city,String condition,String duration,String experience){
-        int u=intention.jobwanted(post, category, province, city,condition, duration,experience);
-        if (u!=0){
-            return "success";
-        }
 
-        return "error";
-
-    }
 
     @RequestMapping(value = "/homePage", method = RequestMethod.GET)
     public String homePage(HttpServletRequest request,Model model){
