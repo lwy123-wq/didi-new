@@ -1,6 +1,5 @@
 package sun.com.didi.controller;
 
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
@@ -44,19 +43,18 @@ public class MatchController {
         String username = map.get("username");
         queue.add(username);
         List<String> ss=recruitService.surplus(ca,pr,co);
-        System.out.println(ss+"sssssssssssssssssss");
         List<List<Recruit>> arrayList=new ArrayList<>();
         if(ss!=null){
             for(String str:ss){
-                System.out.println(str+"aaaaaaaaaaaaa");
-                List<Recruit> list= recruitService.FindByJob(str,ca, pr, co);
-
-                System.out.println(list+"jjjjjjjjjjjjjjjjjjjj");
-                arrayList.add(list);
+                if(str!=null) {
+                    System.out.println(str+"aaaaaaaaaaaaa");
+                    List<Recruit> list = recruitService.FindByJob(str, ca, pr, co);
+                    arrayList.add(list);
+                }
             }
         }
+        System.out.println(arrayList+"ccccccccccccccc");
         queue.poll();
-        System.out.println(arrayList+"ddddddddddddd");
         return arrayList;
 
     }
@@ -79,4 +77,10 @@ public class MatchController {
         return "error";
 
     }
+
+    public String MatchSuccess(String company){
+        return null;
+    }
+
+
 }

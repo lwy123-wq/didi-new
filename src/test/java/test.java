@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.didi.Application;
 import sun.com.didi.dao.JobDao;
+import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.RecruitServiceImpl;
 import sun.com.didi.service.TrieTreeImpl;
@@ -25,7 +26,15 @@ public class test {
     private TrieTreeImpl trieTre;
     @Test
     public void t() throws Exception {
-        System.out.println(unitService.select()+"aaaaaaaaaaa");
+        /*Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
+        String bb=aa.getRec_job();
+        System.out.println(bb+"aaaaaaaaaaaa");
+        int cc=Integer.parseInt(bb);
+        int dd=cc-1;
+        String ff=Integer.toString(dd);
+        System.out.println(unitService.update(ff,"天津娃哈哈有限公司"));*/
+
+
 
 //        Intention aa=new Intention("aa","ii","kk","ss","jj","hh","kk");
 //        intention.jobwanted("aa","ii","kk","ss","jj","hh","kk");

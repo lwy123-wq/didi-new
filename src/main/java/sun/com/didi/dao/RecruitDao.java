@@ -119,4 +119,22 @@ public class RecruitDao {
         });
         return list1;
     }
+
+    public Recruit findByCompany(String company){
+        String sql="select Rec_job from Recruit where Rec_company=?";
+        Recruit recruit=new Recruit();
+        jdbcTemplate.query(sql, new Object[]{company}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                recruit.setRec_job(rs.getString(1));
+            }
+        });
+        return recruit;
+    }
+
+    public int update(String job, String company){
+        String sql="UPDATE Recruit SET Rec_job=? where Rec_company=?";
+        return jdbcTemplate.update(sql,job,company);
+
+    }
 }

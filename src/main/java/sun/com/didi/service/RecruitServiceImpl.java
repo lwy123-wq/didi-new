@@ -38,4 +38,12 @@ public class RecruitServiceImpl {
     public List<Recruit> FindByJob(String job,String category, String province,String condition){
         return recruitDao.findByJob(job,category, province, condition);
     }
+
+    public Recruit FindByCompany(String company){
+        return recruitDao.findByCompany(company);
+    }
+
+    public int update(String job,String company){
+        return recruitDao.update(job,company);
+    }
 }
