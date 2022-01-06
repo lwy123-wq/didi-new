@@ -2,147 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <script type="text/javascript" src="../static/js/jquery.js"></script>
     <title>Title</title>
     <link rel="stylesheet" href="../static/csss/index.css">
-    <style>
-        .jing .xiang{
-            margin:20px 400px ;
-        }
-    </style>
-    <script>
-        function address(){
-            $.ajax({
-                url: "/address",
-                type: 'POST',
-                success: function (res) {
-                    if(res!=null){
-                        var positin =document.getElementById('positin');
-                        positin.innerHTML=res;
+</head>
+<body>
+<script>
+    function address(){
+        $.ajax({
+            url: "/address",
+            type: 'POST',
+            success: function (res) {
+                if(res!=null){
+                    var positin =document.getElementById('positin');
+                    positin.innerHTML=res;
 
-                    }else{
-                        alert("error");
-                    }
-                },
-                error: function (res) {
-                    alert("error!!!!!")
+                }else{
+                    alert("error");
                 }
-                           });
-        }
-        address();
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    address();
 
-        function query(){
-            $.ajax({
-                url: "/Select",
-                type: 'POST',
-                data: {'searc': $("#searc").val()},
-                contentType: "application/json;charset=UTF-8",
-                dataType : "json",
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function (res) {
-                    if(res!=null){
-                        var els=document.querySelector('.els');
+    function query(){
+        $.ajax({
+            url: "/Select",
+            type: 'POST',
+            data: {'searc': $("#searc").val()},
+            contentType: "application/json;charset=UTF-8",
+            dataType : "json",
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (res) {
+                if(res!=null){
+                    var els=document.querySelector('.els');
 
-                        var searc=document.querySelector('#searc');
-                        for(var i=0;i<res.length;i++)
-                        {
-                            var li =document.createElement('li');
-                            els.appendChild(li);
-                            li.className='ll';
-                            li.innerHTML=res[i];
+                    var searc=document.querySelector('#searc');
+                    for(var i=0;i<res.length;i++)
+                    {
+                        var li =document.createElement('li');
+                        els.appendChild(li);
+                        li.className='ll';
+                        li.innerHTML=res[i];
 
-                        }
-                        var lis=els.querySelectorAll('li');
-                        for(var j=0;j<lis.length;j++)
-                        {
-                            lis[j].addEventListener('click',function () {
-                                searc.value=this.innerHTML;
-                            });
-                        }
-
-                    }else{
-                        alert("error");
                     }
-                },
-                error: function (res) {
-                    //alert($("#searc").val())
-                    alert("error!!!!!")
+                    var lis=els.querySelectorAll('li');
+                    for(var j=0;j<lis.length;j++)
+                    {
+                        lis[j].addEventListener('click',function () {
+                            searc.value=this.innerHTML;
+                        });
+                    }
+
+                }else{
+                    alert("error");
                 }
-            });
-        }
-        function EsQuery(){
-            $.ajax({
-                url: "/MatchAllQuery",
-                type: 'POST',
-                data: {'searc': $("#searc").val()},
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function (res) {
+            },
+            error: function (res) {
+                //alert($("#searc").val())
+                alert("error!!!!!")
+            }
+        });
+    }
+    function match(){
+        $.ajax({
+            url: "/match",
+            type: 'POST',
+            data: {'category': $("#category").val(),'province': $("#province").val(),'condition': $("#condition").val()},
+            success: function (res) {
+                if(res!=null){
+                    alert("success")
                     if(res!=null){
                         var jing=document.querySelector('.jing');
-                            for(var i=0;i<res.length;i++) {
-                                var xiang = document.createElement('div');
-                                jing.appendChild(xiang);
-                                xiang.className = 'xiang';
+                        for(var i=0;i<res.length;i++) {
+                            var xiang = document.createElement('div');
+                            jing.appendChild(xiang);
+                            xiang.className = 'xiang';
 
-                                var picc = document.createElement('div');
-                                xiang.appendChild(picc);
-                                picc.className = 'picc';
-                                picc.style.backgroundImage = 'url(' + res[i].rec_logo + ')';
+                            var picc = document.createElement('div');
+                            xiang.appendChild(picc);
+                            picc.className = 'picc';
+                            picc.style.backgroundImage = 'url(' + res[i].rec_logo + ')';
 
-                                var name = document.createElement('div');
-                                xiang.appendChild(name);
-                                name.className = 'name';
-                                name.id = 'name';
-                                name.innerHTML = res[i].rec_company;
+                            var name = document.createElement('div');
+                            xiang.appendChild(name);
+                            name.className = 'name';
+                            name.id = 'name';
+                            name.innerHTML = res[i].rec_company;
 
-                                var money = document.createElement('div');
-                                xiang.appendChild(money);
-                                money.className = 'money';
-                                money.innerHTML = res[i].rec_salary;
+                            var money = document.createElement('div');
+                            xiang.appendChild(money);
+                            money.className = 'money';
+                            money.innerHTML = res[i].rec_salary;
 
-                                var detail = document.createElement('div');
-                                xiang.appendChild(detail);
-                                detail.className = 'detail';
-                                detail.innerHTML = '查看详情';
+                            var detail = document.createElement('div');
+                            xiang.appendChild(detail);
+                            detail.className = 'detail';
+                            detail.innerHTML = '查看详情';
 
-                                var zixun = document.createElement('div');
-                                xiang.appendChild(zixun);
-                                zixun.className = 'zixun';
-                                zixun.innerHTML = '<a href="##">' + '详细咨询' + '</a>';
-                                zixun.onclick = function () {
-                                    var name = document.querySelector('#name');
-                                    window.location.href = "SingleChat?valus=" + name.innerHTML;
-                                }
-
-                                var xia = document.createElement('div');
-                                xiang.appendChild(xia);
-                                xia.className = 'xia';
-
-                                var profession = document.createElement('div');
-                                xia.appendChild(profession);
-                                profession.className = 'profession';
-                                profession.innerHTML = res[i].rec_category;
-
-                                var time = document.createElement('div');
-                                xia.appendChild(time);
-                                time.className = 'time';
-                                time.innerHTML = res[i].rec_Duration;
-
-                                var number = document.createElement('div');
-                                xia.appendChild(number);
-                                number.className = 'number';
-
-
-                                var experience = document.createElement('div');
-                                xia.appendChild(experience);
-                                experience.className = 'experience';
-                                experience.innerHTML = res[i].rec_experience;
+                            var zixun = document.createElement('div');
+                            xiang.appendChild(zixun);
+                            zixun.className = 'zixun';
+                            zixun.innerHTML = '<a href="##">' + '详细咨询' + '</a>';
+                            zixun.onclick = function () {
+                                var name = document.querySelector('#name');
+                                window.location.href = "SingleChat?valus=" + name.innerHTML;
                             }
+
+                            var xia = document.createElement('div');
+                            xiang.appendChild(xia);
+                            xia.className = 'xia';
+
+                            var profession = document.createElement('div');
+                            xia.appendChild(profession);
+                            profession.className = 'profession';
+                            profession.innerHTML = res[i].rec_category;
+
+                            var time = document.createElement('div');
+                            xia.appendChild(time);
+                            time.className = 'time';
+                            time.innerHTML = res[i].rec_Duration;
+
+                            var number = document.createElement('div');
+                            xia.appendChild(number);
+                            number.className = 'number';
+
+
+                            var experience = document.createElement('div');
+                            xia.appendChild(experience);
+                            experience.className = 'experience';
+                            experience.innerHTML = res[i].rec_experience;
+                        }
 
                         var details =document.querySelectorAll('.detail');
                         var xiangs =document.querySelectorAll('.xiang');
@@ -187,24 +182,21 @@
 
                                 xias[index].className = 'xia jingg';
                             }
-                        }
-                    }else{
-                        alert("error");
-                    }
-                },
-                error: function (res) {
-                    //alert($("#searc").val())
-                    alert("error!!!!!")
+                        }   }
+                }else{
+                    alert("error");
                 }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
 
-            });
-        }
-        // EsQuery();
+    }
 
-    </script>
+    // EsQuery();
 
-</head>
-<body>
+</script>
 <div class="header">
     <div class="oneone">
         <!--        <img src="picture/didilogo.jpg">-->
@@ -242,38 +234,38 @@
 <div class="jing"></div>
 
 <script>
-    $(function(){
-        console.log(decodeURI(location.search.concat()));
-        manyValues();
-        $("#searc").val(oneValues());
-        EsQuery();
-    })
-
-    //接收一个值
-    function oneValues(){
-        var result;
-        var url=decodeURI(window.location.search); //获取url中"?"符后的字串
-        if(url.indexOf("?") != -1) {
-            result = url.substr(url.indexOf("=")+1);
-        }
-        return result;
-    }
-
-    //接收多值
-    function manyValues() {
-        var url=decodeURI(window.location.search);
-        if(url.indexOf("?")!=-1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            var key = new Array(strs.length);
-            var value = new Array(strs.length);
-            for(i = 0;i < strs.length;i++){
-                key[i] = strs[i].split("=")[0]
-                value[i] = unescape(strs[i].split("=")[1]);
-                // alert(key[i]+"="+value[i]);
-            }
-        }
-    }
+    // $(function(){
+    //     console.log(decodeURI(location.search.concat()));
+    //     manyValues();
+    //     $("#searc").val(oneValues());
+    //     EsQuery();
+    // })
+    //
+    // //接收一个值
+    // function oneValues(){
+    //     var result;
+    //     var url=decodeURI(window.location.search); //获取url中"?"符后的字串
+    //     if(url.indexOf("?") != -1) {
+    //         result = url.substr(url.indexOf("=")+1);
+    //     }
+    //     return result;
+    // }
+    //
+    // //接收多值
+    // function manyValues() {
+    //     var url=decodeURI(window.location.search);
+    //     if(url.indexOf("?")!=-1) {
+    //         var str = url.substr(1);
+    //         strs = str.split("&");
+    //         var key = new Array(strs.length);
+    //         var value = new Array(strs.length);
+    //         for(i = 0;i < strs.length;i++){
+    //             key[i] = strs[i].split("=")[0]
+    //             value[i] = unescape(strs[i].split("=")[1]);
+    //             // alert(key[i]+"="+value[i]);
+    //         }
+    //     }
+    // }
 
 
 
