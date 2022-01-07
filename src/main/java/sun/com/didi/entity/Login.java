@@ -60,4 +60,15 @@ public class Login {
 
     public Login() {
     }
+
+    @Override
+    public String toString() {
+        return "Login{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", passwd='" + passwd + '\'' +
+                ", email='" + email + '\'' +
+                ", code=" + code +
+                '}';
+    }
 }

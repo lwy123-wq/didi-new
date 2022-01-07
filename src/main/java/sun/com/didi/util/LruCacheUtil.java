@@ -65,6 +65,9 @@ public class LruCacheUtil {
         addNode(newNode);
         cache.put(key, newNode);
         size++;
+        System.out.println(cache.get(1)+"1");
+        System.out.println(cache.get(2)+"2");
+        System.out.println(cache.get(3)+"3");
 
     }
 

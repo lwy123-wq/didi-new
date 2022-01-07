@@ -2,7 +2,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.didi.Application;
+import sun.com.didi.controller.HostDataController;
 import sun.com.didi.dao.JobDao;
+import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.RecruitServiceImpl;
@@ -24,15 +26,17 @@ public class test {
     private RecruitServiceImpl unitService;
     @Autowired
     private TrieTreeImpl trieTre;
+    @Autowired
+    private HostDataController hostDataController;
     @Test
     public void t() throws Exception {
-        Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
+     /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
         String bb=aa.getRec_job();
         System.out.println(bb+"aaaaaaaaaaaa");
         int cc=Integer.parseInt(bb);
         int dd=cc-1;
         String ff=Integer.toString(dd);
-        System.out.println(unitService.update(ff,"天津娃哈哈有限公司"));
+        System.out.println(unitService.update(ff,"天津娃哈哈有限公司"));*/
 
 
 
@@ -92,7 +96,8 @@ public class test {
 //        c.create("我的专业", "我的专业是网络工程");
         /*List<String> list=trieTre.search("天津");
         System.out.println(list);*/
-
+        Login login=new Login("李小军","23425","4545@qq.com");
+        Object cache = hostDataController.lru(login);
     }
 
 }
