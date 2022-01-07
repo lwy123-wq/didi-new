@@ -14,6 +14,35 @@
             margin: 0;
             padding:0;
         }
+        .null {
+            width: 800px;
+            height: 500px;
+            margin: 30px auto;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+        }
+        .null img {
+            width: 800px;
+            height: 400px;
+        }
+        .null .shou {
+            width: 100px;
+            height: 50px;
+            background:skyblue;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            border-radius: 20px;
+            color: white;
+            margin: 20px auto;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -198,7 +227,18 @@
                     }
 
                 }else{
-                    alert("error");
+                     var nulll =document.createElement('div');
+                    var jing = document.querySelector('.jing');
+                    jing.appendChild(nulll);
+                    nulll.className='null';
+                    var imgg=document.createElement('img');
+                    nulll.appendChild(imgg);
+                    imgg.src='../static/images/lose.png';
+                    var shou=document.createElement('div');
+                    nulll.appendChild(shou);
+                    shou.className='shou';
+                    shou.innerHTML = '<a href="homePage">' + '返回首页' + '</a>';
+
                 }
 
             },
@@ -247,42 +287,13 @@
 
     </div> </a>
 </div>
-<div class="jing"></div>
+<div class="jing">
+<!--    <div class="null"><img src=../static/images/lose.png >-->
+<!--        <div class="shou"><a href="homePage" >返回首页</a></div>-->
+<!--    </div>-->
+</div>
 
 <script>
-    // $(function(){
-    //     console.log(decodeURI(location.search.concat()));
-    //     manyValues();
-    //     $("#searc").val(oneValues());
-    //     EsQuery();
-    // })
-    //
-    // //接收一个值
-    // function oneValues(){
-    //     var result;
-    //     var url=decodeURI(window.location.search); //获取url中"?"符后的字串
-    //     if(url.indexOf("?") != -1) {
-    //         result = url.substr(url.indexOf("=")+1);
-    //     }
-    //     return result;
-    // }
-    //
-    // //接收多值
-    // function manyValues() {
-    //     var url=decodeURI(window.location.search);
-    //     if(url.indexOf("?")!=-1) {
-    //         var str = url.substr(1);
-    //         strs = str.split("&");
-    //         var key = new Array(strs.length);
-    //         var value = new Array(strs.length);
-    //         for(i = 0;i < strs.length;i++){
-    //             key[i] = strs[i].split("=")[0]
-    //             value[i] = unescape(strs[i].split("=")[1]);
-    //             // alert(key[i]+"="+value[i]);
-    //         }
-    //     }
-    // }
-
 
 
     ////
