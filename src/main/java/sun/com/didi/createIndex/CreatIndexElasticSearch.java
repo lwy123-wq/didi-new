@@ -1,5 +1,4 @@
-/*
-package sun.com.didi.CreateIndex;
+package sun.com.didi.createIndex;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +14,7 @@ import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.common.xcontent.json.JsonXContent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.SelectRecruitment;
@@ -31,7 +31,8 @@ public class CreatIndexElasticSearch {
     String index="recruit";
     @Autowired
     private SelectRecruitment selectRecruitment;
-    //@PostConstruct()
+    //每天凌晨1点执行一次
+    @Scheduled(cron = "0 0 23 * * ?")
     public void createIndex() throws IOException {
         //准备关于索引的seetings
         Settings.Builder settings=Settings.builder()
@@ -90,4 +91,3 @@ public class CreatIndexElasticSearch {
 
     }
 }
-*/

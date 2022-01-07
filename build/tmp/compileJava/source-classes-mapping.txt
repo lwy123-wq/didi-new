@@ -2,8 +2,8 @@ sun/com/didi/controller/UserController.java
  sun.com.didi.controller.UserController
 sun/com/didi/config/ChatConfig.java
  sun.com.didi.config.ChatConfig
-sun/com/didi/util/EsClient.java
- sun.com.didi.util.EsClient
+sun/com/didi/Application.java
+ sun.com.didi.Application
 sun/com/didi/config/UrlConfig.java
  sun.com.didi.config.UrlConfig
 sun/com/didi/controller/RecruitController.java
@@ -20,8 +20,9 @@ sun/com/didi/chat/singlechat/SingleChatServer.java
  sun.com.didi.chat.singlechat.SingleChatServer
 sun/com/didi/service/BloomFilterService.java
  sun.com.didi.service.BloomFilterService
-sun/com/didi/controller/EsQueryController.java
- sun.com.didi.controller.EsQueryController
+sun/com/didi/util/LruCacheUtil.java
+ sun.com.didi.util.LruCacheUtil
+ sun.com.didi.util.LruCacheUtil$Entry
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
 sun/com/didi/filter/MyFilter.java
@@ -75,8 +76,8 @@ sun/com/didi/dao/JobDao.java
  sun.com.didi.dao.JobDao
 sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
-sun/com/didi/Application.java
- sun.com.didi.Application
+sun/com/didi/controller/HostDataController.java
+ sun.com.didi.controller.HostDataController
 sun/com/didi/service/TrieTreeImpl.java
  sun.com.didi.service.TrieNode
  sun.com.didi.service.TrieTreeImpl
@@ -136,8 +137,9 @@ sun/com/didi/dao/LoginDao.java
  sun.com.didi.dao.LoginDao$3
 sun/com/didi/entity/Login.java
  sun.com.didi.entity.Login
-sun/com/didi/util/LruCacheUtil.java
- sun.com.didi.util.LruCacheUtil
- sun.com.didi.util.LruCacheUtil$Entry
-sun/com/didi/controller/HostDataController.java
- sun.com.didi.controller.HostDataController
+sun/com/didi/util/EsClient.java
+ sun.com.didi.util.EsClient
+sun/com/didi/controller/EsQueryController.java
+ sun.com.didi.controller.EsQueryController
+sun/com/didi/createIndex/CreatIndexElasticSearch.java
+ sun.com.didi.createIndex.CreatIndexElasticSearch
