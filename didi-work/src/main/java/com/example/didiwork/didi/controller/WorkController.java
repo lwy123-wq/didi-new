@@ -15,9 +15,9 @@ public class WorkController {
     @Autowired
     private WorkServiceImpl workService;
 
-    @RequestMapping(value = "/Recruit", method = RequestMethod.GET)
+    @RequestMapping(value = "/recruit", method = RequestMethod.GET)
     public String start(){
-        return "Recruit";
+        return "recruit";
     }
     @PostMapping(value = "")
     @ResponseBody
