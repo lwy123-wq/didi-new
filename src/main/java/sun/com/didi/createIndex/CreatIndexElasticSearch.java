@@ -1,3 +1,4 @@
+/*
 package sun.com.didi.createIndex;
 
 import com.alibaba.fastjson.JSON;
@@ -91,3 +92,4 @@ public class CreatIndexElasticSearch {
 
     }
 }
+*/
