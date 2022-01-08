@@ -48,7 +48,7 @@
                             xiang.appendChild(name);
                             name.className = 'name';
                             name.id = 'name';
-                            name.innerHTML = res[i].rec_company;
+                            name.innerHTML = '<a href="showdetail">' + res[i].rec_company + '</a>';
 
                             var money = document.createElement('div');
                             xiang.appendChild(money);
@@ -196,7 +196,6 @@
 
 
 
-
     </script>
 
 </head>
@@ -340,20 +339,20 @@
     </div>
     <div class="jing">
 
-        <!--    <div class="xiang">-->
+            <div class="xiang">
 
-        <!--        <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>-->
-        <!--        <div class="money">3000-4000元/月</div>-->
-        <!--        <div class="detail">查看详情</div>-->
-        <!--        <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>-->
-        <!--        <div class="xia">-->
-        <!--            <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>-->
-        <!--            <div class="experience">1、传达餐饮部或厨师长的相关通知、注意事项等；-->
-        <!--                2、为厨师配好所需的食材、保证食材的新鲜、卫生等；-->
-        <!--                3、负责灶台的卫生清理、正常使用。</div>-->
-        <!--        </div>-->
+                <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>
+                <div class="money">3000-4000元/月</div>
+                <div class="detail">查看详情</div>
+                <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>
+                <div class="xia">
+                    <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
+                    <div class="experience">1、传达餐饮部或厨师长的相关通知、注意事项等；
+                        2、为厨师配好所需的食材、保证食材的新鲜、卫生等；
+                        3、负责灶台的卫生清理、正常使用。</div>
+                </div>
 
-        <!--    </div>-->
+            </div>
 
 
 
@@ -441,6 +440,11 @@
 
     </div>
     <script>
+
+
+
+
+
         var submitt=document.querySelector('#submit');
         var searc=document.querySelector('#searc');
         submitt.addEventListener('click',function () {

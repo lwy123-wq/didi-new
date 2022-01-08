@@ -305,6 +305,7 @@ input[type="text"]{
     left:196px;
     font-weight: 600;
     font-size: 26px;
+    cursor: pointer;
 }
 .xiang .money {
     position: absolute;

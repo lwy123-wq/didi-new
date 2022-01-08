@@ -3,10 +3,7 @@ package sun.com.didi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.RecruitServiceImpl;
@@ -14,6 +11,8 @@ import sun.com.didi.util.CookieUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -84,16 +83,19 @@ public class MatchController {
     }
     @PostMapping(value = "/success")
     @ResponseBody
-    public String MatchSuccess(String company,HttpServletRequest request){
+    public String MatchSuccess(@RequestBody String company, HttpServletRequest request) throws UnsupportedEncodingException {
+        String s = URLDecoder.decode(company,"UTF-8");
+        String stri[] = s.split("=");
+        String query = stri[1];
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
         queue1.add(username);
-        Recruit aa=recruitService.FindByCompany(company);
+        Recruit aa=recruitService.FindByCompany(query);
         String bb=aa.getRec_job();
         int cc=Integer.parseInt(bb);
         int dd=cc-1;
         String ff=Integer.toString(dd);
-        if(recruitService.update(ff,company)==1){
+        if(recruitService.update(ff,query)==1){
             return "success";
         }else {
             return "error";

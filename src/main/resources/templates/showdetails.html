@@ -11,12 +11,13 @@
                 url: "/success",
                 type: 'POST',
                 data: {'name': $("#name").html()},
+                contentType: "application/json;charset=UTF-8",
                 xhrFields: {
                     withCredentials: true
                 },
                 success: function (res) {
                     if(res=="success"){
-
+                       alert("success")
                     }else{
                         alert("error");
                     }
@@ -169,7 +170,7 @@
 <body>
 <!--<div class="box"><img src="../static/images/zhiyuan.png" ></div>-->
 <form method="post"  onsubmit="return false" action="##"  class="fo">
-    <h2 >请填写您公司的详细信息：</h2>
+    <!--<h2 >请填写您公司的详细信息：</h2>-->
     <h2 id="name"></h2>
     <table style="border: 1px;margin: 0 auto; width: 50%;padding: 40px;border-radius: 30px;"  cellpadding="5" cellspacing="0" >
 
@@ -305,7 +306,7 @@
             for(i = 0;i < strs.length;i++){
                 key[i] = strs[i].split("=")[0]
                 value[i] = unescape(strs[i].split("=")[1]);
-                alert(key[i]+"="+value[i]);
+                /*alert(key[i]+"="+value[i]);*/
             }
         }
     }
