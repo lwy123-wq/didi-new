@@ -17,7 +17,7 @@ public class DetailedController {
     @Autowired
     DetailedServiceImpl detailedService;
     @RequestMapping(value = "/detailed",method = RequestMethod.GET)
-    public String start(){
+    public String detail(){
         return "details";
     }
     @PostMapping(value = "/selectDetail")
