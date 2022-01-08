@@ -148,6 +148,10 @@
                             name.className = 'name';
                             name.id = 'name';
                             name.innerHTML = '<a href="showdetail" style="color: black">' + res[i][0].rec_company + '</a>';
+                            name.onclick = function () {
+                                var name = document.querySelector('#name');
+                                window.location.href = "showdetail?valus=" + name.innerHTML;
+                            }
 
                             var money = document.createElement('div');
                             xiang.appendChild(money);
