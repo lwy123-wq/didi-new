@@ -36,6 +36,12 @@ public class MatchController {
     public String match1(){
         return "matchsuccess";
     }
+
+    @RequestMapping(value = "/showdetail", method = RequestMethod.GET)
+    public String show(){
+        return "showdetails";
+    }
+
     @PostMapping(value = "/match")
     @ResponseBody
     public List<List<Recruit>> match(HttpServletRequest request){

@@ -41,7 +41,8 @@
                 success: function (res) {
                     if(res=="数据添加成功！"){
                         function employment(){
-                            window.location.href='select'
+                            var Rec_company=document.querySelector('#Rec_company');
+                            window.location.href='InsertDetailed?valus=" + Rec_company.value';
                         }
                         employment()
                     }else{

@@ -16,9 +16,9 @@ public class DetailedController {
 
     @Autowired
     DetailedServiceImpl detailedService;
-    @RequestMapping(value = "/Detailed",method = RequestMethod.GET)
+    @RequestMapping(value = "/detailed",method = RequestMethod.GET)
     public String start(){
-        return "Detailed";
+        return "details";
     }
     @PostMapping(value = "/selectDetail")
     @ResponseBody
@@ -27,10 +27,7 @@ public class DetailedController {
         List<Detailed> detaileds = detailedService.SelectDetailed();
         return detaileds;
     }
-    @RequestMapping(value = "/insert",method = RequestMethod.GET)
-    public String Demo(){
-        return "insert";
-    }
+
     @PostMapping(value = "/InsertDetailed")
     @ResponseBody
     //插入公司的详细信息和名称
