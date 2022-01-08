@@ -147,7 +147,7 @@
                             xiang.appendChild(name);
                             name.className = 'name';
                             name.id = 'name';
-                            name.innerHTML = res[i][0].rec_company;
+                            name.innerHTML = '<a href="showdetail">' + res[i][0].rec_company + '</a>';
 
                             var money = document.createElement('div');
                             xiang.appendChild(money);
