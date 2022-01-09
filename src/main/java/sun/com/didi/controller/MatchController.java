@@ -70,7 +70,6 @@ public class MatchController {
         }
         queue.poll();
         return arrayList;
-
     }
     public boolean sendEmail(String to,String contentText){
         return emailService.sendAttachmentMail(to,contentText);

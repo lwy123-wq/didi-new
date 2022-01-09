@@ -26,6 +26,24 @@
             });
         }
         address();
+/*热点数据*/
+        function HostData(){
+            $.ajax({
+                url: "/LRU",
+                type: 'POST',
+                success: function (res) {
+                    if(res!=null){
+                       console.log(res);
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+        HostData()
 
         function SelectRecruit(){
             $.ajax({
