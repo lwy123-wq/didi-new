@@ -65,12 +65,12 @@ public class LoginDao {
 
     public Login findEmail(String name){
         final Login login=new Login();
-        ArrayList<Detailed> arrayList=new ArrayList<>();
-        String sql= "SELECT * FROM Detailed WHERE name =?";
+        ArrayList<Login> arrayList=new ArrayList<>();
+        String sql= "SELECT * FROM Login WHERE name =?";
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
-                login.setEmail(resultSet.getString(3));
+                login.setEmail(resultSet.getString(4));
             }
         });
         return login;
