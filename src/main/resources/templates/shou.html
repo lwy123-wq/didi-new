@@ -48,7 +48,10 @@
                             xiang.appendChild(name);
                             name.className = 'name';
                             name.id = 'name';
-                            name.innerHTML = '<a href="showdetail">' + res[i].rec_company + '</a>';
+                            name.innerHTML =  res[i].rec_company ;
+                            name.addEventListener('click',function () {
+                                window.location.href = "showdetail?valus=" + this.innerHTML;
+                            });
 
                             var money = document.createElement('div');
                             xiang.appendChild(money);
