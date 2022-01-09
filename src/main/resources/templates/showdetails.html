@@ -34,13 +34,10 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-
+                data: {'name': $("#name").html()},
                 success: function (res) {
-                    if(res=="数据添加成功！"){
-                        function employment(){
-                            window.location.href='select'
-                        }
-                        employment()
+                    if(res!=null){
+                     console.log(res);
                     }else{
                         alert("error");
                     }
