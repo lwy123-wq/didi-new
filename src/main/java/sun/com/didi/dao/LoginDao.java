@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
+import sun.com.didi.entity.Detailed;
 import sun.com.didi.entity.Login;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /*
 * 操作数据库
@@ -59,5 +61,18 @@ public class LoginDao {
             }
         });
         return user;
+    }
+
+    public Login findEmail(String name){
+        final Login login=new Login();
+        ArrayList<Detailed> arrayList=new ArrayList<>();
+        String sql= "SELECT * FROM Detailed WHERE name =?";
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                login.setEmail(resultSet.getString(3));
+            }
+        });
+        return login;
     }
 }

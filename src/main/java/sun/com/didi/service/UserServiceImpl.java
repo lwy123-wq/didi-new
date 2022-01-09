@@ -17,7 +17,6 @@ public class UserServiceImpl {
     }
 
     public int insert(String name, String passwd,String email){
-
         return loginDao.insertUser(new Login(name,passwd,email));
     }
 
@@ -26,5 +25,10 @@ public class UserServiceImpl {
     }
     public Login findPassword(String name,String email){
         return  loginDao.findPassword(name,email);
+    }
+
+    public Login findEmail(String name){
+        return loginDao.findEmail(name);
+
     }
 }

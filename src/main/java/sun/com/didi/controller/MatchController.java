@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.service.IEmailService;
 import sun.com.didi.service.IntentionImpl;
 import sun.com.didi.service.RecruitServiceImpl;
+import sun.com.didi.service.UserServiceImpl;
 import sun.com.didi.util.CookieUtil;
 
 import javax.annotation.Resource;
@@ -20,6 +23,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Controller
 public class MatchController {
+    final String s="";
     public String ca;
     public String pr;
     public String co;
@@ -27,9 +31,12 @@ public class MatchController {
     static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
     private RecruitServiceImpl recruitService;
-
+    @Autowired
+    private UserServiceImpl userService;
     @Resource
     private IntentionImpl intention;
+    @Resource
+    private IEmailService emailService;
 
     @RequestMapping(value = "/matchsuccess", method = RequestMethod.GET)
     public String match1(){
@@ -56,12 +63,17 @@ public class MatchController {
                     List<Recruit> list = recruitService.FindByJob(str, ca, pr, co);
                     arrayList.add(list);
                 }else {
-
+                    Login email = userService.findEmail(username);
+                     sendEmail(email.getEmail(), s);
                 }
             }
         }
         queue.poll();
         return arrayList;
+
+    }
+    public boolean sendEmail(String to,String contentText){
+        return emailService.sendAttachmentMail(to,contentText);
 
     }
     @RequestMapping(value = "/qiuzhi", method = RequestMethod.GET)

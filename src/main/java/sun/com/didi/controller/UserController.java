@@ -121,7 +121,6 @@ public class UserController {
 
     public boolean sendEmail(String to,String contentText){
         return emailService.sendAttachmentMail(to,contentText);
-
     }
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public String select(){
