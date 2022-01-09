@@ -42,6 +42,8 @@
                 success: function (res) {
                     if(res!=null){
                      console.log(res);
+                     var name=document.querySelector('#name');
+                     name.innerHTML=res[0].information;
                     }else{
                         alert("error");
                     }

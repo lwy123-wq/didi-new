@@ -26,6 +26,27 @@
             });
         }
         address();
+/*热点数据*/
+        function HostData(){
+            $.ajax({
+                url: "/LRU",
+                type: 'POST',
+                data: {'name': $("#name").html()},
+                success: function (res) {
+                    if(res!=null){
+                        alert("success");
+                       console.log(res);
+                       
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
 
         function SelectRecruit(){
             $.ajax({
@@ -153,6 +174,13 @@
             });
         }
         SelectRecruit()
+        var name=document.querySelectorAll('#name');
+        for(var i=0;i<name.length;i++)
+        {
+            name[i].addEventListener('click',function () {
+                HostData();
+            });
+        }
 
         function query(){
             $.ajax({
@@ -326,6 +354,11 @@
         </div>
 
     </div>
+    <div class="hot">
+        <div class="title">热门公司</div>
+<!--        <div class="hot_l">腾讯公司</div>-->
+
+    </div>
 
     <div class="dao">
         <div class="pin"> <a href="#">热门岗位</a></div><div class="shu">|</div>
@@ -342,20 +375,20 @@
     </div>
     <div class="jing">
 
-            <div class="xiang">
+<!--            <div class="xiang">-->
 
-                <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>
-                <div class="money">3000-4000元/月</div>
-                <div class="detail">查看详情</div>
-                <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>
-                <div class="xia">
-                    <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>
-                    <div class="experience">1、传达餐饮部或厨师长的相关通知、注意事项等；
-                        2、为厨师配好所需的食材、保证食材的新鲜、卫生等；
-                        3、负责灶台的卫生清理、正常使用。</div>
-                </div>
+<!--                <div class="picc" ></div><div class="name" id="name">天津滴滴务工责任有限公司</div>-->
+<!--                <div class="money">3000-4000元/月</div>-->
+<!--                <div class="detail">查看详情</div>-->
+<!--                <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>-->
+<!--                <div class="xia">-->
+<!--                    <div class="profession">餐饮服务员</div><div class="time">长工</div><div class="number">5人</div>-->
+<!--                    <div class="experience">1、传达餐饮部或厨师长的相关通知、注意事项等；-->
+<!--                        2、为厨师配好所需的食材、保证食材的新鲜、卫生等；-->
+<!--                        3、负责灶台的卫生清理、正常使用。</div>-->
+<!--                </div>-->
 
-            </div>
+<!--            </div>-->
 
 
 

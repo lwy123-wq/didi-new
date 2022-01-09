@@ -9,7 +9,7 @@ import sun.com.didi.util.LruCacheUtil;
 public class HostDataController {
     @PostMapping(value = "/LRU")
     @ResponseBody
-    public Object lru(Object str){
+    public LruCacheUtil lru(String str){
         LruCacheUtil cache = new LruCacheUtil(2);
         for (int i=1;i<=3;i++) {
             cache.put(i, str);

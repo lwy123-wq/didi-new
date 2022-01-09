@@ -11,7 +11,6 @@ public class LruCacheUtil {
     int size;
     Map<Integer, Entry> cache;
 
-
     public LruCacheUtil(int capacity) {
         this.capacity = capacity;
         // 初始化链表
@@ -19,7 +18,6 @@ public class LruCacheUtil {
         size = 0;
         cache = new HashMap<>(capacity + 2);
     }
-
     /**
      * 如果节点不存在，返回 -1.如果存在，将节点移动到头结点，并返回节点的数据。
      *
