@@ -10,7 +10,8 @@
             $.ajax({
                 url: "/InsertDetailed",
                 type: 'POST',
-                data: {'Rec_experience': $("#Rec_experience").val(), 'name': $("#name").html()},
+                data: {'name': $("#name").html(),'Rec_experience': $("#Rec_experience").val()},
+                contentType: "application/json;charset=UTF-8",
                 xhrFields: {
                     withCredentials: true
                 },
@@ -32,27 +33,6 @@
 
     </script>
     <script>
-        function employment(){
-            $.ajax({
-                url: "/Recruit",
-                type: 'POST',
-                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#textt").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
-                    'Rec_Duration': $("#Rec_Duration").val(),'Rec_experience': $("#Rec_experience").val()},
-                success: function (res) {
-                    if(res=="数据添加成功！"){
-                        function employment(){
-                            window.location.href='select'
-                        }
-                        employment()
-                    }else{
-                        alert("error");
-                    }
-                },
-                error: function (res) {
-                    alert("error!!!!!")
-                }
-            });
-        }
         function toBase64(){
             var file = document.querySelector('input[type=file]').files[0];
             var reader = new FileReader();

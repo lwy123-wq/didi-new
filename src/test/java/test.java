@@ -105,7 +105,7 @@ public class test {
         Object cache = hostDataController.lru(login);*/
 
 
-        RandomAccess arrayList = detailedController.selectDetail("腾讯");
+        RandomAccess arrayList = detailedController.detailed("腾讯");
         System.out.println(arrayList);
     }
 

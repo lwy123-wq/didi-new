@@ -33,7 +33,7 @@ public ArrayList<Detailed> SelectDetailed(String company){
 }
 
 public int DetailedInsert(Detailed detailed){
-    String sql="INSERT INTO Detailed (company,Infotmation)VALUES(?,?)";
+    String sql="INSERT INTO Detailed (company,Information)VALUES(?,?)";
     return jdbcTemplate.update(sql, detailed.getCompany(),detailed.getInformation());
 }
 }

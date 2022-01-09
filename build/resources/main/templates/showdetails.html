@@ -34,7 +34,11 @@
             $.ajax({
                 url: "/selectDetail",
                 type: 'POST',
-                data: {'name': $("#name").val()},
+                data: {'name': $("#name").html()},
+                contentType: "application/json;charset=UTF-8",
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (res) {
                     if(res!=null){
                      console.log(res);
@@ -43,6 +47,7 @@
                     }
                 },
                 error: function (res) {
+                    console.log( $("#name").html())
                     alert("error!!!!!")
                 }
             });
