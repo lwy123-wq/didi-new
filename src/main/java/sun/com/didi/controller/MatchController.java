@@ -55,6 +55,8 @@ public class MatchController {
                 if(str!=null) {
                     List<Recruit> list = recruitService.FindByJob(str, ca, pr, co);
                     arrayList.add(list);
+                }else {
+
                 }
             }
         }
@@ -96,6 +98,7 @@ public class MatchController {
         int dd=cc-1;
         String ff=Integer.toString(dd);
         if(recruitService.update(ff,query)==1){
+            queue1.poll();
             return "success";
         }else {
             return "error";
