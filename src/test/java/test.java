@@ -1,7 +1,9 @@
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.didi.Application;
+import sun.com.didi.controller.DetailedController;
 import sun.com.didi.controller.HostDataController;
 import sun.com.didi.dao.JobDao;
 import sun.com.didi.entity.Login;
@@ -13,6 +15,7 @@ import sun.com.didi.service.UserServiceImpl;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.RandomAccess;
 
 @SpringBootTest(classes = Application.class)
 public class test {
@@ -28,6 +31,8 @@ public class test {
     private TrieTreeImpl trieTre;
     @Autowired
     private HostDataController hostDataController;
+    @Autowired
+    private DetailedController detailedController;
     @Test
     public void t() throws Exception {
      /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
@@ -96,8 +101,12 @@ public class test {
 //        c.create("我的专业", "我的专业是网络工程");
         /*List<String> list=trieTre.search("天津");
         System.out.println(list);*/
-        Login login=new Login("李小军","23425","4545@qq.com");
-        Object cache = hostDataController.lru(login);
+     /*   Login login=new Login("李小军","23425","4545@qq.com");
+        Object cache = hostDataController.lru(login);*/
+
+
+        RandomAccess arrayList = detailedController.selectDetail("腾讯");
+        System.out.println(arrayList);
     }
 
 }

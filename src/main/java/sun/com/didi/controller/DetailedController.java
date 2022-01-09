@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.com.didi.entity.Detailed;
 import sun.com.didi.service.DetailedServiceImpl;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Controller
 public class DetailedController {
@@ -23,9 +23,8 @@ public class DetailedController {
     @PostMapping(value = "/selectDetail")
     @ResponseBody
     //查询公司的详细信息和名称
-    public List<Detailed> selectDetail(){
-        List<Detailed> detaileds = detailedService.SelectDetailed();
-        return detaileds;
+    public ArrayList<Detailed> selectDetail(String company){
+        return  detailedService.SelectDetailed(company);
     }
 
     @PostMapping(value = "/InsertDetailed")

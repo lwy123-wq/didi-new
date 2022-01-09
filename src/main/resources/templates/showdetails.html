@@ -32,7 +32,7 @@
     <script>
         function showdetails(){
             $.ajax({
-                url: "/Recruit",
+                url: "/selectDetail",
                 type: 'POST',
                 data: {'name': $("#name").html()},
                 success: function (res) {

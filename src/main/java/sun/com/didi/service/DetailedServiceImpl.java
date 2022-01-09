@@ -7,6 +7,7 @@ import sun.com.didi.dao.JobDao;
 import sun.com.didi.entity.Detailed;
 import sun.com.didi.entity.Recruit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,8 +18,8 @@ public class DetailedServiceImpl {
         return detailedDao.DetailedInsert(new Detailed(company,Information)) ;
     }
 
-    public List<Detailed> SelectDetailed(){
-        return detailedDao.SelectDetailed();
+    public ArrayList<Detailed> SelectDetailed(String company){
+        return detailedDao.SelectDetailed(company);
     }
 }
 
