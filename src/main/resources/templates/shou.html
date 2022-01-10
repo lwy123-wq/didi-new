@@ -31,7 +31,7 @@
             $.ajax({
                 url: "/LRU",
                 type: 'POST',
-                data: {'name': $("#name").html()},
+                data: {'name': $("#namee").html()},
                 success: function (res) {
                     if(res!=null){
                         alert("success");
@@ -71,7 +71,14 @@
                             name.id = 'name';
                             name.innerHTML =  res[i].rec_company ;
                             name.addEventListener('click',function () {
-                                window.location.href = "showdetail?valus=" + this.innerHTML;
+
+                                this.id='namee';
+                                alert()
+                                HostData();
+                                this.id='name';
+                                // window.location.href = "showdetail?valus=" + this.innerHTML;
+
+
                             });
 
                             var money = document.createElement('div');
@@ -638,17 +645,17 @@
 
 
 
-        var nameee=document.querySelectorAll('#name');
-
-
-        for(var i=0;i<nameee.length;i++)
-        {
-
-            nameee[i].addEventListener('click',function () {
-
-                HostData();
-            });
-        }
+        // var nameee=document.querySelectorAll('#name');
+        //
+        //
+        // for(var i=0;i<nameee.length;i++)
+        // {
+        //
+        //     nameee[i].addEventListener('click',function () {
+        //
+        //         HostData();
+        //     });
+        // }
 
     </script>
 
