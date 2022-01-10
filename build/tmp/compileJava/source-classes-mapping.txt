@@ -35,9 +35,8 @@ sun/com/didi/controller/EsQueryController.java
  sun.com.didi.controller.EsQueryController
 sun/com/didi/service/PictureService.java
  sun.com.didi.service.PictureService
-sun/com/didi/util/LruCacheUtil.java
- sun.com.didi.util.LruCacheUtil
- sun.com.didi.util.LruCacheUtil$Entry
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
 sun/com/didi/entity/Auth.java
  sun.com.didi.entity.Auth
 sun/com/didi/chat/singlechat/SingleChatHandler.java
@@ -96,8 +95,8 @@ sun/com/didi/service/TrieTreeImpl.java
  sun.com.didi.service.TrieTreeImpl
 sun/com/didi/chat/singlechat/ServerInitializer.java
  sun.com.didi.chat.singlechat.ServerInitializer
-sun/com/didi/controller/HostDataController.java
- sun.com.didi.controller.HostDataController
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
 sun/com/didi/chat/UserChatServer.java
  sun.com.didi.chat.UserChatServer
 sun/com/didi/controller/JobController.java
@@ -147,7 +146,8 @@ sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
 sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
+sun/com/didi/util/LruCacheUtil.java
+ sun.com.didi.util.LruCacheUtil
+ sun.com.didi.util.LruCacheUtil$Entry
+sun/com/didi/controller/HostDataController.java
+ sun.com.didi.controller.HostDataController
