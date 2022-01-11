@@ -8,10 +8,8 @@ import sun.com.didi.controller.HostDataController;
 import sun.com.didi.dao.JobDao;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
-import sun.com.didi.service.IntentionImpl;
-import sun.com.didi.service.RecruitServiceImpl;
-import sun.com.didi.service.TrieTreeImpl;
-import sun.com.didi.service.UserServiceImpl;
+import sun.com.didi.service.*;
+import sun.com.didi.util.LruCacheUtil;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -30,7 +28,7 @@ public class test {
     @Autowired
     private TrieTreeImpl trieTre;
     @Autowired
-    private HostDataController hostDataController;
+    private LruService lruService;
     @Autowired
     private DetailedController detailedController;
     @Test
@@ -103,10 +101,14 @@ public class test {
         System.out.println(list);*/
      /*   Login login=new Login("李小军","23425","4545@qq.com");
         Object cache = hostDataController.lru(login);*/
-
-
-        RandomAccess arrayList = detailedController.detailed("腾讯");
-        System.out.println(arrayList);
+        LruCacheUtil xxx = lruService.methods("京东");
+        for (int i=1;i<=2;i++){
+            System.out.println(xxx.get(i));
+        }
+        LruCacheUtil yyy = lruService.methods("百度");
+        for (int i=1;i<=2;i++){
+            System.out.println(yyy.get(i));
+        }
     }
 
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LruCacheUtil {
+public class  LruCacheUtil {
     Entry head, tail;
     int capacity;
     int size;

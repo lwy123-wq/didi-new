@@ -149,5 +149,7 @@ sun/com/didi/chat/UserHandler.java
 sun/com/didi/util/LruCacheUtil.java
  sun.com.didi.util.LruCacheUtil
  sun.com.didi.util.LruCacheUtil$Entry
+sun/com/didi/service/LruService.java
+ sun.com.didi.service.LruService
 sun/com/didi/controller/HostDataController.java
  sun.com.didi.controller.HostDataController
