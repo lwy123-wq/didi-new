@@ -78,19 +78,19 @@ public class KdTreeDao {
         double curD=q.computeDistance(leafNNode);//最近近似点与查询点的距离 也就是球体的半径
         leafNNode.distance=curD;
         maintainMaxHeap(knnList,leafNNode,k);
-        System.out.println("leaf1"+leafNNode.getData(leafNNode.parent.dim));
+        //System.out.println("leaf1"+leafNNode.getData(leafNNode.parent.dim));
         while(leafNNode!=root)
         {
             if (getBrother(leafNNode)!=null) {
                 Node brother=getBrother(leafNNode);
-                System.out.println("brother1"+brother.getData(brother.parent.dim));
+                //System.out.println("brother1"+brother.getData(brother.parent.dim));
                 if(curD>Math.abs(q.getData(leafNNode.parent.dim)-leafNNode.parent.getData(leafNNode.parent.dim))||knnList.size()<k)
                 {
                     //这样可能在另一个子区域中存在更加近似的点
                     searchBrother(knnList,brother, q, k);
                 }
             }
-            System.out.println("leaf2"+leafNNode.getData(leafNNode.parent.dim));
+            //System.out.println("leaf2"+leafNNode.getData(leafNNode.parent.dim));
             leafNNode=leafNNode.parent;//返回上一级
             double rootD=q.computeDistance(leafNNode);//最近近似点与查询点的距离 也就是球体的半径
             leafNNode.distance=rootD;
