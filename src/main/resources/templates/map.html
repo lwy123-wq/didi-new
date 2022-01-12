@@ -52,6 +52,27 @@
 
         var Longitude=position.coords.longitude;//HTML5定位获取的经度
         var Latitude=position.coords.latitude;//HTML5定位获取的纬度
+         alert(Longitude);
+         alert(Latitude);
+         var long =114.029137;
+         var lat =39.097633;
+         var result=0;
+         var y=0;
+         if((Longitude-long)<0)
+         {
+             result=long-Longitude;
+         }else {
+             result=Longitude-long;
+         }
+            if((Latitude-lat)<0)
+            {
+                y=lat-Latitude;
+            }else {
+                y=Latitude-lat;
+            }
+            var sum=0;
+            sum=Math.sqrt((result*result)+(y*y));
+            alert(sum);
 
         //将HTML5定位获取的经纬度，通过百度地图API转换成适应于百度定位的经纬度
         var ggPoint = new BMap.Point(Longitude,Latitude);
