@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class HostDataController {
     @Autowired
     private LruService lruService;
+    private static int sum=0;
     @PostMapping(value = "/LRU")
     @ResponseBody
     public   ArrayList<String> lru(@RequestBody String str) throws Exception {
@@ -23,8 +24,9 @@ public class HostDataController {
         String stri[] = doc.split("=");
         String query = stri[1];
         LruCacheUtil methods = lruService.methods(query);
-        for (int i=1;i<=2;i++){
-            arrayList.add((String) methods.get(i));
+        for (int i=0;i<=2;i++){
+            arrayList.add((String) methods.get(sum));
+            sum++;
         }
         return arrayList;
     }

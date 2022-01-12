@@ -31,6 +31,9 @@ public class test {
     private LruService lruService;
     @Autowired
     private DetailedController detailedController;
+    private static int sum1=1;
+    private static int sum2=1;
+    private static int sum3=2;
     @Test
     public void t() throws Exception {
      /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
@@ -101,13 +104,22 @@ public class test {
         System.out.println(list);*/
      /*   Login login=new Login("李小军","23425","4545@qq.com");
         Object cache = hostDataController.lru(login);*/
+
         LruCacheUtil xxx = lruService.methods("京东");
         for (int i=1;i<=2;i++){
-            System.out.println(xxx.get(i));
+            System.out.println(xxx.get(sum1));
+            sum1++;
+
         }
         LruCacheUtil yyy = lruService.methods("百度");
         for (int i=1;i<=2;i++){
-            System.out.println(yyy.get(i));
+            System.out.println(yyy.get(sum2));
+            sum2++;
+        }
+        LruCacheUtil sss = lruService.methods("aa");
+        for (int i=1;i<=2;i++){
+            System.out.println(yyy.get(sum3));
+            sum3++;
         }
     }
 
