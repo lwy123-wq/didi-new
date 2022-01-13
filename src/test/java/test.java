@@ -121,7 +121,7 @@ public class test {
         zz.get(sum1);
         System.out.println(zz.toString());
         sum1++;
-        LruCacheUtil eee = lruService.methods("eee");
+        LruCacheUtil eee = lruService.methods("kk");
         eee.get(sum1);
         System.out.println(eee.toString());
         sum1++;

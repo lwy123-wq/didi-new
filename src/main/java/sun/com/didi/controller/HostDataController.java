@@ -23,10 +23,9 @@ public class HostDataController {
         String doc = URLDecoder.decode(str, "utf-8");
         String stri[] = doc.split("=");
         String query = stri[1];
-        lruService.methods(query);
         LruCacheUtil methods = lruService.methods(query);
         methods.get(sum);
-        arrayList.add((String) methods.get(sum));
+        arrayList.add(methods.toString());
         sum++;
         System.out.println(methods.toString());
         return arrayList;
