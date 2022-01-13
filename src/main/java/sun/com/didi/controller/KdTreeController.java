@@ -3,10 +3,13 @@ package sun.com.didi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sun.com.didi.entity.Node;
 import sun.com.didi.service.KdTreeService;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +20,19 @@ public class KdTreeController {
     static List<Node> nodeList=new ArrayList<>();
     @PostMapping(value = "/insertNode")
     @ResponseBody
-    public void insertNode(double a,double b){
-      nodeList.add(new Node(new double[]{a,b})) ;
-      kdTreeService.buildTree(nodeList,0);
-      System.out.println("success insert kdTree");
+    public String insertNode(@RequestBody String sum) throws UnsupportedEncodingException {
+        String doc = URLDecoder.decode(sum, "utf-8");
+        String str[] = doc.split("&");
+        String str1[]=str[0].split("=");
+        String str2[]=str[1].split("=");
+        String str3[]=str[2].split("=");
+        double sum1 = Double.valueOf(str1[1].toString());
+        double sum2 = Double.valueOf(str2[1].toString());
+
+        nodeList.add(new Node(new double[]{sum1,sum2})) ;
+        kdTreeService.buildTree(nodeList,0);
+        System.out.println("success insert kdTree");
+        return "success";
     }
 
 }

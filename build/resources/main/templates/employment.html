@@ -42,7 +42,7 @@
                     if(res=="数据添加成功！"){
                         function employment(){
                             var Rec_company=document.querySelector('#Rec_company');
-                            window.location.href='detailed?valus='+ Rec_company.value;
+                            //window.location.href='detailed?valus='+ Rec_company.value;
                         }
                         employment()
                     }else{
@@ -75,10 +75,12 @@
 
         function mapp(){
             $.ajax({
-                url: "/Recruit",
+                url: "/insertNode",
                 type: 'POST',
-                data: {'jingdu':$("#jingdu").html(),'weidu':$("#weidu").html()},
+                data: {'jingdu':$("#jingdu").html(),'weidu':$("#weidu").html(),'Rec_company': $("#Rec_company").val()},
+                contentType: "application/json;charset=UTF-8",
                 success: function (res) {
+                    console.log($("#jingdu").html())
                     if(res=='success'){
                         alert('success');
                     }else{
@@ -262,8 +264,11 @@
         var Latitude=position.coords.latitude;//HTML5定位获取的纬度
         var jing =document.querySelector('.jingdu');
         var wei =document.querySelector('.weidu');
-        jing.innerHTML=Longitude;
-        wei.innerHTML=Latitude;
+        var jing1=Longitude.toString();
+        var wei1=Latitude.toString();
+        console.log(jing1+wei1+"aaaaaaaaaaaa")
+        jing.innerHTML=jing1;
+        wei.innerHTML=wei1;
         // alert(Longitude);
         // alert(Latitude);
         // alert($("#jingdu").html());
