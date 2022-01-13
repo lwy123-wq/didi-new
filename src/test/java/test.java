@@ -33,7 +33,8 @@ public class test {
     private DetailedController detailedController;
     private static int sum1=1;
     private static int sum2=1;
-    private static int sum3=2;
+    private static int sum3=3;
+    private static int sum4=4;
     @Test
     public void t() throws Exception {
      /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
@@ -106,21 +107,44 @@ public class test {
         Object cache = hostDataController.lru(login);*/
 
         LruCacheUtil xxx = lruService.methods("京东");
-        for (int i=1;i<=2;i++){
-            System.out.println(xxx.get(sum1));
+
+            xxx.get(sum1);    // 1:a
+            System.out.println(xxx.toString());
             sum1++;
 
-        }
         LruCacheUtil yyy = lruService.methods("百度");
+           yyy.get(sum1);
+            System.out.println(yyy.toString());
+        sum1++;
+
+        LruCacheUtil zz = lruService.methods("xxx");
+        zz.get(sum1);
+        System.out.println(zz.toString());
+        sum1++;
+        LruCacheUtil eee = lruService.methods("eee");
+        eee.get(sum1);
+        System.out.println(eee.toString());
+        sum1++;
+
+        LruCacheUtil eee1 = lruService.methods("eee");
+        eee1.get(sum1);
+        System.out.println(eee1.toString());
+        sum1++;
+/*        LruCacheUtil yyy = lruService.methods("百度");
         for (int i=1;i<=2;i++){
-            System.out.println(yyy.get(sum2));
-            sum2++;
+                System.out.println(yyy.get(sum2));
+                sum2++;
         }
         LruCacheUtil sss = lruService.methods("aa");
         for (int i=1;i<=2;i++){
-            System.out.println(yyy.get(sum3));
-            sum3++;
+            System.out.println(sss.get(sum3));
+            sum3--;
         }
+        LruCacheUtil zzz = lruService.methods("zzz");
+        for (int i=1;i<=2;i++){
+            System.out.println(zzz.get(sum4));
+            sum4--;
+        }*/
     }
 
 }

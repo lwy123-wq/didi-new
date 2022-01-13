@@ -5,8 +5,9 @@ import sun.com.didi.util.LruCacheUtil;
 
 @Service
 public class LruService {
-    static   LruCacheUtil cache = new LruCacheUtil(2);
-    private int sum=1;
+    static   LruCacheUtil<Integer,String> lru = new LruCacheUtil<Integer,String>(3);
+    private int sum=0;
+
     public int getSum() {
         return sum;
     }
@@ -16,9 +17,10 @@ public class LruService {
     }
 
     public LruCacheUtil methods(String company){
-        cache.put(sum,company);
+
+        lru.put(sum,company);
         sum=sum+1;
         setSum(sum);
-        return cache;
+        return lru;
     }
 }

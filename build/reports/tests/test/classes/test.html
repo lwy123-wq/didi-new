@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.189s</div>
+<div class="counter">0.290s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">t()</td>
-<td class="success">0.189s</td>
+<td class="success">0.290s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,19 +87,19 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>21:37:42.946 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-21:37:42.961 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-21:37:42.983 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [test] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-21:37:43.003 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [test], using SpringBootContextLoader
-21:37:43.010 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [test]: class path resource [test-context.xml] does not exist
-21:37:43.011 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [test]: class path resource [testContext.groovy] does not exist
-21:37:43.011 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [test]: no resource found for suffixes {-context.xml, Context.groovy}.
-21:37:43.060 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [test]
-21:37:43.197 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [test]: using defaults.
-21:37:43.198 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-21:37:43.215 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7f6e3705, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@24dbf1dc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4786583e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@427cf8bf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4ca429ea, org.springframework.test.context.transaction.TransactionalTestExecutionListener@370a74b3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@42b89dc4, org.springframework.test.context.event.EventPublishingTestExecutionListener@67243c2c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@a22b25b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ee9f040, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@68b916e4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2eba8283, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@31154d65, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@105fc0f7]
-21:37:43.223 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1f76237f testClass = test, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@17667a7c testClass = test, locations = '{}', classes = '{class sun.com.didi.Application, class sun.com.didi.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3eaf8931, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3b994311, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@378a2d60, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4c110222, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
-21:37:43.252 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+<pre>12:28:24.537 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+12:28:24.547 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+12:28:24.570 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [test] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+12:28:24.582 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [test], using SpringBootContextLoader
+12:28:24.585 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [test]: class path resource [test-context.xml] does not exist
+12:28:24.586 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [test]: class path resource [testContext.groovy] does not exist
+12:28:24.586 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [test]: no resource found for suffixes {-context.xml, Context.groovy}.
+12:28:24.616 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [test]
+12:28:24.725 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [test]: using defaults.
+12:28:24.726 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+12:28:24.739 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ed16aa0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6022a5b2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@248acd01, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@679f6b91, org.springframework.test.context.support.DirtiesContextTestExecutionListener@12ee89a8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6794a172, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@15849a44, org.springframework.test.context.event.EventPublishingTestExecutionListener@9dbb886, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6f9ec3dc, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2d43606c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1c24893a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@486f1db0, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5176b742, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6700ed00]
+12:28:24.743 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@41613588 testClass = test, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@44323eb testClass = test, locations = '{}', classes = '{class sun.com.didi.Application, class sun.com.didi.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5fbbafe8, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5b28933f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6cddf430, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7f6fb7d3, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+12:28:24.772 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -109,27 +109,40 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.1.RELEASE)
 
-2022-01-12 21:37:43.583  INFO 96130 --- [    Test worker] test                                     : Starting test on lwy-NH50-70RA with PID 96130 (started by lwy in /home/lwy/下载/aaa/didi-new)
-2022-01-12 21:37:43.586  INFO 96130 --- [    Test worker] test                                     : No active profile set, falling back to default profiles: default
-2022-01-12 21:37:44.393  INFO 96130 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-01-12 21:37:44.400  INFO 96130 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-01-12 21:37:44.448  INFO 96130 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
-2022-01-12 21:37:46.086  INFO 96130 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-01-12 21:37:46.609  INFO 96130 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-天津顶园食品有限公司
-服务员
-天津娃娃哈有限公司
-服务员
-天津娃哈哈有限公司
-店员
-2022-01-12 21:37:47.498  INFO 96130 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-01-12 21:37:48.622  INFO 96130 --- [    Test worker] test                                     : Started test in 5.363 seconds (JVM running for 6.389)
+2022-01-13 12:28:25.040  INFO 53647 --- [    Test worker] test                                     : Starting test on lxj with PID 53647 (started by lxj in /home/lxj/文档/项目/didi/didi-new)
+2022-01-13 12:28:25.041  INFO 53647 --- [    Test worker] test                                     : No active profile set, falling back to default profiles: default
+2022-01-13 12:28:25.624  INFO 53647 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-13 12:28:25.629  INFO 53647 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-13 12:28:25.661  INFO 53647 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2022-01-13 12:28:26.686  INFO 53647 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-13 12:28:27.081  INFO 53647 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+江西制药
+222
+河北钢铁
+222k
+天津盛和集团有限公司
+20000
 京东
-null
-京东
-百度
-百度
-aa
+搬砖
+山东贺平制药
+30
+天津DIDI打车
+1233
+腾讯
+444
+天津xxx
+777
+天津yyyy
+对方是否都是
+天津人寿
+2000
+2022-01-13 12:28:27.801  INFO 53647 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-01-13 12:28:28.365  INFO 53647 --- [    Test worker] test                                     : Started test in 3.585 seconds (JVM running for 4.404)
+0:京东 
+1:百度 0:京东 
+2:xxx 1:百度 0:京东 
+3:eee 2:xxx 1:百度 
+4:eee 3:eee 2:xxx 
 </pre>
 </span>
 </div>
@@ -141,7 +154,7 @@ aa
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.9</a> at 2022-1-12 21:37:54</p>
+<a href="http://www.gradle.org">Gradle 6.9.1</a> at 2022-1-13 12:28:34</p>
 </div>
 </div>
 </body>

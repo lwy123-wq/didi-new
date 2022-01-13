@@ -1,115 +1,133 @@
 package sun.com.didi.util;
 
-import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
-public class  LruCacheUtil {
-    Entry head, tail;
-    int capacity;
-    int size;
-    Map<Integer, Entry> cache;
 
-    public LruCacheUtil(int capacity) {
-        this.capacity = capacity;
-        // 初始化链表
-        initLinkedList();
-        size = 0;
-        cache = new HashMap<>(capacity + 2);
+public class LruCacheUtil<K, V> {
+
+    private int currentCacheSize;
+    private int CacheCapcity;
+    private HashMap<K,CacheNode> caches;
+    private CacheNode first;
+    private CacheNode last;
+
+    public LruCacheUtil(int size){
+        currentCacheSize = 0;
+        this.CacheCapcity = size;
+        caches = new HashMap<K,CacheNode>(size);
     }
-    /**
-     * 如果节点不存在，返回 -1.如果存在，将节点移动到头结点，并返回节点的数据。
-     *
-     * @param key
-     * @return
-     */
-    public Object get(int key) {
-        Entry node = cache.get(key);
-        if (node == null) {
-            return "null";
+
+    public void put(K k,V v){
+        CacheNode node = caches.get(k);
+        if(node == null){
+            if(caches.size() >= CacheCapcity){
+
+                caches.remove(last.key);
+                removeLast();
+            }
+            node = new CacheNode();
+            node.key = k;
         }
-        // 存在移动节点
-        moveToHead(node);
+        node.value = v;
+        moveToFirst(node);
+        caches.put(k, node);
+    }
+
+    public Object  get(K k){
+        CacheNode node = caches.get(k);
+        if(node == null){
+            return null;
+        }
+        moveToFirst(node);
         return node.value;
     }
 
-    /**
-     * 将节点加入到头结点，如果容量已满，将会删除尾结点
-     *
-     * @param key
-     * @param value
-     */
-    public void put(int key, Object value) {
-        Entry node = cache.get(key);
-        if (node != null) {
-            node.value = value;
-            moveToHead(node);
+    public Object remove(K k){
+        CacheNode node = caches.get(k);
+        if(node != null){
+            if(node.pre != null){
+                node.pre.next=node.next;
+            }
+            if(node.next != null){
+                node.next.pre=node.pre;
+            }
+            if(node == first){
+                first = node.next;
+            }
+            if(node == last){
+                last = node.pre;
+            }
+        }
+
+        return caches.remove(k);
+    }
+
+    public void clear(){
+        first = null;
+        last = null;
+        caches.clear();
+    }
+
+
+
+    private void moveToFirst(CacheNode node){
+        if(first == node){
             return;
         }
-        // 不存在。先加进去，再移除尾结点
-        // 此时容量已满 删除尾结点
-        if (size == capacity) {
-            Entry lastNode = tail.pre;
-            deleteNode(lastNode);
-            cache.remove(lastNode.key);
-            size--;
+        if(node.next != null){
+            node.next.pre = node.pre;
         }
-        // 加入头结点
-
-        Entry newNode = new Entry();
-        newNode.key = key;
-        newNode.value = value;
-        addNode(newNode);
-        cache.put(key, newNode);
-        size++;
-        /*System.out.println(cache.get(1)+"1");
-        System.out.println(cache.get(2)+"2");
-        System.out.println(cache.get(3)+"3");*/
-
-    }
-
-    private void moveToHead(Entry node) {
-        // 首先删除原来节点的关系
-        deleteNode(node);
-        addNode(node);
-    }
-
-    private void addNode(Entry node) {
-        head.next.pre = node;
-        node.next = head.next;
-
-        node.pre = head;
-        head.next = node;
-    }
-
-    private void deleteNode(Entry node) {
-        node.pre.next = node.next;
-        node.next.pre = node.pre;
-    }
-
-
-    public static class Entry {
-        public Entry pre;
-        public Entry next;
-        public int key;
-        public Object value;
-
-        public Entry(int key, int value) {
-            this.key = key;
-            this.value = value;
+        if(node.pre != null){
+            node.pre.next = node.next;
+        }
+        if(node == last){
+            last= last.pre;
+        }
+        if(first == null || last == null){
+            first = last = node;
+            return;
         }
 
-        public Entry() {
+        node.next=first;
+        first.pre = node;
+        first = node;
+        first.pre=null;
+
+    }
+
+    private void removeLast(){
+        if(last != null){
+            last = last.pre;
+            if(last == null){
+                first = null;
+            }else{
+                last.next = null;
+            }
+        }
+    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        CacheNode node = first;
+        while(node != null){
+            sb.append(String.format("%s:%s ", node.key,node.value));
+            node = node.next;
+        }
+
+        return sb.toString();
+    }
+
+    class CacheNode{
+        CacheNode pre;
+        CacheNode next;
+        Object key;
+        Object value;
+        public CacheNode(){
+
         }
     }
 
-    private void initLinkedList() {
-        head = new Entry();
-        tail = new Entry();
-
-        head.next = tail;
-        tail.pre = head;
-
-    }
 }
+
