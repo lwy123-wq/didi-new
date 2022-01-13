@@ -15,10 +15,12 @@ import java.util.List;
 public class CoordinateDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
     public int insertCoordinate(double lon, double lat, String companyName){
         String sql="insert into coordinate(longitude,latitude,company)values (?,?,?)";
         return jdbcTemplate.update(sql,lon,lat,companyName);
     }
+
     public List<Coordinate> selectNode(){
         String sql="select longitude,latitude from coordinate";
         List<Coordinate> list=jdbcTemplate.query(sql, new RowMapper<Coordinate>() {
@@ -33,5 +35,7 @@ public class CoordinateDao {
         });
         return list;
     }
+
+
 
 }

@@ -15,7 +15,7 @@ public class KdTreeService {
         return kdTreeDao.buildKDTree(nodeList,0);
 
     }
-    public List<Node> searchKd(Node root,Node node,int k){
+    public List<Node> searchKd(Node root, Node node, int k){
         return kdTreeDao.searchKNN(root,node,k);
     }
 
