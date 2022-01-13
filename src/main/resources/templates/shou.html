@@ -37,10 +37,20 @@
                         alert("success");
                        console.log(res);
                        var hot =document.querySelector('.hot');
-                       var hot_l=document.createElement('div');
-                       hot.appendChild(hot_l);
-                       hot_l.className='hot_l';
-                       hot_l.innerHTML=res[0].Rec_company;
+
+                        for (var i=0;i<res.length;i++)
+                        {
+                            for(k in res[i])
+                            {
+                                var hot_l=document.createElement('div');
+                                hot.appendChild(hot_l);
+                                hot_l.className='hot_l';
+                                hot_l.innerHTML=res[i][k];
+
+                            }
+                        }
+
+
                        
                     }else{
                         alert("error");
@@ -367,6 +377,8 @@
     </div>
     <div class="hot">
         <div class="title">热门公司</div>
+<!--        <div class="hot_l">腾讯公司</div>-->
+<!--        <div class="hot_l">腾讯公司</div>-->
 <!--        <div class="hot_l">腾讯公司</div>-->
 
     </div>
