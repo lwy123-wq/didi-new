@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.kafka.Producer;
 
+/**
+ * 目前没有调用不想删
+ */
 @Controller
 public class KafkaController {
+
   /*  @Autowired
     private Producer producer;
     @PatchMapping(value = "/producer")

@@ -145,8 +145,8 @@ sun/com/didi/controller/TrieTreeController.java
  sun.com.didi.controller.TrieTreeController
 sun/com/didi/util/CookieUtil.java
  sun.com.didi.util.CookieUtil
-sun/com/didi/controller/KafkaController.java
- sun.com.didi.controller.KafkaController
+sun/com/didi/controller/RecruitController.java
+ sun.com.didi.controller.RecruitController
 sun/com/didi/entity/Intention.java
  sun.com.didi.entity.Intention
 sun/com/didi/kafka/Consumer.java
@@ -157,7 +157,14 @@ sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
 sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
-sun/com/didi/controller/RecruitController.java
- sun.com.didi.controller.RecruitController
+sun/com/didi/controller/KafkaController.java
+ sun.com.didi.controller.KafkaController
+sun/com/didi/dao/CoordinateDao.java
+ sun.com.didi.dao.CoordinateDao
+ sun.com.didi.dao.CoordinateDao$1
+sun/com/didi/entity/Coordinate.java
+ sun.com.didi.entity.Coordinate
+sun/com/didi/service/CoordinateService.java
+ sun.com.didi.service.CoordinateService
 sun/com/didi/controller/KdTreeController.java
  sun.com.didi.controller.KdTreeController
