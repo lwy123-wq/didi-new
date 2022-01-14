@@ -2,6 +2,7 @@ package sun.com.didi.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import sun.com.didi.entity.Coordinate;
@@ -36,6 +37,16 @@ public class CoordinateDao {
         return list;
     }
 
-
+    public Coordinate selectCoordinate(double lon,double lat){
+        String sql="select company from coordinate where longitude=? and latitude=?";
+        Coordinate coordinate=new Coordinate();
+        jdbcTemplate.query(sql, new Object[]{lon,lat}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                 coordinate.setCompanyName(rs.getString(1));
+            }
+        });
+        return coordinate;
+    }
 
 }

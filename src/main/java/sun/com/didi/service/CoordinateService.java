@@ -18,4 +18,7 @@ public class CoordinateService {
     public List<Coordinate> select(){
         return coordinateDao.selectNode();
     }
+    public Coordinate selectCoordinate(double lon,double lat){
+        return coordinateDao.selectCoordinate(lon,lat);
+    }
 }

@@ -22,8 +22,8 @@ public class KdTreeController {
     @Autowired
     private CoordinateService coordinateService;
 
-    private Node root;
     static List<Node> nodeList=new ArrayList<>();
+    static List<Coordinate> nodeList1=new ArrayList<>();
     @PostMapping(value = "/insertNode")
     @ResponseBody
     public String insertNode(@RequestBody String sum) throws UnsupportedEncodingException {
@@ -35,18 +35,13 @@ public class KdTreeController {
         double sum1 = Double.valueOf(str1[1].toString());
         double sum2 = Double.valueOf(str2[1].toString());
         coordinateService.insertCoordinate(sum1,sum2,str3[1]);
-        List<Coordinate> list= coordinateService.select();
 
-        for (Coordinate coor:list){
-            nodeList.add(new Node(new double[]{coor.getLongitude(),coor.getLatitude()})) ;
-        }
-        root=kdTreeService.buildTree(nodeList,0);
         System.out.println("success insert kdTree");
         return "success";
     }
     @PostMapping(value ="/searchNode" )
     @ResponseBody
-    public String searchNode(@RequestBody String sum) throws UnsupportedEncodingException {
+    public List<Coordinate> searchNode(@RequestBody String sum) throws UnsupportedEncodingException {
         String doc = URLDecoder.decode(sum, "utf-8");
         String str[] = doc.split("&");
         String str1[]=str[0].split("=");
@@ -55,11 +50,19 @@ public class KdTreeController {
         double sum1 = Double.valueOf(str1[1].toString());
         double sum2 = Double.valueOf(str2[1].toString());
         int sum3=Integer.valueOf(str3[1].toString());
-        List<Node> list=kdTreeService.searchKd(root,new Node(new double[]{sum1,sum2}),sum3);
-        for (Node node:list){
-            node.getData(0);
+        List<Coordinate> list= coordinateService.select(); //查找数据库所有经度纬度
+
+        for (Coordinate coor:list){
+            nodeList.add(new Node(new double[]{coor.getLongitude(),coor.getLatitude()})) ;
         }
-        return null;
+        Node root=kdTreeService.buildTree(nodeList,0);
+        List<Node> list1=kdTreeService.searchKd(root,new Node(new double[]{sum1,sum2}),sum3);
+        for (Node node:list1){
+            Coordinate coo=coordinateService.selectCoordinate(node.getData(0),node.getData(1));
+            nodeList1.add(coo);
+        }
+
+        return nodeList1;
 
     }
 
