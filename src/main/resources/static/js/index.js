@@ -65,7 +65,7 @@ window.addEventListener('load',function () {
             annimate(ul,-num*big.offsetWidth,function(){
                 flag=true;
             });
-            console.log(num);
+            // console.log(num);
 
 
             circle++;
