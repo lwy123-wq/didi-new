@@ -106,7 +106,7 @@ public class test {
      /*   Login login=new Login("李小军","23425","4545@qq.com");
         Object cache = hostDataController.lru(login);*/
 
-        LruCacheUtil xxx = lruService.methods("京东");
+        /*LruCacheUtil xxx = lruService.methods("京东");
 
             xxx.get(sum1);    // 1:a
             System.out.println(xxx.toString());
@@ -129,7 +129,7 @@ public class test {
         LruCacheUtil eee1 = lruService.methods("eee");
         eee1.get(sum1);
         System.out.println(eee1.toString());
-        sum1++;
+        sum1++;*/
 /*        LruCacheUtil yyy = lruService.methods("百度");
         for (int i=1;i<=2;i++){
                 System.out.println(yyy.get(sum2));

@@ -23,7 +23,7 @@ public class KdTreeController {
     private CoordinateService coordinateService;
 
     static List<Node> nodeList=new ArrayList<>();
-    static List<Coordinate> nodeList1=new ArrayList<>();
+    static List<String> nodeList1=new ArrayList<>();
     @PostMapping(value = "/insertNode")
     @ResponseBody
     public String insertNode(@RequestBody String sum) throws UnsupportedEncodingException {
@@ -59,10 +59,14 @@ public class KdTreeController {
         List<Node> list1=kdTreeService.searchKd(root,new Node(new double[]{sum1,sum2}),sum3);
         for (Node node:list1){
             Coordinate coo=coordinateService.selectCoordinate(node.getData(0),node.getData(1));
-            nodeList1.add(coo);
+            nodeList1.add(coo.getCompanyName());
         }
-
-        return nodeList1;
+        ArrayList<Coordinate> listArrayList=new ArrayList<>();
+        for (int i=0;i<list1.size();i++){
+            Coordinate coordinate=new Coordinate(list1.get(i).getData(0),list1.get(i).getData(1),nodeList1.get(i));
+            listArrayList.add(coordinate);
+        }
+        return listArrayList;
 
     }
 

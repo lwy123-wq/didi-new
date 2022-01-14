@@ -14,6 +14,12 @@ public class Coordinate {
         this.latitude = latitude;
     }
 
+    public Coordinate(double longitude, double latitude, String companyName) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.companyName = companyName;
+    }
+
     public double getLongitude() {
         return longitude;
     }
