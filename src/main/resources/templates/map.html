@@ -7,7 +7,8 @@
     <!--css-->
     <link href="style/demo.css" rel="stylesheet" type="text/css" />
     <!--javascript-->
-    <script src="scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--<script src="scripts/jquery-1.9.1.js" type="text/javascript"></script>-->
     <script src="scripts/demo.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IDvNBsejl9oqMbPF316iKsXR"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
@@ -95,9 +96,10 @@
             });
             function mapsearch() {
                 $.ajax({
-                    url: "/address",
+                    url: "/searchNode",
                     type: 'POST',
-                    data: {'text': $("#text").val(),'gongsiname':$("#gongsiname").html(),'output':$("#output").html()},
+                    data: {'gongsiname':$("#gongsiname").html(),'output':$("#output").html(),'text': $("#text").val()},
+                    contentType: "application/json;charset=UTF-8",
                     success: function (res) {
                         if(res!=null){
 

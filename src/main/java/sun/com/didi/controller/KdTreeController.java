@@ -2,9 +2,7 @@ package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.Coordinate;
 import sun.com.didi.entity.Node;
 import sun.com.didi.service.CoordinateService;
@@ -17,6 +15,10 @@ import java.util.List;
 
 @Controller
 public class KdTreeController {
+    @RequestMapping(value = "/map", method = RequestMethod.GET)
+    public String map(){
+        return "map";
+    }
     @Autowired
     private KdTreeService kdTreeService;
     @Autowired
@@ -42,6 +44,7 @@ public class KdTreeController {
     @PostMapping(value ="/searchNode" )
     @ResponseBody
     public List<Coordinate> searchNode(@RequestBody String sum) throws UnsupportedEncodingException {
+        System.out.println(sum+"aaaaaaaaaaaaaaaaaaaa");
         String doc = URLDecoder.decode(sum, "utf-8");
         String str[] = doc.split("&");
         String str1[]=str[0].split("=");

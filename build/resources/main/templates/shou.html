@@ -8,6 +8,10 @@
     <script type="text/javascript" src="../static/js/index.js"></script>
     <link rel="stylesheet" href="../static/csss/index.css">
     <script>
+
+
+
+        // }
         function address(){
             $.ajax({
                 url: "/address",
@@ -36,19 +40,35 @@
                     if(res!=null){
                         alert("success");
                        console.log(res);
-                       var hot =document.querySelector('.hot');
+                        var arry=[];
+                        // for (var i=1;i<str.length;i++)
+                        // {
+                        var x = res[0].indexOf(',');
+                        var j = 0;
+                        while (x!==-1) {
 
-                        for (var i=0;i<res.length;i++)
-                        {
-                            for(k in res[i])
-                            {
-                                var hot_l=document.createElement('div');
-                                hot.appendChild(hot_l);
-                                hot_l.className='hot_l';
-                                hot_l.innerHTML=res[i][k];
+                            arry[arry.length] = res[0].substring(j, x);
+                            j = j + x + 1;
+                            x = res[0].indexOf(',', x + 1);
 
-                            }
+
+
                         }
+                        for (var i=0;i<arry.length;i++)
+                        {
+                            var hot =document.querySelector('.hot');
+                            var hot_ll=document.querySelectorAll('.hot_l');
+                            for(var h=0;h<hot_ll.length;h++)
+                            {
+                                hot.removeChild(hot_ll[h]);
+                            }
+
+                            var hot_l=document.createElement('div');
+                            hot.appendChild(hot_l);
+                            hot_l.className='hot_l';
+                            hot_l.innerHTML=arry[i];
+                        }
+
 
 
                        
