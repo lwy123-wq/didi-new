@@ -26,6 +26,11 @@ public class Recruit {
     public Recruit() {
 
     }
+
+    public Recruit(String utcTime) {
+        UTCTime=utcTime;
+    }
+
     public String getUTCTime() {
         return UTCTime;
     }
