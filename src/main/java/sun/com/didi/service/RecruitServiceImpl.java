@@ -23,9 +23,9 @@ public class RecruitServiceImpl {
         return recruitDao.findByCategory();
     }
 
-    public int insert(String Rec_company, String Rec_logo, String Rec_address,String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience){
+    public int insert(String Rec_company, String Rec_logo, String Rec_address,String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience,String UTCTime){
 
-        return recruitDao.RecruitInsert(new Recruit(Rec_company,Rec_logo,Rec_address,Rec_job,Rec_category,Rec_salary,Rec_Duration,Rec_experience));
+        return recruitDao.RecruitInsert(new Recruit(Rec_company,Rec_logo,Rec_address,Rec_job,Rec_category,Rec_salary,Rec_Duration,Rec_experience,UTCTime));
     }
     public List<Recruit> select(){
         return recruitDao.Select();

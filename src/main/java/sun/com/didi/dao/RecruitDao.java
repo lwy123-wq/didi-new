@@ -42,9 +42,9 @@ public class RecruitDao {
 
     public int RecruitInsert(Recruit recruit){
 
-        String sql="INSERT INTO Recruit (Rec_company,Rec_logo,Rec_address,Rec_job,Rec_category,Rec_salary,Rec_Duration,Rec_experience)VALUES(?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO Recruit (Rec_company,Rec_logo,Rec_address,Rec_job,Rec_category,Rec_salary,Rec_Duration,Rec_experience,UTCTime)VALUES(?,?,?,?,?,?,?,?,?)";
         return jdbcTemplate.update(sql, recruit.getRec_company(),recruit.getRec_logo(),recruit.getRec_address(),recruit.getRec_job(),recruit.getRec_salary(), recruit.getRec_category(),
-                recruit.getRec_Duration(),recruit.getRec_experience());
+                recruit.getRec_Duration(),recruit.getRec_experience(),recruit.getUTCTime());
     }
 
     public Recruit findByRecruit(String name){

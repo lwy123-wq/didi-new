@@ -10,8 +10,9 @@ public class Recruit {
     private String Rec_salary;
     private String Rec_Duration;
     private String Rec_experience;
+    private String UTCTime;
 
-    public Recruit(String rec_company, String rec_logo, String rec_address, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience) {
+    public Recruit(String rec_company, String rec_logo, String rec_address, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience,String UTCTime) {
         Rec_company = rec_company;
         Rec_logo = rec_logo;
         Rec_address = rec_address;
@@ -25,7 +26,13 @@ public class Recruit {
     public Recruit() {
 
     }
+    public String getUTCTime() {
+        return UTCTime;
+    }
 
+    public void setUTCTime(String UTCTime) {
+        this.UTCTime = UTCTime;
+    }
     public void setRec_address(String rec_address) {
         Rec_address = rec_address;
     }
