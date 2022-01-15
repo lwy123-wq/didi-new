@@ -17,10 +17,8 @@ sun/com/didi/config/UrlConfig.java
  sun.com.didi.config.UrlConfig
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
-sun/com/didi/dao/CoordinateDao.java
- sun.com.didi.dao.CoordinateDao
- sun.com.didi.dao.CoordinateDao$1
- sun.com.didi.dao.CoordinateDao$2
+sun/com/didi/filter/MyFilter.java
+ sun.com.didi.filter.MyFilter
 sun/com/didi/dao/KdTreeDao.java
  sun.com.didi.dao.KdTreeDao
 sun/com/didi/util/CodeUtil.java
@@ -174,9 +172,11 @@ sun/com/didi/chat/UserHandler.java
  sun.com.didi.chat.UserHandler
 sun/com/didi/service/EmailService.java
  sun.com.didi.service.EmailService
+sun/com/didi/dao/CoordinateDao.java
+ sun.com.didi.dao.CoordinateDao
+ sun.com.didi.dao.CoordinateDao$1
+ sun.com.didi.dao.CoordinateDao$2
 sun/com/didi/service/CoordinateService.java
  sun.com.didi.service.CoordinateService
-sun/com/didi/filter/MyFilter.java
- sun.com.didi.filter.MyFilter
 sun/com/didi/controller/KdTreeController.java
  sun.com.didi.controller.KdTreeController

@@ -60,6 +60,8 @@ dependencies {
     compile("org.springframework.kafka:spring-kafka:${spring_kafka_version}")
     //BloomFilter
     implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+    //pay
+    implementation group: 'com.alipay.sdk', name: 'alipay-sdk-java', version: '4.22.0.ALL'
 
 }
 

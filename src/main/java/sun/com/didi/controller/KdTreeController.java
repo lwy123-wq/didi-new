@@ -26,6 +26,8 @@ public class KdTreeController {
 
     static List<Node> nodeList=new ArrayList<>();
     static List<String> nodeList1=new ArrayList<>();
+    static List<Coordinate> listArrayList=new ArrayList<>();
+    static List<Coordinate> list;
     @PostMapping(value = "/insertNode")
     @ResponseBody
     public String insertNode(@RequestBody String sum) throws UnsupportedEncodingException {
@@ -44,7 +46,6 @@ public class KdTreeController {
     @PostMapping(value ="/searchNode" )
     @ResponseBody
     public List<Coordinate> searchNode(@RequestBody String sum) throws UnsupportedEncodingException {
-        System.out.println(sum+"aaaaaaaaaaaaaaaaaaaa");
         String doc = URLDecoder.decode(sum, "utf-8");
         String str[] = doc.split("&");
         String str1[]=str[0].split("=");
@@ -53,7 +54,7 @@ public class KdTreeController {
         double sum1 = Double.valueOf(str1[1].toString());
         double sum2 = Double.valueOf(str2[1].toString());
         int sum3=Integer.valueOf(str3[1].toString());
-        List<Coordinate> list= coordinateService.select(); //查找数据库所有经度纬度
+        list= coordinateService.select(); //查找数据库所有经度纬度
 
         for (Coordinate coor:list){
             nodeList.add(new Node(new double[]{coor.getLongitude(),coor.getLatitude()})) ;
@@ -64,8 +65,8 @@ public class KdTreeController {
             Coordinate coo=coordinateService.selectCoordinate(node.getData(0),node.getData(1));
             nodeList1.add(coo.getCompanyName());
         }
-        ArrayList<Coordinate> listArrayList=new ArrayList<>();
         for (int i=0;i<list1.size();i++){
+            System.out.println(list1.get(i).getData(0)+"uu"+list1.get(i).getData(1)+"oo"+nodeList1.get(i));
             Coordinate coordinate=new Coordinate(list1.get(i).getData(0),list1.get(i).getData(1),nodeList1.get(i));
             listArrayList.add(coordinate);
         }

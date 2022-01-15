@@ -23,18 +23,19 @@ public class CoordinateDao {
     }
 
     public List<Coordinate> selectNode(){
-        String sql="select longitude,latitude from coordinate";
-        List<Coordinate> list=jdbcTemplate.query(sql, new RowMapper<Coordinate>() {
-            Coordinate coordinate=new Coordinate();
+        String sql= "SELECT longitude, latitude FROM coordinate";
+        List<Coordinate> list = jdbcTemplate.query(sql, new RowMapper<Coordinate>() {
             @Override
             public Coordinate mapRow(ResultSet rs, int rowNum) throws SQLException {
-                coordinate.setLongitude(rs.getDouble("longitude"));
-                coordinate.setLatitude(rs.getDouble("latitude"));
-                return coordinate;
-            }
+                Coordinate re = new Coordinate();
+                re.setLongitude(rs.getDouble("longitude"));
+                re.setLatitude(rs.getDouble("latitude"));
 
-        });
+                return re;
+            }
+        }) ;
         return list;
+
     }
 
     public Coordinate selectCoordinate(double lon,double lat){

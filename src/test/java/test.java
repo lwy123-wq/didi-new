@@ -5,6 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import sun.com.didi.Application;
 import sun.com.didi.controller.DetailedController;
 import sun.com.didi.controller.HostDataController;
+import sun.com.didi.dao.CoordinateDao;
 import sun.com.didi.dao.JobDao;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
@@ -31,12 +32,17 @@ public class test {
     private LruService lruService;
     @Autowired
     private DetailedController detailedController;
+    @Autowired
+    private CoordinateDao coordinateDao;
     private static int sum1=1;
     private static int sum2=1;
     private static int sum3=3;
     private static int sum4=4;
     @Test
     public void t() throws Exception {
+        System.out.println(coordinateDao.selectNode());
+        System.out.println(unitService.select());
+        System.out.println(coordinateDao.selectCoordinate(104.195345, 35.86133));
      /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
         String bb=aa.getRec_job();
         System.out.println(bb+"aaaaaaaaaaaa");
