@@ -46,4 +46,6 @@ public class JobController {
         model.addAttribute("company",company);
         return "chat";
     }
+
+
 }

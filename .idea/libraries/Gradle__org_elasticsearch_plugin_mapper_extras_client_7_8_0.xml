@@ -2,10 +2,12 @@
   <library name="Gradle: org.elasticsearch.plugin:mapper-extras-client:7.8.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.plugin/mapper-extras-client/7.8.0/6f852909704bb95254700253cce524ddbec82518/mapper-extras-client-7.8.0.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.plugin/mapper-extras-client/7.8.0/6f852909704bb95254700253cce524ddbec82518/mapper-extras-client-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.plugin/mapper-extras-client/7.8.0/7b4a374130d53cee2cc54120ae61fbb2395b2bea/mapper-extras-client-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.plugin/mapper-extras-client/7.8.0/7b4a374130d53cee2cc54120ae61fbb2395b2bea/mapper-extras-client-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

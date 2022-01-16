@@ -2,10 +2,12 @@
   <library name="Gradle: org.elasticsearch:elasticsearch-secure-sm:7.8.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/7.8.0/a5e2cff8506f9ef27534e35d3e75409477071dda/elasticsearch-secure-sm-7.8.0.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/7.8.0/a5e2cff8506f9ef27534e35d3e75409477071dda/elasticsearch-secure-sm-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/7.8.0/556b05fde746dad4c3827436b4b927e6629df40e/elasticsearch-secure-sm-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/7.8.0/556b05fde746dad4c3827436b4b927e6629df40e/elasticsearch-secure-sm-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

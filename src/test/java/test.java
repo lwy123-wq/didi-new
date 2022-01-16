@@ -40,9 +40,9 @@ public class test {
     private static int sum4=4;
     @Test
     public void t() throws Exception {
-        System.out.println(coordinateDao.selectNode());
+       /* System.out.println(coordinateDao.selectNode());
         System.out.println(unitService.select());
-        System.out.println(coordinateDao.selectCoordinate(104.195345, 35.86133));
+        System.out.println(coordinateDao.selectCoordinate(104.195345, 35.86133));*/
      /*   Recruit aa=unitService.FindByCompany("天津娃哈哈有限公司");
         String bb=aa.getRec_job();
         System.out.println(bb+"aaaaaaaaaaaa");

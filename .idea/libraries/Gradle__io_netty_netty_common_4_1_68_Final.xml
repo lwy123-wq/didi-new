@@ -5,10 +5,12 @@
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/io.netty/netty-common/4.1.68.Final/35820b0f9cb6ae04ea88c43d3c322cb113cbef1b/netty-common-4.1.68.Final.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/io.netty/netty-common/4.1.68.Final/35820b0f9cb6ae04ea88c43d3c322cb113cbef1b/netty-common-4.1.68.Final.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/io.netty/netty-common/4.1.68.Final/bb787db398cd54631ad78f385e0e387f757d6967/netty-common-4.1.68.Final-sources.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/io.netty/netty-common/4.1.68.Final/bb787db398cd54631ad78f385e0e387f757d6967/netty-common-4.1.68.Final-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -12,4 +12,8 @@ public class JobServiceImpl extends JobDao {
         return jobDao.create(name,phone,id_code,card,school,email,marriage,address,city,years,education) ;
     }
 
+    public int insertReport(String company,String username,String time){
+        return jobDao.insertReport(company,username,time);
+    }
+
 }

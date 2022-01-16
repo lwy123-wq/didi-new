@@ -2,10 +2,12 @@
   <library name="Gradle: org.apache.lucene:lucene-queryparser:8.10.1">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/8.10.1/87f52ee3f72f387b802c49a96e4a14b3b05dd21/lucene-queryparser-8.10.1.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/8.10.1/87f52ee3f72f387b802c49a96e4a14b3b05dd21/lucene-queryparser-8.10.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/8.10.1/86a868c0f7e02b88f0c6493b1cb463efcc593ce4/lucene-queryparser-8.10.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/8.10.1/86a868c0f7e02b88f0c6493b1cb463efcc593ce4/lucene-queryparser-8.10.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

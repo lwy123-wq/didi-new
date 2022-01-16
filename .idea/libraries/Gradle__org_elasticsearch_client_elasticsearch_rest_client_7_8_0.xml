@@ -2,10 +2,12 @@
   <library name="Gradle: org.elasticsearch.client:elasticsearch-rest-client:7.8.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-client/7.8.0/ab28f6110bdc7d2ec886e1d6ff29a6c8ee30b883/elasticsearch-rest-client-7.8.0.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-client/7.8.0/ab28f6110bdc7d2ec886e1d6ff29a6c8ee30b883/elasticsearch-rest-client-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-client/7.8.0/1d5becc91647322de149ecf03e43b89836219d7d/elasticsearch-rest-client-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-client/7.8.0/1d5becc91647322de149ecf03e43b89836219d7d/elasticsearch-rest-client-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
