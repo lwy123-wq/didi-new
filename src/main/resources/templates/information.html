@@ -140,9 +140,10 @@
             <td>城市：</td><td><select name="city" id="city"><option>请选择城市</option></select></td>
         </tr>
         <tr>
-            <td>工作年限</td>
+            <td>工种</td>
 
-            <td><input style="width: 95%; " type="number" id="year"></td>
+            <td><select name="province" id="gongzhong" onchange="provinc(this.selectedIndex)"><option>请选择工种</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
+            <td>年限：</td><td><select name="city" id="year"><option>请选择年限</option></select></td>
 
 
         </tr>
@@ -166,8 +167,33 @@
 </body>
 </html>
 <script type="text/javascript"  th:inline="none">
-        var provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省','内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省','云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
-        var citys = [['请选择城市'],
+    var gongzhongs=['请选择工种','长工（按年结）','短工(按月结)'];
+    var years =[['请选择年限'],['1年','2年','3年','4年','5年','6年','7年','8年','9年','10年'],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]];
+    function ini(){
+        var provinces = document.getElementById('gongzhong');
+        //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
+        provinces.length=gongzhongs.length;
+        for(var i=0;i<gongzhongs.length;i++){
+            provinces.options[i].text=gongzhongs[i];
+            provinces.options[i].value=gongzhongs[i];
+        }
+    }
+    function provinc(n){
+        var cit = document.getElementById('year');
+        var citystem=years[n];
+        cit.length=citystem.length;
+        for(var i=0;i<citystem.length;i++){
+            cit.options[i].text=citystem[i];
+            cit.options[i].value=citystem[i];
+        }
+        cit.options[0].selected=true;
+    }
+    ini();
+
+
+
+    var provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省','内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省','山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省','云南省','西藏省','陕西省','甘肃省','宁夏省','青海省','新疆省','香港','澳门','台湾'];
+    var citys = [['请选择城市'],
         ["东城区", "西城区", "崇文区", "宣武区", "朝阳区", "丰台区", "石景山区", "海淀区", "门头沟区", "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云县", "延庆县"],
         ["黄浦区", "卢湾区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "南汇区", "奉贤区", "崇明县"],
         ["和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "塘沽区", "汉沽区", "大港区", "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "宁河县", "静海县", "蓟县"],
@@ -203,44 +229,44 @@
         ["澳门"],
         ["台北市","高雄市","台中市","花莲市","基隆市","嘉义市","金门市","连江市","苗栗市","南投市","澎湖市","屏东市","台东市","台南市","桃园市","新竹市","宜兰市","云林市","彰化市"]];
 
-        function init(){
+    function init(){
         var province = document.getElementById('address');
         //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
         province.length=provinces.length;
         for(var i=0;i<provinces.length;i++){
-        province.options[i].text=provinces[i];
-        province.options[i].value=provinces[i];
-    }
+            province.options[i].text=provinces[i];
+            province.options[i].value=provinces[i];
+        }
     }
 
-        function provincechange(n){
+    function provincechange(n){
         var city = document.getElementById('city');
         var citystemp=citys[n];
         city.length=citystemp.length;
         for(var i=0;i<citystemp.length;i++){
-        city.options[i].text=citystemp[i];
-        city.options[i].value=citystemp[i];
-    }
+            city.options[i].text=citystemp[i];
+            city.options[i].value=citystemp[i];
+        }
         city.options[0].selected=true;
     }
-        function annimate(div,target,callback){
-            clearInterval(div.timmer);
-            div.timmer=setInterval(function(){
+    function annimate(div,target,callback){
+        clearInterval(div.timmer);
+        div.timmer=setInterval(function(){
 
-                var off =(target-div.offsetTop)/10;
-                off=off>0?Math.ceil(off):Math.floor(off);
-                if(div.offsetTop==target)
-                {
-                    clearInterval(div.timmer);
-                    //
-                    callback&&callback();
-                }
+            var off =(target-div.offsetTop)/10;
+            off=off>0?Math.ceil(off):Math.floor(off);
+            if(div.offsetTop==target)
+            {
+                clearInterval(div.timmer);
+                //
+                callback&&callback();
+            }
 
-                div.style.top=div.offsetTop+off+'px';
-            },30);
-        }
-        var table=document.querySelector('table');
-        annimate(table,100);
+            div.style.top=div.offsetTop+off+'px';
+        },30);
+    }
+    var table=document.querySelector('table');
+    annimate(table,100);
 
 
 </script>
