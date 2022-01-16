@@ -141,8 +141,8 @@ sun/com/didi/controller/AddressController.java
  sun.com.didi.controller.AddressController
 sun/com/didi/entity/UserMap.java
  sun.com.didi.entity.UserMap
-sun/com/didi/controller/MatchController.java
- sun.com.didi.controller.MatchController
+sun/com/didi/controller/KdTreeController.java
+ sun.com.didi.controller.KdTreeController
 sun/com/didi/service/JobServiceImpl.java
  sun.com.didi.service.JobServiceImpl
 sun/com/didi/service/LruService.java
@@ -178,5 +178,5 @@ sun/com/didi/dao/CoordinateDao.java
  sun.com.didi.dao.CoordinateDao$2
 sun/com/didi/service/CoordinateService.java
  sun.com.didi.service.CoordinateService
-sun/com/didi/controller/KdTreeController.java
- sun.com.didi.controller.KdTreeController
+sun/com/didi/controller/MatchController.java
+ sun.com.didi.controller.MatchController

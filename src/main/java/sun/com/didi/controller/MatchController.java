@@ -43,6 +43,12 @@ public class MatchController {
         return "matchsuccess";
     }
 
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    public String order(){
+        return "order";
+    }
+
+
     @RequestMapping(value = "/showdetail", method = RequestMethod.GET)
     public String show(){
         return "showdetails";
