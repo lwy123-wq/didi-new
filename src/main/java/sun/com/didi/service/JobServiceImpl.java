@@ -3,6 +3,9 @@ package sun.com.didi.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.com.didi.dao.JobDao;
+import sun.com.didi.entity.JobInfo;
+
+import java.util.List;
 
 @Service
 public class JobServiceImpl extends JobDao {
@@ -15,5 +18,7 @@ public class JobServiceImpl extends JobDao {
     public int insertReport(String company,String username,String time){
         return jobDao.insertReport(company,username,time);
     }
-
+    public List<JobInfo> select(String name){
+        return jobDao.SelectJob(name);
+    }
 }

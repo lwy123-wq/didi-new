@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sun.com.didi.entity.JobInfo;
 import sun.com.didi.service.JobServiceImpl;
 import sun.com.didi.util.CookieUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -47,5 +49,13 @@ public class JobController {
         return "chat";
     }
 
-
+    /*展示个人信息*/
+    @PostMapping(value = "/JobQuery")
+    @ResponseBody
+    public List<JobInfo> SelectJob(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        List<JobInfo> select = jobService.select(username);
+        return select;
+    }
 }
