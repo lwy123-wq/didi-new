@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jianggujin:IKAnalyzer-lucene:8.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/com.jianggujin/IKAnalyzer-lucene/8.0.0/85b14581073dfffc2a855a418d9c9e6916d307e6/IKAnalyzer-lucene-8.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/com.jianggujin/IKAnalyzer-lucene/8.0.0/7f325d87810f1936a3879655a61593a483f3b45f/IKAnalyzer-lucene-8.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

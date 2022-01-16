@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class insert_ordered_EsController {
+public class Insert_position_EsController {
     @RequestMapping(value = "/insert_info",method = RequestMethod.GET)
     public String index(){
         return "insert_info";

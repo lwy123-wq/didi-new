@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.boot:spring-boot-starter-mail:2.5.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-mail/2.5.4/b760b790a3a50c568174a1c816f2b88623ac359f/spring-boot-starter-mail-2.5.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-mail/2.5.4/40c2c721ba647ebd5671c5c22bfd0d3723f7d292/spring-boot-starter-mail-2.5.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

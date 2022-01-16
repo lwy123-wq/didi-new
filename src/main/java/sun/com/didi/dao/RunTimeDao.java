@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.entity.Report;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,28 +15,28 @@ public class RunTimeDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public Recruit runtime(String company){
-        String sql="select UTCTime from Recruit where Rec_company=?";
-        Recruit recruit=new Recruit();
-        jdbcTemplate.query(sql, new Object[]{company}, new RowCallbackHandler() {
+    public Report runtime(String user){
+        String sql="select Time from Report where user=?";
+        Report report=new Report();
+        jdbcTemplate.query(sql, new Object[]{user}, new RowCallbackHandler() {
 
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                recruit.setUTCTime(rs.getString("UTCTime"));
+                report.setTime(rs.getString("Time"));
             }
         });
-        return recruit;
+        return report;
     }
 
-    public int update(String time, String company){
-        String sql="UPDATE Recruit SET UTCTime=? where Rec_company=?";
-        return jdbcTemplate.update(sql,time,company);
+    public int update(String time, String user){
+        String sql="UPDATE Report SET Time=? where user=?";
+        return jdbcTemplate.update(sql,time,user);
 
     }
-
-    public int insertime(Recruit UTC){
-        String sql="INSERT INTO Recruit (UTCTime)VALUES(?)";
-        return jdbcTemplate.update(sql, UTC.getUTCTime());
+/*续约*/
+    public int insertime(Report UTC){
+        String sql="INSERT INTO Report (UTCTime)VALUES(?)";
+        return jdbcTemplate.update(sql, UTC.getTime());
     }
 
 }

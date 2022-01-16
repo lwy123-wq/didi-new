@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.lucene:lucene-sandbox:8.10.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-sandbox/8.10.1/82b15ef61297e6d7b0c1f6c37c502d6b77a82f1e/lucene-sandbox-8.10.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-sandbox/8.10.1/c261f0608081c48f8ddf8a9a3b2cde10b879a28d/lucene-sandbox-8.10.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

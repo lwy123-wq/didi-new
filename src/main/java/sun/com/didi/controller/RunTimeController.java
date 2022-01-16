@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.entity.Report;
 import sun.com.didi.service.RunTimeServiceImpl;
 
 import java.net.URLDecoder;
@@ -17,12 +18,12 @@ public class RunTimeController {
     private RunTimeServiceImpl runTimeService;
     @PostMapping(value = "/OF")
     @ResponseBody
-    public String tupleof(@RequestBody String company) throws Exception {
-        String s = URLDecoder.decode(company, "UTF-8");
+    public String tupleof(@RequestBody String user) throws Exception {
+        String s = URLDecoder.decode(user, "UTF-8");
         String stri[] = s.split("=");
         String query = stri[1];
-        Recruit runtime = runTimeService.runtime(query);
-        String utcTime = runtime.getUTCTime();
+        Report runtime = runTimeService.runtime(query);
+        String utcTime = runtime.getTime();
         int time = Integer.parseInt(utcTime);
         if (time<0){
             return "sucess";
@@ -36,6 +37,7 @@ public class RunTimeController {
         }
        return "error";
     }
+    /*续约*/
     @PostMapping(value = "/offtime")
     @ResponseBody
     public String Renewal(@RequestBody String time) throws Exception {
