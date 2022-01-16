@@ -1,0 +1,121 @@
+<%--
+Created by IntelliJ IDEA.
+User: lwy
+Date: 2021/4/27
+Time: 下午8:20
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .Main{
+            position: relative;
+            top: 40%;
+            text-align: center;
+        }
+        .Search{
+            display: inline-block;
+        }
+        .Search>input{
+            width: 420px;
+            height: 50px;
+            float: left;
+            border-radius:  5px;
+            outline: none;
+            border:1px solid #006CBE;
+        }
+        .Search>button{
+            width: 60px;
+            height: 50px;
+            float: left;
+            outline: none;
+            background: #006CBE;
+            border: none;
+        }
+        #demo{
+            width: 100%;
+            min-width: 1200px;
+            background: url("../static/images/");
+        }
+        #ul_list{
+            list-style: none;
+            padding-top: 50px;
+            background: white;
+        }
+        #ul_list>li{
+            margin: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+    <div class="Main">
+        <div class="Search">
+            <input type="" name="" id="Search_box" value="" />
+            <button type="button" id="Search_ok"></button>
+            <ul id="ul_list"></ul>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var height = window.screen.height;
+    var demo = document.getElementById("demo");
+    demo.style.height=height+"px";
+
+    var text_box=document.getElementById("Search_box");
+    var Search_btn=document.getElementById("Search_ok");
+    function Search(){
+        if(text_box.value!=""){
+            var URL="https://www.baidu.com/baidu?tn=monline_7_dg&ie=utf-8&wd="+text_box.value;
+            window.location.href=URL;
+        }else {
+            alert("啥都没有输入还想搜啥呢")
+        }
+    }
+    Search_btn.onclick=function () {
+        Search();
+    }
+    document.onkeyup=function () {
+        if(text_box.value!=""){
+            if(window.event.keyCode==13){
+                Search();
+            }
+        }
+    }
+    var ul_list=document.getElementById("ul_list");
+    var ul1='http://suggestion.baidu.com/su?wd=';
+    var ul2='&cb=';
+    text_box.onkeyup=function () {
+        if(this.value!=""){
+            const script = document.createElement("script");
+            script.src=ul1+this.value+ul2+'Search_Data';
+            document.body.appendChild(script);
+        }
+    }
+    function Search_Data(data) {
+        const array = data.s;
+        ul_list.innerText="";
+        for (let i = 0; i<array.length ; i++) {
+            const li = document.createElement("li");
+            li.innerText=array[i];
+            ul_list.appendChild(li)
+        }
+
+    }
+    text_box.onblur=function (){
+        ul_list.style.display="none";
+    }
+    text_box.onfocus=function () {
+        ul_list.style.display="block";
+    }
+</script>
+</html>
