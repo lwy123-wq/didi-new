@@ -28,10 +28,13 @@ public class UserController {
     private IEmailService emailService;
 
     //登录
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "index";
+    }
+    @RequestMapping(value = "/personal", method = RequestMethod.GET)
+    public String personal(){
+        return "personal";
     }
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
