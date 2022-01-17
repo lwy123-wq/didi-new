@@ -9,7 +9,7 @@ public class EsClient {
     public static RestHighLevelClient getClient(){
 
         //创建HttpHost对象
-        HttpHost httpHost=new HttpHost("192.168.1.5",9200);
+        HttpHost httpHost=new HttpHost("192.168.1.7",9200);
         //创建RestClientBuilder
         RestClientBuilder clientBuilder= RestClient.builder(httpHost);
         //创建RestHighLevelClient

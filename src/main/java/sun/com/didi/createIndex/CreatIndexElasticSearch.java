@@ -33,7 +33,10 @@ public class CreatIndexElasticSearch {
     @Autowired
     private SelectRecruitment selectRecruitment;
     //每天凌晨1点执行一次
-    @Scheduled(cron = "0 0 23 * * ?")
+    */
+/*@Scheduled(cron = "0 0 23 * * ?")*//*
+
+    @PostConstruct()
     public void createIndex() throws IOException {
         //准备关于索引的seetings
         Settings.Builder settings=Settings.builder()

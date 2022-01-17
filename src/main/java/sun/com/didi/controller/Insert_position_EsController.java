@@ -26,7 +26,7 @@ public class Insert_position_EsController {
     @PostMapping(value = "/insert_ordered_Es")
     @ResponseBody
     //es 过滤字段
-    public List<Map<String, Object>> insert_ordered_Es(@RequestBody String Params) throws IOException {
+    public List<Map<String, Object>> insert_ordered_Es() throws IOException {
         List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
         SearchRequest searchRequest = new SearchRequest("recruit");//指定索引
         RestHighLevelClient client = EsClient.getClient();

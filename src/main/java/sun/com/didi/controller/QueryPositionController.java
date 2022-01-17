@@ -36,8 +36,8 @@ public class QueryPositionController {
     @ResponseBody
     /*根据职位查询公司*/
     public List<Map<String, Object>> GstQuery(@RequestBody String Params) throws IOException {
-        boolean bloom=bloomFilterService.includeByBloomFilter(bloomFilter,Params,Params);
-        if (bloom==true) {
+       // boolean bloom=bloomFilterService.includeByBloomFilter(bloomFilter,Params,Params);
+        //if (bloom==true) {
             List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
             String str = URLDecoder.decode(Params, "utf-8");
             String stri[] = str.split("=");
@@ -62,8 +62,8 @@ public class QueryPositionController {
                 arrayList.add(map);
             }
             return arrayList;
-        }else {
+    /*    }else {
             return null;
-        }
+        }*/
     }
 }
