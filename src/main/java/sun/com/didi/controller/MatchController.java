@@ -3,7 +3,9 @@ package sun.com.didi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.IEmailService;
@@ -27,8 +29,8 @@ public class MatchController {
     public String ca;
     public String pr;
     public String co;
-    public String company1;
-
+    public String company1="江西制药";
+    public String person="李小军";
     static ConcurrentLinkedQueue queue=new ConcurrentLinkedQueue();
     static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
@@ -131,8 +133,23 @@ public class MatchController {
         }
     }
 
+    @RequestMapping(value = "/showMatchCompany")
+    @ResponseBody
+    public List showMatchCompany(){
 
+        List<Recruit> list = recruitService.showMatchCompany(company1);
 
+        return list;
+    }
+
+    @RequestMapping(value = "/showMatchPerson")
+    @ResponseBody
+    public List showMatchPerson(){
+
+        List<JobInfo> list = recruitService.showMatchPerson(person);
+
+        return list;
+    }
 
 
 }

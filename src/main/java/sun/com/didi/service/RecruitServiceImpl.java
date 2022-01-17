@@ -46,4 +46,12 @@ public class RecruitServiceImpl {
     public int update(String job,String company){
         return recruitDao.update(job,company);
     }
+
+    public List showMatchCompany(String Rec_company){
+        return recruitDao.showMatchCompany(Rec_company);
+    }
+
+    public List showMatchPerson(String jobName){
+        return recruitDao.showMatchPerson(jobName);
+    }
 }

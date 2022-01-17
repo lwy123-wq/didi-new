@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Recruit;
 
 import java.sql.ResultSet;
@@ -138,7 +139,7 @@ public class RecruitDao {
 
     }
 
-    public List<Recruit> showMessage(String Rec_company){
+    public List<Recruit> showMatchCompany(String Rec_company){
         String sql = "Select * FROM Recruit WHERE Rec_company=?";
         final List<Recruit> list =new ArrayList<>();
         jdbcTemplate.query(sql, new Object[]{Rec_company}, new RowCallbackHandler() {
@@ -158,4 +159,30 @@ public class RecruitDao {
         });
         return list;
     }
+
+    public List<JobInfo> showMatchPerson(String jobName){
+        String sql = "Select * FROM jobinfo WHERE jobname=?";
+        final List<JobInfo> list =new ArrayList<>();
+        jdbcTemplate.query(sql, new Object[]{jobName}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                JobInfo jobInfo = new JobInfo();
+                jobInfo.setEducation(rs.getString("education"));
+                jobInfo.setYears(rs.getInt(11));
+                jobInfo.setCity(rs.getString("city"));
+                jobInfo.setAddress("address");
+                jobInfo.setMarriage("marriage");
+                jobInfo.setEmail("email");
+                jobInfo.setSchool("school");
+                jobInfo.setCard("card");
+                jobInfo.setId_code("id_code");
+                jobInfo.setPhone("phone");
+                jobInfo.setName(rs.getString(2));
+                list.add(jobInfo);
+
+            }
+        });
+        return list;
+    }
+
 }
