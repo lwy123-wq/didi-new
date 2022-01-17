@@ -156,8 +156,8 @@ sun/com/didi/entity/UserMap.java
  sun.com.didi.entity.UserMap
 sun/com/didi/entity/JobInfo.java
  sun.com.didi.entity.JobInfo
-sun/com/didi/controller/MatchController.java
- sun.com.didi.controller.MatchController
+sun/com/didi/util/AlipayUtil.java
+ sun.com.didi.util.AlipayUtil
 sun/com/didi/service/JobServiceImpl.java
  sun.com.didi.service.JobServiceImpl
 sun/com/didi/service/LruService.java
@@ -195,5 +195,5 @@ sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
 sun/com/didi/controller/QueryController.java
  sun.com.didi.controller.QueryController
-sun/com/didi/util/AlipayUtil.java
- sun.com.didi.util.AlipayUtil
+sun/com/didi/controller/MatchController.java
+ sun.com.didi.controller.MatchController

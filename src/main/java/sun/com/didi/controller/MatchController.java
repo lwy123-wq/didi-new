@@ -30,6 +30,7 @@ public class MatchController {
     public String pr;
     public String co;
     public String company1;
+    public  String username;
     static ConcurrentLinkedQueue queue=new ConcurrentLinkedQueue();
     static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
@@ -116,7 +117,7 @@ public class MatchController {
         String stri[] = s.split("=");
         String query = stri[1];
         Map<String, String> map = CookieUtil.getCookies(request);
-        String username = map.get("username");
+        username = map.get("username");
         queue1.add(username);
         Recruit aa=recruitService.FindByCompany(query);
         String bb=aa.getRec_job();
@@ -143,9 +144,7 @@ public class MatchController {
 
     @RequestMapping(value = "/showMatchPerson")
     @ResponseBody
-    public List showMatchPerson(HttpServletRequest request){
-        Map<String, String> map = CookieUtil.getCookies(request);
-        String username = map.get("username");
+    public List showMatchPerson(){
 
         List<JobInfo> list = recruitService.showMatchPerson(username);
 

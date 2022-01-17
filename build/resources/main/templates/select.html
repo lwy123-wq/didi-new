@@ -71,8 +71,10 @@
 </head>
 <body>
 <h1>请选择您的身份</h1>
-<div class="box" ><a href="information"><img src="../static/images/zhiyuan.png" ><div class="but"><h2>求职者</h2></div> </a> </div>
-<div class="boxo"><a href="employment"><img src="../static/images/gongsi.png"><div class="but"><h2>招聘单位</h2></div></a> </div>
+<div class="box" ><a href="javascript:;"><img src="../static/images/zhiyuan.png" ><div class="but"><h2>求职者</h2></div> </a> </div>
+<div class="boxo"><a href="javascript:;"><img src="../static/images/gongsi.png"><div class="but"><h2>招聘单位</h2></div></a> </div>
+<div id="one" style="opacity: 0">1</div>
+<div id="two" style="opacity: 0">2</div>
 <script>
     var box=document.querySelector('.box');
     var boxx =document.querySelector('.boxo');
@@ -93,7 +95,49 @@
         },30);
     }
     annimate(box,200);
-    annimate(boxx,200)
+    annimate(boxx,200);
+    box.addEventListener('click',function () {
+        onee();
+        window.location.href='information'
+    });
+    boxx.addEventListener('click',function () {
+        two();
+        window.location.href='employment';
+    });
+    function onee() {
+        $.ajax({
+            url: "/",
+            type: 'POST',
+            data: {'one': $("#one").html()},
+            success: function (res) {
+                if(res=='success'){
+                    alert('success');
+                }else{
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    function two() {
+        $.ajax({
+            url: "/",
+            type: 'POST',
+            data: {'two': $("#two").html()},
+            success: function (res) {
+                if(res=='success'){
+                    alert('success');
+                }else{
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
 </script>
 </body>
 </html>

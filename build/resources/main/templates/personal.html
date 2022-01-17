@@ -213,6 +213,9 @@
             border:1px solid #6ac13c;
             background:#e9f8df; /*浅绿色背景*/
         }
+        .hhh {
+
+        }
 
     </style>
 </head>
@@ -262,6 +265,7 @@
                 <li class="one" >我的订单</li>
                 <li class="one" >消息中心</li>
                 <li class="one" id="cal">签到</li>
+                <li class="one" >用户反馈</li>
             </ul>
         </div>
         <div class="bot">
@@ -354,6 +358,7 @@
         </div>
     </div>
 </div>
+<div class="qiandao" id='qiandao' style="opacity: 0">0</div>
 <script>
 
 
@@ -406,7 +411,7 @@
     var user= document.querySelector('#user');
     var flag=0;
     face.onclick = function () {
-        window.location.href=''
+        window.location.href='personal';
 
 
     }
@@ -457,11 +462,13 @@
             str += "<li></li>"; //为起始日之前的日期创建空白节点
         }
 
+
         for(var i=1; i<=totalDay; i++){
             if((i<my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()) || my_year<my_date.getFullYear() || ( my_year==my_date.getFullYear() && my_month<my_date.getMonth())){
                 myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
             }else if (i==my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()){
-                myclass = " class='green greenbox'"; //当天日期以绿色背景突出显示
+                // myclass = " class='green greenbox'"; //当天日期以绿色背景突出显示
+                myclass = " class='lightgrey hhh'";
 
             }else{
                 myclass = " class='darkgrey'"; //当该日期在今天之后时，以深灰字体显示
@@ -491,10 +498,49 @@
         }
         refreshDate();
     }
-    var greenbox =document.querySelector('.greenbox');
-    greenbox.addEventListener('click',function () {
+    var numm=0;
+    var hhh =document.querySelector('.hhh');
+    hhh.addEventListener('click',function () {
         greenbox.className='lightgrey';
+        numm++;
+        var qiandao =document.querySelector('.qiandao');
+        qiandao.innerHTML=numm;
+        $.ajax({
+            url: "/address",
+            type: 'POST',
+            data: {'qiandao': $("#qiandao").html()},
+            success: function (res) {
+                if(res==true){
+                    greenbox.className='lightgrey';
+                }else{
+                    greenbox.className='green greenbox';
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
     });
+    function qiandaoo() {
+        $.ajax({
+            url: "/address",
+            type: 'POST',
+
+            success: function (res) {
+                if(res==true){
+                    greenbox.className='lightgrey';
+                }else{
+                    greenbox.className='green greenbox';
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    qiandaoo();
+
+
     // tab栏切换
     var inf =document.querySelector('#inf');
     var cal =document.querySelector('#cal');

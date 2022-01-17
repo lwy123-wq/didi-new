@@ -165,6 +165,42 @@
         color: #c97513;
     }
 </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function showMatchCompany(){
+            $.ajax({
+                url: "/showMatchCompany",
+                type: 'POST',
+                success: function (res) {
+                    if(res!=null){
+                        console.log(res)
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+        function showMatchPerson(){
+            $.ajax({
+                url: "/showMatchPerson",
+                type: 'POST',
+                success: function (res) {
+                    if(res!=null){
+                        console.log(res)
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+    </script>
 </head>
 <body>
 <div class="header">
