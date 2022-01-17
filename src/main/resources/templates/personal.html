@@ -358,7 +358,7 @@
         </div>
     </div>
 </div>
-<div class="qiandao" id='qiandao' style="opacity: 0">0</div>
+<div class="qiandao" id='qiandao' style="opacity: 0"></div>
 <script>
 
 
@@ -501,19 +501,20 @@
     var numm=0;
     var hhh =document.querySelector('.hhh');
     hhh.addEventListener('click',function () {
-        greenbox.className='lightgrey';
+       // greenbox.className='lightgrey';
         numm++;
-        var qiandao =document.querySelector('.qiandao');
+        var qiandao =document.querySelector('#qiandao');
         qiandao.innerHTML=numm;
         $.ajax({
-            url: "/address",
+            url: "/OF",
             type: 'POST',
             data: {'qiandao': $("#qiandao").html()},
             success: function (res) {
                 if(res==true){
-                    greenbox.className='lightgrey';
+                    alert("success")
+                    qiandao.className='lightgrey';
                 }else{
-                    greenbox.className='green greenbox';
+                    qiandao.className='green greenbox';
                 }
             },
             error: function (res) {
@@ -521,16 +522,16 @@
             }
         });
     });
-    function qiandaoo() {
+    function tuple() {
         $.ajax({
-            url: "/address",
+            url: "/false",
             type: 'POST',
-
             success: function (res) {
+                var qiandao =document.querySelector('#qiandao');
                 if(res==true){
-                    greenbox.className='lightgrey';
+                    qiandao.className='lightgrey';
                 }else{
-                    greenbox.className='green greenbox';
+                    qiandao.className='green greenbox';
                 }
             },
             error: function (res) {
@@ -538,7 +539,7 @@
             }
         });
     }
-    qiandaoo();
+    tuple();
 
 
     // tab栏切换

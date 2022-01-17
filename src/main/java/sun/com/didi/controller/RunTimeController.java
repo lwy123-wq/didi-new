@@ -23,13 +23,17 @@ public class RunTimeController {
     private RunTimeServiceImpl runTimeService;
     @PostMapping(value = "/OF")
     @ResponseBody
-    public boolean tupleof(HttpServletRequest request, @RequestBody int check_times) throws Exception {
+    public boolean tupleof(HttpServletRequest request, @RequestBody String check_times) throws Exception {
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
-        String s = URLDecoder.decode(username, "UTF-8");
+        String s = URLDecoder.decode(check_times, "UTF-8");
         String stri[] = s.split("=");
         String query = stri[1];
-        Report runtime = runTimeService.runtime(query);
+
+        String stri2[] = query.split("=");
+        String query2 = stri2[0];
+
+        Report runtime = runTimeService.runtime(username);
         String utcTime = runtime.getTime();
         int time = Integer.parseInt(utcTime);
         if (time<0){
@@ -38,16 +42,18 @@ public class RunTimeController {
         }else {
             int timeplus = time - 1;
             String s1 = Integer.toString(timeplus);
-            if (runTimeService.update(s1, query) == 1) {
-                chech=chech(check_times);
+            if (runTimeService.update(s1, username) == 1) {
+                chech=chech(Integer.parseInt(query2));
                 return chech;
             }
         }
        return chech;
     }
-    @Scheduled(cron = "0 0 23 * * ?")
-    public void ReturnCheck(){
-        RunTimeController.chech=false;
+    @PostMapping(value = "/false")
+    @ResponseBody
+   // @Scheduled(cron = "0 0 23 * * ?")
+    public boolean ReturnCheck(){
+        return RunTimeController.chech;
     }
     public boolean chech(int check){
         if (check>=1){
