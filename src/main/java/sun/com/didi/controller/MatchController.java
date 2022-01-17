@@ -29,8 +29,7 @@ public class MatchController {
     public String ca;
     public String pr;
     public String co;
-    public String company1="江西制药";
-    public String person="李小军";
+    public String company1;
     static ConcurrentLinkedQueue queue=new ConcurrentLinkedQueue();
     static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
@@ -144,9 +143,11 @@ public class MatchController {
 
     @RequestMapping(value = "/showMatchPerson")
     @ResponseBody
-    public List showMatchPerson(){
+    public List showMatchPerson(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
 
-        List<JobInfo> list = recruitService.showMatchPerson(person);
+        List<JobInfo> list = recruitService.showMatchPerson(username);
 
         return list;
     }

@@ -154,7 +154,15 @@
         #Rec_logo {
             margin: 0 0 0 0;
             border: 0 solid transparent;
-            position:absolute; top:95px; right:325px; height:36px; filter:alpha(opacity:0);opacity: 0;width:75px;
+            position:absolute;
+            /*top:95px;*/
+            /*right:325px;*/
+            top:0;
+            left: 0;
+            height:36px;
+            filter:alpha(opacity:0);
+            opacity: 0;
+            width:75px;
             z-index: 9999;
 
 
@@ -162,9 +170,10 @@
         .zhen {
             width: 75px;
             height: 36px;
-            position: absolute;
-            top:95px;
-            left: 96px;
+            /*position: absolute;*/
+            /*top:95px;*/
+            /*left: 96px;*/
+            position: relative;
             border: 1px solid #3592c4;
             border-radius: 25px;
             line-height: 36px;
@@ -201,9 +210,9 @@
         </tr>
         <tr style="margin: 85px 0">
             <td>公司logo</td>
-            <td style="position: relative"> <input type="file" id="Rec_logo" size="28" onchange="imgPreview(this)"  ><div class="zhen" >添加图片</div> </td>
-            <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -366px" alt="" title="preview-img">
-             <input type="text" id="textt" style="opacity: 0;position: absolute">
+            <td style="position: relative"> <div class="zhen" >添加图片<input type="file" id="Rec_logo" size="28" onchange="imgPreview(this)"  ></div> </td>
+            <td style="height: 130px;position: relative"><img  id="preview" style="width: 75px;height: 85px;position: absolute;top:0;left: -178px" alt="" title="preview-img">
+                <input type="text" id="textt" style="opacity: 0;position: absolute">
             </td>
         </tr>
         <tr>
@@ -226,12 +235,10 @@
             <td><input type="text" id="Rec_salary"> </td>
         </tr>
         <tr>
-            <td>工期</td>
-            <td><select style="width: 96%" id="Rec_Duration">
-                <option>长工（一年至五年以下，年结）</option>
-                <option>短工（一年以下，月结）</option>
-                <option>长工&短工</option>
-            </select></td>
+            <td>工种</td>
+
+            <td><select name="province" id="gongzhong" onchange="provinc(this.selectedIndex)"><option>请选择工种</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
+            <td>年限：</td><td><select name="city" id="year"><option>请选择年限</option></select></td>
         </tr>
         <tr>
             <td>工作要求</td>
@@ -252,6 +259,31 @@
 <div class="jingdu" id="jingdu" style="opacity: 0"></div>
 <div class="weidu" id="weidu" style="opacity: 0"></div>
 <script type="text/javascript">
+    var gongzhongs=['请选择工种','长工（按年结）','短工(按月结)'];
+    var years =[['请选择年限'],['1年','2年','3年','4年','5年','6年','7年','8年','9年','10年'],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]];
+    function ini(){
+        var provinces = document.getElementById('gongzhong');
+        //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
+        provinces.length=gongzhongs.length;
+        for(var i=0;i<gongzhongs.length;i++){
+            provinces.options[i].text=gongzhongs[i];
+            provinces.options[i].value=gongzhongs[i];
+        }
+    }
+    function provinc(n){
+        var cit = document.getElementById('year');
+        var citystem=years[n];
+        cit.length=citystem.length;
+        for(var i=0;i<citystem.length;i++){
+            cit.options[i].text=citystem[i];
+            cit.options[i].value=citystem[i];
+        }
+        cit.options[0].selected=true;
+    }
+    ini();
+
+
+
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition,showError);
         //如果getCurrentPosition()运行成功，则向参数showPosition中规定的函数返回一个coordinates对象
@@ -290,9 +322,9 @@
                 break;
         }
     }
-var submitt=document.querySelector('#submitt');
+    var submitt=document.querySelector('#submitt');
     submitt.addEventListener('click',function () {
-         mapp();
+        mapp();
     });
 
 
@@ -344,7 +376,7 @@ var submitt=document.querySelector('#submitt');
             div.style.top=div.offsetTop+off+'px';
         },30);
     }
-var table=document.querySelector('table');
+    var table=document.querySelector('table');
     annimate(table,100);
 
 </script>
