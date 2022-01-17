@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: org.elasticsearch.plugin:lang-mustache-client:7.8.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/7.8.0/b1d124f3bf24a29dc3475930719c397c7f798ae9/lang-mustache-client-7.8.0.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/7.8.0/b1d124f3bf24a29dc3475930719c397c7f798ae9/lang-mustache-client-7.8.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/elasticsearch/plugin/lang-mustache-client/7.8.0/lang-mustache-client-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/7.8.0/f40599e0461825f19b43c5a98f388a29b9c07114/lang-mustache-client-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/7.8.0/f40599e0461825f19b43c5a98f388a29b9c07114/lang-mustache-client-7.8.0-sources.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/7.8.0/f40599e0461825f19b43c5a98f388a29b9c07114/lang-mustache-client-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>

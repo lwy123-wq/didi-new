@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: org.elasticsearch:elasticsearch:7.8.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/7.8.0/e87ef417087e4edcb1955d9239fcbc07413160c5/elasticsearch-7.8.0.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/7.8.0/e87ef417087e4edcb1955d9239fcbc07413160c5/elasticsearch-7.8.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch/7.8.0/elasticsearch-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/7.8.0/f025eebb5d8bb320965528440b834a4e38ddd52c/elasticsearch-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/7.8.0/f025eebb5d8bb320965528440b834a4e38ddd52c/elasticsearch-7.8.0-sources.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/7.8.0/f025eebb5d8bb320965528440b834a4e38ddd52c/elasticsearch-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>

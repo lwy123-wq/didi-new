@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: org.elasticsearch:elasticsearch-geo:7.8.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-geo/7.8.0/63b2ff3a13e4678a046e427f02ae7130533ec0e5/elasticsearch-geo-7.8.0.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-geo/7.8.0/63b2ff3a13e4678a046e427f02ae7130533ec0e5/elasticsearch-geo-7.8.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch-geo/7.8.0/elasticsearch-geo-7.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-geo/7.8.0/585fe9cbfbedc6697fc761d3fabc47c34aac9cb5/elasticsearch-geo-7.8.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-geo/7.8.0/585fe9cbfbedc6697fc761d3fabc47c34aac9cb5/elasticsearch-geo-7.8.0-sources.jar!/" />
       <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-geo/7.8.0/585fe9cbfbedc6697fc761d3fabc47c34aac9cb5/elasticsearch-geo-7.8.0-sources.jar!/" />
     </SOURCES>
   </library>

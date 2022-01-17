@@ -137,4 +137,25 @@ public class RecruitDao {
         return jdbcTemplate.update(sql,job,company);
 
     }
+
+    public List<Recruit> showMessage(String Rec_company){
+        String sql = "Select * FROM Recruit WHERE Rec_company=?";
+        final List<Recruit> list =new ArrayList<>();
+        jdbcTemplate.query(sql, new Object[]{Rec_company}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                Recruit re = new Recruit();
+                re.setRec_company(rs.getString("Rec_company"));
+                re.setRec_logo(rs.getString("Rec_logo"));
+                re.setRec_address(rs.getString("Rec_address"));
+                re.setRec_job(rs.getString("Rec_job"));
+                re.setRec_category(rs.getString("Rec_category"));
+                re.setRec_salary(rs.getString("Rec_salary"));
+                re.setRec_Duration(rs.getString("Rec_Duration"));
+                re.setRec_experience(rs.getString("Rec_experience"));
+                list.add(re);
+            }
+        });
+        return list;
+    }
 }
