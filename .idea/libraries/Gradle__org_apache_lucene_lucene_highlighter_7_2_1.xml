@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: org.apache.lucene:lucene-highlighter:7.2.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/2f4b8c93563409cfebb36d910c4dab4910678689/lucene-highlighter-7.2.1.jar!/" />
-      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/2f4b8c93563409cfebb36d910c4dab4910678689/lucene-highlighter-7.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/2f4b8c93563409cfebb36d910c4dab4910678689/lucene-highlighter-7.2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-highlighter/7.2.1/lucene-highlighter-7.2.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/25b102cfa86173ee78cb067316f7cac591adc0ff/lucene-highlighter-7.2.1-sources.jar!/" />
-      <root url="jar://$USER_HOME$/文档/caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/25b102cfa86173ee78cb067316f7cac591adc0ff/lucene-highlighter-7.2.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.2.1/25b102cfa86173ee78cb067316f7cac591adc0ff/lucene-highlighter-7.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

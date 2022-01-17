@@ -1,6 +1,7 @@
 package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,34 +9,51 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.entity.Report;
 import sun.com.didi.service.RunTimeServiceImpl;
+import sun.com.didi.util.CookieUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
+import java.util.Map;
 
 @Controller
 public class RunTimeController {
+    public static boolean chech =false;
     //签到
     @Autowired
     private RunTimeServiceImpl runTimeService;
     @PostMapping(value = "/OF")
     @ResponseBody
-    public String tupleof(@RequestBody String user) throws Exception {
-        String s = URLDecoder.decode(user, "UTF-8");
+    public boolean tupleof(HttpServletRequest request, @RequestBody int check_times) throws Exception {
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        String s = URLDecoder.decode(username, "UTF-8");
         String stri[] = s.split("=");
         String query = stri[1];
         Report runtime = runTimeService.runtime(query);
         String utcTime = runtime.getTime();
         int time = Integer.parseInt(utcTime);
         if (time<0){
-            return "sucess";
+            return true;
             /*结算工资*/
         }else {
             int timeplus = time - 1;
             String s1 = Integer.toString(timeplus);
             if (runTimeService.update(s1, query) == 1) {
-                return "success";
+                chech=chech(check_times);
+                return chech;
             }
         }
-       return "error";
+       return chech;
+    }
+    @Scheduled(cron = "0 0 23 * * ?")
+    public void ReturnCheck(){
+        RunTimeController.chech=false;
+    }
+    public boolean chech(int check){
+        if (check>=1){
+            return true;
+        }
+        return false;
     }
     /*续约*/
     @PostMapping(value = "/offtime")
