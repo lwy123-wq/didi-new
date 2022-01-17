@@ -27,6 +27,8 @@ public class MatchController {
     public String ca;
     public String pr;
     public String co;
+    public String company1;
+
     static ConcurrentLinkedQueue queue=new ConcurrentLinkedQueue();
     static ConcurrentLinkedQueue queue1=new ConcurrentLinkedQueue();
     @Autowired
@@ -108,6 +110,7 @@ public class MatchController {
     @PostMapping(value = "/success")
     @ResponseBody
     public String MatchSuccess(@RequestBody String company, HttpServletRequest request) throws UnsupportedEncodingException {
+        company1=company;
         String s = URLDecoder.decode(company,"UTF-8");
         String stri[] = s.split("=");
         String query = stri[1];
@@ -121,11 +124,15 @@ public class MatchController {
         String ff=Integer.toString(dd);
         if(recruitService.update(ff,query)==1){
             queue1.poll();
+
             return "success";
         }else {
             return "error";
         }
     }
+
+
+
 
 
 }
