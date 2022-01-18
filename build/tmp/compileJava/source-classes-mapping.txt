@@ -132,8 +132,8 @@ sun/com/didi/chat/UserChatServer.java
  sun.com.didi.chat.UserChatServer
 sun/com/didi/entity/Node.java
  sun.com.didi.entity.Node
-sun/com/didi/service/PayServiceImpl.java
- sun.com.didi.service.PayServiceImpl
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
 sun/com/didi/controller/JobController.java
  sun.com.didi.controller.JobController
 sun/com/didi/service/RunTimeServiceImpl.java
@@ -193,7 +193,7 @@ sun/com/didi/service/CoordinateService.java
  sun.com.didi.service.CoordinateService
 sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
+sun/com/didi/service/PayServiceImpl.java
+ sun.com.didi.service.PayServiceImpl
 sun/com/didi/util/AlipayUtil.java
  sun.com.didi.util.AlipayUtil

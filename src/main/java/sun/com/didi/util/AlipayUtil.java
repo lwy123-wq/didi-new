@@ -22,6 +22,8 @@ public class AlipayUtil {
         );
         //2、设置请求参数
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+
+
         //页面跳转同步通知页面路径
         alipayRequest.setReturnUrl(PropertiesConfig.getKey("return_url"));
         // 服务器异步通知页面路径
