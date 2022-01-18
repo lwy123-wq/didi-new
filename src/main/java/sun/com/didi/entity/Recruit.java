@@ -12,7 +12,7 @@ public class Recruit {
     private String Rec_experience;
     private String UTCTime;
 
-    public Recruit(String rec_company, String rec_logo, String rec_address, String rec_job, String rec_category, String rec_salary, String rec_Duration, String rec_experience,String UTCTime) {
+    public Recruit(String rec_company, String rec_logo, String rec_address, String rec_job, String rec_category, String rec_salary, String rec_Duration,String UTCTime, String rec_experience) {
         Rec_company = rec_company;
         Rec_logo = rec_logo;
         Rec_address = rec_address;
@@ -21,6 +21,7 @@ public class Recruit {
         Rec_salary = rec_salary;
         Rec_Duration = rec_Duration;
         Rec_experience = rec_experience;
+        this.UTCTime = UTCTime;
     }
 
     public Recruit() {

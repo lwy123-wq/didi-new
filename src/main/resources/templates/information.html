@@ -12,7 +12,7 @@
                 data: {'name': $("#name").val(), 'phone': $("#phone").val(), 'id_code': $("#id_code").val()
                     , 'card': $("#card").val(), 'school': $("#school").val(), 'email': $("#email").val()
                     , 'marriage': $("#marriage").val(), 'address': $("#address").val(), 'city': $("#city").val()
-                    , 'year': $("#year").val(), 'education': $("#education").val()
+                    , 'education': $("#education").val()
                 },
                 success: function (res) {
                     if(res=="success"){
@@ -139,14 +139,7 @@
             <td><select name="province" id="address" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
             <td>城市：</td><td><select name="city" id="city"><option>请选择城市</option></select></td>
         </tr>
-        <tr>
-            <td>工种</td>
 
-            <td><select name="province" id="gongzhong" onchange="provinc(this.selectedIndex)"><option>请选择工种</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
-            <td>年限：</td><td><select name="city" id="year"><option>请选择年限</option></select></td>
-
-
-        </tr>
         <tr>
             <td>最高学历</td>
             <td><input style="width: 95%; " type="text" id="education"></td>
@@ -167,28 +160,6 @@
 </body>
 </html>
 <script type="text/javascript"  th:inline="none">
-    var gongzhongs=['请选择工种','长工（按年结）','短工(按月结)'];
-    var years =[['请选择年限'],['1年','2年','3年','4年','5年','6年','7年','8年','9年','10年'],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]];
-    function ini(){
-        var provinces = document.getElementById('gongzhong');
-        //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
-        provinces.length=gongzhongs.length;
-        for(var i=0;i<gongzhongs.length;i++){
-            provinces.options[i].text=gongzhongs[i];
-            provinces.options[i].value=gongzhongs[i];
-        }
-    }
-    function provinc(n){
-        var cit = document.getElementById('year');
-        var citystem=years[n];
-        cit.length=citystem.length;
-        for(var i=0;i<citystem.length;i++){
-            cit.options[i].text=citystem[i];
-            cit.options[i].value=citystem[i];
-        }
-        cit.options[0].selected=true;
-    }
-    ini();
 
 
 

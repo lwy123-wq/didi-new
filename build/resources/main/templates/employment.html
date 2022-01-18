@@ -36,20 +36,21 @@
             $.ajax({
                 url: "/Recruit",
                 type: 'POST',
-                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#textt").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
-                    'Rec_Duration': $("#Rec_Duration").val(),'Rec_experience': $("#Rec_experience").val()},
+                data: {'Rec_company': $("#Rec_company").val(),'Rec_logo': $("#textt").val(),'Rec_address': $("#Rec_address").val(),'Rec_job': $("#Rec_job").val(),'Rec_category': $("#Rec_category").val(),'Rec_salary': $("#Rec_salary").val(),
+                    'Rec_Duration': $("#Rec_Duration").val(),'UTCTime': $("#UTCTime").val(),'Rec_experience': $("#Rec_experience").val()},
                 success: function (res) {
-                    if(res=="数据添加成功！"){
-                        function employment(){
+                    if(res=="数据添加成功!"){
+                        function employment1(){
                             var Rec_company=document.querySelector('#Rec_company');
-                            //window.location.href='detailed?valus='+ Rec_company.value;
+                            window.location.href='detailed?valus='+ Rec_company.value;
                         }
-                        employment()
+                        employment1()
                     }else{
-                        alert("error");
+                        alert("erroraaaaaaaaaaa");
                     }
                 },
                 error: function (res) {
+                    console.log( $("#gongzhong").val())
                     alert("error!!!!!")
                 }
             });
@@ -237,8 +238,8 @@
         <tr>
             <td>工种</td>
 
-            <td><select name="province" id="gongzhong" onchange="provinc(this.selectedIndex)"><option>请选择工种</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
-            <td>年限：</td><td><select name="city" id="year"><option>请选择年限</option></select></td>
+            <td><select name="province" id="Rec_Duration" onchange="provinc(this.selectedIndex)"><option>请选择工种</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
+            <td>年限：</td><td><select name="city" id="UTCTime"><option>请选择年限</option></select></td>
         </tr>
         <tr>
             <td>工作要求</td>
@@ -260,9 +261,12 @@
 <div class="weidu" id="weidu" style="opacity: 0"></div>
 <script type="text/javascript">
     var gongzhongs=['请选择工种','长工（按年结）','短工(按月结)'];
-    var years =[['请选择年限'],['1年','2年','3年','4年','5年','6年','7年','8年','9年','10年'],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]];
+    var years =[
+        ['请选择年限'],
+        ["1年","2年","3年","4年","5年","6年","7年","8年","9年","10年"],["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]
+    ];
     function ini(){
-        var provinces = document.getElementById('gongzhong');
+        var provinces = document.getElementById('Rec_Duration');
         //给选择框一个高度，可直接写进数据，不然要先创建dom元素option再录值
         provinces.length=gongzhongs.length;
         for(var i=0;i<gongzhongs.length;i++){
@@ -271,7 +275,7 @@
         }
     }
     function provinc(n){
-        var cit = document.getElementById('year');
+        var cit = document.getElementById('UTCTime');
         var citystem=years[n];
         cit.length=citystem.length;
         for(var i=0;i<citystem.length;i++){

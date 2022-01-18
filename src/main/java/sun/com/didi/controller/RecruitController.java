@@ -37,24 +37,24 @@ public class RecruitController {
     @PostMapping(value = "/Recruit")
     @ResponseBody
     @Cacheable(cacheNames = "Recruit",key = "#Rec_company+'-'+#Rec_logo+'-'+#Rec_category+'-'+#Rec_salary+'-'+#Rec_Duration+'-'+#Rec_experience")
-    public String Recruit(HttpServletRequest request, HttpServletResponse response, String Rec_company, String Rec_logo, String Rec_address,String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration, String Rec_experience,String UTCTime) throws Exception {
+    public String Recruit(HttpServletRequest request, HttpServletResponse response, String Rec_company, String Rec_logo, String Rec_address,String Rec_job, String Rec_category, String Rec_salary, String Rec_Duration,String UTCTime, String Rec_experience) throws Exception {
         Recruit unit =unitService.findByCompany(Rec_company);
         int expire = 60 * 60 * 24 * 7;  //表示7天
         if (unit.getRec_company()==null){
-            int insert = unitService.insert(Rec_company, Rec_logo,Rec_address, Rec_job,Rec_category, Rec_salary, Rec_Duration, Rec_experience,UTCTime);
+            int insert = unitService.insert(Rec_company, Rec_logo,Rec_address, Rec_job,Rec_category, Rec_salary, Rec_Duration,UTCTime, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
-            try {
-                /*bloomFilterService.addByBloomFilter(bloomFilter,Rec_company,Rec_company);
-                bloomFilterService.addByBloomFilter(bloomFilter,Rec_category,Rec_category);*/
+            /*try {
+                *//*bloomFilterService.addByBloomFilter(bloomFilter,Rec_company,Rec_company);
+                bloomFilterService.addByBloomFilter(bloomFilter,Rec_category,Rec_category);*//*
             } catch (Exception e) {
                 e.printStackTrace();
                 return "添加失败";
-            }
+            }*/
             if (insert>0){
-                return "数据添加成功！";
+                return "数据添加成功!";
             }
         }
-        return "该公司或公司logo已注册！";
+        return "该公司或公司logo已注册!";
 
     }
 
