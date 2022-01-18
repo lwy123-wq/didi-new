@@ -40,11 +40,13 @@ public class RunTimeController {
             return true;
             /*结算工资*/
         }else {
-            int timeplus = time - 1;
-            String s1 = Integer.toString(timeplus);
-            if (runTimeService.update(s1, username) == 1) {
-                chech=chech(Integer.parseInt(query2));
-                return chech;
+            if (RunTimeController.chech==false){
+                int timeplus = time - 1;
+                String s1 = Integer.toString(timeplus);
+                if (runTimeService.update(s1, username) == 1) {
+                    chech=chech(Integer.parseInt(query2));
+                    return chech;
+                }
             }
         }
        return chech;
