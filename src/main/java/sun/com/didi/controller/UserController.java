@@ -43,9 +43,9 @@ public class UserController {
     @PostMapping(value = "/loginn")
     @ResponseBody
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
-    @Cacheable(cacheNames = "login",key = "#username+'-'+#password")
+   // @Cacheable(cacheNames = "login",key = "#username+'-'+#password")
     public String login(HttpServletRequest request, HttpServletResponse response, String username, String password, Model model){
-        System.out.println( Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
+        System.out.println("AAAAAAAAAA"+username+ Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         int expire = 60 * 60 * 24 * 20;  //表示7天
         if(user.getName()==null||user.getPasswd()==null){
@@ -139,5 +139,15 @@ public class UserController {
         model.addAttribute("username",username);
         model.addAttribute("company",company);
         return "shou";
+    }
+    @PostMapping(value = "/token")
+    public String token(String token,HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        int token1=userService.insertToken(token,username);
+        if(token1!=0){
+            return "success";
+        }
+        return "error";
     }
 }

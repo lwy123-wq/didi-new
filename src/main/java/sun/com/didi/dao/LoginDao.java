@@ -45,7 +45,7 @@ public class LoginDao {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 user.setName(resultSet.getString(2));
-                user.setPasswd(resultSet.getString(5));
+                user.setPasswd(resultSet.getString(3));
             }
         });
         return user;
@@ -74,5 +74,10 @@ public class LoginDao {
             }
         });
         return login;
+    }
+
+    public int insertToken(String token,String name){
+        String sql="update Login set token=? where name =?";
+        return jdbcTemplate.update(sql, token,name );
     }
 }

@@ -31,12 +31,9 @@ sun/com/didi/dao/KdTreeDao.java
  sun.com.didi.dao.KdTreeDao
 sun/com/didi/util/CodeUtil.java
  sun.com.didi.util.CodeUtil
-sun/com/didi/dao/LoginDao.java
- sun.com.didi.dao.LoginDao
- sun.com.didi.dao.LoginDao$1
- sun.com.didi.dao.LoginDao$2
- sun.com.didi.dao.LoginDao$3
- sun.com.didi.dao.LoginDao$4
+sun/com/didi/service/TrieTreeImpl.java
+ sun.com.didi.service.TrieNode
+ sun.com.didi.service.TrieTreeImpl
 sun/com/didi/entity/IpUtil.java
  sun.com.didi.entity.IpUtil
 sun/com/didi/chat/singlechat/SingleChatServer.java
@@ -60,8 +57,8 @@ sun/com/didi/controller/Insert_position_EsController.java
  sun.com.didi.controller.Insert_position_EsController
 sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
-sun/com/didi/service/UserServiceImpl.java
- sun.com.didi.service.UserServiceImpl
+sun/com/didi/service/RecruitServiceImpl.java
+ sun.com.didi.service.RecruitServiceImpl
 sun/com/didi/controller/PictureController.java
  sun.com.didi.controller.PictureController
 sun/com/didi/chat/JobServerInitializer.java
@@ -94,8 +91,8 @@ sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
 sun/com/didi/chat/UserServerInitializer.java
  sun.com.didi.chat.UserServerInitializer
-sun/com/didi/controller/UserController.java
- sun.com.didi.controller.UserController
+sun/com/didi/service/UserServiceImpl.java
+ sun.com.didi.service.UserServiceImpl
 sun/com/didi/service/IEmailService.java
  sun.com.didi.service.IEmailService
 sun/com/didi/service/DetailedServiceImpl.java
@@ -185,15 +182,18 @@ sun/com/didi/dao/RecruitDao.java
  sun.com.didi.dao.RecruitDao$7
  sun.com.didi.dao.RecruitDao$8
  sun.com.didi.dao.RecruitDao$9
-sun/com/didi/controller/MatchController.java
- sun.com.didi.controller.MatchController
 sun/com/didi/controller/RecruitController.java
  sun.com.didi.controller.RecruitController
-sun/com/didi/service/RecruitServiceImpl.java
- sun.com.didi.service.RecruitServiceImpl
 sun/com/didi/kafka/Producer.java
  sun.com.didi.kafka.Producer
  sun.com.didi.kafka.Producer$1
-sun/com/didi/service/TrieTreeImpl.java
- sun.com.didi.service.TrieNode
- sun.com.didi.service.TrieTreeImpl
+sun/com/didi/controller/MatchController.java
+ sun.com.didi.controller.MatchController
+sun/com/didi/dao/LoginDao.java
+ sun.com.didi.dao.LoginDao
+ sun.com.didi.dao.LoginDao$1
+ sun.com.didi.dao.LoginDao$2
+ sun.com.didi.dao.LoginDao$3
+ sun.com.didi.dao.LoginDao$4
+sun/com/didi/controller/UserController.java
+ sun.com.didi.controller.UserController

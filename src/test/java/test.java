@@ -7,6 +7,7 @@ import sun.com.didi.controller.DetailedController;
 import sun.com.didi.controller.HostDataController;
 import sun.com.didi.dao.CoordinateDao;
 import sun.com.didi.dao.JobDao;
+import sun.com.didi.dao.LoginDao;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.service.*;
@@ -34,12 +35,15 @@ public class test {
     private DetailedController detailedController;
     @Autowired
     private CoordinateDao coordinateDao;
+    @Autowired
+    private LoginDao loginDao;
     private static int sum1=1;
     private static int sum2=1;
     private static int sum3=3;
     private static int sum4=4;
     @Test
     public void t() throws Exception {
+        //System.out.println(loginDao.insertToken("1", "lxj"));
        /* System.out.println(coordinateDao.selectNode());
         System.out.println(unitService.select());
         System.out.println(coordinateDao.selectCoordinate(104.195345, 35.86133));*/

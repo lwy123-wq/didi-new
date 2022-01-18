@@ -957,13 +957,13 @@ SELECT|sys.sys_config
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="304" parent="292" name="code">
+    <column id="304" parent="292" name="email">
       <Position>4</Position>
-      <DataType>int|0s</DataType>
-    </column>
-    <column id="305" parent="292" name="email">
-      <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="305" parent="292" name="token">
+      <Position>5</Position>
+      <DataType>varchar(10)|0s</DataType>
     </column>
     <key id="306" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

@@ -31,4 +31,7 @@ public class UserServiceImpl {
         return loginDao.findEmail(name);
 
     }
+    public int insertToken(String token,String name){
+        return loginDao.insertToken(token,name);
+    }
 }
