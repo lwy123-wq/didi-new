@@ -49,5 +49,16 @@ public class RunTimeDao {
         });
         return report;
     }
+    public Report selectUser(String name){
+        String sql="select user from Report where company=?";
+        Report report=new Report();
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                report.setUser(rs.getString(1));
+            }
+        });
+        return report;
+    }
 
 }

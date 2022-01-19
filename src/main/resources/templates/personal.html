@@ -222,15 +222,34 @@
                     rgba(255, 255, 255, 0.8),
                     rgba(255, 255, 255, 0.5)
             );
-            width: 839px;
+            width: 1038px;
             height: 500px;
             padding: 20px;
             border-radius: 30px;
             position: absolute;
             top: 214px;
-            right: 200px;
+            right: 10px;
             overflow: auto;
 
+        }
+        .nn {
+            width: 137px;
+            height: 126px;
+            /*position: absolute;
+            top:83px;
+            left: 65px;*/
+            text-align: center;
+            line-height: 126px;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        .professio{
+
+        }
+        .experienc {
+            float: left;
+            margin-top: 69px;
+            margin-left: -487px;
         }
 
 
@@ -376,7 +395,21 @@
         </div>
     </div>
 </div>
-<div class="order" style="display: none"></div>
+<div class="order" style="display: none">
+    <!--<div class="xiang">
+
+        <div class="nn" >张思惠</div><div class="name" id="namee">13111232623</div>
+        <div class="money">清华大学</div>
+        <div class="detail">查看详情</div>
+        <div class="zixun" onclick="to()"><a href="##"> 详细咨询</a></div>
+        <div class="xia">
+            <div class="profession">本科</div><div class="time">已婚</div> <div class="nian">天津市</div> <div class="number">河西区</div>
+            <div class="experienc">1592807515@qq.com</div>
+        </div>
+
+    </div>
+-->
+</div>
 <div class="qiandao" id='qiandao' style="opacity: 0"></div>
 <script>
     token();
@@ -405,7 +438,131 @@
             type: 'POST',
             success: function (res) {
                 if(res!=null){
-                    console.log(res)
+                    var jing=document.querySelector('.order');
+                    for(var i =0;i<res.length;i++) {
+                        var xiang = document.createElement('div');
+                        jing.appendChild(xiang);
+                        xiang.className = 'xiang';
+
+                        var picc = document.createElement('div');
+                        xiang.appendChild(picc);
+                        picc.className = 'picc';
+                        picc.style.backgroundImage='url('+res[i].rec_logo+')';
+
+                        var name = document.createElement('div');
+                        xiang.appendChild(name);
+                        name.className = 'name';
+                        name.id = 'name';
+                        name.innerHTML =  res[i].rec_company ;
+
+                        name.addEventListener('click',function () {
+
+                            this.id='namee';
+                            alert($("#namee").html());
+                            HostData();
+                            click++;
+
+                            this.id='name';
+                            window.location.href = "showdetail?valus=" + this.innerHTML;
+
+
+                        });
+
+
+                        var money = document.createElement('div');
+                        xiang.appendChild(money);
+                        money.className = 'money';
+                        money.innerHTML = res[i].rec_salary;
+
+                        var detail = document.createElement('div');
+                        xiang.appendChild(detail);
+                        detail.className = 'detail';
+                        detail.innerHTML = '查看详情';
+
+                        var zixun = document.createElement('div');
+                        xiang.appendChild(zixun);
+                        zixun.className = 'zixun';
+                        zixun.innerHTML = '<a href="##">' + '详细咨询' + '</a>';
+                        zixun.onclick = function () {
+                            var name = document.querySelector('#name');
+                            window.location.href = "SingleChat?valus=" + name.innerHTML;
+                        };
+
+                        var xia = document.createElement('div');
+                        xiang.appendChild(xia);
+                        xia.className = 'xia';
+
+                        var profession = document.createElement('div');
+                        xia.appendChild(profession);
+                        profession.className = 'profession';
+                        profession.innerHTML = res[i].rec_category;
+
+                        var time = document.createElement('div');
+                        xia.appendChild(time);
+                        time.className = 'time';
+                        time.innerHTML = res[i].rec_Duration;
+                        var timee = document.createElement('div');
+                        xia.appendChild(timee);
+                        timee.className = 'nian';
+                        timee.innerHTML = res[i].utctime;
+
+                        var number = document.createElement('div');
+                        xia.appendChild(number);
+                        number.className = 'number';
+
+
+                        var experience = document.createElement('div');
+                        xia.appendChild(experience);
+                        experience.className = 'experienc';
+                        experience.innerHTML = res[i].rec_experience;
+
+                    }
+                    var details =document.querySelectorAll('.detail');
+                    var xiangs =document.querySelectorAll('.xiang');
+                    var xias =document.querySelectorAll('.xia');
+
+                    var flag =0;
+                    for (var i=0;i<details.length;i++) {
+                        details[i].setAttribute('index', i);
+
+                        details[i].onclick = function () {
+                            var index = this.getAttribute('index');
+
+                            if (flag === 0) {
+
+
+                                this.parentNode.style.height = '278px';
+
+
+                                // xias[index].style.display= 'block';
+                                xias[index].style.animationName = 'fadeInAnimation';
+                                xias[index].style.animationDelay = '1.5s';
+                                xias[index].style.animationDuration = '.5s';
+                                xias[index].style.animationIterationCount = '1';
+                                xias[index].style.animationFillMode = ' forwards';
+
+                                flag = 1;
+                            } else {
+
+                                xias[index].style.animationName = 'fade';
+                                xias[index].style.animationDelay = '0.01s';
+                                xias[index].style.animationDuration = '.5s';
+                                xias[index].style.animationIterationCount = '1';
+                                xias[index].style.animationFillMode = ' forwards';
+                                // xias[index].style.display = 'none';
+
+                                this.parentNode.style.height = '139px';
+
+
+                                flag = 0;
+                            }
+
+
+                            xias[index].className = 'xia jingg';
+                        }
+
+
+                    }
                 }else{
                     alert("error");
                 }
@@ -421,7 +578,121 @@
             type: 'POST',
             success: function (res) {
                 if(res!=null){
-                    console.log(res)
+                    var jing=document.querySelector('.order');
+                    for(var i =0;i<res.length;i++) {
+                        var xiang = document.createElement('div');
+                        jing.appendChild(xiang);
+                        xiang.className = 'xiang';
+
+                        var picc = document.createElement('div');
+                        xiang.appendChild(picc);
+                        picc.className = 'nn';
+                        picc.innerHTML=res[i].name;
+
+                        var name = document.createElement('div');
+                        xiang.appendChild(name);
+                        name.className = 'name';
+                        name.id = 'namee';
+                        name.innerHTML =  res[i].phone;
+
+
+
+
+                        var money = document.createElement('div');
+                        xiang.appendChild(money);
+                        money.className = 'money';
+                        money.innerHTML = res[i].school;
+
+                        var detail = document.createElement('div');
+                        xiang.appendChild(detail);
+                        detail.className = 'detail';
+                        detail.innerHTML = '查看详情';
+
+                        var zixun = document.createElement('div');
+                        xiang.appendChild(zixun);
+                        zixun.className = 'zixun';
+                        zixun.innerHTML = '<a href="##">' + '详细咨询' + '</a>';
+                        zixun.onclick = function () {
+                            var name = document.querySelector('#name');
+                            window.location.href = "SingleChat?valus=" + picc.innerHTML;
+                        };
+
+                        var xia = document.createElement('div');
+                        xiang.appendChild(xia);
+                        xia.className = 'xia';
+
+                        var profession = document.createElement('div');
+                        xia.appendChild(profession);
+                        profession.className = 'profession';
+                        profession.innerHTML = res[i].education;
+
+                        var time = document.createElement('div');
+                        xia.appendChild(time);
+                        time.className = 'time';
+                        time.innerHTML = res[i].marriage;
+                        var timee = document.createElement('div');
+                        xia.appendChild(timee);
+                        timee.className = 'nian';
+                        timee.innerHTML = res[i].address;
+
+                        var number = document.createElement('div');
+                        xia.appendChild(number);
+                        number.className = 'number';
+                        number.innerHTML=res[i].city;
+
+
+                        var experience = document.createElement('div');
+                        xia.appendChild(experience);
+                        experience.className = 'experienc';
+                        experience.innerHTML = res[i].email;
+
+                    }
+                    var details =document.querySelectorAll('.detail');
+                    var xiangs =document.querySelectorAll('.xiang');
+                    var xias =document.querySelectorAll('.xia');
+
+                    var flag =0;
+                    for (var i=0;i<details.length;i++) {
+                        details[i].setAttribute('index', i);
+
+                        details[i].onclick = function () {
+                            var index = this.getAttribute('index');
+
+                            if (flag === 0) {
+
+
+                                this.parentNode.style.height = '278px';
+
+
+                                // xias[index].style.display= 'block';
+                                xias[index].style.animationName = 'fadeInAnimation';
+                                xias[index].style.animationDelay = '1.5s';
+                                xias[index].style.animationDuration = '.5s';
+                                xias[index].style.animationIterationCount = '1';
+                                xias[index].style.animationFillMode = ' forwards';
+
+                                flag = 1;
+                            } else {
+
+                                xias[index].style.animationName = 'fade';
+                                xias[index].style.animationDelay = '0.01s';
+                                xias[index].style.animationDuration = '.5s';
+                                xias[index].style.animationIterationCount = '1';
+                                xias[index].style.animationFillMode = ' forwards';
+                                // xias[index].style.display = 'none';
+
+                                this.parentNode.style.height = '139px';
+
+
+                                flag = 0;
+                            }
+
+
+                            xias[index].className = 'xia jingg';
+                        }
+
+
+                    }
                 }else{
                     alert("error");
                 }
@@ -431,8 +702,45 @@
             }
         });
     }
+personToken()
+    function personToken() {
+        $.ajax({
+            url: "/sendToken",
+            type: 'POST',
+            success: function (res) {
+                if(res=='1'){
+                    console.log(res)
+                    JobQuery();
+                }else{
 
+                    console.log(res)
 
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    function JobQuery() {
+        $.ajax({
+            url: "/JobQuery",
+            type: 'POST',
+            success: function (res) {
+                if(res!=null){
+                    console.log(res)
+
+                }else{
+
+                    console.log(res)
+
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
 
 
 

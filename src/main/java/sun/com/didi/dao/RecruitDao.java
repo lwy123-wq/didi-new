@@ -170,17 +170,16 @@ public class RecruitDao {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 JobInfo jobInfo = new JobInfo();
-                jobInfo.setPhone(rs.getString(2));
-                jobInfo.setName(rs.getString(1));
-                jobInfo.setEducation(rs.getString(7));
-                jobInfo.setCity(rs.getString("city"));
-                jobInfo.setAddress("address");
-                jobInfo.setMarriage("marriage");
-                jobInfo.setEmail("email");
-                jobInfo.setSchool("school");
-                jobInfo.setCard("card");
-                jobInfo.setId_code("id_code");
-
+                jobInfo.setName(rs.getString(2));
+                jobInfo.setPhone(rs.getString(3));
+                jobInfo.setId_code(rs.getString(4));
+                jobInfo.setCard(rs.getString(5));
+                jobInfo.setSchool(rs.getString(6));
+                jobInfo.setEmail(rs.getString(7));
+                jobInfo.setMarriage(rs.getString(8));
+                jobInfo.setAddress(rs.getString(9));
+                jobInfo.setEducation(rs.getString(10));
+                jobInfo.setCity(rs.getString(11));
                 list.add(jobInfo);
 
             }

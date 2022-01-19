@@ -30,7 +30,7 @@ public class JobDao implements JobService {
     }
 
     public List<JobInfo> SelectJob(String name){
-        String sql = "SELECT * FROM jobinfo where name=?";
+        String sql = "SELECT * FROM jobinfo where jobname=?";
         List<JobInfo> list = jdbcTemplate.query(sql, new Object[]{name},new RowMapper<JobInfo>() {
             @Override
             public JobInfo mapRow(ResultSet rs, int rowNum) throws SQLException {

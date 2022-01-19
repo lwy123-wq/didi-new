@@ -152,7 +152,8 @@ public class MatchController {
     public List showMatchPerson(HttpServletRequest request){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username1 = map.get("username");
-        List<JobInfo> list = recruitService.showMatchPerson(username1);
+        Report report=runTimeService.selectUser(username1);
+        List<JobInfo> list = recruitService.showMatchPerson(report.getUser());
 
         return list;
     }

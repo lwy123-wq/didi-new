@@ -26,4 +26,7 @@ public class RunTimeServiceImpl {
     public Report select(String name){
         return runTimeDao.selectCompany(name);
     }
+    public Report selectUser(String name){
+        return runTimeDao.selectUser(name);
+    }
 }

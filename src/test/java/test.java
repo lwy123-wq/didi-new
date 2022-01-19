@@ -40,14 +40,16 @@ public class test {
     private LoginDao loginDao;
     @Autowired
     private RecruitDao recruitDao;
-
+    @Autowired
+    private JobServiceImpl jobService;
     private static int sum1=1;
     private static int sum2=1;
     private static int sum3=3;
     private static int sum4=4;
     @Test
     public void t() throws Exception {
-        System.out.println(recruitDao.showMatchCompany("天津顶园食品有限公司")+"aaaaaaaaaaaaaaaa");
+        //jobService.select
+        System.out.println(jobService.SelectJob("lwy"));
         //System.out.println(loginDao.insertToken("1", "lxj"));
        /* System.out.println(coordinateDao.selectNode());
         System.out.println(unitService.select());

@@ -47,8 +47,8 @@ public class UserController {
     /*password=DigestUtils.md5DigestAsHex(password.getBytes());*/
    // @Cacheable(cacheNames = "login",key = "#username+'-'+#password")
     public String login(HttpServletRequest request, HttpServletResponse response, String username, String password, Model model){
-        System.out.println("AAAAAAAAAA"+username+ Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
         Login user=userService.findByNameAndPassword(username, Base64.getEncoder().encodeToString(password.getBytes(StandardCharsets.UTF_8)));
+        //System.out.println(user.getName()+user.getPasswd());
         int expire = 60 * 60 * 24 * 20;  //表示7天
         if(user.getName()==null||user.getPasswd()==null){
             return "error";
@@ -65,7 +65,7 @@ public class UserController {
     }
     @PostMapping(value = "/registry")
     @ResponseBody
-    @Cacheable(cacheNames = "register",key = "#username+'-'+#password+'-'+#email")
+    //@Cacheable(cacheNames = "register",key = "#username+'-'+#password+'-'+#email")
     public String  register(String username,String password,String email){
         Login user =userService.findByName(username);
         if(user.getName() == null){
@@ -145,7 +145,7 @@ public class UserController {
     @PostMapping(value = "/token")
     @ResponseBody
     public String token(@RequestBody String token,HttpServletRequest request) throws UnsupportedEncodingException {
-        System.out.println(token+"dddddddddddddd");
+        //System.out.println(token+"dddddddddddddd");
         String s = URLDecoder.decode(token,"UTF-8");
         String stri[] = s.split("=");
         String core = stri[1];
