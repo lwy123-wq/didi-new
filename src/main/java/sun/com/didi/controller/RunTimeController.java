@@ -35,6 +35,7 @@ public class RunTimeController {
 
         Report runtime = runTimeService.runtime(username);
         String utcTime = runtime.getTime();
+
         int time = Integer.parseInt(utcTime);
         if (time<0){
             return true;

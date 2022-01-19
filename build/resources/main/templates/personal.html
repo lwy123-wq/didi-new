@@ -104,6 +104,7 @@
             border: 1px solid #3592c4;
             border-radius: 15px;
             padding-left: 10px;
+
         }
         .fo {
             font-size: 15px;
@@ -251,8 +252,48 @@
             margin-top: 69px;
             margin-left: -487px;
         }
+        #Rec_logo {
+            margin: 0 0 0 0;
+            border: 0 solid transparent;
+            position:absolute;
+            /*top:95px;*/
+            /*right:325px;*/
+            top:0;
+            left: 0;
+            height:36px;
+            filter:alpha(opacity:0);
+            opacity: 0;
+            width:75px;
+            z-index: 9999;
 
 
+        }
+        .zhen {
+            width: 75px;
+            height: 36px;
+            /*position: absolute;*/
+            /*top:95px;*/
+            /*left: 96px;*/
+            position: relative;
+            border: 1px solid #3592c4;
+            border-radius: 25px;
+            line-height: 36px;
+            text-align: center;
+        }
+        #preview {
+            margin-left: -36px;
+        }
+        /*#gong {*/
+        /*    position: absolute;*/
+        /*    top:0;*/
+        /*    right: 434px;*/
+        /*    width: 560px;*/
+        /*}*/
+
+        .tu {
+            width: 75px;
+            height: 85px;
+        }
 
     </style>
 </head>
@@ -314,7 +355,7 @@
 
     </div>
 </div>
-<form method="post"  onsubmit="return false" action="##"  class="fo" style="display: block">
+<form method="post"  onsubmit="return false" action="##"  class="fo" style="display: block" id="people">
 
     <table style="border: 1px;margin: 0 500px;"  cellpadding="5" cellspacing="0" >
         <tr>
@@ -349,9 +390,7 @@
         </tr>
 
         <tr>
-            <td>工作年限</td>
 
-            <td><div class="conten" style="width: 95%; " type="number" id="year"></div></td>
             <td>最高学历</td>
             <td><div class="conten" style="width: 95%; " type="text" id="education"></div></td>
 
@@ -367,6 +406,55 @@
         <!--                <input type="reset" value="退出" class="in">-->
         <!--            </td>-->
         <!--        </tr>-->
+    </table>
+
+</form>
+<form method="post"  onsubmit="return false" action="##"  class="fo" id="gong" style="display: none">
+
+    <table style="border: 1px;margin: 0 auto; width: 50%;padding: 40px;border-radius: 30px;"  cellpadding="5" cellspacing="0" >
+
+        <tr>
+            <td>公司名称</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+        <tr style="margin: 85px 0">
+            <td>公司logo</td>
+            <td><div class="tu"></div> </td>
+        </tr>
+        <tr>
+            <td>公司地址</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+
+        <tr>
+            <td>空缺职位</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+
+        <tr>
+            <td>职业类别</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+
+        <tr>
+            <td>月薪要求</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+        <tr>
+            <td>工种</td>
+
+            <td><div class="conte"></div> </td>
+
+        </tr>
+        <tr><td >年限：</td><td><div class="conte"></div> </td></tr>
+        <tr>
+            <td>工作要求</td>
+            <td><div class="conte"></div> </td>
+        </tr>
+
+
+
+
     </table>
 
 </form>
@@ -411,6 +499,7 @@
 -->
 </div>
 <div class="qiandao" id='qiandao' style="opacity: 0"></div>
+<div class="token"></div>
 <script>
     token();
     function token() {
@@ -702,19 +791,40 @@
             }
         });
     }
-personToken()
+    personToken();
+    var peopele =document.querySelector('#people');
+    var gong =document.querySelector('#gong');
+    var token =document.querySelector('.token');
+    var cal=document.querySelector('#cal');
+    if(token.innerHTML=='1')
+    {
+        peopele.style.display='block';
+        gong.style.display='none';
+        cal.style.display='block';
+
+    }else  if (token.innerHTML=='2'){
+
+        gong.style.display='block';
+        peopele.style.display='none';
+        cal.remove();
+    }
+
     function personToken() {
         $.ajax({
             url: "/sendToken",
             type: 'POST',
             success: function (res) {
+
                 if(res=='1'){
-                    console.log(res)
+                    console.log(res);
+                    var token =document.querySelector('.token');
+                    token.innerHTML=res;
                     JobQuery();
                 }else{
-                    companyInformation();
+                    var token =document.querySelector('.token');
+                    token.innerHTML=res;
                     console.log(res)
-
+                    showgongsi();
                 }
             },
             error: function (res) {
@@ -729,6 +839,16 @@ personToken()
             success: function (res) {
                 if(res!=null){
                     console.log(res)
+                    var conten =document.querySelectorAll('.conten');
+                    conten[0].innerHTML=res[0].phone;
+                    conten[1].innerHTML=res[0].name;
+                    conten[2].innerHTML=res[0].id_code;
+                    conten[3].innerHTML=res[0].card;
+                    conten[4].innerHTML=res[0].school;
+                    conten[5].innerHTML=res[0].email;
+                    conten[6].innerHTML=res[0].marriage;
+                    conten[7].innerHTML=res[0].address+res[0].city;
+                    conten[8].innerHTML=res[0].education;
 
                 }else{
 
@@ -741,14 +861,28 @@ personToken()
             }
         });
     }
-    function companyInformation() {
+    function showgongsi() {
         $.ajax({
             url: "/companyInformation",
             type: 'POST',
             success: function (res) {
                 if(res!=null){
-                    console.log(res)
+                    console.log(res.rec_experience)
 
+                    var conten =document.querySelectorAll('.conte');
+                    console.log(conten)
+                    conten[0].innerHTML=res.rec_company;
+                    conten[1].innerHTML=res.rec_address;
+                    conten[2].innerHTML=res.rec_job;
+                    conten[3].innerHTML=res.rec_category;
+                    conten[4].innerHTML=res.rec_salary;
+                    conten[5].innerHTML=res.rec_Duration;
+                    conten[6].innerHTML=res.utctime;
+                    conten[7].innerHTML=res.rec_experience;
+                    var tu =document.querySelector('.tu');
+                    tu.style.backgroundImage='url('+res.rec_logo+')';
+                    tu.style.backgroundSize='100%'
+                    tu.style.backgroundRepeat='no-repeat'
                 }else{
 
                     console.log(res)
@@ -947,25 +1081,40 @@ personToken()
     var inf =document.querySelector('#inf');
     var cal =document.querySelector('#cal');
     var calendar=document.querySelector('.calendar');
-    var foo=document.querySelector('.fo');
+    var foo=document.querySelectorAll('.fo');
     var orderr=document.querySelector('#order');
     var oorder =document.querySelector('.order');
+
     orderr.addEventListener('click',function () {
-        foo.style.display='none';
+        foo[0].style.display='none';
+        foo[1].style.display='none';
         calendar.style.display='none';
         oorder.style.display='block';
     });
 
     inf.addEventListener('click',function () {
-        foo.style.display='block';
+        var peopele =document.querySelector('#people');
+        var gong =document.querySelector('#gong');
+        var token =document.querySelector('.token');
+        if(token.innerHTML=='1')
+        {
+            peopele.style.display='block';
+            gong.style.display='none';
+
+        }else  {
+            gong.style.display='block';
+            peopele.style.display='none';
+        }
         calendar.style.display='none';
         oorder.style.display='none';
     });
     cal.addEventListener('click',function () {
-        foo.style.display='none';
+        foo[0].style.display='none';
+        foo[1].style.display='none';
         calendar.style.display='block';
         oorder.style.display='none';
     });
+
 
 </script>
 
