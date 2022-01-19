@@ -18,6 +18,7 @@ import java.util.Map;
 @Controller
 public class RunTimeController {
     public static boolean chech =false;
+    int T;
     //签到
     @Autowired
     private RunTimeServiceImpl runTimeService;
@@ -35,14 +36,22 @@ public class RunTimeController {
 
         Report runtime = runTimeService.runtime(username);
         String utcTime = runtime.getTime();
-
-        int time = Integer.parseInt(utcTime);
-        if (time<0){
+        String str[] = utcTime.split("年");
+        String demo = utcTime.substring(1);
+        String Tim = str[0];
+        if (demo.equals("年")){
+            int time = Integer.parseInt(Tim);
+             T  =time * 365;
+        }else {
+            int time = Integer.parseInt(Tim);
+            T  =time * 31;
+        }
+        if (T<0){
             return true;
             /*结算工资*/
         }else {
             if (RunTimeController.chech==false){
-                int timeplus = time - 1;
+                int timeplus = T - 1;
                 String s1 = Integer.toString(timeplus);
                 if (runTimeService.update(s1, username) == 1) {
                     chech=chech(Integer.parseInt(query2));

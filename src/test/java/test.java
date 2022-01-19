@@ -11,6 +11,7 @@ import sun.com.didi.dao.LoginDao;
 import sun.com.didi.dao.RecruitDao;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.entity.Report;
 import sun.com.didi.service.*;
 import sun.com.didi.util.LruCacheUtil;
 
@@ -42,6 +43,8 @@ public class test {
     private RecruitDao recruitDao;
     @Autowired
     private JobServiceImpl jobService;
+    @Autowired
+    private RunTimeServiceImpl runTimeService;
     private static int sum1=1;
     private static int sum2=1;
     private static int sum3=3;
@@ -49,7 +52,7 @@ public class test {
     @Test
     public void t() throws Exception {
         //jobService.select
-        System.out.println(jobService.SelectJob("lwy"));
+       // System.out.println(jobService.SelectJob("lwy"));
         //System.out.println(loginDao.insertToken("1", "lxj"));
        /* System.out.println(coordinateDao.selectNode());
         System.out.println(unitService.select());
@@ -162,6 +165,23 @@ public class test {
             System.out.println(zzz.get(sum4));
             sum4--;
         }*/
+
+        Report runtime = runTimeService.runtime("张思慧");
+        String utcTime = runtime.getTime();
+        String kk[] = utcTime.split("年");
+        String stri = utcTime.substring(1);
+        System.out.println(stri);
+        if (stri.equals("年")){
+            int time = Integer.parseInt(kk[0]);
+           int z= time * 365;
+            System.out.println(z);
+        }
+
+        //System.out.println(sss);
+    /*    System.out.println(query);
+        int time = Integer.parseInt(query);
+        int s=time * 365;
+        System.out.println(s);*/
     }
 
 }
