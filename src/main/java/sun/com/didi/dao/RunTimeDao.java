@@ -10,6 +10,9 @@ import sun.com.didi.entity.Report;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 @Repository
 public class RunTimeDao {
     @Autowired
@@ -38,27 +41,31 @@ public class RunTimeDao {
         String sql="INSERT INTO Report (UTCTime)VALUES(?)";
         return jdbcTemplate.update(sql, UTC.getTime());
     }
-    public Report selectCompany(String name){
+    public List<Report> selectCompany(String name){
         String sql="select company from Report where user=?";
-        Report report=new Report();
+        List<Report> list=new ArrayList<>();
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            Report report=new Report();
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 report.setCompany(rs.getString(1));
+                list.add(report);
             }
         });
-        return report;
+        return list;
     }
-    public Report selectUser(String name){
+    public List<Report> selectUser(String name){
         String sql="select user from Report where company=?";
+        List<Report> reportList=new ArrayList<>();
         Report report=new Report();
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 report.setUser(rs.getString(1));
+                reportList.add(report);
             }
         });
-        return report;
+        return reportList;
     }
 
 }

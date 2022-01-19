@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -43,13 +44,13 @@ public class RecruitController {
         if (unit.getRec_company()==null){
             int insert = unitService.insert(Rec_company, Rec_logo,Rec_address, Rec_job,Rec_category, Rec_salary, Rec_Duration,UTCTime, Rec_experience);
             CookieUtil.setCookie(request, response, "company",unit.getRec_company(), expire);
-            /*try {
-                *//*bloomFilterService.addByBloomFilter(bloomFilter,Rec_company,Rec_company);
-                bloomFilterService.addByBloomFilter(bloomFilter,Rec_category,Rec_category);*//*
+            try {
+                bloomFilterService.addByBloomFilter(bloomFilter,Rec_company,Rec_company);
+                bloomFilterService.addByBloomFilter(bloomFilter,Rec_category,Rec_category);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "添加失败";
-            }*/
+            }
             if (insert>0){
                 return "数据添加成功!";
             }
@@ -62,5 +63,14 @@ public class RecruitController {
     @ResponseBody
     public List<Recruit> selectRecruit(){
         return unitService.select();
+    }
+
+    @PostMapping(value = "/companyInformation")
+    @ResponseBody
+    public Recruit selectInformation(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username = map.get("username");
+        Recruit recruit=unitService.showMatchCompany(username);
+        return recruit;
     }
 }

@@ -6,6 +6,8 @@ import sun.com.didi.dao.RunTimeDao;
 import sun.com.didi.entity.Recruit;
 import sun.com.didi.entity.Report;
 
+import java.util.List;
+
 @Service
 public class RunTimeServiceImpl {
     @Autowired
@@ -23,10 +25,10 @@ public class RunTimeServiceImpl {
         return runTimeDao.insertime(new Report(UTCTime));
     }
 
-    public Report select(String name){
+    public List<Report> select(String name){
         return runTimeDao.selectCompany(name);
     }
-    public Report selectUser(String name){
+    public List<Report> selectUser(String name){
         return runTimeDao.selectUser(name);
     }
 }

@@ -141,13 +141,13 @@ public class RecruitDao {
 
     }
 
-    public List<Recruit> showMatchCompany(String Rec_company){
+    public Recruit showMatchCompany(String Rec_company){
         String sql = "Select * FROM Recruit WHERE Rec_company=?";
-        final List<Recruit> list =new ArrayList<>();
+        Recruit re = new Recruit();
         jdbcTemplate.query(sql, new Object[]{Rec_company}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                Recruit re = new Recruit();
+
                 re.setRec_company(rs.getString(2));
                 re.setRec_logo(rs.getString(3));
                 re.setRec_address(rs.getString(4));
@@ -157,19 +157,19 @@ public class RecruitDao {
                 re.setRec_Duration(rs.getString(8));
                 re.setUTCTime(rs.getString(9));
                 re.setRec_experience(rs.getString(10));
-                list.add(re);
             }
         });
-        return list;
+
+        return re;
     }
 
-    public List<JobInfo> showMatchPerson(String jobName){
+    public  JobInfo showMatchPerson(String jobName){
         String sql = "Select * FROM jobinfo WHERE jobname=?";
-        final List<JobInfo> list =new ArrayList<>();
+        JobInfo jobInfo = new JobInfo();
         jdbcTemplate.query(sql, new Object[]{jobName}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                JobInfo jobInfo = new JobInfo();
+
                 jobInfo.setName(rs.getString(2));
                 jobInfo.setPhone(rs.getString(3));
                 jobInfo.setId_code(rs.getString(4));
@@ -180,11 +180,10 @@ public class RecruitDao {
                 jobInfo.setAddress(rs.getString(9));
                 jobInfo.setEducation(rs.getString(10));
                 jobInfo.setCity(rs.getString(11));
-                list.add(jobInfo);
 
             }
         });
-        return list;
+        return jobInfo;
     }
      public Recruit selectTime(String company){
         String sql="select UTCTime from Recruit where Rec_company=?";

@@ -35,16 +35,17 @@ public class JobDao implements JobService {
             @Override
             public JobInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
                 JobInfo job = new JobInfo();
-                job.setName(rs.getString("jobname"));
                 job.setPhone(rs.getString("phone"));
+                job.setName(rs.getString("jobname"));
                 job.setId_code(rs.getString("id_code"));
+                job.setCard(rs.getString("card"));
                 job.setSchool(rs.getString("school"));
                 job.setEmail(rs.getString("email"));
-                job.setEducation(rs.getString("education"));
-                job.setCard(rs.getString("card"));
                 job.setMarriage(rs.getString("marriage"));
                 job.setAddress(rs.getString("address"));
                 job.setCity(rs.getString("city"));
+                job.setEducation(rs.getString("education"));
+
                 return job;
             }
         });

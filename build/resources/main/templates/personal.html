@@ -513,7 +513,7 @@
 
                         var experience = document.createElement('div');
                         xia.appendChild(experience);
-                        experience.className = 'experienc';
+                        experience.className = 'experience';
                         experience.innerHTML = res[i].rec_experience;
 
                     }
@@ -712,7 +712,7 @@ personToken()
                     console.log(res)
                     JobQuery();
                 }else{
-
+                    companyInformation();
                     console.log(res)
 
                 }
@@ -725,6 +725,25 @@ personToken()
     function JobQuery() {
         $.ajax({
             url: "/JobQuery",
+            type: 'POST',
+            success: function (res) {
+                if(res!=null){
+                    console.log(res)
+
+                }else{
+
+                    console.log(res)
+
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    function companyInformation() {
+        $.ajax({
+            url: "/companyInformation",
             type: 'POST',
             success: function (res) {
                 if(res!=null){

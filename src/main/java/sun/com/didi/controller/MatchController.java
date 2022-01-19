@@ -141,8 +141,12 @@ public class MatchController {
     public List showMatchCompany(HttpServletRequest request){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username1 = map.get("username");
-        Report report=runTimeService.select(username1);
-        List<Recruit> list = recruitService.showMatchCompany(report.getCompany());
+        List<Recruit> list=new ArrayList<>();
+        List<Report> report=runTimeService.select(username1);
+        for (Report reportList:report){
+            Recruit list1=recruitService.showMatchCompany(reportList.getCompany());
+            list.add(list1);
+        }
 
         return list;
     }
@@ -152,8 +156,12 @@ public class MatchController {
     public List showMatchPerson(HttpServletRequest request){
         Map<String, String> map = CookieUtil.getCookies(request);
         String username1 = map.get("username");
-        Report report=runTimeService.selectUser(username1);
-        List<JobInfo> list = recruitService.showMatchPerson(report.getUser());
+        List<Report> report=runTimeService.selectUser(username1);
+        List<JobInfo> list=new ArrayList<>();
+        for (Report job:report){
+            JobInfo jobList = recruitService.showMatchPerson(job.getUser());
+            list.add(jobList);
+        }
 
         return list;
     }

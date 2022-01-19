@@ -3,6 +3,7 @@ package sun.com.didi.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.com.didi.dao.RecruitDao;
+import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Recruit;
 
 import java.util.ArrayList;
@@ -47,14 +48,15 @@ public class RecruitServiceImpl {
         return recruitDao.update(job,company);
     }
 
-    public List showMatchCompany(String Rec_company){
+    public Recruit showMatchCompany(String Rec_company){
         return recruitDao.showMatchCompany(Rec_company);
     }
 
-    public List showMatchPerson(String jobName){
+    public JobInfo showMatchPerson(String jobName){
         return recruitDao.showMatchPerson(jobName);
     }
     public Recruit selectTime(String company){
         return recruitDao.selectTime(company);
     }
+
 }
