@@ -38,5 +38,16 @@ public class RunTimeDao {
         String sql="INSERT INTO Report (UTCTime)VALUES(?)";
         return jdbcTemplate.update(sql, UTC.getTime());
     }
+    public Report selectCompany(String name){
+        String sql="select company from Report where user=?";
+        Report report=new Report();
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                report.setCompany(rs.getString(1));
+            }
+        });
+        return report;
+    }
 
 }

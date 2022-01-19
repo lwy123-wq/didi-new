@@ -54,4 +54,7 @@ public class RecruitServiceImpl {
     public List showMatchPerson(String jobName){
         return recruitDao.showMatchPerson(jobName);
     }
+    public Recruit selectTime(String company){
+        return recruitDao.selectTime(company);
+    }
 }

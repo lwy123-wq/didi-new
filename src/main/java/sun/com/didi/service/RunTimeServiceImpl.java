@@ -22,4 +22,8 @@ public class RunTimeServiceImpl {
     public int Insert(String UTCTime){
         return runTimeDao.insertime(new Report(UTCTime));
     }
+
+    public Report select(String name){
+        return runTimeDao.selectCompany(name);
+    }
 }

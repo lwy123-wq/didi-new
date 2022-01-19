@@ -115,6 +115,7 @@ public class RecruitDao {
                 re.setRec_category(rs.getString("Rec_category"));
                 re.setRec_salary(rs.getString("Rec_salary"));
                 re.setRec_Duration(rs.getString("Rec_Duration"));
+                re.setUTCTime(rs.getString("UTCTime"));
                 re.setRec_experience(rs.getString("Rec_experience"));
                 return re;
             }
@@ -147,14 +148,15 @@ public class RecruitDao {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 Recruit re = new Recruit();
-                re.setRec_company(rs.getString("Rec_company"));
-                re.setRec_logo(rs.getString("Rec_logo"));
-                re.setRec_address(rs.getString("Rec_address"));
-                re.setRec_job(rs.getString("Rec_job"));
-                re.setRec_category(rs.getString("Rec_category"));
-                re.setRec_salary(rs.getString("Rec_salary"));
-                re.setRec_Duration(rs.getString("Rec_Duration"));
-                re.setRec_experience(rs.getString("Rec_experience"));
+                re.setRec_company(rs.getString(2));
+                re.setRec_logo(rs.getString(3));
+                re.setRec_address(rs.getString(4));
+                re.setRec_job(rs.getString(5));
+                re.setRec_category(rs.getString(6));
+                re.setRec_salary(rs.getString(7));
+                re.setRec_Duration(rs.getString(8));
+                re.setUTCTime(rs.getString(9));
+                re.setRec_experience(rs.getString(10));
                 list.add(re);
             }
         });
@@ -168,8 +170,9 @@ public class RecruitDao {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
                 JobInfo jobInfo = new JobInfo();
-                jobInfo.setEducation(rs.getString("education"));
-                jobInfo.setYears(rs.getInt(11));
+                jobInfo.setPhone(rs.getString(2));
+                jobInfo.setName(rs.getString(1));
+                jobInfo.setEducation(rs.getString(7));
                 jobInfo.setCity(rs.getString("city"));
                 jobInfo.setAddress("address");
                 jobInfo.setMarriage("marriage");
@@ -177,13 +180,23 @@ public class RecruitDao {
                 jobInfo.setSchool("school");
                 jobInfo.setCard("card");
                 jobInfo.setId_code("id_code");
-                jobInfo.setPhone("phone");
-                jobInfo.setName(rs.getString(2));
+
                 list.add(jobInfo);
 
             }
         });
         return list;
     }
+     public Recruit selectTime(String company){
+        String sql="select UTCTime from Recruit where Rec_company=?";
+        Recruit recruit=new Recruit();
+        jdbcTemplate.query(sql, new Object[]{company}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                recruit.setUTCTime(rs.getString(1));
+            }
+        });
+        return recruit;
+     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
+import sun.com.didi.entity.Report;
 import sun.com.didi.service.*;
 import sun.com.didi.util.CookieUtil;
 
@@ -40,6 +41,8 @@ public class MatchController {
     private IEmailService emailService;
     @Autowired
     private JobServiceImpl jobService;
+    @Autowired
+    private RunTimeServiceImpl runTimeService;
     @RequestMapping(value = "/matchsuccess", method = RequestMethod.GET)
     public String match1(){
         return "matchsuccess";
@@ -99,7 +102,6 @@ public class MatchController {
         ca=category;
         pr=province;
         co=condition;
-        System.out.println(category+province+condition+"aaaaaaaaaaaaaaaaa");
         int u=intention.jobwanted(post, category, province, city,condition, duration,experience);
         if (u!=0){
             return "success";
@@ -111,7 +113,6 @@ public class MatchController {
     @PostMapping(value = "/success")
     @ResponseBody
     public String MatchSuccess(@RequestBody String company, HttpServletRequest request) throws UnsupportedEncodingException {
-        //jobService.insertReport()
         company1=company;
         String s = URLDecoder.decode(company,"UTF-8");
         String stri[] = s.split("=");
@@ -119,6 +120,8 @@ public class MatchController {
         Map<String, String> map = CookieUtil.getCookies(request);
         username = map.get("username");
         queue1.add(username);
+        Recruit time=recruitService.selectTime(query);
+        jobService.insertReport(query,username,time.getUTCTime());
         Recruit aa=recruitService.FindByCompany(query);
         String bb=aa.getRec_job();
         int cc=Integer.parseInt(bb);
@@ -135,18 +138,21 @@ public class MatchController {
 
     @RequestMapping(value = "/showMatchCompany")
     @ResponseBody
-    public List showMatchCompany(){
-
-        List<Recruit> list = recruitService.showMatchCompany(company1);
+    public List showMatchCompany(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username1 = map.get("username");
+        Report report=runTimeService.select(username1);
+        List<Recruit> list = recruitService.showMatchCompany(report.getCompany());
 
         return list;
     }
 
     @RequestMapping(value = "/showMatchPerson")
     @ResponseBody
-    public List showMatchPerson(){
-
-        List<JobInfo> list = recruitService.showMatchPerson(username);
+    public List showMatchPerson(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        String username1 = map.get("username");
+        List<JobInfo> list = recruitService.showMatchPerson(username1);
 
         return list;
     }

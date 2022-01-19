@@ -379,6 +379,26 @@
 <div class="order" style="display: none"></div>
 <div class="qiandao" id='qiandao' style="opacity: 0"></div>
 <script>
+    token();
+    function token() {
+        $.ajax({
+            url: "/sendToken",
+            type: 'POST',
+            success: function (res) {
+                if(res=='1'){
+                    console.log(res)
+                    showMatchCompany();
+                }else{
+                    showMatchPerson();
+                    console.log(res)
+
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
     function showMatchCompany(){
         $.ajax({
             url: "/showMatchCompany",

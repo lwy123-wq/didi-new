@@ -145,6 +145,7 @@ public class UserController {
     @PostMapping(value = "/token")
     @ResponseBody
     public String token(@RequestBody String token,HttpServletRequest request) throws UnsupportedEncodingException {
+        System.out.println(token+"dddddddddddddd");
         String s = URLDecoder.decode(token,"UTF-8");
         String stri[] = s.split("=");
         String core = stri[1];

@@ -99,11 +99,11 @@
     annimate(boxx,200);
     box.addEventListener('click',function () {
         onee();
-        //window.location.href='information'
+
     });
     boxx.addEventListener('click',function () {
         two();
-        //window.location.href='employment';
+
     });
     function onee() {
         $.ajax({
@@ -114,7 +114,7 @@
             success: function (res) {
                 if(res=='success'){
                     console.log($("#one").html())
-                    alert('success');
+                    window.location.href='information'
                 }else{
                     console.log($("#one").html())
                     alert("error");
@@ -132,8 +132,10 @@
             data: {'two': $("#two").html()},
             contentType: "application/json;charset=UTF-8",
             success: function (res) {
+                console.log($("#two").html())
                 if(res=='success'){
-                    alert('success');
+                    window.location.href='employment';
+                    console.log($("#two").html())
                 }else{
                     alert("error");
                 }

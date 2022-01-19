@@ -12,7 +12,7 @@
                 data: {'name': $("#name").val(), 'phone': $("#phone").val(), 'id_code': $("#id_code").val()
                     , 'card': $("#card").val(), 'school': $("#school").val(), 'email': $("#email").val()
                     , 'marriage': $("#marriage").val(), 'address': $("#address").val(), 'city': $("#city").val()
-                    , 'year': $("#year").val(), 'education': $("#education").val()
+                    , 'education': $("#education").val()
                 },
                 success: function (res) {
                     if(res=="success"){
@@ -138,12 +138,6 @@
             <td>籍贯</td>
             <td><select name="province" id="address" onchange="provincechange(this.selectedIndex)"><option>请选择省份</option></select>&nbsp;&nbsp;</td>&nbsp;&nbsp;&nbsp;
             <td>城市：</td><td><select name="city" id="city"><option>请选择城市</option></select></td>
-        </tr>
-        <tr>
-
-            <td>年限：</td><td><select name="city" id="year"><option>请选择年限</option></select></td>
-
-
         </tr>
         <tr>
             <td>最高学历</td>

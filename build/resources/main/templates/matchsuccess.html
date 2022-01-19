@@ -185,6 +185,11 @@
                             xia.appendChild(time);
                             time.className = 'time';
                             time.innerHTML = res[i][0].rec_Duration;
+                            var timee = document.createElement('div');
+                            xia.appendChild(timee);
+                            timee.className = 'nian';
+                            timee.innerHTML = res[i][0].utctime;
+
 
                             var number = document.createElement('div');
                             xia.appendChild(number);
@@ -296,9 +301,9 @@
     </div> </a>
 </div>
 <div class="jing">
-<!--    <div class="null"><img src=../static/images/lose.png >-->
-<!--        <div class="shou"><a href="homePage" >返回首页</a></div>-->
-<!--    </div>-->
+    <!--    <div class="null"><img src=../static/images/lose.png >-->
+    <!--        <div class="shou"><a href="homePage" >返回首页</a></div>-->
+    <!--    </div>-->
 </div>
 
 <script>
