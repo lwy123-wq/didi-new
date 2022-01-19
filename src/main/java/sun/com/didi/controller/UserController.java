@@ -15,6 +15,8 @@ import sun.com.didi.util.CookieUtil;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
@@ -141,10 +143,14 @@ public class UserController {
         return "shou";
     }
     @PostMapping(value = "/token")
-    public String token(String token,HttpServletRequest request){
+    @ResponseBody
+    public String token(@RequestBody String token,HttpServletRequest request) throws UnsupportedEncodingException {
+        String s = URLDecoder.decode(token,"UTF-8");
+        String stri[] = s.split("=");
+        String core = stri[1];
         Map<String, String> map = CookieUtil.getCookies(request);
         String username = map.get("username");
-        int token1=userService.insertToken(token,username);
+        int token1=userService.insertToken(core,username);
         if(token1!=0){
             return "success";
         }

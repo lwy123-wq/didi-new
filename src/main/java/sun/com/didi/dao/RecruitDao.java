@@ -31,6 +31,7 @@ public class RecruitDao {
                 re.setRec_category(rs.getString("Rec_category"));
                 re.setRec_salary(rs.getString("Rec_salary"));
                 re.setRec_Duration(rs.getString("Rec_Duration"));
+                re.setUTCTime(rs.getString("UTCTime"));
                 re.setRec_experience(rs.getString("Rec_experience"));
 
                 return re;

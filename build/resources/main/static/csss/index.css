@@ -418,12 +418,17 @@ input[type="text"]{
 .xia .number {
     float: right;
     margin-right: 50px;
-    color: #a5a5a5;
+    color: black;
 }
 .xia .time {
     float: left;
     margin-left: 186px;
-    color: #a5a5a5;
+    color: black;
+}
+.xia .nian {
+    float: left;
+    margin-left: 190px;
+    color: black;
 }
 .xia .experience {
     float: left;

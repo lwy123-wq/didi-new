@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Login;
 import sun.com.didi.entity.Recruit;
-import sun.com.didi.service.IEmailService;
-import sun.com.didi.service.IntentionImpl;
-import sun.com.didi.service.RecruitServiceImpl;
-import sun.com.didi.service.UserServiceImpl;
+import sun.com.didi.service.*;
 import sun.com.didi.util.CookieUtil;
 
 import javax.annotation.Resource;
@@ -41,7 +38,8 @@ public class MatchController {
     private IntentionImpl intention;
     @Resource
     private IEmailService emailService;
-
+    @Autowired
+    private JobServiceImpl jobService;
     @RequestMapping(value = "/matchsuccess", method = RequestMethod.GET)
     public String match1(){
         return "matchsuccess";
@@ -96,11 +94,12 @@ public class MatchController {
     }
     @PostMapping(value = "/jobwanted")
     @ResponseBody
-    @Cacheable(cacheNames = "JobWanted",key = "#post+'-'+#category+'-'+#province+'-'+#city+'-'+#condition+'-'+#duration+'-'+#experience")
+    //@Cacheable(cacheNames = "JobWanted",key = "#post+'-'+#category+'-'+#province+'-'+#city+'-'+#condition+'-'+#duration+'-'+#experience")
     public String jobwanted(String post,String category,String province,String city,String condition,String duration,String experience){
         ca=category;
         pr=province;
         co=condition;
+        System.out.println(category+province+condition+"aaaaaaaaaaaaaaaaa");
         int u=intention.jobwanted(post, category, province, city,condition, duration,experience);
         if (u!=0){
             return "success";
@@ -112,6 +111,7 @@ public class MatchController {
     @PostMapping(value = "/success")
     @ResponseBody
     public String MatchSuccess(@RequestBody String company, HttpServletRequest request) throws UnsupportedEncodingException {
+        //jobService.insertReport()
         company1=company;
         String s = URLDecoder.decode(company,"UTF-8");
         String stri[] = s.split("=");
@@ -149,6 +149,15 @@ public class MatchController {
         List<JobInfo> list = recruitService.showMatchPerson(username);
 
         return list;
+    }
+    @PostMapping(value = "/sendToken")
+    @ResponseBody
+    public String sendToken(HttpServletRequest request){
+        Map<String, String> map = CookieUtil.getCookies(request);
+        username = map.get("username");
+        Login core=userService.selectToken(username);
+        String core1=core.getCode();
+        return core1;
     }
 
 

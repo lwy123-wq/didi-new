@@ -34,4 +34,7 @@ public class UserServiceImpl {
     public int insertToken(String token,String name){
         return loginDao.insertToken(token,name);
     }
+    public Login selectToken(String name){
+        return loginDao.selectToken(name);
+    }
 }

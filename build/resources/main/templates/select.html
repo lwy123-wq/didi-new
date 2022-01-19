@@ -75,6 +75,7 @@
 <div class="boxo"><a href="javascript:;"><img src="../static/images/gongsi.png"><div class="but"><h2>招聘单位</h2></div></a> </div>
 <div id="one" style="opacity: 0">1</div>
 <div id="two" style="opacity: 0">2</div>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script>
     var box=document.querySelector('.box');
     var boxx =document.querySelector('.boxo');
@@ -98,21 +99,24 @@
     annimate(boxx,200);
     box.addEventListener('click',function () {
         onee();
-        window.location.href='information'
+        //window.location.href='information'
     });
     boxx.addEventListener('click',function () {
         two();
-        window.location.href='employment';
+        //window.location.href='employment';
     });
     function onee() {
         $.ajax({
             url: "/token",
             type: 'POST',
             data: {'one': $("#one").html()},
+            contentType: "application/json;charset=UTF-8",
             success: function (res) {
                 if(res=='success'){
+                    console.log($("#one").html())
                     alert('success');
                 }else{
+                    console.log($("#one").html())
                     alert("error");
                 }
             },
@@ -126,6 +130,7 @@
             url: "/token",
             type: 'POST',
             data: {'two': $("#two").html()},
+            contentType: "application/json;charset=UTF-8",
             success: function (res) {
                 if(res=='success'){
                     alert('success');

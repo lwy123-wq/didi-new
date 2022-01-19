@@ -5,7 +5,7 @@ public class Login {
     private String name;
     private String passwd;
     private String email;
-    private Integer code; //验证码
+    private String code; //验证码
 
 
     public int getId() {
@@ -32,11 +32,11 @@ public class Login {
         this.passwd = passwd;
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

@@ -80,4 +80,15 @@ public class LoginDao {
         String sql="update Login set token=? where name =?";
         return jdbcTemplate.update(sql, token,name );
     }
+    public Login selectToken(String name){
+        String sql="select token from Login where name=?";
+        Login login=new Login();
+        jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+               login.setCode(rs.getString(1));
+            }
+        });
+        return login;
+    }
 }
