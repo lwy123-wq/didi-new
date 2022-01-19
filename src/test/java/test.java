@@ -170,6 +170,7 @@ public class test {
         String utcTime = runtime.getTime();
         String kk[] = utcTime.split("年");
         String stri = utcTime.substring(1);
+        System.out.println(utcTime.substring(1).equals("年"));
         System.out.println(stri);
         if (stri.equals("年")){
             int time = Integer.parseInt(kk[0]);
