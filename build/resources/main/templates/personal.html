@@ -521,11 +521,21 @@
 -->
 </div>
 <div class="qiandao" id='qiandao' style="opacity: 0"></div>
-<a href="aaa">
-    <div class="pipei" style="z-index: 999;display: none"><div class="xx"><a href="javascript:;"> x</a></div> <img src="../static/images/pipei.png"> 检测到有人跟您匹配成功，请您及时支付保证金</div> </div>
-</a>
+
+<div class="pipei" style="z-index: 999;display: none"><div class="xx" style="z-index: 99999;width: 20px;height: 20px"> x</div> <img src="../static/images/pipei.png"> 检测到有人跟您匹配成功，请您及时支付保证金</div> </div>
+
 <div class="token"></div>
 <script>
+    var pipei=document.querySelector('.pipei');
+    var pay=pipei.querySelector('img');
+
+    pay.addEventListener('click',function (){
+        window.location.href='pay'
+    })
+    var xx = document.querySelector('.xx');
+    xx.onclick = function ( ) {
+        pipei.style.display='none';
+    }
     token();
     function token() {
         $.ajax({

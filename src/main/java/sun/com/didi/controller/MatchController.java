@@ -1,9 +1,7 @@
 package sun.com.didi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sun.com.didi.entity.JobInfo;
 import sun.com.didi.entity.Login;
@@ -53,9 +51,9 @@ public class MatchController {
         return "order";
     }
 
-    @RequestMapping(value = "/aaa", method = RequestMethod.GET)
+    @RequestMapping(value = "/pay", method = RequestMethod.GET)
     public String order1(){
-        return "aaa";
+        return "pay";
     }
 
 
