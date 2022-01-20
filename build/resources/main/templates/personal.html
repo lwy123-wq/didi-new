@@ -294,6 +294,28 @@
             width: 75px;
             height: 85px;
         }
+        .pipei {
+            position: absolute;
+            top:224px;
+            left:575px;
+            width: 406px;
+            height: 364px;
+            background-color: skyblue;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .xx {
+            position: absolute;
+            top:0px;
+            right: 8px;
+        }
+        .pipei img {
+            float: left;
+            width: 400px;
+            height: 300px;
+        }
 
     </style>
 </head>
@@ -499,6 +521,9 @@
 -->
 </div>
 <div class="qiandao" id='qiandao' style="opacity: 0"></div>
+<a href="aaa">
+    <div class="pipei" style="z-index: 999;display: none"><div class="xx"><a href="javascript:;"> x</a></div> <img src="../static/images/pipei.png"> 检测到有人跟您匹配成功，请您及时支付保证金</div> </div>
+</a>
 <div class="token"></div>
 <script>
     token();
@@ -667,6 +692,8 @@
             type: 'POST',
             success: function (res) {
                 if(res!=null){
+                    var pipei =document.querySelector('.pipei');
+                    pipei.style.display='block';
                     var jing=document.querySelector('.order');
                     for(var i =0;i<res.length;i++) {
                         var xiang = document.createElement('div');
@@ -794,19 +821,19 @@
     personToken();
     var peopele =document.querySelector('#people');
     var gong =document.querySelector('#gong');
-    var token =document.querySelector('.token');
-    var cal=document.querySelector('#cal');
-    if(token.innerHTML=='1')
+    var tokenn =document.querySelector('.token');
+    var call=document.querySelector('#cal');
+    if(tokenn.innerHTML==='1')
     {
         peopele.style.display='block';
         gong.style.display='none';
-        cal.style.display='block';
+        call.style.display='block';
 
-    }else  if (token.innerHTML=='2'){
+    }else  if (tokenn.innerHTML==='2'){
 
         gong.style.display='block';
         peopele.style.display='none';
-        cal.remove();
+        call.remove();
     }
 
     function personToken() {
