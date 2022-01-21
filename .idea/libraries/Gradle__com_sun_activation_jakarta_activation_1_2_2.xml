@@ -2,6 +2,7 @@
   <library name="Gradle: com.sun.activation:jakarta.activation:1.2.2">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../caches/modules-2/files-2.1/com.sun.activation/jakarta.activation/1.2.2/74548703f9851017ce2f556066659438019e7eb5/jakarta.activation-1.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
