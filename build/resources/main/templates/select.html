@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择页面</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background: url("../static/images/select.png") no-repeat;
+            background-size: 100%;
+        }
+        .box{
+            position: absolute;
+            top:-500px;
+            left:300px;
+            width: 400px;
+            height: 400px;
+            border:1px solid rgba(0,0,0,.3);
+            border-radius: 25px;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+
+        }
+        .boxo {
+            position: absolute;
+            top:-500px;
+            left:844px;
+            width: 400px;
+            height: 400px;
+            border:1px solid rgba(0,0,0,.3);
+            border-radius: 25px;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+            /*box-shadow: 0 0 10px 8px grey;*/
+        }
+        .box:hover {
+            box-shadow: 0 0 10px 8px grey;
+        }
+        .boxo:hover {
+            box-shadow: 0 0 10px 8px grey;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        img {
+            width: 400px;
+            height: 300px;
+        }
+        .but {
+            width: 350px;
+            height: 80px;
+            border: 1px solid transparent;
+            margin:10px 25px;
+            text-align: center;
+            border-radius: 25px;
+        }
+        h1 {
+            margin-left:648px;
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>请选择您的身份</h1>
+<div class="box" ><a href="javascript:;"><img src="../static/images/zhiyuan.png" ><div class="but"><h2>求职者</h2></div> </a> </div>
+<div class="boxo"><a href="javascript:;"><img src="../static/images/gongsi.png"><div class="but"><h2>招聘单位</h2></div></a> </div>
+<div id="one" style="opacity: 0">1</div>
+<div id="two" style="opacity: 0">2</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+    var box=document.querySelector('.box');
+    var boxx =document.querySelector('.boxo');
+    function annimate(div,target,callback){
+        clearInterval(div.timmer);
+        div.timmer=setInterval(function(){
+
+            var off =(target-div.offsetTop)/10;
+            off=off>0?Math.ceil(off):Math.floor(off);
+            if(div.offsetTop==target)
+            {
+                clearInterval(div.timmer);
+                //
+                callback&&callback();
+            }
+
+            div.style.top=div.offsetTop+off+'px';
+        },30);
+    }
+    annimate(box,200);
+    annimate(boxx,200);
+    box.addEventListener('click',function () {
+        onee();
+
+    });
+    boxx.addEventListener('click',function () {
+        two();
+
+    });
+    function onee() {
+        $.ajax({
+            url: "/token",
+            type: 'POST',
+            data: {'one': $("#one").html()},
+            contentType: "application/json;charset=UTF-8",
+            success: function (res) {
+                if(res=='success'){
+                    console.log($("#one").html())
+                    window.location.href='information'
+                }else{
+                    console.log($("#one").html())
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    function two() {
+        $.ajax({
+            url: "/token",
+            type: 'POST',
+            data: {'two': $("#two").html()},
+            contentType: "application/json;charset=UTF-8",
+            success: function (res) {
+                console.log($("#two").html())
+                if(res=='success'){
+                    window.location.href='employment';
+                    console.log($("#two").html())
+                }else{
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+</script>
+</body>
+</html>

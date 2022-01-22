@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web socket 测试</title>
+
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- import css -->
+<!--    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+
+    <style>
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            padding:0;
+        }
+        .header {
+
+            height: 110px;
+            padding-top: 50px;
+
+        }
+        .header a {
+            color: black;
+        }
+        .header .oneone {
+            float: left;
+            width: 198px;
+            height: 104px;
+            margin-left: 80px;
+            background: url("../static/images/logo.jpg") no-repeat;
+
+            background-size: 100% 100%;
+
+        }
+        .header a .zi {
+            float: left;
+            margin-left: 44px;
+            margin-right: 35px;
+            margin-top: 37px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            padding-bottom: 15px;
+            font-size:20px;
+            color: black;
+
+        }
+        a{
+
+            display: block;
+            text-decoration: none;
+        }
+        .zi:hover {
+            border-top: 1px solid transparent;
+            border-bottom: 5px solid #c97513;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+        .header .sou {
+            float: left;
+            margin-top: 26px;
+        }
+        input[type="text"]{
+            border: 1px solid #c97513;
+            width:451px;
+            height: 45px;
+            margin-left: 20px;
+            outline: none;
+            padding-left: 20px;
+        }
+        .ge:hover{
+            color: #c97513;
+        }
+        .header a .ge{
+
+            float: left;
+            width: 80px;
+            margin-left: 48px;
+
+            margin-top: 37px;
+        }
+        .header a .yuan{
+            float: left;
+            margin-top: 26px;
+        }
+        .header a .xiao {
+            float: left;
+            margin-left: 15px;
+
+            margin-top: 33px;
+        }
+        .header a .ren {
+            float: left;
+            margin-left: 15px;
+
+            margin-top: 26px;
+        }
+        .header a .xu {
+
+            margin-left: 15px;
+            font-size: 12px;
+            margin-top: 39px;
+        }
+        .xu:hover {
+            color: #c97513;
+        }
+        /*导航栏已结束*/
+        .lanmu {
+            float: left;
+            width:300px;
+            height: 560px;
+            margin:56px 64px 0px 118px;
+
+            background-color: #f1f1f1;
+        }
+        .lanmu p {
+            font-size: 10px;
+            color: #3c3f41;
+        }
+        .top {
+            height: 250px;
+
+        }
+        .ti {
+            line-height: 40px;
+            height:40px ;
+            background-color:#c97513;
+            color: white;
+        }
+        .home {
+            margin-left: 90px;
+            margin-top:10px;
+            float: left;
+            width: 30px;
+            height: 20px;
+            /*background-image: url("../static/images/home.png ");*/
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            height: 30px;
+            width:220px;
+            margin-top:10px;
+            line-height: 35px;
+            border-bottom: 1px solid #c97513;
+            font-size: 15px;
+            text-align: center;
+        }
+        .bot {
+
+            line-height: 40px;
+            height:40px ;
+            background-color:#c97513;
+            color: white;
+
+        }
+
+        .relate {
+            margin-left: 90px;
+            margin-top:10px;
+            float: left;
+            width: 30px;
+            height: 20px;
+            /*background-image: url("../static/images/relate.png");*/
+        }
+        .one {
+            font-weight: 800;
+            color: #c97513;
+        }
+        .yijian {
+            margin-left: 480px;
+
+            color: #c97513;
+            text-align: center;
+            font-weight: 800;
+        }
+        textarea {
+
+            border: 3px solid #c97513;
+            float: left
+        }
+        .picc {
+            position: relative;
+           width: 180px;
+            height: 105px;
+            float: right;
+            border: 3px solid transparent;
+        }
+        #send-pic {
+            margin: 0 0 0 0;
+            border: 0 solid transparent;
+         position:absolute; top:0; right:0px; height:111px; filter:alpha(opacity:0);opacity: 0;width:186px;
+
+
+        }
+        #send {
+            width: 100px;
+            height: 50px;
+            background-color: #c97513;
+            border:0 solid transparent;
+            margin-top: 10px;
+            margin-left: 105px;
+            font-size: 20px;
+            color: white;
+        }
+        .right {
+            position: absolute;
+            top:197px;
+            right: 55px;
+            background: url("../static/images/ps.png");
+            width: 336px;
+            height: 584px;
+            float: right;
+        }
+        .jia {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 186px;
+            height: 111px;
+            background: url("../static/images/jia.png") no-repeat;
+            background-size: 100% 100%;
+            float: right;
+        }
+        .cont {
+            position: absolute;
+            top:41px;
+            left: 59px;
+            color: white;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="oneone">
+        <!--        <img src="picture/didilogo.jpg">-->
+    </div>
+
+    <a href="#"><div class="zi">首页</div></a>
+    <a href="#"><div class="zi">匹配中心</div></a>
+    <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+    <div class="sou">
+        <input type="text" placeholder="请输入您所需要的职位、公司">
+    </div>
+    <a href="#"><div class="yuan">
+        <img src="../static/images/14.png">
+    </div></a>
+    <a href="#"><div class="ge">登录/注册</div></a>
+    <a href="#"><div class="xiao">
+        <img src="../static/images/12.png">
+    </div> </a>
+    <!--    <a href="#"><div class="ren">-->
+    <!--    <img src="picture/13.png">-->
+    <!--</div> </a>-->
+    <a href="#"><div class="xu">
+        欢迎来到滴滴务工！
+    </div> </a>
+</div>
+<div id="ap">
+    <div class="lanmu">
+        <div class="top">
+            <div class="ti">
+                <div class="home"></div>匹配中心
+            </div>
+            <ul>
+                <li class="one">用户反馈</li>
+                <li class="one" style="font-weight: 400;">订单中心</li>
+            </ul>
+        </div>
+        <div class="bot">
+            <div class="relate"></div>联系我们
+        </div>
+        <p>天津职业技术师范大学高等教育研究院</p>
+        <p>高校研究课题</p>
+        <p>关于我们</p>
+
+    </div>
+</div>
+
+
+<div style="width: 600px;height: 00px;" class="yijian">
+    <p>在这儿留下你的用工体验吧:</p>
+    <div style="border: 3px solid #c97513;height: 300px;overflow: scroll;padding: 30px" id="server-msg-container">
+
+    </div>
+    <p id="oo">
+        <textarea id="inp-msg" style="height: 100px;width: 400px;resize: none;outline: none"></textarea>
+
+
+    <div class="picc">
+    <div class="jia"></div>
+    <div class="cont"> 选择图片：</div> <input type="file" id="send-pic" size="28" onchange="document.getElementById('inp-msg').value=this.value"></div>
+    </p>
+    <div class="right"></div>
+    <input type="button" value="发送" id="send">
+</div>
+
+<script type="application/javascript">
+    var ws = new WebSocket("ws://localhost:28888/chat");
+    ws.onopen = function (ev) {
+
+    };
+    ws.onmessage = function (ev) {
+        console.info("onmessage", ev);
+        var inpMsg = document.getElementById("server-msg-container");
+        if (typeof  ev.data === "string") {
+            inpMsg.innerHTML += ev.data + "<br/>";
+        } else {
+            var result = ev.data;
+            var flagReader = new FileReader();
+            flagReader.readAsArrayBuffer(result.slice(0, 4));
+            flagReader.onload = function (flag) {
+                if (new DataView(flag.target.result).getInt32(0) === 10) {
+                    var imageReader = new FileReader();
+                    imageReader.readAsDataURL(result.slice(4));
+                    imageReader.onload = function (img) {
+                        var imgHtml = "<img src='" + img.target.result + "' style='width: 100px;height: 100px;'>";
+                        inpMsg.innerHTML += imgHtml.replace("data:application/octet-stream;", "data:image/png;") + "<br />";
+                    }
+                } else {
+                    alert("后端返回的是非图片类型数据，无法显示。");
+                }
+            }
+        }
+    };
+    ws.onerror = function () {
+        var inpMsg = document.getElementById("server-msg-container");
+        inpMsg.innerHTML += "发生异常" + "<br/>";
+    };
+    ws.onclose = function () {
+        var inpMsg = document.getElementById("server-msg-container");
+        inpMsg.innerHTML += "webSocket 关闭" + "<br/>";
+    };
+
+    // 发送文字消息
+    document.getElementById("send").addEventListener("click", function () {
+        ws.send(document.getElementById("inp-msg").value);
+    }, false);
+
+    // 发送图片
+    document.querySelector('#send-pic').addEventListener('change', function (ev) {
+        var files = this.files;
+        if (files && files.length) {
+            var file = files[0];
+            var fileType = file.type;
+            // 表示传递的是 图片
+            var dataType = 10;
+            if (!/^image/.test(fileType)) {
+                // 表示传递的是 非图片
+                dataType = 20;
+            }
+            var fileReader = new FileReader();
+            fileReader.readAsArrayBuffer(file);
+            fileReader.onload = function (e) {
+                // 获取到文件对象
+                var result = e.target.result;
+                // 创建一个 4个 字节的数组缓冲区
+                var arrayBuffer = new ArrayBuffer(4);
+                var dataView = new DataView(arrayBuffer);
+                // 从第0个字节开始，写一个 int 类型的数据(dataType)，占4个字节
+                dataView.setInt32(0, dataType);
+                // 组装成 blob 对象
+                var blob = new Blob([arrayBuffer, result]);
+                // 发送到 webSocket 服务器端
+                ws.send(blob);
+            }
+        }
+    }, false);
+</script>
+
+
+</body>
+</html>

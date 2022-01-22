@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+    <style>
+        body {
+          perspective: 1000px;
+            background-color: black;
+        }
+        .head {
+            width: 17%;
+            height: 245px;
+            background: url("../static/images/moon.png");
+            background-size:100% 100%;
+            margin: 0 auto;
+        }
+        .box {
+            position: relative;
+            width: 500px;
+            height: 150px;
+
+            margin: 0 auto;
+            transition: all 2s;
+            transform-style: preserve-3d;
+
+        }
+        .one {
+            position: absolute;
+            top:50px;
+            left: 0;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            line-height: 50px;
+            /*background-color: pink;*/
+            box-shadow: 0 0  12px black;
+            transform:rotateX(-90deg);
+            color: white;
+
+        }
+        .two {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            line-height: 50px;
+            /*background-color: purple;*/
+            transform:translateZ(50px);
+            box-shadow: 0 0  12px black;
+            color: white;
+        }
+
+        /*.box:hover {*/
+        /*    transform:rotateX(90deg);*/
+        /*}*/
+        .bear {
+            position: absolute;
+            bottom: 0;
+            width: 205px;
+            height:100px ;
+            background: url("../static/images/bearr.png");
+            animation: w 1s steps(8) infinite,wa 7s forwards;
+
+        }
+        .bg {
+            position: relative;
+            width: 100%;
+            height: 336px;
+            background: url("../static/images/shan.png");
+            animation: bg 12s linear infinite;
+            border-top: 1px solid #3b3d4b;
+
+        }
+        @keyframes w {
+            0%{
+                background-position: 0,0;
+            }
+            100% {
+                background-position: -1600px,0;
+            }
+        }
+        @keyframes wa {
+            0%{
+                left:0;
+            }
+            100% {
+                left:50%;
+            }
+        }
+        @keyframes bg {
+            0%  {
+                background-position: 0,0;
+            }
+            100% {
+                background-position: 100%,0;
+            }
+
+        }
+        .cover {
+            position: absolute;
+            width: 100%;
+            top:-2px;
+             background-color: black;
+            height: 5px;
+        }
+        .next {
+            color: white;
+            width: 20px;
+            height: 10px;
+            margin: 0 auto;
+        }
+a {
+    color: white;
+    /*text-decoration: none;*/
+}
+
+    </style>
+</head>
+<body>
+<div class="head"></div>
+<div class="box" id="cl">
+    <div class="one">Can't you find a job?
+        Or can't you hire good people? </br><a href="homePage"> Access to this site will satisfy all your needs </a></div>
+    <div class="two">Welcome to Didi job platform<div class="next" onclick="test()"><a href="#">Next>></a></div> </div>
+</div>
+<div class="bg">
+    <div class="cover"></div>
+    <div class="bear"></div>
+</div>
+<script>
+    function test(){
+        document.getElementById("cl").style.transform="rotateX(90deg)";
+    }
+</script>
+</body>
+</html>

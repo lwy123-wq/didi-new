@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码页面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .boxx {
+            position: relative;
+            width: 1550px;
+            height: 800px;
+            background: url("../static/images/forget.png") no-repeat;
+            background-size: 100% 100%;
+            margin: 0 auto;
+        }
+
+        .box{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: #00000068;
+            text-align: center;
+            margin: 0 auto;
+        }
+        /*.right {*/
+        /*    width: 400px;*/
+        /*    height: 370px;*/
+        /*    position: absolute;*/
+        /*    top: 27%;*/
+        /*    right: 23%;*/
+        /*    background-color: #00000068;*/
+        /*    text-align: center;*/
+
+        /*}*/
+        .box input[type = "text"],.box input[type = "password"],.box input[type="email"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #c8d6e5;
+            padding: 14px 10px;
+            outline: none;
+            color: #c8d6e5;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .boxx .box .code {
+
+            width: 80px;
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px 18px;
+            text-align: center;
+            border: 2px solid #c8d6e5;
+            padding: 14px 10px;
+            outline: none;
+            color: #c8d6e5;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .boxx .box .code:focus {
+            width:90px;
+            border-color: #FFFFFF;
+        }
+        h1{
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box input[type = "text"]:focus, .box input[type = "password"]:focus,.box input[type="email"]:focus{
+            width: 280px;
+            border-color: #FFFFFF;
+        }
+        .box input[type = "submit"] {
+            border: 0;
+            font-size: 17px;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #FFFFFF;
+            padding: 14px 40px;
+            outline: none;
+            color: #ffffff;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        .box input[type = "submit"]:hover{
+            background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            font-size: x-large;
+        }
+        p {
+            margin: 40px 40px;
+            color: #FFFFFF;
+        }
+        a {
+            text-decoration: none;
+            color: #3592c4;
+        }
+        .boxx .box .send {
+            position: relative;
+        }
+        .boxx .box #submit1 {
+            position: absolute;
+            top:-20px;
+            left:137px;
+            width: 145px;
+            border: 0;
+            font-size: 17px;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #c8d6e5;
+            padding: 11px 0;
+            outline: none;
+            color: #ffffff;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        #submit1 {
+            float: right;
+        }
+
+
+    </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function forget(){
+
+            $.ajax({
+                url: "/find",
+                type: 'POST',
+                data: {'username': $("#username").val(),'email': $("#email").val()},
+                success: function (res) {
+                    if(res!=null){
+                        alert("密码："+res)
+                        function login(){
+                            window.location.href='login'
+                        }
+                        login()
+
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+        //验证码校验
+        function xxx(){
+            $.ajax({
+                url: "/matching",
+                type: 'POST',
+                data: {'code': $("#code").val()},
+                success: function (res) {
+                    if(res=="success"){
+                       forget();
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+
+        function yyy(){
+            $.ajax({
+                url: "/SendCode",
+                type: 'POST',
+                data: {'email': $("#email").val()},
+                success: function (res) {
+                    if(res=="success"){
+                        alert("发送成功！！");
+                    }else{
+                        alert("error");
+                    }
+                },
+                error: function (res) {
+                    alert("error!!!!!")
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+<div class="boxx">
+    <form class="box" onsubmit="return false" action="##" method="post">
+        <h1>Back password</h1>
+        <input type="text"id="username"placeholder="请输入用户名" value=""/>
+
+        <input type="email" id="email" placeholder="请输入邮箱"/>
+        <div class="send">
+
+            <input type="text" id="code"  placeholder="请输入验证码" class="code">
+            <input id="submit1" onclick="yyy()" type="submit"  value="发送" />
+        </div>
+
+        <input id="submit" onclick="xxx()" type="submit"  value="确定" />
+    </form>
+
+</div>
+<script>
+    // 1.获取发送按钮
+    let btn = document.getElementById('submit1')
+    const second = 60
+
+    // 2.点击发送按钮后禁用按钮,按钮内容发生改变
+    // 3.设置定时器 秒数不断递减至0
+    // 4.当秒数归零时，停止定时器并复原按钮
+    let time = second     // 剩下的秒数
+    btn.addEventListener('click', function () {
+        this.disabled = true
+        let timer = setInterval(function () {
+            if (time == 0) {
+                // 秒数为0，清除定时器并复原按钮
+                clearInterval(timer)
+                btn.disabled = false
+                btn.innerHTML = '发送'
+                time = second
+            } else {
+                btn.value = time + '秒后可重新发送'
+                time--
+            }
+        }, 1000)
+    })
+</script>
+
+</body>
+</html>

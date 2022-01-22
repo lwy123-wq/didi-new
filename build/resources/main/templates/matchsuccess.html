@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../static/js/jquery.js"></script>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/csss/index.css">
+    <style>
+        body {
+            background-image: url("../static/images/match.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            margin: 0;
+            padding:0;
+        }
+        .null {
+            width: 800px;
+            height: 500px;
+            margin: 30px auto;
+            background: linear-gradient(
+                    to left top,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.5)
+            );
+        }
+        .null img {
+            width: 800px;
+            height: 400px;
+        }
+        .null .shou {
+            width: 100px;
+            height: 50px;
+            background:skyblue;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            border-radius: 20px;
+            color: white;
+            margin: 20px auto;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function address(){
+        $.ajax({
+            url: "/address",
+            type: 'POST',
+            success: function (res) {
+                if(res!=null){
+                    var positin =document.getElementById('positin');
+                    positin.innerHTML=res;
+
+                }else{
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                alert("error!!!!!")
+            }
+        });
+    }
+    address();
+
+    function query(){
+        $.ajax({
+            url: "/Select",
+            type: 'POST',
+            data: {'searc': $("#searc").val()},
+            contentType: "application/json;charset=UTF-8",
+            dataType : "json",
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (res) {
+                if(res!=null){
+                    var els=document.querySelector('.els');
+
+                    var searc=document.querySelector('#searc');
+                    for(var i=0;i<res.length;i++)
+                    {
+                        var li =document.createElement('li');
+                        els.appendChild(li);
+                        li.className='ll';
+                        li.innerHTML=res[i];
+
+                    }
+                    var lis=els.querySelectorAll('li');
+                    for(var j=0;j<lis.length;j++)
+                    {
+                        lis[j].addEventListener('click',function () {
+                            searc.value=this.innerHTML;
+                        });
+                    }
+
+                }else{
+                    alert("error");
+                }
+            },
+            error: function (res) {
+                //alert($("#searc").val())
+                alert("error!!!!!")
+            }
+        });
+    }
+    function match(){
+        $.ajax({
+            url: "/match",
+            type: 'POST',
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (res) {
+                if(res!=null) {
+                    console.log(res)
+                    if(res.length==0){
+                        var nulll =document.createElement('div');
+                        var jing = document.querySelector('.jing');
+                        jing.appendChild(nulll);
+                        nulll.className='null';
+                        var imgg=document.createElement('img');
+                        nulll.appendChild(imgg);
+                        imgg.src='../static/images/lose.png';
+                        var shou=document.createElement('div');
+                        nulll.appendChild(shou);
+                        shou.className='shou';
+                        shou.innerHTML = '<a href="homePage">' + '返回首页' + '</a>';
+                    }else {
+                        var jing = document.querySelector('.jing');
+                        for (var i = 0; i < res.length; i++) {
+
+                            var xiang = document.createElement('div');
+                            jing.appendChild(xiang);
+                            xiang.className = 'xiang';
+
+                            var picc = document.createElement('div');
+                            xiang.appendChild(picc);
+                            picc.className = 'picc';
+                            picc.style.backgroundImage = 'url(' + res[i][0].rec_logo + ')';
+
+                            var name = document.createElement('div');
+                            xiang.appendChild(name);
+                            name.className = 'name';
+                            name.id = 'name';
+                            name.innerHTML = res[i][0].rec_company ;
+                            name.onclick = function () {
+                                //console.log(res[i][0].rec_company+"aaaaaaaaaaaaa")
+                                window.location.href = "showdetail?valus=" + this.innerHTML;
+                            }
+
+                            var money = document.createElement('div');
+                            xiang.appendChild(money);
+                            money.className = 'money';
+                            money.innerHTML = res[i][0].rec_salary;
+
+                            var detail = document.createElement('div');
+                            xiang.appendChild(detail);
+                            detail.className = 'detail';
+                            detail.innerHTML = '查看详情';
+
+                            var zixun = document.createElement('div');
+                            xiang.appendChild(zixun);
+                            zixun.className = 'zixun';
+                            zixun.innerHTML = '<a href="##">' + '详细咨询' + '</a>';
+                            zixun.onclick = function () {
+                                var name = document.querySelector('#name');
+                                window.location.href = "SingleChat?valus=" + name.innerHTML;
+                            }
+
+                            var xia = document.createElement('div');
+                            xiang.appendChild(xia);
+                            xia.className = 'xia';
+
+                            var profession = document.createElement('div');
+                            xia.appendChild(profession);
+                            profession.className = 'profession';
+                            profession.innerHTML = res[i][0].rec_category;
+
+                            var time = document.createElement('div');
+                            xia.appendChild(time);
+                            time.className = 'time';
+                            time.innerHTML = res[i][0].rec_Duration;
+                            var timee = document.createElement('div');
+                            xia.appendChild(timee);
+                            timee.className = 'nian';
+                            timee.innerHTML = res[i][0].utctime;
+
+
+                            var number = document.createElement('div');
+                            xia.appendChild(number);
+                            number.className = 'number';
+
+
+                            var experience = document.createElement('div');
+                            xia.appendChild(experience);
+                            experience.className = 'experience';
+                            experience.innerHTML = res[i][0].rec_experience;
+                        }
+
+                        var details = document.querySelectorAll('.detail');
+                        var xiangs = document.querySelectorAll('.xiang');
+                        var xias = document.querySelectorAll('.xia');
+
+                        var flag = 0;
+                        for (var i = 0; i < details.length; i++) {
+                            details[i].setAttribute('index', i);
+
+                            details[i].onclick = function () {
+                                var index = this.getAttribute('index');
+
+                                if (flag === 0) {
+
+
+                                    this.parentNode.style.height = '278px';
+
+
+                                    // xias[index].style.display= 'block';
+                                    xias[index].style.animationName = 'fadeInAnimation';
+                                    xias[index].style.animationDelay = '1.5s';
+                                    xias[index].style.animationDuration = '.5s';
+                                    xias[index].style.animationIterationCount = '1';
+                                    xias[index].style.animationFillMode = ' forwards';
+
+                                    flag = 1;
+                                } else {
+
+                                    xias[index].style.animationName = 'fade';
+                                    xias[index].style.animationDelay = '0.01s';
+                                    xias[index].style.animationDuration = '.5s';
+                                    xias[index].style.animationIterationCount = '1';
+                                    xias[index].style.animationFillMode = ' forwards';
+                                    // xias[index].style.display = 'none';
+
+                                    this.parentNode.style.height = '139px';
+
+
+                                    flag = 0;
+                                }
+
+
+                                xias[index].className = 'xia jingg';
+                            }
+
+                        }
+                    }
+
+                }
+                else {
+                    alert("error")
+                }
+
+            },
+            error: function (res) {
+                //alert($("#searc").val())
+                alert("error!!!!!")
+            }
+
+        });
+    }
+    match();
+    // EsQuery();
+
+</script>
+<div class="header">
+    <div class="oneone">
+        <!--        <img src="picture/didilogo.jpg">-->
+    </div>
+
+    <a href="#"><div class="zi">首页</div></a>
+    <a href="#"><div class="zi">匹配中心</div></a>
+    <!--    <a href="#"><div class="zi">职业规划</div></a>-->
+    <!--        <form method="post" onsubmit="return false" action="##" >-->
+    <div class="sou">
+
+        <input type="text" id="searc" placeholder="请输入您所需要的职位、公司" class="zhi">
+        <div class="els"></div>
+    </div>
+    <a href="#"><div class="yuan">
+        <!--        <img src="../static/images/14.png">-->
+        <input type="submit" id="submit" >
+    </div></a>
+    <!--        </form>-->
+    <a href="##"> <div class="face"><div class="dengluname" th:text="${username}"></div> </div></a>
+    <a href="##"> <div class="siglechat"></div></a>
+    <div class="facekuang" style="z-index: 999;display: none"><ul><a href="##"><li id="xiu"> 修改用户名</li></a><li style="display:none;"><input type="text" style="width: 85px;height: 20px;padding-left:0;" placeholder="按enter键确定" id="user"> </li></ul> </div>
+    <a href="login"><div class="ge" >登录/注册</div></a>
+    <a href="#"><div class="xiao">
+        <img src="../static/images/12.png">
+        <div class="positin" id="positin"></div>
+    </div> </a>
+    <!--    <a href="#"><div class="ren">-->
+    <!--    <img src="picture/13.png">-->
+    <!--</div> </a>-->
+    <a href="#"><div class="xu">
+
+    </div> </a>
+</div>
+<div class="jing">
+    <!--    <div class="null"><img src=../static/images/lose.png >-->
+    <!--        <div class="shou"><a href="homePage" >返回首页</a></div>-->
+    <!--    </div>-->
+</div>
+
+<script>
+
+
+    ////
+    var ge = document.querySelector('.ge');
+    var siglechat =document.querySelector('.siglechat');
+    if(ge.innerHTML.indexOf('公司')!==-1)
+    {
+        siglechat.style.display='block';
+        ge.style.marginLeft='17px';
+    }else {
+        siglechat.style.display='none';
+        ge.style.marginLeft='48px';
+    }
+
+    ///////
+    var els =document.querySelector('.els');
+    var sou =document.querySelector('.zhi');
+    console.log(sou)
+    sou.addEventListener('keyup',function () {
+        if(sou.value=='')
+        {
+            els.style.display='none';
+        }else {
+            query();
+            els.style.display='block';
+        }
+    })
+
+
+
+
+
+    var arr=['faceone.png','facetwo.png','facethree.png','facefour.png','facefive.png','facesix.png'];
+    var face =document.querySelector('.face');
+    var facekuang =document.querySelector('.facekuang');
+    var xiu =document.querySelector('#xiu');
+    var ge =document.querySelector('.ge');
+    var user= document.querySelector('#user');
+    var flag=0;
+    face.onclick = function () {
+        if(flag==0){
+            facekuang.style.display='block';
+            xiu.onclick=function()
+            {
+                this.parentNode.nextSibling.style.display='block';
+                xiu.parentNode.nextSibling.addEventListener('keyup',function (e) {
+                    if(e.keyCode===13)
+
+
+                    {
+                        facekuang.style.display='none';
+                        ge.innerHTML=user.value;
+
+                    }
+                });
+            }
+
+            flag=1;
+        }else {
+            facekuang.style.display='none';
+            flag=0;
+        }
+
+
+    }
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+    }
+    face.style.background='url("../static/images/'+arr[getRandomIntInclusive(0,5)]+'")';
+    face.style.backgroundSize='100% 100%';
+    // var pic =document.getElementById('map');
+    // document.addEventListener('mousemove',function (e) {
+    //     var x=e.pageX;
+    //     var y=e.pageY;
+    //     pic.style.left=x+10+'px';
+    //     pic.style.top=y+10+'px';
+    // });
+    // var fixone = document.querySelector('.fixone');
+    // var flag = 0;
+    // fixone.onclick =function () {
+    //     if(flag===0) {
+    //         this.nextElementSibling.style.animationName='fadeInAnimation';
+    //         this.nextElementSibling.style.animationDelay='0.5s';
+    //         this.nextElementSibling.style.animationDuration='1s';
+    //         this.nextElementSibling.style.animationIterationCount='1';
+    //         this.nextElementSibling.style.animationFillMode=' forwards';
+    //         flag=1;
+    //     }else  {
+    //         this.nextElementSibling.style.animationName='fade';
+    //         this.nextElementSibling.style.animationDelay='0.01s';
+    //         this.nextElementSibling.style.animationDuration='0.1s';
+    //         this.nextElementSibling.style.animationIterationCount='1';
+    //         this.nextElementSibling.style.animationFillMode=' forwards';
+    //         flag=0;
+    //     }
+    // }
+
+
+
+
+
+</script>
+</body>
+</html>
