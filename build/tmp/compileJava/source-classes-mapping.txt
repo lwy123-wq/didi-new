@@ -21,6 +21,8 @@ sun/com/didi/entity/Report.java
  sun.com.didi.entity.Report
 sun/com/didi/config/PropertiesConfig.java
  sun.com.didi.config.PropertiesConfig
+sun/com/didi/controller/SSOController.java
+ sun.com.didi.controller.SSOController
 sun/com/didi/service/JobService.java
  sun.com.didi.service.JobService
 sun/com/didi/dao/CoordinateDao.java
@@ -31,13 +33,8 @@ sun/com/didi/dao/KdTreeDao.java
  sun.com.didi.dao.KdTreeDao
 sun/com/didi/util/CodeUtil.java
  sun.com.didi.util.CodeUtil
-sun/com/didi/dao/LoginDao.java
- sun.com.didi.dao.LoginDao
- sun.com.didi.dao.LoginDao$1
- sun.com.didi.dao.LoginDao$2
- sun.com.didi.dao.LoginDao$3
- sun.com.didi.dao.LoginDao$4
- sun.com.didi.dao.LoginDao$5
+sun/com/didi/util/AlipayUtil.java
+ sun.com.didi.util.AlipayUtil
 sun/com/didi/entity/IpUtil.java
  sun.com.didi.entity.IpUtil
 sun/com/didi/chat/singlechat/SingleChatServer.java
@@ -61,8 +58,8 @@ sun/com/didi/controller/Insert_position_EsController.java
  sun.com.didi.controller.Insert_position_EsController
 sun/com/didi/controller/RunTimeController.java
  sun.com.didi.controller.RunTimeController
-sun/com/didi/service/UserServiceImpl.java
- sun.com.didi.service.UserServiceImpl
+sun/com/didi/controller/QueryController.java
+ sun.com.didi.controller.QueryController
 sun/com/didi/controller/PictureController.java
  sun.com.didi.controller.PictureController
 sun/com/didi/chat/JobServerInitializer.java
@@ -99,10 +96,10 @@ sun/com/didi/dao/PictureDao.java
  sun.com.didi.dao.PictureDao
 sun/com/didi/service/PictureServiceImpl.java
  sun.com.didi.service.PictureServiceImpl
-sun/com/didi/service/SelectRecruitment.java
- sun.com.didi.service.SelectRecruitment
 sun/com/didi/dao/IntentionDao.java
  sun.com.didi.dao.IntentionDao
+sun/com/didi/service/SelectRecruitment.java
+ sun.com.didi.service.SelectRecruitment
 sun/com/didi/chat/UserServerInitializer.java
  sun.com.didi.chat.UserServerInitializer
 sun/com/didi/controller/UserController.java
@@ -116,6 +113,8 @@ sun/com/didi/dao/JobDao.java
  sun.com.didi.dao.JobDao$1
 sun/com/didi/chat/BinaryHandler.java
  sun.com.didi.chat.BinaryHandler
+sun/com/didi/createIndex/CreatIndexElasticSearch.java
+ sun.com.didi.createIndex.CreatIndexElasticSearch
 sun/com/didi/Application.java
  sun.com.didi.Application
 sun/com/didi/service/TrieTreeImpl.java
@@ -197,7 +196,12 @@ sun/com/didi/service/CoordinateService.java
  sun.com.didi.service.CoordinateService
 sun/com/didi/filter/MyFilter.java
  sun.com.didi.filter.MyFilter
-sun/com/didi/controller/QueryController.java
- sun.com.didi.controller.QueryController
-sun/com/didi/util/AlipayUtil.java
- sun.com.didi.util.AlipayUtil
+sun/com/didi/dao/LoginDao.java
+ sun.com.didi.dao.LoginDao
+ sun.com.didi.dao.LoginDao$1
+ sun.com.didi.dao.LoginDao$2
+ sun.com.didi.dao.LoginDao$3
+ sun.com.didi.dao.LoginDao$4
+ sun.com.didi.dao.LoginDao$5
+sun/com/didi/service/UserServiceImpl.java
+ sun.com.didi.service.UserServiceImpl

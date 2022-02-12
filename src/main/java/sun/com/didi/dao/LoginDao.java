@@ -45,7 +45,7 @@ public class LoginDao {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 user.setName(resultSet.getString(2));
-                user.setPasswd(resultSet.getString(3));
+                user.setPasswd(resultSet.getString(5));
             }
         });
         return user;
